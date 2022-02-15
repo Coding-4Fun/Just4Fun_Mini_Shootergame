@@ -32,8 +32,63 @@ margin_right = 128.0
 margin_bottom = 14.0
 
 [node name="vBoxContainer" parent="InGameUI/IngameUIBottom" index="0"]
-margin_right = 128.0
-margin_bottom = 20.0
+margin_right = 203.0
+margin_bottom = 116.0
+
+[node name="hBoxAngel" parent="InGameUI/IngameUIBottom/vBoxContainer" index="0"]
+margin_right = 203.0
+margin_bottom = 26.0
+
+[node name="label" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxAngel" index="0"]
+margin_right = 89.0
+margin_bottom = 26.0
+
+[node name="labAngel" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxAngel" index="1"]
+margin_left = 93.0
+margin_right = 203.0
+margin_bottom = 26.0
+
+[node name="hBoxPower" parent="InGameUI/IngameUIBottom/vBoxContainer" index="1"]
+margin_top = 30.0
+margin_right = 189.0
+margin_bottom = 56.0
+
+[node name="label" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxPower" index="0"]
+margin_right = 75.0
+margin_bottom = 26.0
+
+[node name="labPower" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxPower" index="1"]
+margin_left = 79.0
+margin_right = 189.0
+margin_bottom = 26.0
+
+[node name="hBoxScore" parent="InGameUI/IngameUIBottom/vBoxContainer" index="2"]
+margin_top = 60.0
+margin_right = 180.0
+margin_bottom = 86.0
+
+[node name="label" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxScore" index="0"]
+margin_right = 66.0
+margin_bottom = 26.0
+
+[node name="labScore" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxScore" index="1"]
+margin_left = 70.0
+margin_right = 180.0
+margin_bottom = 26.0
+
+[node name="hBoxShots" parent="InGameUI/IngameUIBottom/vBoxContainer" index="3"]
+margin_top = 90.0
+margin_right = 180.0
+margin_bottom = 116.0
+
+[node name="label" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxShots" index="0"]
+margin_right = 66.0
+margin_bottom = 26.0
+
+[node name="labShots" parent="InGameUI/IngameUIBottom/vBoxContainer/hBoxShots" index="1"]
+margin_left = 70.0
+margin_right = 180.0
+margin_bottom = 26.0
 
 [node name="timer" type="Timer" parent="."]
 
