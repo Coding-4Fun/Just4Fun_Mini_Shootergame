@@ -15,85 +15,95 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -123.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
 margin_right = 1600.0
-margin_bottom = 123.0
+margin_bottom = 154.0
+mouse_filter = 2
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_right = 21.0
-margin_bottom = 2.0
+margin_right = 203.0
+margin_bottom = 26.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxAngel"]
-margin_right = 8.0
-margin_bottom = 2.0
+margin_right = 89.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "Winkel: "
 
 [node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxAngel"]
-margin_left = 12.0
-margin_right = 21.0
-margin_bottom = 2.0
+margin_left = 93.0
+margin_right = 203.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_top = 6.0
-margin_right = 19.0
-margin_bottom = 8.0
+margin_top = 30.0
+margin_right = 189.0
+margin_bottom = 56.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxPower"]
-margin_right = 6.0
-margin_bottom = 2.0
+margin_right = 75.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "Power:"
 
 [node name="labPower" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxPower"]
-margin_left = 10.0
-margin_right = 19.0
-margin_bottom = 2.0
+margin_left = 79.0
+margin_right = 189.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_top = 12.0
-margin_right = 19.0
-margin_bottom = 14.0
+margin_top = 60.0
+margin_right = 199.0
+margin_bottom = 86.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxScore"]
-margin_right = 6.0
-margin_bottom = 2.0
+margin_right = 85.0
+margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Score:"
+text = "Punkte:"
 
 [node name="labScore" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxScore"]
-margin_left = 10.0
-margin_right = 19.0
-margin_bottom = 2.0
+margin_left = 89.0
+margin_right = 199.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_top = 18.0
-margin_right = 19.0
-margin_bottom = 20.0
+margin_top = 90.0
+margin_right = 195.0
+margin_bottom = 116.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxShots"]
-margin_right = 6.0
-margin_bottom = 2.0
+margin_right = 81.0
+margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Score:"
+text = "Schuss:"
 
 [node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxShots"]
-margin_left = 10.0
-margin_right = 19.0
-margin_bottom = 2.0
+margin_left = 85.0
+margin_right = 195.0
+margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
+
+[node name="button" type="Button" parent="IngameUIBottom/vBoxContainer"]
+margin_top = 120.0
+margin_right = 1600.0
+margin_bottom = 154.0
+text = "Neustart"
+
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/button" to="." method="_on_button_pressed"]
