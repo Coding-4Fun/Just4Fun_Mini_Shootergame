@@ -32,3 +32,4 @@ Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
 - Anzeige der gefeuerten Schüsse
 - Zählen der Punkte
 
+![image](https://user-images.githubusercontent.com/665076/154135268-b6129b4b-0391-4e34-b88f-384609d26781.png)
