@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Terrain/TerrainLine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainGame.gd" type="Script" id=2]
+[ext_resource path="res://UI/InGameUI.tscn" type="PackedScene" id=3]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TrajectoryLine" type="Line2D" parent="."]
+
+[node name="TerrainLine" parent="." instance=ExtResource( 1 )]
+z_index = 1
+points = PoolVector2Array(  )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player1" type="Node2D" parent="Players"]
+
+[node name="Player2" type="Node2D" parent="Players"]
+
+[node name="InGameUI" parent="." instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_right = 0.0
+
+[node name="IngameUIBottom" parent="InGameUI" index="0"]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 128.0
+margin_bottom = 14.0
+
+[node name="vBoxContainer" parent="InGameUI/IngameUIBottom" index="0"]
+margin_right = 128.0
+margin_bottom = 20.0
+
+[node name="timer" type="Timer" parent="."]
+
+[node name="DummyTargets" type="Node2D" parent="."]
+
+[connection signal="ready" from="." to="." method="_on_MainGame_ready"]
+[connection signal="ready" from="TerrainLine" to="." method="_on_TerrainLine_ready"]
+[connection signal="tree_entered" from="TerrainLine" to="." method="_on_TerrainLine_tree_entered"]
+
+[editable path="InGameUI"]

@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Godot3_2Dterrain1"
+config/description="Mini Ballerburg Just 4 Fun"
+run/main_scene="res://MainGame.tscn"
+boot_splash/bg_color=Color( 0.109804, 0.372549, 0.47451, 1 )
+config/icon="res://icon.png"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
+gdscript/completion/autocomplete_setters_and_getters=true
+
+[display]
+
+window/size/width=1600
+window/size/height=900
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+theme/custom="res://UI/Theme/main_theme.tres"
+theme/custom_font="res://UI/Theme/main_font.tres"
+
+[importer_defaults]
+
+csv_translation={
+"delimiter": 1
+}
+
+[input]
+
+cannon_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+cannon_power_plus={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+cannon_power_minus={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[node]
+
+name_num_separator=2
+name_casing=1
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

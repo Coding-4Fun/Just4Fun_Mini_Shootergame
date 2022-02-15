@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/InGameUI.gd" type="Script" id=1]
+
+[node name="InGameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IngameUIBottom" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
+margin_right = 1600.0
+margin_bottom = 123.0
+
+[node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+margin_right = 21.0
+margin_bottom = 2.0
+size_flags_horizontal = 2
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxAngel"]
+margin_right = 8.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "Winkel: "
+
+[node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxAngel"]
+margin_left = 12.0
+margin_right = 21.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "123456789"
+
+[node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+margin_top = 6.0
+margin_right = 19.0
+margin_bottom = 8.0
+size_flags_horizontal = 2
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxPower"]
+margin_right = 6.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "Power:"
+
+[node name="labPower" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxPower"]
+margin_left = 10.0
+margin_right = 19.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "123456789"
+
+[node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+margin_top = 12.0
+margin_right = 19.0
+margin_bottom = 14.0
+size_flags_horizontal = 2
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxScore"]
+margin_right = 6.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "Score:"
+
+[node name="labScore" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxScore"]
+margin_left = 10.0
+margin_right = 19.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "123456789"
+
+[node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+margin_top = 18.0
+margin_right = 19.0
+margin_bottom = 20.0
+size_flags_horizontal = 2
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxShots"]
+margin_right = 6.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "Score:"
+
+[node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxShots"]
+margin_left = 10.0
+margin_right = 19.0
+margin_bottom = 2.0
+size_flags_vertical = 0
+text = "123456789"
