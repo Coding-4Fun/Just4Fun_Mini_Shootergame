@@ -5,6 +5,8 @@ extends Control
 var _shots : int = 0
 var _score : int = 0
 
+signal UIResetGame
+
 func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxScore/labScore.text = str(_score)
@@ -31,3 +33,13 @@ func _on_Cannon_Shot() -> void:
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$IngameUIBottom/vBoxContainer/hBoxScore/labScore.text = str(_score)
+
+
+func _on_button_pressed() -> void:
+	print("UI: UIResetGame_Signal")
+	_shots = 0
+	_score = 0
+	$IngameUIBottom/vBoxContainer/hBoxScore/labScore.text = str(_score)
+	$IngameUIBottom/vBoxContainer/hBoxShots/labShots.text = str(_shots)
+	emit_signal("UIResetGame")
+	pass
