@@ -2,6 +2,7 @@ extends Node2D
 
 signal UIScoreChange
 
+
 onready var TerrainLine = $"TerrainLine"
 
 onready var Players = $Players
@@ -27,13 +28,16 @@ onready var UIMain = $InGameUI
 onready var line = $TrajectoryLine
 var Explosion = preload("res://CannonBall/Explosion.tscn")
 var Dummy = preload("res://DummyTarget/DummyTarget.tscn")
+var target # = Dummy.instance()
 
 
 func _ready():
 	cannonLeft.connect("CannonAngelChange", UIMain, "_on_Cannon_CannonAngelChange")
 	cannonLeft.connect("CannonPowerChange", UIMain, "_on_Cannon_CannonPowerChange")
 	cannonLeft.connect("CannonShoot", UIMain, "_on_Cannon_Shot")
-	connect("UIScoreChange", UIMain, "_on_UIScore_Change")
+	if !is_connected("UIScoreChange", UIMain, "_on_UIScore_Change"):
+		connect("UIScoreChange", UIMain, "_on_UIScore_Change")
+	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
 	pass
 
 
@@ -52,12 +56,14 @@ func add_DummyTarget():
 	var rmax = tlSize
 
 	var i = rand_range(rmin, rmax)
-	var t = Dummy.instance()
-	t.position = TerrainLine.points[int(i)]
-	t.score += int(i)
-	t.get_transform().scaled(Vector2(0.2,0.2))
-	t.connect("Hit", self, "_on_Dummy_Hited")
-	call_deferred("add_child", t)
+	#if dummy.null:
+	target = Dummy.instance()
+	target.position = TerrainLine.points[int(i)]
+	target.score += int(i)
+	target.get_transform().scaled(Vector2(0.2,0.2))
+	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
+		target.connect("Hit", self, "_on_Dummy_Hited")
+	call_deferred("add_child", target)
 
 #	for i in TerrainLine.points.size()-3:
 #		if pow(-1.0, randi() % 2) == 1:
@@ -117,4 +123,16 @@ func _on_Dummy_Hited(score : int) -> void:
 
 
 func _on_TerrainLine_tree_entered() -> void:
+	pass
+
+
+func _on_UI_ResetGame() -> void:
+	print("Main: UIResetGame_Signal")
+	TerrainLine.init_line()
+	if target != null:
+		target.queue_free()
+	yield(get_tree(), "idle_frame")
+	add_DummyTarget()
+	cannonLeft.position = TerrainLine.points[0]
+	cannonLeft.position.x = TerrainLine.castlewidth / 2
 	pass
