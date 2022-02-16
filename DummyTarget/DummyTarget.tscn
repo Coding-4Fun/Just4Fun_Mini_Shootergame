@@ -44,3 +44,8 @@ __meta__ = {
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3, -288 )
 shape = SubResource( 3 )
+
+[node name="despawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[connection signal="timeout" from="despawnTimer" to="." method="_on_despawnTimer_timeout"]
