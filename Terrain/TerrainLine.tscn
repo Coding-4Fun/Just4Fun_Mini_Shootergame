@@ -12,7 +12,7 @@ end_cap_mode = 2
 script = ExtResource( 1 )
 smooth = 0.6
 
-[node name="Terrain" type="StaticBody2D" parent="."]
+[node name="Terrain" type="StaticBody2D" parent="." groups=["Ground"]]
 
 [node name="TerrainPoly" type="Polygon2D" parent="Terrain"]
 
