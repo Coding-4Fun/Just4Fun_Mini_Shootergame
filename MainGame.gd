@@ -25,11 +25,11 @@ onready var cannonBarrelLeftMuzzle = cannonBarrelLeft.get_node("Muzzle")
 #onready var cannonBarrelRightMuzzle = cannonBarrelRight.get_node("Muzzle")
 
 onready var UIMain = $InGameUI
-
 onready var line = $TrajectoryLine
+
 var Explosion = preload("res://CannonBall/Explosion.tscn")
 var Dummy = preload("res://DummyTarget/DummyTarget.tscn")
-var target # = Dummy.instance()
+var target
 
 
 func _ready():
@@ -51,67 +51,25 @@ func add_cannon_left():
 func add_DummyTarget():
 	if TerrainLine.points.size() < 5:
 		pass
-	randomize()
+
 	var tlSize = TerrainLine.points.size() -3
 	var rmin : float = 2
 	var rmax = tlSize
 
+	randomize()
+
+	## Zufällige Position wählen
 	var i = rand_range(rmin, rmax)
-	#if dummy.null:
+
 	target = Dummy.instance()
 	target.position = TerrainLine.points[int(i)]
 	target.score += int(i)
 	target.get_transform().scaled(Vector2(0.2,0.2))
+
 	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
 		target.connect("Hit", self, "_on_Dummy_Hited")
 
 	call_deferred("add_child", target)
-
-#	for i in TerrainLine.points.size()-3:
-#		if pow(-1.0, randi() % 2) == 1:
-#			var t = Dummy.instance()
-#			t.position = TerrainLine.points[i+2]
-#			t.get_transform().scaled(Vector2(0.2,0.2))
-#			add_child(t)
-
-
-func update_trajectory():
-#	line.clear_points()
-#	var v = barrel.global_transform.x * tank.bullet_speed
-#	var p = muzzle.global_position
-#	for i in num_points:
-#		line.add_point(p)
-#		v.y += tank.gravity * dt
-#		p += v * dt
-#		if p.y > $Ground.position.y - 25:
-#			break
-	pass
-
-
-func _on_Bullet_exploded(pos):
-	var e = Explosion.instance()
-	add_child(e)
-	e.position = pos
-#	tank.can_shoot = true
-#	line.hide()
-
-
-func add_Castles():
-#	castleleft.position = TerrainLine.points[0]
-#	castleleft.modulate = Color.red
-#
-#	castleright.position = TerrainLine.points[TerrainLine.points.size()-2]
-#	castleright.modulate = Color.green
-#
-#	add_child(castleleft)
-#	add_child(castleright)
-	pass
-
-
-func _on_TerrainLine_ready() -> void:
-#	print("Line2d Meldet Ready")
-#	add_cannon_left()
-	pass
 
 
 func _on_MainGame_ready() -> void:
@@ -122,11 +80,6 @@ func _on_MainGame_ready() -> void:
 func _on_Dummy_Hited(score : int) -> void:
 	emit_signal("UIScoreChange", score)
 	add_DummyTarget()
-
-
-func _on_TerrainLine_tree_entered() -> void:
-	pass
-
 
 func _on_Ground_Hited() -> void:
 	emit_signal("UIScoreChange", -2)
@@ -141,4 +94,44 @@ func _on_UI_ResetGame() -> void:
 	add_DummyTarget()
 	cannonLeft.position = TerrainLine.points[0]
 	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	pass
+
+
+func _on_Bullet_exploded(pos):
+	var e = Explosion.instance()
+	add_child(e)
+	e.position = pos
+#	tank.can_shoot = true
+#	line.hide()
+
+
+#func update_trajectory():
+#	line.clear_points()
+#	var v = barrel.global_transform.x * tank.bullet_speed
+#	var p = muzzle.global_position
+#	for i in num_points:
+#		line.add_point(p)
+#		v.y += tank.gravity * dt
+#		p += v * dt
+#		if p.y > $Ground.position.y - 25:
+#			break
+#	pass
+
+
+#func add_Castles():
+#	castleleft.position = TerrainLine.points[0]
+#	castleleft.modulate = Color.red
+#
+#	castleright.position = TerrainLine.points[TerrainLine.points.size()-2]
+#	castleright.modulate = Color.green
+#
+#	add_child(castleleft)
+#	add_child(castleright)
+#	pass
+
+
+#func _on_TerrainLine_ready() -> void:
+#	pass
+
+
+#func _on_TerrainLine_tree_entered() -> void:
+#	pass

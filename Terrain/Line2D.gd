@@ -36,11 +36,10 @@ func init_line():
 
 ## Plattform Links
 	set_point_position(0,Vector2(0,start.y))
-
 	set_point_position(1,Vector2(start.x,start.y))
 
 ## Plattform rechts
-	add_point(Vector2(screensize.x, end.y))
+	#add_point(Vector2(screensize.x, end.y))
 
 	colli.polygon = PoolVector2Array()
 	var p = points
@@ -60,20 +59,3 @@ func add_points():
 		add_point(midpoint)
 	add_point(old_points[old_points.size() - 1])
 	current_displacement *= pow(2.0, -smooth)
-
-
-#func _input(event):
-#	if event is InputEventMouseButton and event.pressed:
-#		init_line()
-#		add_Castles()
-
-
-#func add_Castles():
-#	castleleft.position = points[0]
-#	castleleft.modulate = Color.red
-#
-#	castleright.position = points[points.size()-2]
-#	castleright.modulate = Color.green
-#
-#	root.add_child(castleleft)
-#	root.add_child(castleright)
