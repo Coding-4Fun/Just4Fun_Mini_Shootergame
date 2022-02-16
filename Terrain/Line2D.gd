@@ -41,7 +41,7 @@ func init_line():
 ## Plattform rechts
 	add_point(Vector2(screensize.x, end.y))
 
-
+	colli.polygon = PoolVector2Array()
 	var p = points
 	p.append(Vector2(screensize.x, screensize.y))
 	p.append(Vector2(0, screensize.y))
