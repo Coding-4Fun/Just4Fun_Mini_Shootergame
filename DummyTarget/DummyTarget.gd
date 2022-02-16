@@ -4,12 +4,16 @@ signal Hit
 
 export var score : int = 1
 export var autoDespawn = true
+export var TimeOut = 0.0
+export var TimeMax = 6.0
 
 onready var Main = get_tree().get_root().get_node("MainGame")
+onready var label = $dummyLabel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	label.text = "0"
 	if autoDespawn :
 		$despawnTimer.start()
 
@@ -20,8 +24,14 @@ func _hit_ByBall():
 
 
 func _on_despawnTimer_timeout() -> void:
-	emit_signal("Hit", score*-1)
-	queue_free()
+	var tmp = "%s\n%3.2f"
+	label.text = tmp % [score, TimeMax]
+
+	if TimeMax <= 0:
+		$despawnTimer.stop()
+		emit_signal("Hit", score*-1)
+		queue_free()
+
 
 
 #func _exit_tree() -> void:
@@ -30,5 +40,6 @@ func _on_despawnTimer_timeout() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
+	TimeMax -= delta
 #	pass
