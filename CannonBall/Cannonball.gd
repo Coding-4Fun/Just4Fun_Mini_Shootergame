@@ -22,7 +22,7 @@ func _process(delta):
 func _on_Cannonball_body_entered(body):
 	emit_signal("exploded", position + transform.x * 37)
 	if body.is_in_group("Dummy"):
-		body.queue_free()
+		body._hit_ByBall()
 	queue_free()
 
 
