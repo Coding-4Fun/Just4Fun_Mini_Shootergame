@@ -48,3 +48,8 @@ func _process(_delta):
 		Barrel.look_at(get_global_mouse_position())
 		Barrel.rotation_degrees = clamp(Barrel.rotation_degrees, -75, -15)
 		emit_signal("CannonAngelChange", Barrel.rotation_degrees)
+
+
+func _reset_CannonPower() -> void:
+	muzzle_velocity = 1500
+	emit_signal("CannonPowerChange", muzzle_velocity)

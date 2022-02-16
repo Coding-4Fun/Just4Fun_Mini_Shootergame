@@ -1,6 +1,7 @@
 extends Node2D
 
 signal UIScoreChange
+signal CannonReset
 
 
 onready var TerrainLine = $"TerrainLine"
@@ -38,6 +39,7 @@ func _ready():
 	if !is_connected("UIScoreChange", UIMain, "_on_UIScore_Change"):
 		var _res = connect("UIScoreChange", UIMain, "_on_UIScore_Change")
 	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
+	connect("CannonReset", cannonLeft, "_reset_CannonPower")
 	pass
 
 
@@ -131,6 +133,7 @@ func _on_UI_ResetGame() -> void:
 	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
 	yield(get_tree(), "idle_frame")
+	emit_signal("CannonReset")
 	add_DummyTarget()
 	cannonLeft.position = TerrainLine.points[0]
 	cannonLeft.position.x = TerrainLine.castlewidth / 2
