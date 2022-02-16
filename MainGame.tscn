@@ -42,7 +42,5 @@ margin_right = 203.0
 [node name="DummyTargets" type="Node2D" parent="."]
 
 [connection signal="ready" from="." to="." method="_on_MainGame_ready"]
-[connection signal="ready" from="TerrainLine" to="." method="_on_TerrainLine_ready"]
-[connection signal="tree_entered" from="TerrainLine" to="." method="_on_TerrainLine_tree_entered"]
 
 [editable path="InGameUI"]
