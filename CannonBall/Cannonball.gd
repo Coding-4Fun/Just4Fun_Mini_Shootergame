@@ -1,12 +1,18 @@
 extends Area2D
 
 signal exploded
+signal GroundHit
 
 var velocity = Vector2.ZERO
 export var P1 = 1
 onready var screensize = get_viewport().get_visible_rect().size
+onready var Main = $"/root/MainGame"
 
 var g = 150
+
+func _ready() -> void:
+	connect("GroundHit", Main, "_on_Ground_Hited")
+
 
 func _process(delta):
 	velocity.y += g * delta
@@ -23,6 +29,8 @@ func _on_Cannonball_body_entered(body):
 	emit_signal("exploded", position + transform.x * 37)
 	if body.is_in_group("Dummy"):
 		body._hit_ByBall()
+	if body.is_in_group("Ground"):
+		emit_signal("GroundHit")
 	queue_free()
 
 

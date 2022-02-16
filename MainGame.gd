@@ -40,7 +40,6 @@ func _ready():
 		var _res = connect("UIScoreChange", UIMain, "_on_UIScore_Change")
 	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
 	connect("CannonReset", cannonLeft, "_reset_CannonPower")
-	pass
 
 
 func add_cannon_left():
@@ -65,6 +64,7 @@ func add_DummyTarget():
 	target.get_transform().scaled(Vector2(0.2,0.2))
 	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
 		target.connect("Hit", self, "_on_Dummy_Hited")
+
 	call_deferred("add_child", target)
 
 #	for i in TerrainLine.points.size()-3:
@@ -126,6 +126,10 @@ func _on_Dummy_Hited(score : int) -> void:
 
 func _on_TerrainLine_tree_entered() -> void:
 	pass
+
+
+func _on_Ground_Hited() -> void:
+	emit_signal("UIScoreChange", -2)
 
 
 func _on_UI_ResetGame() -> void:
