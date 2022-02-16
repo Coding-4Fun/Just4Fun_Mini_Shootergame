@@ -36,7 +36,7 @@ func _ready():
 	cannonLeft.connect("CannonPowerChange", UIMain, "_on_Cannon_CannonPowerChange")
 	cannonLeft.connect("CannonShoot", UIMain, "_on_Cannon_Shot")
 	if !is_connected("UIScoreChange", UIMain, "_on_UIScore_Change"):
-		connect("UIScoreChange", UIMain, "_on_UIScore_Change")
+		var _res = connect("UIScoreChange", UIMain, "_on_UIScore_Change")
 	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
 	pass
 
@@ -129,8 +129,7 @@ func _on_TerrainLine_tree_entered() -> void:
 func _on_UI_ResetGame() -> void:
 	print("Main: UIResetGame_Signal")
 	TerrainLine.init_line()
-	if target != null:
-		target.queue_free()
+	get_tree().call_group("Dummy", "queue_free")
 	yield(get_tree(), "idle_frame")
 	add_DummyTarget()
 	cannonLeft.position = TerrainLine.points[0]
