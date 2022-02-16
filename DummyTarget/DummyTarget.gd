@@ -15,9 +15,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _exit_tree() -> void:
-	print("Dummy exit Tree")
-	emit_signal("Hit", score)
+#	print("Dummy exit Tree")
 	pass
+
+
+func _hit_ByBall():
+	emit_signal("Hit", score)
+	queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
