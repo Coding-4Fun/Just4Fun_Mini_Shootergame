@@ -7,6 +7,7 @@ export var castlewidth = 175
 export var castleleftpos = 0
 export var castlerightpos = 0
 export (float) var smooth = 1.1
+
 var current_displacement
 
 onready var colli = $Terrain/TerrainCollision
@@ -59,6 +60,7 @@ func add_points():
 		add_point(midpoint)
 	add_point(old_points[old_points.size() - 1])
 	current_displacement *= pow(2.0, -smooth)
+
 
 #func _input(event):
 #	if event is InputEventMouseButton and event.pressed:
