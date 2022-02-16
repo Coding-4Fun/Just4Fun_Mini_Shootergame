@@ -47,7 +47,7 @@ func _process(_delta):
 	if can_shoot:
 		Barrel.look_at(get_global_mouse_position())
 		Barrel.rotation_degrees = clamp(Barrel.rotation_degrees, -75, -15)
-		emit_signal("CannonAngelChange", Barrel.rotation_degrees)
+		emit_signal("CannonAngelChange", Barrel.rotation_degrees*-1)
 
 
 func _reset_CannonPower() -> void:
