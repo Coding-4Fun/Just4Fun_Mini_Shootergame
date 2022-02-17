@@ -25,5 +25,4 @@ jobs:
         run: |
           BASEDIR="$PWD"
           # Use absolute paths so that we can `cd` without having to go back to the parent directory manually.
-          $BASEDIR
-          ls -l
+          echo $BASEDIR
