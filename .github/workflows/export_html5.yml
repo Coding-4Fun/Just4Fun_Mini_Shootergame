@@ -26,3 +26,5 @@ jobs:
           BASEDIR="$PWD"
           # Use absolute paths so that we can `cd` without having to go back to the parent directory manually.
           echo $BASEDIR
+          cp "$BASEDIR/.github/dist/export_presets.cfg" .
+          godot --export "HTML5" "$BASEDIR/.github/dist/index.html"
