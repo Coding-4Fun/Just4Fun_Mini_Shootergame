@@ -27,9 +27,3 @@ jobs:
           # Use absolute paths so that we can `cd` without having to go back to the parent directory manually.
           $BASEDIR
           ls -l
-          #for demo in /; do
-            # echo "$BASEDIR"
-			      #ls 
-            # "$BASEDIR"
-            # echo "================================"
-          #done
