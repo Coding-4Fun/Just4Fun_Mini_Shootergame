@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://UI/Theme/OpenSansRegular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Fonts/OpenSansRegular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://DummyTarget/DummyTarget.png" type="Texture" id=2]
 [ext_resource path="res://DummyTarget/DummyTarget.gd" type="Script" id=3]
 
