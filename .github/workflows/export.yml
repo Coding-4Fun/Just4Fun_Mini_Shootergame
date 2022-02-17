@@ -23,7 +23,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          cd $EXPORT_NAME
+          #cd $EXPORT_NAME
           godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -48,7 +48,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          cd $EXPORT_NAME
+          #cd $EXPORT_NAME
           godot -v --export "HTML5" ../build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
