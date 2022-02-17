@@ -10,7 +10,6 @@ script = ExtResource( 2 )
 [node name="TrajectoryLine" type="Line2D" parent="."]
 
 [node name="TerrainLine" parent="." instance=ExtResource( 1 )]
-z_index = 1
 points = PoolVector2Array(  )
 
 [node name="Players" type="Node2D" parent="."]
@@ -20,27 +19,9 @@ points = PoolVector2Array(  )
 [node name="Player2" type="Node2D" parent="Players"]
 
 [node name="InGameUI" parent="." instance=ExtResource( 3 )]
-anchor_top = 1.0
-anchor_right = 0.0
-
-[node name="IngameUIBottom" parent="InGameUI" index="0"]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 0.0
-margin_right = 128.0
-margin_bottom = 14.0
-
-[node name="vBoxContainer" parent="InGameUI/IngameUIBottom" index="0"]
-margin_right = 203.0
-
-[node name="button" parent="InGameUI/IngameUIBottom/vBoxContainer" index="4"]
-margin_right = 203.0
 
 [node name="timer" type="Timer" parent="."]
 
 [node name="DummyTargets" type="Node2D" parent="."]
 
 [connection signal="ready" from="." to="." method="_on_MainGame_ready"]
-
-[editable path="InGameUI"]
