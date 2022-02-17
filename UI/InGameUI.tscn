@@ -22,7 +22,7 @@ __meta__ = {
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
 margin_right = 1600.0
-margin_bottom = 154.0
+margin_bottom = 192.0
 mouse_filter = 2
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
@@ -100,10 +100,16 @@ margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
-[node name="button" type="Button" parent="IngameUIBottom/vBoxContainer"]
+[node name="buttGameOptions" type="Button" parent="IngameUIBottom/vBoxContainer"]
 margin_top = 120.0
 margin_right = 1600.0
 margin_bottom = 154.0
+text = "Einstellungen"
+
+[node name="buttGameReset" type="Button" parent="IngameUIBottom/vBoxContainer"]
+margin_top = 158.0
+margin_right = 1600.0
+margin_bottom = 192.0
 text = "Neustart"
 
-[connection signal="pressed" from="IngameUIBottom/vBoxContainer/button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/buttGameReset" to="." method="_on_button_pressed"]
