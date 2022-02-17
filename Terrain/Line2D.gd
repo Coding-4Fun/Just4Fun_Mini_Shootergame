@@ -27,7 +27,7 @@ func init_line():
 
 	var start = Vector2(castlewidth, rand_range(height-displacement,
 								height+displacement))
-	var end = Vector2(screensize.x-castlewidth, rand_range(height-displacement,
+	var end = Vector2(screensize.x, rand_range(height-displacement,
 								height+displacement))
 	add_point(start)
 	add_point(end)
