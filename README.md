@@ -18,6 +18,10 @@ Auf dem Spielfeld erscheint ein kleines Ziel das bei einem Treffer entfernt wird
 Der Treffer eines Zieles beschert dem Spieler Punkte
 Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
 
+
+## Update Alpha.2.1
+Add: Timer auf Ziel und Anzeige der möglichen Punkte bei einem Treffer
+
 ## Update Alpha.2
 - Reset Button zum neustarten des Level
 -- Erzeugt eine neue Bodenlinie
