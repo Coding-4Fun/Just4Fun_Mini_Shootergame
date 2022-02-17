@@ -11,7 +11,8 @@ onready var Main = $"/root/MainGame"
 var g = 150
 
 func _ready() -> void:
-	connect("GroundHit", Main, "_on_Ground_Hited")
+	var tmp = connect("GroundHit", Main, "_on_Ground_Hited")
+	print("Warning Connect: %s" % tmp)
 
 
 func _process(delta):
