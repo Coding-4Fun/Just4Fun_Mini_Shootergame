@@ -39,7 +39,9 @@ func _ready():
 	if !is_connected("UIScoreChange", UIMain, "_on_UIScore_Change"):
 		var _res = connect("UIScoreChange", UIMain, "_on_UIScore_Change")
 	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
-	connect("CannonReset", cannonLeft, "_reset_CannonPower")
+	var tmp = connect("CannonReset", cannonLeft, "_reset_CannonPower")
+	if (tmp) != OK:
+		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
 
 func add_cannon_left():
