@@ -11,8 +11,8 @@ export (float) var smooth = 1.1
 var current_displacement
 
 onready var colli = $Terrain/TerrainCollision
-
 onready var root = get_parent()
+onready var screensize = get_viewport().get_visible_rect().size
 
 func _ready():
 	randomize()
@@ -22,13 +22,14 @@ func _ready():
 
 func init_line():
 	current_displacement = displacement
-	var screensize = get_viewport().get_visible_rect().size
-	points = PoolVector2Array()
 
-	var start = Vector2(castlewidth, rand_range(height-displacement,
-								height+displacement))
-	var end = Vector2(screensize.x, rand_range(height-displacement,
-								height+displacement))
+	points = PoolVector2Array()
+	var start: Vector2
+	var end: Vector2
+
+	start = _calculate_StartPointInLine()
+	end = _calculate_EndPointInLine()
+
 	add_point(start)
 	add_point(end)
 	for _i in range(iterations):
@@ -49,13 +50,30 @@ func init_line():
 
 	colli.polygon = p
 
+
+func _calculate_StartPointInLine() -> Vector2:
+	var start = Vector2(castlewidth, rand_range(height-displacement,
+								height+displacement))
+	start.y = clamp(start.y, 135, screensize.y-25)
+	return start
+
+
+func _calculate_EndPointInLine() -> Vector2:
+	var end = Vector2(screensize.x, rand_range(height-displacement,
+								height+displacement))
+	end.y = clamp(end.y, 135, screensize.y-25)
+	return end
+
+
 func add_points():
+	randomize()
 	var old_points = points
 	points = PoolVector2Array()
 	for i in range(old_points.size() - 1):
 		var midpoint = (old_points[i] + old_points[i+1]) / 2
 		midpoint.y += current_displacement * pow(-1.0, randi() % 2)
 		add_point(old_points[i])
+		midpoint.y = clamp(midpoint.y, 135, screensize.y-25)
 		add_point(midpoint)
 	add_point(old_points[old_points.size() - 1])
 	current_displacement *= pow(2.0, -smooth)
