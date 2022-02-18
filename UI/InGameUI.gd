@@ -45,3 +45,7 @@ func _on_button_pressed() -> void:
 func _on_buttGameOptions_pressed() -> void:
 	OptionUI.visible = !OptionUI.visible
 	pass # Replace with function body.
+
+
+func _on_buttSwitchTargetTimer_pressed() -> void:
+	pass # Replace with function body.
