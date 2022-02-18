@@ -28,7 +28,7 @@ func _process(delta):
 
 func _on_Cannonball_body_entered(body):
 	emit_signal("exploded", position + transform.x * 37)
-	if body.is_in_group("Dummy"):
+	if body.is_in_group("Dummy") and body.has_method("_hit_ByBall"):
 		body._hit_ByBall()
 	if body.is_in_group("Ground"):
 		emit_signal("GroundHit")
