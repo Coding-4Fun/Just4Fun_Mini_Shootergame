@@ -26,33 +26,33 @@ mouse_filter = 2
 
 [node name="hBoxHud" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
 margin_right = 1600.0
-margin_bottom = 34.0
+margin_bottom = 32.0
 mouse_filter = 2
 
 [node name="hBoxUIButtons" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_right = 261.0
-margin_bottom = 34.0
+margin_right = 269.0
+margin_bottom = 32.0
 mouse_filter = 2
 
 [node name="buttGameOptions" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_right = 155.0
-margin_bottom = 34.0
+margin_right = 159.0
+margin_bottom = 32.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Einstellungen"
 
 [node name="buttGameReset" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_left = 159.0
-margin_right = 261.0
-margin_bottom = 34.0
+margin_left = 163.0
+margin_right = 269.0
+margin_bottom = 32.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Neustart"
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 265.0
-margin_right = 468.0
-margin_bottom = 34.0
+margin_left = 273.0
+margin_right = 476.0
+margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel"]
@@ -69,9 +69,9 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 599.0
-margin_right = 788.0
-margin_bottom = 34.0
+margin_left = 605.0
+margin_right = 794.0
+margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower"]
@@ -88,9 +88,9 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 934.0
-margin_right = 1133.0
-margin_bottom = 34.0
+margin_left = 938.0
+margin_right = 1137.0
+margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
@@ -107,9 +107,9 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 1269.0
-margin_right = 1464.0
-margin_bottom = 34.0
+margin_left = 1271.0
+margin_right = 1466.0
+margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots"]
@@ -127,13 +127,13 @@ text = "123456789"
 
 [node name="hBoxOptions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
 visible = false
-margin_top = 38.0
+margin_top = 36.0
 margin_right = 1600.0
-margin_bottom = 72.0
+margin_bottom = 68.0
 
 [node name="button" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
-margin_right = 82.0
-margin_bottom = 34.0
+margin_right = 86.0
+margin_bottom = 32.0
 text = "test123"
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
