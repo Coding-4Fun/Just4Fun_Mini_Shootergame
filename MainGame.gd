@@ -91,6 +91,7 @@ func _on_UI_ResetGame() -> void:
 	print("Main: UIResetGame_Signal")
 	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
+	get_tree().call_group("Shoots", "queue_free")
 	yield(get_tree(), "idle_frame")
 	emit_signal("CannonReset")
 	add_DummyTarget()

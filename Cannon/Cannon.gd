@@ -29,6 +29,7 @@ func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
 		var b = Bullet.instance()
 		Main.add_child(b)
+		b.add_to_group("Shoots")
 		b.connect("exploded", Main, "_on_Bullet_exploded")
 		b.transform = Muzzle.global_transform
 		b.velocity = b.transform.x * muzzle_velocity
