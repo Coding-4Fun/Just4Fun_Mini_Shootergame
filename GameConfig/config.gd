@@ -1,27 +1,37 @@
-extends Node
+extends Control
 
-var config_data = {}
+export var config_data = {}
 const GAMECONFIGFILE = "res://config.json"
 const CONFIGDATA_DEFAULT = {
-	"Player_name": "Unnamed",
-	"Network": {
-		"HostIPAdress": "127.0.0.1",
-		"HostGamePort": "32023",
-		"MaxPlayers": 2
+		"Player_name": "Unnamed",
+		"Game": {
+			"DummyTarget": {
+				"TimerEnabled": true,
+				"TimerCountdown": 6
+			}
 		},
-	"Audio": {
-		"MasterVolume": 100,
-		"SfxVolume": 100,
-		"MusicVolume": 100
-		}
+		"Network": {
+			"HostIPAdress": "127.0.0.1",
+			"HostGamePort": "21277",
+			"MaxPlayers": 2
+			},
+		"Audio": {
+			"MasterVolume": 100,
+			"SfxVolume": 100,
+			"MusicVolume": 100
+			},
+		"Video": {},
+		"KeyBinding": {}
 	}
 
 #signal playername_changed (string)
+# signal dummyTargetTimerChange
+ # (string)
 #signal hostip_changed(string)
 #signal hostport_changed(string)
 #signal maxplayers_changed(string)
 
-onready var lobby = get_node("/root/Lobby")
+# onready var lobby = get_node("/root/Lobby")
 
 func _ready() -> void:
 	config_data = get_configdata()
@@ -54,10 +64,14 @@ func save_gameconfig ():
 
 func _on_playername_change(newname:String) -> void:
 	if not newname.empty():
-		Config.config_data["Player_name"] = newname
-		Config.save_gameconfig()
+		config_data["Player_name"] = newname
+		save_gameconfig()
 	else:
 		print("Bitte name eingeben")
+
+
+func _on_dummytarget_TimerChange(newValue:bool) -> void:
+	Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
 
 
 # func _on_hostip_change(newhostip:String) -> void:
