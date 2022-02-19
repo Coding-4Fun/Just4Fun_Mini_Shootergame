@@ -6,6 +6,7 @@ var _shots : int = 0
 var _score : int = 0
 
 signal UIResetGame
+signal UIdummyTargetTimerChange
 
 onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 
@@ -48,4 +49,5 @@ func _on_buttGameOptions_pressed() -> void:
 
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
+	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
