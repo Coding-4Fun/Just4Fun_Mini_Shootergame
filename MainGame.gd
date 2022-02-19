@@ -39,6 +39,7 @@ func _ready():
 	if !is_connected("UIScoreChange", UIMain, "_on_UIScore_Change"):
 		var _res = connect("UIScoreChange", UIMain, "_on_UIScore_Change")
 	UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
+	UIMain.connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange")
 	var tmp = connect("CannonReset", cannonLeft, "_reset_CannonPower")
 	if (tmp) != OK:
 		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
@@ -67,6 +68,7 @@ func add_DummyTarget():
 	target.position = TerrainLine.points[int(i)]
 	target.score += int(i)
 	target.get_transform().scaled(Vector2(0.2,0.2))
+	target.autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 
 	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
 		target.connect("Hit", self, "_on_Dummy_Hited")
