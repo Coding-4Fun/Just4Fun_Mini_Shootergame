@@ -16,6 +16,10 @@ run/main_scene="res://MainGame.tscn"
 boot_splash/bg_color=Color( 0.109804, 0.372549, 0.47451, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+Config="*res://GameConfig/config.gd"
+
 [debug]
 
 settings/stdout/verbose_stdout=true
@@ -66,4 +70,5 @@ name_casing=1
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"

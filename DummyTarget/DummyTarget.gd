@@ -16,6 +16,9 @@ func _ready() -> void:
 	label.text = "0"
 	if autoDespawn :
 		$despawnTimer.start()
+	else:
+		var tmp = "%s"
+		label.text = tmp % [score]
 
 
 func _hit_ByBall():

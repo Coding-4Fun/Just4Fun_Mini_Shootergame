@@ -126,15 +126,17 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxOptions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-visible = false
 margin_top = 36.0
 margin_right = 1600.0
-margin_bottom = 68.0
+margin_bottom = 76.0
+mouse_filter = 2
 
-[node name="button" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
-margin_right = 86.0
-margin_bottom = 32.0
-text = "test123"
+[node name="buttSwitchTargetTimer" type="CheckButton" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+margin_right = 219.0
+margin_bottom = 40.0
+pressed = true
+text = "Target Timer"
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
