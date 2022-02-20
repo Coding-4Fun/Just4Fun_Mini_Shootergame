@@ -35,7 +35,7 @@ func _on_Cannon_Shot() -> void:
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
-	if _score != 0 or _shots != 0:
+	if _shots != 0:
 		var pps:float = float(float(_score) / float(_shots))
 		$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
 
