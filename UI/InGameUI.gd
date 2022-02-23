@@ -2,8 +2,8 @@ extends Control
 
 ## Handle Signals for UI Updates
 
-var _shots : int = 0
-var _score : int = 0
+var _shots : float = 0
+var _score : float = 0
 
 signal UIResetGame
 signal UIdummyTargetTimerChange
@@ -13,6 +13,8 @@ onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
+	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
+
 
 
 # Update UI Label Text when the shootpower changed
@@ -33,11 +35,14 @@ func _on_Cannon_Shot() -> void:
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
+	if _shots != 0:
+		var pps:float = float(float(_score) / float(_shots))
+		$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
 
 
 func _on_button_pressed() -> void:
-	_shots = 0
-	_score = 0
+	_shots = 0.0
+	_score = 0.0
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
 	emit_signal("UIResetGame")
