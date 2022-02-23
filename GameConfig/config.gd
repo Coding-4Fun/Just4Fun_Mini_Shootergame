@@ -49,10 +49,14 @@ func get_configdata() -> JSONParseResult:
 		save_gameconfig()
 	file.open(GAMECONFIGFILE, File.READ)
 	var content = file.get_as_text()
-	var data = parse_json(content)
-	config_data = data
+	var data = JSON.parse(content)
 	file.close()
-	return(data)
+	if data.error == OK :
+		if typeof(data.result) == TYPE_DICTIONARY:
+			return data
+		else:
+			return CONFIGDATA_DEFAULT
+	return(JSONParseResult.new())
 
 
 func save_gameconfig ():
