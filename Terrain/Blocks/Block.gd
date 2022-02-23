@@ -1,0 +1,38 @@
+extends StaticBody2D
+
+#	AIR=-1,
+#	GRAS,
+#	DIRT,
+#	STONE,
+#	BEDROCK
+
+var block_sprites = [
+	preload("res://Terrain/Blocks/Sprites/cobblestone_mossy.png"),
+	preload("res://Terrain/Blocks/Sprites/dirt.png"),
+	preload("res://Terrain/Blocks/Sprites/cobblestone.png"),
+	preload("res://Terrain/Blocks/Sprites/stonebrick.png")
+#	preload("res://Terrain/Blocks/Sprites/Grass (Hill).jpg"),
+#	preload("res://Terrain/Blocks/Sprites/coal_ore.png")
+]
+
+var block_type = 0 setget _on_set_blocktype
+var debugtext = "" setget _on_set_debugtext
+
+onready var labDebug = $sprite/labDEBUG
+
+func _ready() -> void :
+	if block_type == -1:
+		visible = false
+		return
+
+	get_node("sprite").texture = block_sprites[block_type]
+	pass
+
+
+func _on_set_blocktype(type) -> void:
+	block_type = type
+	pass
+
+
+func _on_set_debugtext(text) -> void:
+		labDebug.text = text
