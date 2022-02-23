@@ -3,7 +3,15 @@ extends Node2D
 onready var noise
 onready var block = preload("res://Terrain/Blocks/Block.tscn")
 onready var screensize:Vector2 = get_viewport().get_visible_rect().size
+onready var midrange:int = screensize.y
+onready var displacement = ceil((midrange / tile_width) / 2)
 
+
+export var current_displacement = 0
+export var castlewidth = 175
+#export (float) var displacement = 0
+#ceil(midrange / tile_width)
+export (float) var smooth = 1.1
 
 enum block_types {
 	AIR=-1,
@@ -13,17 +21,22 @@ enum block_types {
 	BEDROCK
 }
 
+
 var tile_width = 32
 var tile_height = 32
 var surface_height = 64
+
+export (float) var mod = stepify(castlewidth, 32) / 32
 
 export var world_depth = 32
 export var f = 24
 export var chunk_width = 32
 
+
 var world_tiles_x:int
 var screenratio:float
 var world_tiles_y:int
+
 
 func _ready() -> void:
 	world_tiles_x = screensize.x / tile_width
@@ -55,11 +68,18 @@ func _ready() -> void:
 #	pass
 
 func generate_world() -> void:
+	current_displacement = displacement
 	for x in world_tiles_x:
+		if x < mod / tile_width:
+			new_block(Vector2(x, y), block_types.GRAS)
+			continue
 		for y in world_tiles_y:
-			var tile = noise.get_noise_2d(x, y)
+			if y < current_displacement:
+				continue
+				var tile = noise.get_noise_2d(x, y)
 #			print(tile)
-			new_block(Vector2(x, y), tile)
+				new_block(Vector2(x, y), tile)
+		current_displacement = current_displacement + pow(-1.0, randi() % 2)
 	pass
 
 func new_block(pos:Vector2, type) -> void:
