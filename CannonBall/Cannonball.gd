@@ -20,9 +20,8 @@ func _process(delta):
 	rotation = velocity.angle()
 	position += velocity * delta
 
-	if position.y > screensize.y+100:
-		queue_free()
-	if position.x > screensize.x+100:
+	if position.y > screensize.y+100 or position.x > screensize.x+100:
+		emit_signal("GroundHit")
 		queue_free()
 
 
