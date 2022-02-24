@@ -37,3 +37,8 @@ func _on_set_blocktype(type) -> void:
 
 func _on_set_debugtext(text) -> void:
 		labDebug.text = text
+
+
+func resize_BlockSize(_scale_:float) -> void:
+	scale *= _scale_
+
