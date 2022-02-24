@@ -22,15 +22,16 @@ enum block_types {
 }
 
 
-var tile_width = 32
-var tile_height = 32
+var tile_width = 16
+var tile_height = 16
+var blocscale:float = 0.25
 var surface_height = 64
 
-export (float) var mod = stepify(castlewidth, 32) / 32
+export (float) var mod = stepify(castlewidth, tile_width) / tile_width
 
-export var world_depth = 32
-export var f = 24
-export var chunk_width = 32
+#export var world_depth = 32
+#export var f = 24
+#export var chunk_width = 32
 
 
 var world_tiles_x:int
@@ -47,21 +48,7 @@ func _ready() -> void:
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
 
-	randomize()
-	noise = OpenSimplexNoise.new()
-#	noise.seed = randi()
-#
-#	noise.octaves = 3
-#	noise.period = 3
-#	noise.persistence = 0.3
-
-	noise.seed = randi()
-	noise.octaves = 3
-	noise.period = 5.0
-	noise.persistence = 0.8
-	noise.lacunarity = 0.4
-
-	generate_world()
+#	generate_world()
 
 #	for x in range(0, chunk_width):
 #		var y = floor(noise.get_noise_2d((get_global_transform().origin.x/32+x)*.1, 0)*surface_height*.1)
@@ -73,6 +60,7 @@ func _ready() -> void:
 
 
 func generate_world() -> void:
+	randomize()
 	current_displacement = displacement
 	for x in world_tiles_x:
 		if x < mod:
@@ -95,7 +83,8 @@ func generate_world() -> void:
 			else:
 				new_block.block_type = 4
 
-			new_block.translate(Vector2(x*32, y*32))
+			new_block.translate(Vector2(x*tile_width, y*tile_height))
+			new_block.resize_BlockSize(blocscale)
 			add_child(new_block)
 		current_displacement = current_displacement + pow(-1.0, randi() % 2)
 		if current_displacement < max_terrain_height:
