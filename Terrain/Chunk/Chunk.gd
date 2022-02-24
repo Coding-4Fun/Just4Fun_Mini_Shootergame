@@ -29,6 +29,8 @@ var surface_height = 64
 
 export (float) var mod = stepify(castlewidth, tile_width) / tile_width
 
+var points = PoolVector2Array()
+
 #export var world_depth = 32
 #export var f = 24
 #export var chunk_width = 32
@@ -75,6 +77,11 @@ func generate_world() -> void:
 			if x < mod and y == current_displacement:
 				new_block.block_type = 1
 
+#			GrasLine
+			if x > mod and y == current_displacement:
+				new_block.block_type = 0
+				points.append(Vector2(x*tile_width, y*tile_height))
+
 #			Midearth
 			elif y > current_displacement and y < world_tiles_y-2:
 				new_block.block_type = round(rand_range(2,3))
@@ -84,6 +91,7 @@ func generate_world() -> void:
 				new_block.block_type = 4
 
 			new_block.translate(Vector2(x*tile_width, y*tile_height))
+
 			new_block.resize_BlockSize(blocscale)
 			add_child(new_block)
 		current_displacement = current_displacement + pow(-1.0, randi() % 2)
