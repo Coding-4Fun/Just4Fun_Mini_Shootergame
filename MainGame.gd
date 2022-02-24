@@ -44,6 +44,8 @@ func _ready():
 	if (tmp) != OK:
 		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
+	$Chunk.generate_world()
+
 
 func add_cannon_left():
 	cannonLeft.position = TerrainLine.points[0]
@@ -77,8 +79,9 @@ func add_DummyTarget():
 
 
 func _on_MainGame_ready() -> void:
-	add_cannon_left()
-	add_DummyTarget()
+#	add_cannon_left()
+#	add_DummyTarget()
+	pass
 
 
 func _on_Dummy_Hited(score : int) -> void:
