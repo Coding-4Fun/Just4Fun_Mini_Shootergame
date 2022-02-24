@@ -15,10 +15,10 @@ export (float) var smooth = 1.1
 
 enum block_types {
 	AIR=-1,
-	GRAS,
-	DIRT,
-	STONE,
-	BEDROCK
+	GRAS = 0,
+	DIRT = 1,
+	STONE = 2,
+	BEDROCK = 3
 }
 
 
@@ -67,43 +67,31 @@ func _ready() -> void:
 #			new_block(Vector2(x*32, yy*32), block_types.DIRT)
 #	pass
 
+
 func generate_world() -> void:
 	current_displacement = displacement
 	for x in world_tiles_x:
-		if x < mod / tile_width:
-			new_block(Vector2(x, y), block_types.GRAS)
-			continue
+		if x < mod:
+			current_displacement = displacement
 		for y in world_tiles_y:
+#			Überspringen
 			if y < current_displacement:
 				continue
-				var tile = noise.get_noise_2d(x, y)
-#			print(tile)
-				new_block(Vector2(x, y), tile)
+			var new_block = block.instance()
+
+#			BasePlattform
+			if x < mod and y == current_displacement:
+				new_block.block_type = 1
+
+#			Midearth
+			elif y > current_displacement and y < world_tiles_y-2:
+				new_block.block_type = round(rand_range(2,3))
+
+#			Bedrock
+			else:
+				new_block.block_type = 4
+
+			new_block.translate(Vector2(x*32, y*32))
+			add_child(new_block)
 		current_displacement = current_displacement + pow(-1.0, randi() % 2)
-	pass
 
-func new_block(pos:Vector2, type) -> void:
-	var new_block = block.instance()
-	var t = block_types.GRAS
-	new_block.translate(Vector2(pos.x*32, pos.y*32))
-
-	if type < -0.1:
-		t = block_types.AIR
-
-	if type < 0.3:
-		t = block_types.DIRT
-
-	if type < 0.5:
-		t = block_types.GRAS
-
-	if type <= 0.7:
-		t = block_types.BEDROCK
-
-	if type > 0.4:
-		t = block_types.AIR
-
-	new_block.block_type = t
-#	print(new_block.block_type)
-	add_child(new_block)
-	new_block.debugtext = "%s\n%3.2f" % [pos, type]
-	pass
