@@ -76,6 +76,7 @@ func generate_world() -> void:
 #			BasePlattform
 			if x < mod and y == current_displacement:
 				new_block.block_type = 1
+				points.append(Vector2(x*tile_width, y*tile_height))
 
 #			GrasLine
 			if x > mod and y == current_displacement:
