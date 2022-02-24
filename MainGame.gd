@@ -51,7 +51,7 @@ func _ready():
 func add_cannon_left():
 #	cannonLeft.position = TerrainLine.points[0]
 #	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	cannonLeft.position = Chunk.midrange
+	cannonLeft.position = Chunk.points[round(Chunk.mod / 2)]
 	cannonLeft.position.x = Chunk.castlewidth / 2
 	PlayerLeft.add_child(cannonLeft)
 
@@ -83,7 +83,7 @@ func add_DummyTarget():
 
 
 func _on_MainGame_ready() -> void:
-#	add_cannon_left()
+	add_cannon_left()
 #	add_DummyTarget()
 	pass
 
