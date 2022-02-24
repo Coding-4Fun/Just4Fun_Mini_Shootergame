@@ -4,7 +4,8 @@ signal UIScoreChange
 signal CannonReset
 
 
-onready var TerrainLine = $"TerrainLine"
+#onready var TerrainLine = $"TerrainLine"
+onready var Chunk = $"Chunk"
 
 onready var Players = $Players
 onready var PlayerLeft = $Players/Player1
@@ -48,18 +49,21 @@ func _ready():
 
 
 func add_cannon_left():
-	cannonLeft.position = TerrainLine.points[0]
-	cannonLeft.position.x = TerrainLine.castlewidth / 2
+#	cannonLeft.position = TerrainLine.points[0]
+#	cannonLeft.position.x = TerrainLine.castlewidth / 2
+	cannonLeft.position = Chunk.midrange
+	cannonLeft.position.x = Chunk.castlewidth / 2
 	PlayerLeft.add_child(cannonLeft)
 
 
 func add_DummyTarget():
-	if TerrainLine.points.size() < 5:
+	if Chunk.points.size() < 5:
+#	if TerrainLine.points.size() < 5:
 		pass
 
-	var tlSize = TerrainLine.points.size() -3
+	var tlSize = Chunk.world_tiles_x
 	var rmin : float = 2
-	var rmax = tlSize
+	var rmax = tlSize-1
 
 	randomize()
 
@@ -67,7 +71,7 @@ func add_DummyTarget():
 	var i = rand_range(rmin, rmax)
 
 	target = Dummy.instance()
-	target.position = TerrainLine.points[int(i)]
+	target.position = Chunk.points[int(i)]
 	target.score += int(i)
 	target.get_transform().scaled(Vector2(0.2,0.2))
 	target.autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
@@ -94,14 +98,17 @@ func _on_Ground_Hited() -> void:
 
 func _on_UI_ResetGame() -> void:
 	print("Main: UIResetGame_Signal")
-	TerrainLine.init_line()
+	Chunk.generate_world()
+#	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	yield(get_tree(), "idle_frame")
 	emit_signal("CannonReset")
 	add_DummyTarget()
-	cannonLeft.position = TerrainLine.points[0]
-	cannonLeft.position.x = TerrainLine.castlewidth / 2
+#	cannonLeft.position = TerrainLine.points[0]
+#	cannonLeft.position.x = TerrainLine.castlewidth / 2
+	cannonLeft.position = Chunk.points[0]
+	cannonLeft.position.x = Chunk.castlewidth / 2
 
 
 func _on_Bullet_exploded(pos):
