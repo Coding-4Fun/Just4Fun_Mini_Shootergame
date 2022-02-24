@@ -36,12 +36,16 @@ export var chunk_width = 32
 var world_tiles_x:int
 var screenratio:float
 var world_tiles_y:int
+var min_terrain_height:int
+var max_terrain_height:int
 
 
 func _ready() -> void:
 	world_tiles_x = screensize.x / tile_width
 	screenratio = screensize.x / screensize.y
 	world_tiles_y = round(world_tiles_x / screenratio)
+	min_terrain_height = world_tiles_y - mod
+	max_terrain_height = mod
 
 	randomize()
 	noise = OpenSimplexNoise.new()
@@ -94,4 +98,8 @@ func generate_world() -> void:
 			new_block.translate(Vector2(x*32, y*32))
 			add_child(new_block)
 		current_displacement = current_displacement + pow(-1.0, randi() % 2)
+		if current_displacement < max_terrain_height:
+			current_displacement += 1
+		if current_displacement > min_terrain_height:
+			current_displacement -= 1
 
