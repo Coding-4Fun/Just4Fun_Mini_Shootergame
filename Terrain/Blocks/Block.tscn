@@ -30,3 +30,4 @@ __meta__ = {
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
+disabled = true
