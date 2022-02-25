@@ -62,10 +62,6 @@ func _ready() -> void:
 #	pass
 
 
-func generate_world_tilemap_base() -> void:
-	pass
-
-
 func generate_world_block_base() -> void:
 	randomize()
 	current_displacement = displacement
