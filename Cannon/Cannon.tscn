@@ -4,8 +4,11 @@
 [ext_resource path="res://Cannon/black-cannon-barrel.png" type="Texture" id=2]
 
 [node name="Cannon" type="Node2D"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 1 )
+muzzle_velocity = 15000
+min_velocity = 7500
+max_velocity = 30000
 
 [node name="Barrel" type="Sprite" parent="."]
 position = Vector2( 0, -76 )
