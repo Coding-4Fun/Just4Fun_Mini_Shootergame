@@ -7,6 +7,7 @@ onready var midrange:int = screensize.y
 onready var displacement = ceil((midrange / tile_size.y) / 2)
 export var current_displacement = 0
 export var castlewidth = 175
+var plattform := []
 
 enum block_types {
 	AIR=-1,
@@ -44,6 +45,7 @@ func generate_world_tilemap_base() -> void:
 			# BasePlattform
 			if x <= mod and y == current_displacement:
 				set_cellv(Vector2(x,y), 6)
+				plattform.append(Vector2(x, y))
 				continue
 			# Graslinie
 			elif y == current_displacement:
