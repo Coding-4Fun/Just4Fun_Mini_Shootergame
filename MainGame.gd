@@ -98,6 +98,9 @@ func _on_Ground_Hited() -> void:
 
 func _on_UI_ResetGame() -> void:
 	print("Main: UIResetGame_Signal")
+#	ToDo:
+#	Vor dem generieren bei Reset
+#	Erst die alten Blocks entfernen
 	Chunk.generate_world()
 #	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
