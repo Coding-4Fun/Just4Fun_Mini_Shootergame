@@ -10,7 +10,7 @@
 [ext_resource path="res://Terrain/sprites/coal_ore_16x16.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 0, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 15.9362, 6.66772, 9.70529, 4.72055, 4.95421, 4.17535, 1.52721, 4.95421, 0, 4.09746 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [resource]
 0/name = "gras_16x16.png 0"
