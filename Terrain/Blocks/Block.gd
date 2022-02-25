@@ -20,12 +20,14 @@ var block_type = 1 setget _on_set_blocktype
 var debugtext = "" setget _on_set_debugtext
 
 onready var labDebug = $sprite/labDEBUG
+var togglecollision
 
 func _ready() -> void :
 	if block_type == -1:
 		visible = false
 		return
 
+	togglecollision = $collisionShape2D
 	get_node("sprite").texture = block_sprites[block_type]
 	pass
 
@@ -42,3 +44,8 @@ func _on_set_debugtext(text) -> void:
 func resize_BlockSize(_scale_:float) -> void:
 	scale *= _scale_
 
+
+func enable_BlockCollision() -> void:
+	if block_type == 0:
+		togglecollision.disabled = false
+	#!togglecollision.set_deferred("Disabled", togglecollision.Disabled)
