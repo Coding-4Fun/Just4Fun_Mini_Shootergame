@@ -45,7 +45,8 @@ func _ready():
 	if (tmp) != OK:
 		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
-	$Chunk.generate_world()
+	$Chunk.generate_world_tilemap_base()
+#	$Chunk.generate_world_block_base()
 
 
 func add_cannon_left():
@@ -83,7 +84,7 @@ func add_DummyTarget():
 
 
 func _on_MainGame_ready() -> void:
-	add_cannon_left()
+#	add_cannon_left()
 #	add_DummyTarget()
 	pass
 
