@@ -34,10 +34,26 @@ func _ready() -> void:
 
 
 func generate_world_tilemap_base() -> void:
-	for x in range(world_tiles_x):
-		for y in range(world_tiles_y):
-			if y == displacement:
+	randomize()
+	current_displacement = displacement
+	for x in world_tiles_x:
+		if x <= mod:
+			current_displacement = displacement
+		for y in world_tiles_y:
+			update_dirty_quadrants()
+			# BasePlattform
+			if x <= mod and y == current_displacement:
+				set_cellv(Vector2(x,y), 6)
+				continue
+			# Graslinie
+			elif y == current_displacement:
 				set_cellv(Vector2(x,y), 0)
-			if y > displacement:
-				set_cellv(Vector2(x,y), 1)
-			pass
+			# Unterhalb der Graslinie
+			if y > current_displacement and y < world_tiles_y-2:
+				set_cellv(Vector2(x,y), round(rand_range(1,5)))
+			elif y >= world_tiles_y-2:
+				set_cellv(Vector2(x,y), 7)
+			# End Y Loop
+
+		var change_displacement = current_displacement + sign(rand_range(-5, 5))# pow(-1.0, randi() % 2)
+		current_displacement = change_displacement
