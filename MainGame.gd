@@ -49,12 +49,15 @@ func _ready():
 #	$Chunk.generate_world_block_base()
 
 
-func add_cannon_left():
+func add_cannon_left(pos:Vector2 = Vector2.INF):
 #	cannonLeft.position = TerrainLine.points[0]
 #	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	cannonLeft.position = Chunk.points[round(Chunk.mod / 2)]
-	cannonLeft.position.x = Chunk.castlewidth / 2
-	PlayerLeft.add_child(cannonLeft)
+	if pos == Vector2.INF:
+		cannonLeft.position = Chunk.points[round(Chunk.mod / 2)]
+		cannonLeft.position.x = Chunk.castlewidth / 2
+		PlayerLeft.add_child(cannonLeft)
+	else:
+		cannonLeft.position.x = pos
 
 
 func add_DummyTarget():
@@ -102,7 +105,7 @@ func _on_UI_ResetGame() -> void:
 #	ToDo:
 #	Vor dem generieren bei Reset
 #	Erst die alten Blocks entfernen
-	Chunk.generate_world()
+#	Chunk.generate_world()
 #	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
@@ -111,8 +114,10 @@ func _on_UI_ResetGame() -> void:
 	add_DummyTarget()
 #	cannonLeft.position = TerrainLine.points[0]
 #	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	cannonLeft.position = Chunk.points[0]
-	cannonLeft.position.x = Chunk.castlewidth / 2
+	var pos:Vector2 = Chunk.points[0]
+	pos.x = Chunk.castlewidth / 2
+
+	add_cannon_left(pos)
 
 
 func _on_Bullet_exploded(pos):
