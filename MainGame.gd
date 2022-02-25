@@ -45,7 +45,7 @@ func _ready():
 	if (tmp) != OK:
 		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
-	$Chunk.generate_world_tilemap_base()
+	$TerrainMap.generate_world_tilemap_base()
 #	$Chunk.generate_world_block_base()
 
 
