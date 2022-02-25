@@ -46,6 +46,7 @@ var max_terrain_height:int
 func _ready() -> void:
 	world_tiles_x = screensize.x / tile_width
 	screenratio = screensize.x / screensize.y
+# warning-ignore:narrowing_conversion
 	world_tiles_y = round(world_tiles_x / screenratio)
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
@@ -61,7 +62,11 @@ func _ready() -> void:
 #	pass
 
 
-func generate_world() -> void:
+func generate_world_tilemap_base() -> void:
+	pass
+
+
+func generate_world_block_base() -> void:
 	randomize()
 	current_displacement = displacement
 	for x in world_tiles_x:
@@ -69,6 +74,7 @@ func generate_world() -> void:
 			current_displacement = displacement
 		for y in world_tiles_y:
 #			Überspringen
+#			if y < current_displacement:
 			if y < current_displacement:
 				continue
 			var new_block = block.instance()
@@ -82,6 +88,7 @@ func generate_world() -> void:
 			if x > mod and y == current_displacement:
 				new_block.block_type = 0
 				points.append(Vector2(x*tile_width, y*tile_height))
+#				new_block.enable_BlockCollision()
 
 #			Midearth
 			elif y > current_displacement and y < world_tiles_y-2:
@@ -95,7 +102,9 @@ func generate_world() -> void:
 
 			new_block.resize_BlockSize(blocscale)
 			add_child(new_block)
-		current_displacement = current_displacement + pow(-1.0, randi() % 2)
+			if new_block.block_type == block_types.GRAS:
+				new_block.enable_BlockCollision()
+		current_displacement = current_displacement + sign(rand_range(-1, 2))# pow(-1.0, randi() % 2)
 		if current_displacement < max_terrain_height:
 			current_displacement += 1
 		if current_displacement > min_terrain_height:
