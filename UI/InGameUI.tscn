@@ -30,47 +30,47 @@ margin_bottom = 32.0
 mouse_filter = 2
 
 [node name="hBoxUIButtons" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_right = 269.0
+margin_right = 196.0
 margin_bottom = 32.0
 mouse_filter = 2
 
 [node name="buttGameOptions" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_right = 159.0
+margin_right = 101.0
 margin_bottom = 32.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Einstellungen"
+text = "Settings"
 
 [node name="buttGameReset" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_left = 163.0
-margin_right = 269.0
+margin_left = 105.0
+margin_right = 196.0
 margin_bottom = 32.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Neustart"
+text = "Restart"
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 273.0
-margin_right = 476.0
+margin_left = 200.0
+margin_right = 383.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel"]
-margin_right = 89.0
+margin_right = 69.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Winkel: "
+text = "Angel:"
 
 [node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel"]
-margin_left = 93.0
-margin_right = 203.0
+margin_left = 73.0
+margin_right = 183.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 533.0
-margin_right = 722.0
+margin_left = 478.0
+margin_right = 667.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
@@ -88,39 +88,39 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 794.0
-margin_right = 993.0
+margin_left = 757.0
+margin_right = 937.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_right = 85.0
+margin_right = 66.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Punkte:"
+text = "Score:"
 
 [node name="labScore" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_left = 89.0
-margin_right = 199.0
+margin_left = 70.0
+margin_right = 180.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 1054.0
-margin_right = 1249.0
+margin_left = 1036.0
+margin_right = 1298.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots"]
-margin_right = 81.0
+margin_right = 148.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Schuss:"
+text = "Overall Shots:"
 
 [node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots"]
-margin_left = 85.0
-margin_right = 195.0
+margin_left = 152.0
+margin_right = 262.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"
@@ -151,10 +151,10 @@ margin_bottom = 76.0
 mouse_filter = 2
 
 [node name="buttSwitchTargetTimer" type="CheckButton" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
-margin_right = 219.0
+margin_right = 298.0
 margin_bottom = 40.0
 pressed = true
-text = "Target Timer"
+text = "Enable Target Timer"
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
