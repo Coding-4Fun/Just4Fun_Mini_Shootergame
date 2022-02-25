@@ -29,7 +29,6 @@ script = ExtResource( 2 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
-show_collision = true
 collision_layer = 2
 format = 1
 script = ExtResource( 5 )
