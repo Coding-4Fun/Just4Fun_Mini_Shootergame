@@ -1,8 +1,8 @@
 extends Control
 
-export var config_data = {}
+export var config_data:Dictionary = {}
 const GAMECONFIGFILE = "res://config.json"
-const CONFIGDATA_DEFAULT = {
+const CONFIGDATA_DEFAULT:Dictionary = {
 		"Player_name": "Unnamed",
 		"Game": {
 			"DummyTarget": {
@@ -42,17 +42,21 @@ func _ready() -> void:
 	# lobby.connect("maxplayers_changed", self, "_on_maxplayer_change")
 
 
-func get_configdata() -> JSONParseResult:
+func get_configdata() -> Dictionary:
 	var file = File.new()
 	if not file.file_exists(GAMECONFIGFILE):
 		config_data = CONFIGDATA_DEFAULT
 		save_gameconfig()
 	file.open(GAMECONFIGFILE, File.READ)
 	var content = file.get_as_text()
-	var data = parse_json(content)
-	config_data = data
+	var data = JSON.parse(content)
 	file.close()
-	return(data)
+	if data.error == OK :
+		if typeof(data.result) == TYPE_DICTIONARY:
+			return data.result
+		else:
+			return CONFIGDATA_DEFAULT
+	return(CONFIGDATA_DEFAULT)
 
 
 func save_gameconfig ():

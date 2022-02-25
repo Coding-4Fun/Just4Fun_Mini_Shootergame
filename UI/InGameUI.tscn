@@ -69,8 +69,8 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 605.0
-margin_right = 794.0
+margin_left = 533.0
+margin_right = 722.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
@@ -88,8 +88,8 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 938.0
-margin_right = 1137.0
+margin_left = 794.0
+margin_right = 993.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
@@ -107,8 +107,8 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 1271.0
-margin_right = 1466.0
+margin_left = 1054.0
+margin_right = 1249.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 
@@ -121,6 +121,25 @@ text = "Schuss:"
 [node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots"]
 margin_left = 85.0
 margin_right = 195.0
+margin_bottom = 26.0
+size_flags_vertical = 0
+text = "123456789"
+
+[node name="hBoxPointsPerShot" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
+margin_left = 1315.0
+margin_right = 1600.0
+margin_bottom = 32.0
+size_flags_horizontal = 2
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot"]
+margin_right = 171.0
+margin_bottom = 26.0
+size_flags_vertical = 0
+text = "Points per Shot:"
+
+[node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot"]
+margin_left = 175.0
+margin_right = 285.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "123456789"

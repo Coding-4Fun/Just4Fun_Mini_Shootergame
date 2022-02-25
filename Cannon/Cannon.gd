@@ -8,6 +8,8 @@ signal CannonShoot
 export var left:bool = true
 
 export var muzzle_velocity = 1500
+export var min_velocity = 10000
+export var max_velocity = 60000
 export var gravity = 250
 
 var can_shoot = true
@@ -36,10 +38,10 @@ func _unhandled_input(event):
 		b.g = gravity
 		emit_signal("CannonShoot")
 	if event.is_action_released("cannon_power_plus"):
-		muzzle_velocity = clamp(muzzle_velocity+100, 1500, 6000)
+		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		emit_signal("CannonPowerChange", muzzle_velocity)
 	if event.is_action_released("cannon_power_minus"):
-		muzzle_velocity = clamp(muzzle_velocity-100, 1500, 6000)
+		muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
 		emit_signal("CannonPowerChange", muzzle_velocity)
 #		can_shoot = false
 

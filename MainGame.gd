@@ -4,7 +4,8 @@ signal UIScoreChange
 signal CannonReset
 
 
-onready var TerrainLine = $"TerrainLine"
+#onready var TerrainLine = $"TerrainLine"
+onready var Chunk = $"Chunk"
 
 onready var Players = $Players
 onready var PlayerLeft = $Players/Player1
@@ -26,6 +27,7 @@ onready var cannonBarrelLeftMuzzle = cannonBarrelLeft.get_node("Muzzle")
 
 onready var UIMain = $InGameUI
 onready var line = $TrajectoryLine
+onready var Map = $TerrainMap
 
 var Explosion = preload("res://CannonBall/Explosion.tscn")
 var Dummy = preload("res://DummyTarget/DummyTarget.tscn")
@@ -44,20 +46,30 @@ func _ready():
 	if (tmp) != OK:
 		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
-
-func add_cannon_left():
-	cannonLeft.position = TerrainLine.points[0]
-	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	PlayerLeft.add_child(cannonLeft)
+	Map.generate_world_tilemap_base()
+#	$Chunk.generate_world_block_base()
 
 
-func add_DummyTarget():
-	if TerrainLine.points.size() < 5:
+func add_cannon_left(pos:Vector2 = Vector2.INF):
+#	cannonLeft.position = TerrainLine.points[0]
+#	cannonLeft.position.x = TerrainLine.castlewidth / 2
+	if pos == Vector2.INF:
+		var p = Map.plattform[ceil($TerrainMap.plattform.size()/2)]
+		cannonLeft.position = Map.map_to_world(p)
+#		cannonLeft.position.x = Chunk.castlewidth / 2
+		PlayerLeft.add_child(cannonLeft)
+	else:
+		cannonLeft.position = pos
+
+
+func add_DummyTarget_to_Line():
+	if Chunk.points.size() < 5:
+#	if TerrainLine.points.size() < 5:
 		pass
 
-	var tlSize = TerrainLine.points.size() -3
+	var tlSize = Chunk.world_tiles_x
 	var rmin : float = 2
-	var rmax = tlSize
+	var rmax = tlSize-1
 
 	randomize()
 
@@ -65,9 +77,31 @@ func add_DummyTarget():
 	var i = rand_range(rmin, rmax)
 
 	target = Dummy.instance()
-	target.position = TerrainLine.points[int(i)]
+	target.position = Chunk.points[int(i)]
 	target.score += int(i)
 	target.get_transform().scaled(Vector2(0.2,0.2))
+	target.autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+
+	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
+		target.connect("Hit", self, "_on_Dummy_Hited")
+
+	call_deferred("add_child", target)
+
+
+func add_DummyTarget():
+	randomize()
+
+	var rand = ceil(rand_range(Map.mod, Map.world_tiles_x))
+	var tiles = Map.get_used_cells_by_id(0)
+
+	var randtile = ceil(rand_range(0, tiles.size()-1))
+
+	target = Dummy.instance()
+	var tile_coord = tiles[ceil(randtile)]
+	var posi = Map.map_to_world(tile_coord)
+	target.position = posi
+	target.score += int(randtile)
+#	target.get_transform().scaled(Vector2(1,1))
 	target.autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 
 	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
@@ -79,6 +113,7 @@ func add_DummyTarget():
 func _on_MainGame_ready() -> void:
 	add_cannon_left()
 	add_DummyTarget()
+	pass
 
 
 func _on_Dummy_Hited(score : int) -> void:
@@ -91,14 +126,22 @@ func _on_Ground_Hited() -> void:
 
 func _on_UI_ResetGame() -> void:
 	print("Main: UIResetGame_Signal")
-	TerrainLine.init_line()
+#	ToDo:
+#	Vor dem generieren bei Reset
+#	Erst die alten Blocks entfernen
+#	Chunk.generate_world()
+#	TerrainLine.init_line()
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	yield(get_tree(), "idle_frame")
 	emit_signal("CannonReset")
 	add_DummyTarget()
-	cannonLeft.position = TerrainLine.points[0]
-	cannonLeft.position.x = TerrainLine.castlewidth / 2
+#	cannonLeft.position = TerrainLine.points[0]
+#	cannonLeft.position.x = TerrainLine.castlewidth / 2
+	var pos:Vector2 = Chunk.points[0]
+	pos.x = Chunk.castlewidth / 2
+
+	add_cannon_left(pos)
 
 
 func _on_Bullet_exploded(pos):

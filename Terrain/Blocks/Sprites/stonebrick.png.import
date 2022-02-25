@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/stonebrick.png-5b11f142a2ce3a01815ec4b2d97fd24d.image"
+
+[deps]
+
+source_file="res://Terrain/Blocks/Sprites/stonebrick.png"
+dest_files=[ "res://.import/stonebrick.png-5b11f142a2ce3a01815ec4b2d97fd24d.image" ]
+
+[params]
+
