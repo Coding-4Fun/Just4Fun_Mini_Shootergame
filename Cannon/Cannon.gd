@@ -13,18 +13,17 @@ export var max_velocity = 60000
 export var gravity = 250
 
 var can_shoot = true
+var current_rotation = 0
 
 onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
 onready var Main = get_tree().get_root().get_node("MainGame")
 
-onready var labAngel = Main.find_node("labAngel")
-onready var labPower = Main.find_node("labPower")
-
 
 func _ready():
 	## Kannonen umdrehen, wenn auf der rechten Seite
+	connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
 	pass
 
 func _unhandled_input(event):
@@ -47,10 +46,14 @@ func _unhandled_input(event):
 
 
 func _process(_delta):
+	Barrel.look_at(get_global_mouse_position())
+	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
+	Barrel.rotation_degrees = clampedBarrel
+	
 	if can_shoot:
-		Barrel.look_at(get_global_mouse_position())
-		Barrel.rotation_degrees = clamp(Barrel.rotation_degrees, -75, -15)
-		emit_signal("CannonAngelChange", Barrel.rotation_degrees*-1)
+		if current_rotation != clampedBarrel:
+			emit_signal("CannonAngelChange", clampedBarrel*-1)
+			current_rotation = clampedBarrel
 
 
 func _reset_CannonPower() -> void:
