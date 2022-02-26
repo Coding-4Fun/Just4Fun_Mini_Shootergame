@@ -111,7 +111,7 @@ func add_DummyTarget():
 
 
 func _on_MainGame_ready() -> void:
-	add_cannon_left()
+#	add_cannon_left()
 	add_DummyTarget()
 	pass
 
@@ -138,10 +138,10 @@ func _on_UI_ResetGame() -> void:
 	add_DummyTarget()
 #	cannonLeft.position = TerrainLine.points[0]
 #	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	var pos:Vector2 = Chunk.points[0]
-	pos.x = Chunk.castlewidth / 2
+#	var pos:Vector2 = Chunk.points[0]
+#	pos.x = Chunk.castlewidth / 2
 
-	add_cannon_left(pos)
+#	add_cannon_left(pos)
 
 
 func _on_Bullet_exploded(pos):
