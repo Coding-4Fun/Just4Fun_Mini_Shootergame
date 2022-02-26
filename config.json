@@ -6,7 +6,8 @@
 		},
 		"Player": {
 			"Player_name": "Bucky"
-		}
+		},
+		"CannonCount": 2
 	},
 	"Audio": {
 		"MasterVolume": 100,
