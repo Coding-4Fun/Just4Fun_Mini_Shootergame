@@ -1,6 +1,6 @@
 extends Node2D
 
-signal UIScoreChange
+
 signal CannonReset
 
 
@@ -19,13 +19,13 @@ var target
 
 
 func _ready():
-#	cannonLeft.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
-	cannonLeft.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
-	cannonLeft.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
+
 #	if !is_connected("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change"):
 #		var _res = connect("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change")
+
 #	Preloads.UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
 #	Preloads.UIMain.connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange")
+
 #	var tmp = connect("CannonReset", Preloads.cannonLeft, "_reset_CannonPower")
 #	if (tmp) != OK:
 #		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
@@ -78,31 +78,22 @@ func add_DummyTarget():
 
 func _on_Dummy_Hited(score : int) -> void:
 	emit_signal("UIScoreChange", score)
-	add_DummyTarget()
-
-
-func _on_Ground_Hited() -> void:
-	emit_signal("UIScoreChange", -2)
+#	add_DummyTarget()
 
 
 func _on_UI_ResetGame() -> void:
-	print("Main: UIResetGame_Signal")
+#	print("Main: UIResetGame_Signal")
 #	ToDo:
 #	Vor dem generieren bei Reset
 #	Erst die alten Blocks entfernen
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	yield(get_tree(), "idle_frame")
-	emit_signal("CannonReset")
-	add_DummyTarget()
+#	emit_signal("CannonReset")
+#	add_DummyTarget()
 
 #	add_cannon_left(pos)
 
-
-func _on_Bullet_exploded(pos):
-	var e = Preloads.Explosion.instance()
-	add_child(e)
-	e.position = pos
 #	tank.can_shoot = true
 #	line.hide()
 
