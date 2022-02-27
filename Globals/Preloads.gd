@@ -4,6 +4,7 @@ extends Node
 onready var Cannon:PackedScene = preload("res://Cannon/Cannon.tscn")
 onready var Explosion:PackedScene = preload("res://CannonBall/Explosion.tscn")
 onready var DummyTarget:PackedScene = preload("res://DummyTarget/DummyTarget.tscn")
+onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 
 # Player Node's
 onready var PlayerRootNode = $"/root/MainGame/Players"
