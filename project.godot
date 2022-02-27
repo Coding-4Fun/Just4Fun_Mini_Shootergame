@@ -18,9 +18,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Config="*res://Globals/GameConfig/config.gd"
-Preloads="*res://Globals/Preloads.gd"
 SignalBus="*res://Globals/SignalBus/SignalBus.gd"
+Preloads="*res://Globals/Preloads.gd"
+Config="*res://Globals/GameConfig/config.gd"
 
 [debug]
 
