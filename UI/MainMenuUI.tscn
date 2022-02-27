@@ -68,13 +68,13 @@ margin_right = 802.0
 margin_bottom = 310.0
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
-margin_left = 626.0
-margin_top = 12.0
-margin_right = 973.0
-margin_bottom = 605.0
+margin_left = 707.0
+margin_top = 160.0
+margin_right = 893.0
+margin_bottom = 457.0
 
 [node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
-margin_right = 347.0
+margin_right = 186.0
 margin_bottom = 149.0
 custom_colors/font_color_disabled = Color( 0.0862745, 0.266667, 0.286275, 1 )
 custom_fonts/font = ExtResource( 1 )
@@ -83,6 +83,7 @@ custom_styles/normal = SubResource( 2 )
 text = "Play"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
+visible = false
 margin_top = 153.0
 margin_right = 347.0
 margin_bottom = 297.0
@@ -92,9 +93,10 @@ custom_styles/normal = SubResource( 4 )
 text = "Highscore"
 
 [node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
-margin_top = 301.0
-margin_right = 347.0
-margin_bottom = 445.0
+visible = false
+margin_top = 153.0
+margin_right = 303.0
+margin_bottom = 297.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
@@ -102,9 +104,9 @@ custom_styles/normal = SubResource( 7 )
 text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
-margin_top = 449.0
-margin_right = 347.0
-margin_bottom = 593.0
+margin_top = 153.0
+margin_right = 186.0
+margin_bottom = 297.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
