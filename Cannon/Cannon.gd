@@ -1,10 +1,5 @@
 extends Node2D
 
-signal CannonPowerChange
-signal CannonAngelChange
-signal CannonShoot
-
-
 export var left:bool = true
 
 export var muzzle_velocity = 1500
@@ -15,7 +10,6 @@ export var gravity = 250
 var can_shoot = true
 var current_rotation = 0
 
-onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
 onready var Main = get_tree().get_root().get_node("MainGame")
@@ -23,25 +17,28 @@ onready var Main = get_tree().get_root().get_node("MainGame")
 
 func _ready():
 	## Kannonen umdrehen, wenn auf der rechten Seite
-	connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
+	SignalBus.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
+	SignalBus.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
+	SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
 	pass
+	
 
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
-		var b = Bullet.instance()
+		var b = Preloads.Bullet.instance()
 		Main.add_child(b)
-		b.add_to_group("Shoots")
-		b.connect("exploded", Main, "_on_Bullet_exploded")
+		b.Ply = name
+		b.add_to_group("Shoots")		
 		b.transform = Muzzle.global_transform
 		b.velocity = b.transform.x * muzzle_velocity
 		b.g = gravity
-		emit_signal("CannonShoot")
+		SignalBus.emit_signal("CannonShoot")
 	if event.is_action_released("cannon_power_plus"):
 		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
-		emit_signal("CannonPowerChange", muzzle_velocity)
+		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 	if event.is_action_released("cannon_power_minus"):
 		muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
-		emit_signal("CannonPowerChange", muzzle_velocity)
+		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 #		can_shoot = false
 
 
@@ -52,10 +49,10 @@ func _process(_delta):
 	
 	if can_shoot:
 		if current_rotation != clampedBarrel:
-			emit_signal("CannonAngelChange", clampedBarrel*-1)
+			SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
 			current_rotation = clampedBarrel
 
 
 func _reset_CannonPower() -> void:
-	muzzle_velocity = 1500
-	emit_signal("CannonPowerChange", muzzle_velocity)
+	muzzle_velocity = min_velocity
+	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
