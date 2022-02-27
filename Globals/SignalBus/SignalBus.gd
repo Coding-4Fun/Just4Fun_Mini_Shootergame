@@ -1,12 +1,19 @@
 extends Node
 
+# Cannon Signals
+signal CannonPowerChange
+signal CannonAngelChange
+signal CannonShoot
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+# CannonBall Signals
+signal exploded
+signal GroundHit
+
+# UI Signals
+signal UIScoreChange
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
