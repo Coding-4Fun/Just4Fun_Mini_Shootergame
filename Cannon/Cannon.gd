@@ -17,11 +17,15 @@ onready var Main = get_tree().get_root().get_node("MainGame")
 
 func _ready():
 	## Kannonen umdrehen, wenn auf der rechten Seite
-	SignalBus.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
-	SignalBus.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
-	SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
-	pass
-	
+#	if !SignalBus.is_connected("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange"):
+#		SignalBus.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
+		
+	if !SignalBus.is_connected("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange"):
+		SignalBus.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
+		
+	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
+		SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
+
 
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
