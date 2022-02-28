@@ -8,8 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
-		SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")
 	pass # Replace with function body.
 
 

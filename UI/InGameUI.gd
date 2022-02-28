@@ -11,6 +11,8 @@ signal UIdummyTargetTimerChange
 onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 
 func _ready() -> void:
+	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
+		SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
