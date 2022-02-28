@@ -56,7 +56,7 @@ func add_cannon_left(pos:Vector2 = Vector2.INF):
 func add_DummyTarget():
 	randomize()
 
-	var rand = ceil(rand_range(Preloads.Map.mod, Preloads.Map.world_tiles_x))
+#	var rand = ceil(rand_range(Preloads.Map.mod, Preloads.Map.world_tiles_x))
 	var tiles = Preloads.Map.get_used_cells_by_id(0)
 
 	var randtile = ceil(rand_range(0, tiles.size()-1))
