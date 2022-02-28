@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/Theme/MainTitleFontStyle.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/MainMenuUI.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[node name="MainMenuU" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.203922, 0.337255, 1 )
+
+[node name="labMainTitel" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 123.0
+margin_right = 1500.0
+margin_bottom = 273.0
+rect_rotation = -5.0
+custom_colors/font_color = Color( 0.0862745, 0.266667, 0.286275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Little Fun Mini Shooter Game"
+align = 1
+valign = 1
+
+[node name="centerContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -167.0
+margin_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vSeparator" type="VSeparator" parent="centerContainer"]
+margin_left = 798.0
+margin_top = 307.0
+margin_right = 802.0
+margin_bottom = 310.0
+
+[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
+margin_left = 707.0
+margin_top = 160.0
+margin_right = 893.0
+margin_bottom = 457.0
+
+[node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
+margin_right = 186.0
+margin_bottom = 149.0
+custom_colors/font_color_disabled = Color( 0.0862745, 0.266667, 0.286275, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Play"
+
+[node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
+visible = false
+margin_top = 153.0
+margin_right = 347.0
+margin_bottom = 297.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "Highscore"
+
+[node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
+visible = false
+margin_top = 153.0
+margin_right = 303.0
+margin_bottom = 297.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Settings"
+
+[node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
+margin_top = 153.0
+margin_right = 186.0
+margin_bottom = 297.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+text = "Exit"
+
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttHightScore" to="." method="_on_buttHightScore_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttSettings" to="." method="_on_buttSettings_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttExit" to="." method="_on_buttExit_pressed"]

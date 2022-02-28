@@ -17,6 +17,9 @@ onready var UIMain = $"/root/MainGame/InGameUI"
 # TileMap
 onready var Map = $"/root/MainGame/TerrainMap"
 
+# Main Game Scene
+onready var MainGame = preload("res://MainGame.tscn").instance()
+onready var MainGameScene = preload("res://MainGame.tscn")
 
 func _ready():
 	# Preload the Assets
