@@ -7,9 +7,9 @@ onready var DummyTarget:PackedScene = preload("res://DummyTarget/DummyTarget.tsc
 onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 
 # Player Node's
-onready var PlayerRootNode = $"/root/MainGame/Players"
-onready var PlayerLeft = $"/root/MainGame/Players/Player1"
-onready var PlayerRight = $"/root/MainGame/Players/Player2"
+onready var PlayerRootNode = $"../MainGame/Players"
+onready var PlayerLeft = $"../MainGame/Players/Player1"
+onready var PlayerRight = $"../MainGame/Players/Player2"
 
 # UI
 onready var UIMain = $"/root/MainGame/InGameUI"
