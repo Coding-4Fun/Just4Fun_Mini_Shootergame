@@ -77,3 +77,29 @@ func add_points():
 		add_point(midpoint)
 	add_point(old_points[old_points.size() - 1])
 	current_displacement *= pow(2.0, -smooth)
+
+####
+## Func from MainGame.gd
+####
+#func add_DummyTarget_to_Line():
+#	if Chunk.points.size() < 5:
+##	if TerrainLine.points.size() < 5:
+#		pass
+#
+#	var tlSize = Chunk.world_tiles_x
+#	var rmin : float = 2
+#	var rmax = tlSize-1
+#
+#	randomize()
+#
+#	## Zufällige Position wählen
+#	var i = rand_range(rmin, rmax)
+#
+#	target = Dummy.instance()
+#	target.position = Chunk.points[int(i)]
+#	target.score += int(i)
+#	target.get_transform().scaled(Vector2(0.2,0.2))
+#	target.autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+#
+#	if !target.is_connected("Hit", self, "_on_Dummy_Hited"):
+#		target.connect("Hit", self, "_on_Dummy_Hited")

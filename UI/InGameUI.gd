@@ -18,13 +18,13 @@ func _ready() -> void:
 
 
 # Update UI Label Text when the shootpower changed
-func _on_Cannon_CannonAngelChange(newPower : int) -> void:
-	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel/labAngel.text = str(newPower)
+func _on_Cannon_CannonAngelChange(newAngel : int) -> void:
+	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel/labAngel.text = str(newAngel)
 
 
 # Update UI Label when the shootangel changed
-func _on_Cannon_CannonPowerChange(newAngel : int) -> void:
-	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(newAngel)
+func _on_Cannon_CannonPowerChange(newPower : int) -> void:
+	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(newPower)
 
 
 func _on_Cannon_Shot() -> void:

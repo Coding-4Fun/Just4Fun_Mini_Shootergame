@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cobblestone.png-40dae356ef2e91dfd4722a1e91bbb185.stex"
+path="res://.import/coal_ore_16x16.png-f4f8b21aff24d43d4c83d32aca502cc0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/Blocks/Sprites/cobblestone.png"
-dest_files=[ "res://.import/cobblestone.png-40dae356ef2e91dfd4722a1e91bbb185.stex" ]
+source_file="res://Terrain/sprites/coal_ore_16x16.png"
+dest_files=[ "res://.import/coal_ore_16x16.png-f4f8b21aff24d43d4c83d32aca502cc0.stex" ]
 
 [params]
 

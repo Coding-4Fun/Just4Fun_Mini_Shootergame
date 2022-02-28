@@ -3,48 +3,55 @@ extends Node2D
 onready var noise
 onready var block = preload("res://Terrain/Blocks/Block.tscn")
 onready var screensize:Vector2 = get_viewport().get_visible_rect().size
+onready var midrange:int = screensize.y
+onready var displacement = ceil((midrange / tile_width) / 2)
 
+
+export var current_displacement = 0
+export var castlewidth = 175
+#export (float) var displacement = 0
+#ceil(midrange / tile_width)
+export (float) var smooth = 1.1
 
 enum block_types {
 	AIR=-1,
-	GRAS,
-	DIRT,
-	STONE,
-	BEDROCK
+	GRAS = 0,
+	DIRT = 1,
+	STONE = 2,
+	BEDROCK = 3
 }
 
-var tile_width = 32
-var tile_height = 32
+
+var tile_width = 16
+var tile_height = 16
+var blocscale:float = 0.25
 var surface_height = 64
 
-export var world_depth = 32
-export var f = 24
-export var chunk_width = 32
+export (float) var mod = stepify(castlewidth, tile_width) / tile_width
+
+var points = PoolVector2Array()
+
+#export var world_depth = 32
+#export var f = 24
+#export var chunk_width = 32
+
 
 var world_tiles_x:int
 var screenratio:float
 var world_tiles_y:int
+var min_terrain_height:int
+var max_terrain_height:int
+
 
 func _ready() -> void:
 	world_tiles_x = screensize.x / tile_width
 	screenratio = screensize.x / screensize.y
+# warning-ignore:narrowing_conversion
 	world_tiles_y = round(world_tiles_x / screenratio)
+	min_terrain_height = world_tiles_y - mod
+	max_terrain_height = mod
 
-	randomize()
-	noise = OpenSimplexNoise.new()
-#	noise.seed = randi()
-#
-#	noise.octaves = 3
-#	noise.period = 3
-#	noise.persistence = 0.3
-
-	noise.seed = randi()
-	noise.octaves = 3
-	noise.period = 5.0
-	noise.persistence = 0.8
-	noise.lacunarity = 0.4
-
-	generate_world()
+#	generate_world()
 
 #	for x in range(0, chunk_width):
 #		var y = floor(noise.get_noise_2d((get_global_transform().origin.x/32+x)*.1, 0)*surface_height*.1)
@@ -54,36 +61,48 @@ func _ready() -> void:
 #			new_block(Vector2(x*32, yy*32), block_types.DIRT)
 #	pass
 
-func generate_world() -> void:
+
+func generate_world_block_base() -> void:
+	randomize()
+	current_displacement = displacement
 	for x in world_tiles_x:
+		if x < mod:
+			current_displacement = displacement
 		for y in world_tiles_y:
-			var tile = noise.get_noise_2d(x, y)
-#			print(tile)
-			new_block(Vector2(x, y), tile)
-	pass
+#			Überspringen
+#			if y < current_displacement:
+			if y < current_displacement:
+				continue
+			var new_block = block.instance()
 
-func new_block(pos:Vector2, type) -> void:
-	var new_block = block.instance()
-	var t = block_types.GRAS
-	new_block.translate(Vector2(pos.x*32, pos.y*32))
+#			BasePlattform
+			if x < mod and y == current_displacement:
+				new_block.block_type = 1
+				points.append(Vector2(x*tile_width, y*tile_height))
 
-	if type < -0.1:
-		t = block_types.AIR
+#			GrasLine
+			if x > mod and y == current_displacement:
+				new_block.block_type = 0
+				points.append(Vector2(x*tile_width, y*tile_height))
+#				new_block.enable_BlockCollision()
 
-	if type < 0.3:
-		t = block_types.DIRT
+#			Midearth
+			elif y > current_displacement and y < world_tiles_y-2:
+				new_block.block_type = round(rand_range(2,3))
 
-	if type < 0.5:
-		t = block_types.GRAS
+#			Bedrock
+			else:
+				new_block.block_type = 4
 
-	if type <= 0.7:
-		t = block_types.BEDROCK
+			new_block.translate(Vector2(x*tile_width, y*tile_height))
 
-	if type > 0.4:
-		t = block_types.AIR
+			new_block.resize_BlockSize(blocscale)
+			add_child(new_block)
+			if new_block.block_type == block_types.GRAS:
+				new_block.enable_BlockCollision()
+		current_displacement = current_displacement + sign(rand_range(-1, 2))# pow(-1.0, randi() % 2)
+		if current_displacement < max_terrain_height:
+			current_displacement += 1
+		if current_displacement > min_terrain_height:
+			current_displacement -= 1
 
-	new_block.block_type = t
-#	print(new_block.block_type)
-	add_child(new_block)
-	new_block.debugtext = "%s\n%3.2f" % [pos, type]
-	pass

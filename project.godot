@@ -18,7 +18,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Config="*res://GameConfig/config.gd"
+SignalBus="*res://Globals/SignalBus/SignalBus.gd"
+Preloads="*res://Globals/Preloads.gd"
+Config="*res://Globals/GameConfig/config.gd"
 
 [debug]
 
@@ -70,5 +72,6 @@ name_casing=1
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_clear_color=Color( 0.0745098, 0.737255, 0.964706, 1 )
 environment/default_environment="res://default_env.tres"
