@@ -8,6 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
+		SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")
 	pass # Replace with function body.
 
 
@@ -24,7 +26,8 @@ func _notification(what):
 func _on_buttPlay_pressed():
 	# Change Scene to Game Scene
 #	get_tree().get_root().add_child(Preloads.MainGame)
-	get_tree().change_scene_to(Preloads.MainGameScene)
+	if get_tree().change_scene_to(Preloads.MainGameScene) != OK:
+		print("Error: change_scene_to()::buttPlay")
 #	call_deferred("get_tree().get_root().remove_child()", self)
 	pass # Replace with function body.
 
