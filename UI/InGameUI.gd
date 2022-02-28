@@ -59,4 +59,6 @@ func _on_buttSwitchTargetTimer_pressed() -> void:
 
 
 func _on_buttBackToMenu_pressed() -> void:
-	get_tree().change_scene_to(Preloads.MainMenuScene)
+	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
+		print("Error: change_scene_to()::buttBackToMenu_pressed")
+	
