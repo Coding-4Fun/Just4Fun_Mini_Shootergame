@@ -19,7 +19,9 @@ onready var Map = $"/root/MainGame/TerrainMap"
 
 # Main Game Scene
 onready var MainGame = preload("res://MainGame.tscn").instance()
+#onready var MainGameUI = preload("res://MainGame.tscn").instance()
 onready var MainGameScene = preload("res://MainGame.tscn")
+onready var MainMenuScene = preload("res://UI/MainMenuUI.tscn")
 
 func _ready():
 	# Preload the Assets
@@ -33,7 +35,7 @@ func _ready():
 
 # TileMap
 #Map = $TerrainMap
-	pass 
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

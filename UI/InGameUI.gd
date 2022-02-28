@@ -56,3 +56,7 @@ func _on_buttGameOptions_pressed() -> void:
 func _on_buttSwitchTargetTimer_pressed() -> void:
 	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
+
+
+func _on_buttBackToMenu_pressed() -> void:
+	get_tree().change_scene_to(Preloads.MainMenuScene)
