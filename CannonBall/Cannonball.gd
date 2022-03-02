@@ -11,8 +11,8 @@ var Ply = ""
 
 
 func _ready() -> void:
-	SignalBus.connect("GroundHit", self, "_on_Ground_Hited")
-	SignalBus.connect("exploded", self, "_on_Bullet_exploded")
+	assert(SignalBus.connect("GroundHit", self, "_on_Ground_Hited")==OK)
+	assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded")==OK)
 
 
 func _process(delta):

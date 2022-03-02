@@ -17,7 +17,7 @@ onready var Main = get_tree().get_root().get_node("MainGame")
 
 func _ready():
 	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
-		SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
+		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
 
 	## Kannonen umdrehen, wenn auf der rechten Seite
 

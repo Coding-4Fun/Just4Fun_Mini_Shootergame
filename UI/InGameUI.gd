@@ -12,9 +12,9 @@ onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
-		SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")
+		assert(SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")==OK)
 	if !SignalBus.is_connected("UIScoreChange", self, "_on_UIScore_Change"):
-		SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")
+		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
 	if !SignalBus.is_connected("CannonPowerChange", self, "_on_Cannon_CannonPowerChange"):
 		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
 
