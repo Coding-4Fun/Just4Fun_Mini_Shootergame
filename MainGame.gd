@@ -19,7 +19,7 @@ var target
 
 
 func _ready():
-
+#	print("Main: _ready()")
 #	if !is_connected("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change"):
 #		var _res = connect("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change")
 
@@ -30,9 +30,22 @@ func _ready():
 #	if (tmp) != OK:
 #		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
-#	Preloads.Map.generate_world_tilemap_base()
+	Preloads.Map.generate_world_tilemap_base()
 #	$Chunk.generate_world_block_base()
 	pass
+
+
+func _enter_tree() -> void:
+	# Player Node's
+	Preloads.PlayerRootNode = get_node("Players")
+	Preloads.PlayerLeft = find_node("Player1")
+	Preloads.PlayerRight = find_node("Player2")
+
+	## UI
+	Preloads.UIMain = find_node("InGameUI")
+
+	## TileMap
+	Preloads.Map = find_node("TerrainMap")
 
 
 func _on_MainGame_ready() -> void:
@@ -56,7 +69,7 @@ func add_cannon_left(pos:Vector2 = Vector2.INF):
 func add_DummyTarget():
 	randomize()
 
-	var rand = ceil(rand_range(Preloads.Map.mod, Preloads.Map.world_tiles_x))
+#	var rand = ceil(rand_range(Preloads.Map.mod, Preloads.Map.world_tiles_x))
 	var tiles = Preloads.Map.get_used_cells_by_id(0)
 
 	var randtile = ceil(rand_range(0, tiles.size()-1))

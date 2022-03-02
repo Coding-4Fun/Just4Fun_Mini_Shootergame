@@ -11,9 +11,8 @@ var Ply = ""
 
 
 func _ready() -> void:
-	SignalBus.connect("GroundHit", self, "_on_Ground_Hited")
-	SignalBus.connect("exploded", self, "_on_Bullet_exploded")
-	SignalBus.connect("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change")
+	assert(SignalBus.connect("GroundHit", self, "_on_Ground_Hited")==OK)
+	assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded")==OK)
 
 
 func _process(delta):
@@ -37,7 +36,7 @@ func _on_Cannonball_body_entered(body):
 
 func _on_Bullet_exploded(pos):
 	var e = Preloads.Explosion.instance()
-	add_child(e)
+	Preloads.PlayerLeft.add_child(e)
 	e.position = pos
 
 

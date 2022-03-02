@@ -153,6 +153,19 @@ margin_bottom = 40.0
 pressed = true
 text = "Enable Target Timer"
 
+[node name="vSeparator" type="VSeparator" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+margin_left = 302.0
+margin_right = 1436.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="buttBackToMenu" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+margin_left = 1440.0
+margin_right = 1600.0
+margin_bottom = 40.0
+text = "Back to Menu"
+
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]

@@ -1,6 +1,6 @@
 extends TileMap
 
-var tile_size:Vector2 = Vector2(16,16)
+var tile_size:Vector2 = Vector2(16,16).ceil()
 
 onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 onready var midrange:int = screensize.y
@@ -26,8 +26,8 @@ var max_terrain_height:int
 export (float) var mod = stepify(castlewidth, tile_size.x) / tile_size.x
 
 func _ready() -> void:
-	world_tiles_x = screensize.x / tile_size.x
-	screenratio = screensize.x / screensize.y
+	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
+	screenratio = ceil(screensize.x) / ceil(screensize.y)
 # warning-ignore:narrowing_conversion
 	world_tiles_y = ceil(world_tiles_x / screenratio)
 	min_terrain_height = world_tiles_y - mod
@@ -52,7 +52,10 @@ func generate_world_tilemap_base() -> void:
 				set_cellv(Vector2(x,y), 0)
 			# Unterhalb der Graslinie
 			if y > current_displacement and y < world_tiles_y-2:
-				set_cellv(Vector2(x,y), round(rand_range(1,5)))
+				var rdm = rand_range(1,5)
+				rdm = ceil(rdm)
+				rdm = int(rdm)
+				set_cellv(Vector2(x,y), rdm)
 			elif y >= world_tiles_y-2:
 				set_cellv(Vector2(x,y), 7)
 			# End Y Loop

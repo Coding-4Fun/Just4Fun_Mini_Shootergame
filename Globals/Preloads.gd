@@ -6,31 +6,24 @@ onready var Explosion:PackedScene = preload("res://CannonBall/Explosion.tscn")
 onready var DummyTarget:PackedScene = preload("res://DummyTarget/DummyTarget.tscn")
 onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 
+# Main Game Scene
+onready var MainGameScene = preload("res://MainGame.tscn")
+onready var MainMenuScene = preload("res://UI/MainMenuUI.tscn")
+
 # Player Node's
-onready var PlayerRootNode = $"/root/MainGame/Players"
-onready var PlayerLeft = $"/root/MainGame/Players/Player1"
-onready var PlayerRight = $"/root/MainGame/Players/Player2"
+var PlayerRootNode:Node2D
+var PlayerLeft:Node2D
+var PlayerRight:Node2D
+#
+## UI
+var UIMain:Control
+#
+## TileMap
+var Map:TileMap
 
-# UI
-onready var UIMain = $"/root/MainGame/InGameUI"
 
-# TileMap
-onready var Map = $"/root/MainGame/TerrainMap"
-
-
-func _ready():
-	# Preload the Assets
-# Player Node's
-#PlayerRootNode = $"Players"
-#PlayerLeft = $Players/Player1
-#PlayerRight = $Players/Player2
-
-# UI
-#	UIMain = $"/root/MainGame/InGameUI"
-
-# TileMap
-#Map = $TerrainMap
-	pass 
+#func _ready():
+#	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

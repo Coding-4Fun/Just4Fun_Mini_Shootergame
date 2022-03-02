@@ -12,23 +12,23 @@ var current_rotation = 0
 
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
+onready var InfoPanel = get_node("InfoPanel")
 onready var Main = get_tree().get_root().get_node("MainGame")
 
 
 func _ready():
+	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
+		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
+
 	## Kannonen umdrehen, wenn auf der rechten Seite
-	SignalBus.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
-	SignalBus.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
-	SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
-	pass
-	
+
 
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
 		var b = Preloads.Bullet.instance()
 		Main.add_child(b)
 		b.Ply = name
-		b.add_to_group("Shoots")		
+		b.add_to_group("Shoots")
 		b.transform = Muzzle.global_transform
 		b.velocity = b.transform.x * muzzle_velocity
 		b.g = gravity
@@ -36,6 +36,11 @@ func _unhandled_input(event):
 	if event.is_action_released("cannon_power_plus"):
 		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+		InfoPanel.get_node("popupPanel").visible= true
+		yield(get_tree(), "idle_frame")
+#		get_tree().ensure_control_visible($InfoPanel/popupPanel)
+		InfoPanel.get_node("").text = "Test123"
+		$timer.start()
 	if event.is_action_released("cannon_power_minus"):
 		muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
@@ -46,7 +51,7 @@ func _process(_delta):
 	Barrel.look_at(get_global_mouse_position())
 	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
 	Barrel.rotation_degrees = clampedBarrel
-	
+
 	if can_shoot:
 		if current_rotation != clampedBarrel:
 			SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
@@ -56,3 +61,8 @@ func _process(_delta):
 func _reset_CannonPower() -> void:
 	muzzle_velocity = min_velocity
 	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+
+
+func _on_timer_timeout() -> void:
+	InfoPanel.get_node("popupPanel").visible = false
+	pass # Replace with function body.

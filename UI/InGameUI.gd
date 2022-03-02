@@ -11,6 +11,13 @@ signal UIdummyTargetTimerChange
 onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 
 func _ready() -> void:
+	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
+		assert(SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")==OK)
+	if !SignalBus.is_connected("UIScoreChange", self, "_on_UIScore_Change"):
+		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
+	if !SignalBus.is_connected("CannonPowerChange", self, "_on_Cannon_CannonPowerChange"):
+		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
+
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
@@ -56,3 +63,9 @@ func _on_buttGameOptions_pressed() -> void:
 func _on_buttSwitchTargetTimer_pressed() -> void:
 	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
+
+
+func _on_buttBackToMenu_pressed() -> void:
+	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
+		print("Error: change_scene_to()::buttBackToMenu_pressed")
+
