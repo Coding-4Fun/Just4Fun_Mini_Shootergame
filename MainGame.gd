@@ -19,7 +19,7 @@ var target
 
 
 func _ready():
-
+#	print("Main: _ready()")
 #	if !is_connected("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change"):
 #		var _res = connect("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change")
 
@@ -33,6 +33,19 @@ func _ready():
 	Preloads.Map.generate_world_tilemap_base()
 #	$Chunk.generate_world_block_base()
 	pass
+
+
+func _enter_tree() -> void:
+	# Player Node's
+	Preloads.PlayerRootNode = get_node("Players")
+	Preloads.PlayerLeft = find_node("Player1")
+	Preloads.PlayerRight = find_node("Player2")
+
+	## UI
+	Preloads.UIMain = find_node("InGameUI")
+
+	## TileMap
+	Preloads.Map = find_node("TerrainMap")
 
 
 func _on_MainGame_ready() -> void:
