@@ -32,7 +32,7 @@ position = Vector2( 56, 328 )
 
 [node name="DummyTargets" type="Node2D" parent="."]
 
-[node name="TerrainMap" type="TileMap" parent="."]
+[node name="TerrainMap" type="TileMap" parent="." groups=["Ground"]]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
