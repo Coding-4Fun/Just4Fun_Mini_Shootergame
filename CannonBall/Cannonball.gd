@@ -36,7 +36,7 @@ func _on_Cannonball_body_entered(body):
 
 func _on_Bullet_exploded(pos):
 	var e = Preloads.Explosion.instance()
-	add_child(e)
+	Preloads.PlayerLeft.add_child(e)
 	e.position = pos
 
 
