@@ -13,7 +13,6 @@ var Ply = ""
 func _ready() -> void:
 	SignalBus.connect("GroundHit", self, "_on_Ground_Hited")
 	SignalBus.connect("exploded", self, "_on_Bullet_exploded")
-	SignalBus.connect("UIScoreChange", Preloads.UIMain, "_on_UIScore_Change")
 
 
 func _process(delta):

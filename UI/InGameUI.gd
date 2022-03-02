@@ -13,6 +13,11 @@ onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
 		SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")
+	if !SignalBus.is_connected("UIScoreChange", self, "_on_UIScore_Change"):
+		SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")
+	if !SignalBus.is_connected("CannonPowerChange", self, "_on_Cannon_CannonPowerChange"):
+		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
+
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
@@ -63,4 +68,4 @@ func _on_buttSwitchTargetTimer_pressed() -> void:
 func _on_buttBackToMenu_pressed() -> void:
 	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
 		print("Error: change_scene_to()::buttBackToMenu_pressed")
-	
+

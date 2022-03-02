@@ -16,15 +16,10 @@ onready var Main = get_tree().get_root().get_node("MainGame")
 
 
 func _ready():
-	## Kannonen umdrehen, wenn auf der rechten Seite
-#	if !SignalBus.is_connected("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange"):
-#		SignalBus.connect("CannonAngelChange", Preloads.UIMain, "_on_Cannon_CannonAngelChange")
-		
-	if !SignalBus.is_connected("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange"):
-		SignalBus.connect("CannonPowerChange", Preloads.UIMain, "_on_Cannon_CannonPowerChange")
-		
 	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
 		SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")
+
+	## Kannonen umdrehen, wenn auf der rechten Seite
 
 
 func _unhandled_input(event):
@@ -32,7 +27,7 @@ func _unhandled_input(event):
 		var b = Preloads.Bullet.instance()
 		Main.add_child(b)
 		b.Ply = name
-		b.add_to_group("Shoots")		
+		b.add_to_group("Shoots")
 		b.transform = Muzzle.global_transform
 		b.velocity = b.transform.x * muzzle_velocity
 		b.g = gravity
@@ -50,7 +45,7 @@ func _process(_delta):
 	Barrel.look_at(get_global_mouse_position())
 	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
 	Barrel.rotation_degrees = clampedBarrel
-	
+
 	if can_shoot:
 		if current_rotation != clampedBarrel:
 			SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
