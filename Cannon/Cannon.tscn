@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Cannon/Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Cannon/black-cannon-barrel.png" type="Texture" id=2]
+[ext_resource path="res://UI/CannonInfoPanel.tscn" type="PackedScene" id=3]
 
 [node name="Cannon" type="Node2D"]
 scale = Vector2( 0.1, 0.1 )
@@ -19,3 +20,15 @@ texture = ExtResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="Barrel"]
 position = Vector2( 400, 45 )
+
+[node name="InfoPanel" parent="." instance=ExtResource( 3 )]
+margin_left = -110.0
+margin_top = -270.0
+margin_right = -110.0
+margin_bottom = -270.0
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
