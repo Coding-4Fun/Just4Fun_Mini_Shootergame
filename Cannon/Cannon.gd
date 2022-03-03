@@ -13,26 +13,21 @@ var current_rotation = 0
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
 onready var InfoPanel = get_node("InfoPanel")
-onready var Main = get_tree().get_root().get_node("MainGame")
+# onready var Main = get_tree().get_root().get_node("MainGame")
 
 
 func _ready():
 	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
 		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
+	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot"):
+		assert(SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")==OK, "Error: connect signal CannonShooting")
 
 	## Kannonen umdrehen, wenn auf der rechten Seite
 
 
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
-		var b = Preloads.Bullet.instance()
-		b.Ply = name
-		b.add_to_group("Shoots")
-		b.transform = Muzzle.global_transform
-		b.velocity = b.transform.x * muzzle_velocity
-		b.g = gravity
-		Main.add_child(b)
-		SignalBus.emit_signal("CannonShoot")
+		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
 	if event.is_action_released("cannon_power_plus"):
 		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
