@@ -1,20 +1,22 @@
 extends KinematicBody2D
 
+signal GroundHit
 
 var velocity = Vector2.ZERO
 export var P1 = 1
 onready var screensize = get_viewport().get_visible_rect().size
 onready var Main = $"/root/MainGame"
+var collided = false
 
 var g = 150
 var Ply = ""
 
 
 func _ready() -> void:
-	if !SignalBus.is_connected("GroundHit", self, "_on_Cannon_Shot"):
-		assert(SignalBus.connect("GroundHit", self, "_on_Ground_Hited")==OK)
-	if !SignalBus.is_connected("exploded", self, "_on_Cannon_Shot"):
-		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded")==OK)
+	if !.is_connected("GroundHit", self, "_on_Ground_Hited"):
+		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
+	if !SignalBus.is_connected("exploded", self, "_on_Bullet_exploded"):
+		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
 
 
 func _process(_delta):
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	rotation = velocity.angle()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		if collision.collider is TileMap:
+		if collision.collider is TileMap and !collided:
 			# Find the character's position in tile coordinates
 			var tile_pos = collision.collider.world_to_map(position)
 			# Find the colliding tile position
@@ -41,9 +43,11 @@ func _physics_process(delta: float) -> void:
 			# Get the tile id
 			var tile_id = collision.collider.get_cellv(tile_pos)
 			print("collide: %s %s" % [name, tile_id])
-			if tile_id == 0:
+			if tile_id == 7:
+				collided = true
+				yield(get_tree(), "idle_frame")
 				SignalBus.emit_signal("exploded", position + transform.x * 37)
-				SignalBus.emit_signal("GroundHit")
+				.emit_signal("GroundHit")
 				$collisionShape2D.disabled = false
 #				print("collide: " + name)
 			call_deferred("queue_free")
@@ -62,8 +66,9 @@ func _on_Bullet_exploded(pos):
 
 
 func _on_Ground_Hited() -> void:
+#	if is_queued_for_deletion():
 	print("GroundHit: " + name)
-	SignalBus.emit_signal("UIScoreChange", -2)
+	emit_signal("UIScoreChange", -2)
 
 
 func _on_Cannonball_body_exited(body):
