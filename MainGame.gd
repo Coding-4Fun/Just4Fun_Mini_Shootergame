@@ -40,6 +40,7 @@ func _enter_tree() -> void:
 	Preloads.PlayerRootNode = get_node("Players")
 	Preloads.PlayerLeft = find_node("Player1")
 	Preloads.PlayerRight = find_node("Player2")
+	Preloads.PlayerShots = find_node("Shots")
 
 	## UI
 	Preloads.UIMain = find_node("InGameUI")
