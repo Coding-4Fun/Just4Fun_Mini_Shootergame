@@ -26,21 +26,21 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
 		var b = Preloads.Bullet.instance()
-		Main.add_child(b)
 		b.Ply = name
 		b.add_to_group("Shoots")
 		b.transform = Muzzle.global_transform
 		b.velocity = b.transform.x * muzzle_velocity
 		b.g = gravity
+		Main.add_child(b)
 		SignalBus.emit_signal("CannonShoot")
 	if event.is_action_released("cannon_power_plus"):
 		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
-		InfoPanel.get_node("popupPanel").visible= true
-		yield(get_tree(), "idle_frame")
-#		get_tree().ensure_control_visible($InfoPanel/popupPanel)
-		InfoPanel.get_node("").text = "Test123"
-		$timer.start()
+#		InfoPanel.get_node("popupPanel").visible= true
+#		yield(get_tree(), "idle_frame")
+##		get_tree().ensure_control_visible($InfoPanel/popupPanel)
+#		InfoPanel.get_node("").text = "Test123"
+#		$timer.start()
 	if event.is_action_released("cannon_power_minus"):
 		muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
