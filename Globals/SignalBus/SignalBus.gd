@@ -4,11 +4,12 @@ extends Node
 signal CannonPowerChange
 signal CannonAngelChange
 signal CannonShoot
+signal CannonShooting
 
 
 # CannonBall Signals
 signal exploded
-signal GroundHit
+#signal GroundHit
 
 # UI Signals
 signal UIScoreChange
