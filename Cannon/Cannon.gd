@@ -25,11 +25,18 @@ func _ready():
 	## Kannonen umdrehen, wenn auf der rechten Seite
 
 
+#func _unhandled_key_input(event):
+#	pass
+
+
 func _unhandled_input(event):
-	if event.is_action_released("cannon_shoot") and can_shoot:
+	if event.is_action_released("cannon_shoot"): # and can_shoot:
 		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
 	if event.is_action_released("cannon_power_plus"):
-		muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
+		if Input.is_key_pressed(KEY_CONTROL):
+			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
+		else:
+			muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 #		InfoPanel.get_node("popupPanel").visible= true
 #		yield(get_tree(), "idle_frame")
@@ -37,7 +44,11 @@ func _unhandled_input(event):
 #		InfoPanel.get_node("").text = "Test123"
 #		$timer.start()
 	if event.is_action_released("cannon_power_minus"):
-		muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
+		if Input.is_key_pressed(KEY_CONTROL):
+			muzzle_velocity = clamp(muzzle_velocity-1000, min_velocity, max_velocity)
+		else:
+			muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
+			
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 #		can_shoot = false
 
