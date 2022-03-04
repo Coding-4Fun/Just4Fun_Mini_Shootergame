@@ -36,6 +36,12 @@ func _physics_process(delta: float) -> void:
 			if tile_id == 0:
 				SignalBus.emit_signal("exploded", position + transform.x * 37)
 				emit_signal("GroundHit")
+		elif collision.collider is StaticBody2D:
+			if collision.collider.is_in_group("Dummy") and collision.collider.has_method("_hit_ByBall"):
+				collision.collider._hit_ByBall()
+			pass
+			
+		
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
 		emit_signal("GroundHit")
