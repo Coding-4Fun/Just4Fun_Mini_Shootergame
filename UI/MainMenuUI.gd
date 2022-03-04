@@ -43,3 +43,11 @@ func _on_buttSettings_pressed():
 func _on_buttExit_pressed():
 	# Close Game, Back to System. Not on HTML
 	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+
+
+func _on_buttExit_ready():
+	if OS.get_name() == "HTML5":
+		$centerContainer/vBoxContainer/buttExit.disabled = true
+	else:
+		print("OS: %s" % OS.get_name())
+	pass # Replace with function body.

@@ -107,6 +107,7 @@ text = "Settings"
 margin_top = 153.0
 margin_right = 186.0
 margin_bottom = 297.0
+hint_tooltip = "Not funcioning in the Browser"
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
@@ -116,3 +117,4 @@ text = "Exit"
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttHightScore" to="." method="_on_buttHightScore_pressed"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttSettings" to="." method="_on_buttSettings_pressed"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttExit" to="." method="_on_buttExit_pressed"]
+[connection signal="ready" from="centerContainer/vBoxContainer/buttExit" to="." method="_on_buttExit_ready"]
