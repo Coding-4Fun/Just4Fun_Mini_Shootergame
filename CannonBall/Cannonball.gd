@@ -5,8 +5,6 @@ signal GroundHit
 var velocity = Vector2.ZERO
 export var P1 = 1
 onready var screensize = get_viewport().get_visible_rect().size
-onready var Main = $"/root/MainGame"
-var collided = false
 
 var g = 150
 var Ply = ""
@@ -28,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	rotation = velocity.angle()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		if collision.collider is TileMap and !collided:
+		if collision.collider is TileMap:
 			# Find the character's position in tile coordinates
 			var tile_pos = collision.collider.world_to_map(position)
 			# Find the colliding tile position
@@ -38,8 +36,11 @@ func _physics_process(delta: float) -> void:
 			if tile_id == 0:
 				SignalBus.emit_signal("exploded", position + transform.x * 37)
 				emit_signal("GroundHit")
-				$collisionShape2D.disabled = false
-			call_deferred("queue_free")
+		call_deferred("queue_free")
+	elif position.x > screensize.x or position.y > screensize.y:
+		emit_signal("GroundHit")
+		call_deferred("queue_free")
+		pass
 
 
 func _on_Bullet_exploded(pos):
