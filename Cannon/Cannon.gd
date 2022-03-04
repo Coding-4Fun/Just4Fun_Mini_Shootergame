@@ -61,3 +61,9 @@ func _reset_CannonPower() -> void:
 func _on_timer_timeout() -> void:
 	InfoPanel.get_node("popupPanel").visible = false
 	pass # Replace with function body.
+
+
+func _on_Cannon_ready():
+	muzzle_velocity = floor((max_velocity - min_velocity) / 2)
+	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+	pass # Replace with function body.
