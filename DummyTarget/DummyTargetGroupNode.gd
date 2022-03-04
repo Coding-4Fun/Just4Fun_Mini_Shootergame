@@ -16,13 +16,18 @@ func _ready():
 func _on_Create_Add_NewTarget() -> void:
 	randomize()
 
-	var tiles = Preloads.Map.get_used_cells_by_id(0)
-	var tilecount = tiles.size()
-	var randtile = ceil(rand_range(10, tiles.size()-1))
-	if randtile < 10:
-		print("Random Tile smaller as 10")
-	var nxtTile = clamp(randtile, 10, tilecount-1)
-	var tile_coord = tiles[nxtTile]
+	var tilecount = Preloads.Map.world_tiles_x
+	var randtile = ceil(rand_range(Preloads.Map.mod + 10, tilecount-1))
+
+	var tile_coord
+	
+	for y in range(0, Preloads.Map.world_tiles_y-1):
+		var tid = Preloads.Map.get_cell(randtile, y)
+		if tid == 0:
+			tile_coord = Vector2(randtile, y)
+			print("Tile: %s" % str(tile_coord))
+			break
+
 	var posi = Preloads.Map.map_to_world(tile_coord)
 	posi.x += 8
 	
