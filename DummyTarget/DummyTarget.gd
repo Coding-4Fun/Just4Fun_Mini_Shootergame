@@ -49,3 +49,10 @@ func _process(delta: float) -> void:
 		TimeMax -= delta
 		
 #	pass
+
+
+#func _enter_tree():
+#	print("Dummy - enter_tree(%s)" % str(position))
+#
+#func _exit_tree():
+#	print("Dummy - exit_tree(%s)" % str(position))
