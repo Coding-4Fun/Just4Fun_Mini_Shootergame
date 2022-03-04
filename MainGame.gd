@@ -16,7 +16,7 @@ var target
 
 func _ready():
 #	print("Main: _ready()")
-#	Preloads.UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
+	Preloads.UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
 
 #	var tmp = connect("CannonReset", Preloads.cannonLeft, "_reset_CannonPower")
 #	if (tmp) != OK:
@@ -60,19 +60,12 @@ func add_cannon_left(pos:Vector2 = Vector2.INF):
 		cannonLeft.position = pos
 
 
-#func _on_UI_ResetGame() -> void:
+func _on_UI_ResetGame() -> void:
 #	print("Main: UIResetGame_Signal")
-#	ToDo:
-#	Vor dem generieren bei Reset
-#	Erst die alten Blocks entfernen
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
-	yield(get_tree(), "idle_frame")
-#	emit_signal("CannonReset")
-#	emit_signal("CreateAndAddNewTarget")
-#	add_cannon_left(pos)
-#	pass
-
+	Preloads.Map.generate_world_tilemap_base()
+	SignalBus.emit_signal("CreateAndAddNewTarget")
 
 
 #func update_trajectory():
