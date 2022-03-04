@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Terrain/blocks_tileset_16x16.tres" type="TileSet" id=1]
 [ext_resource path="res://MainGame.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/players.gd" type="Script" id=4]
 [ext_resource path="res://TerrainMapGenerator.gd" type="Script" id=5]
 [ext_resource path="res://Cannon/Cannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://DummyTarget/DummyTargetGroupNode.tscn" type="PackedScene" id=7]
+[ext_resource path="res://DummyTarget/DummyTargetGroupNode.gd" type="Script" id=8]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 2 )
@@ -24,7 +26,8 @@ position = Vector2( 184, 391 )
 [node name="Shots" type="Node2D" parent="Players"]
 script = ExtResource( 4 )
 
-[node name="DummyTargets" type="Node2D" parent="."]
+[node name="DummyTargetGroupNode" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
 
 [node name="TerrainMap" type="TileMap" parent="." groups=["Ground"]]
 tile_set = ExtResource( 1 )
