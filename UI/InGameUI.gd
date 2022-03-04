@@ -17,6 +17,8 @@ func _ready() -> void:
 		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
 	if !SignalBus.is_connected("CannonPowerChange", self, "_on_Cannon_CannonPowerChange"):
 		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
+	if !SignalBus.is_connected("CannonShoot", self, "_on_Cannon_Shot"):
+		assert(SignalBus.connect("CannonShoot", self, "_on_Cannon_Shot") == OK)
 
 	var test = Preloads.PlayerLeft.find_node("Cannon")
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxShots/labShots.text = str(_shots)
