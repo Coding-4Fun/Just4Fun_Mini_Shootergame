@@ -50,7 +50,7 @@ func _on_UIScore_Change(score) -> void:
 		var pps:float = float(float(_score) / float(_shots))
 		$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
 
-
+## Reset the Game
 func _on_button_pressed() -> void:
 	_shots = 0.0
 	_score = 0.0
@@ -70,6 +70,5 @@ func _on_buttSwitchTargetTimer_pressed() -> void:
 
 
 func _on_buttBackToMenu_pressed() -> void:
-	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
-		print("Error: change_scene_to()::buttBackToMenu_pressed")
+	assert(get_tree().change_scene_to(Preloads.MainMenuScene) != OK, "Error: change_scene_to()::buttBackToMenu_pressed")
 
