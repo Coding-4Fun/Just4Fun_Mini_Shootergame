@@ -9,7 +9,10 @@ signal CannonShooting
 
 # CannonBall Signals
 signal exploded
-#signal GroundHit
+
+#Target Signals
+signal CreateAndAddNewTarget
+signal TargetHitted
 
 # UI Signals
 signal UIScoreChange
