@@ -66,8 +66,11 @@ func _on_UIScore_Change(score) -> void:
 func _on_button_pressed() -> void:
 	_shots = 0.0
 	_score = 0.0
+	_hits = 0.0
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots/labShots.text = str(_shots)
+	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits/labHits.text = str(_hits)
+	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 	emit_signal("UIResetGame")
 
 
