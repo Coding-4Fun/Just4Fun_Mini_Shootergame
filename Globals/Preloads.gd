@@ -22,6 +22,10 @@ var Main:Node2D
 ## UI
 var UIMain:Control
 #
+## Dummys
+onready var DummyTargetGroup:Node2D
+
+#
 ## TileMap
 var Map:TileMap
 
