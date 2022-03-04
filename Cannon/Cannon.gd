@@ -32,6 +32,7 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot"): # and can_shoot:
 		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
+		SignalBus.emit_signal("CannonShoot")
 	if event.is_action_released("cannon_power_plus"):
 		if Input.is_key_pressed(KEY_CONTROL):
 			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
