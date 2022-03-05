@@ -218,32 +218,42 @@ rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
 text = "123456789"
 
-[node name="hBoxOptions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+[node name="vBoxSettings" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer"]
+visible = false
 margin_top = 60.0
 margin_right = 1600.0
-margin_bottom = 100.0
+margin_bottom = 104.0
+
+[node name="hBoxOptions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings"]
+margin_right = 1600.0
+margin_bottom = 40.0
 mouse_filter = 2
 
-[node name="buttSwitchTargetTimer" type="CheckButton" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+[node name="buttSwitchTargetTimer" type="CheckButton" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions"]
 margin_right = 298.0
 margin_bottom = 40.0
 pressed = true
 text = "Enable Target Timer"
 
-[node name="vSeparator" type="VSeparator" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+[node name="vSeparator" type="VSeparator" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions"]
 margin_left = 302.0
 margin_right = 1436.0
 margin_bottom = 40.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="buttBackToMenu" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxOptions"]
+[node name="buttBackToMenu" type="Button" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions"]
 margin_left = 1440.0
 margin_right = 1600.0
 margin_bottom = 40.0
 text = "Back to Menu"
 
+[node name="hBoxConditions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings"]
+margin_top = 44.0
+margin_right = 1600.0
+margin_bottom = 44.0
+
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
-[connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]

@@ -9,7 +9,7 @@ var _hits : float = 0
 signal UIResetGame
 signal UIdummyTargetTimerChange
 
-onready var OptionUI = $IngameUIBottom/vBoxContainer/hBoxOptions
+onready var OptionUI = $IngameUIBottom/vBoxContainer/vBoxSettings
 
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
@@ -34,7 +34,7 @@ func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(test.min_velocity)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 	
-	$IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	$IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 
 
 # Update UI Label Text when the shootpower changed
