@@ -21,6 +21,20 @@ Der Treffer eines Zieles beschert dem Spieler Punkte
 Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
 
 
+## Alpha.4
+- UI: Kleine Erweiterung im UI
+- UI: Ein kleines Hauptmneü mit einem Play Button
+- Visuell: Eine kleine Burg für den Spieler
+- Fix: Target kann jetzt nicht mehr zu dicht spawnen
+- Fix: Anzeigen in der IngameUI
+- Fix: Löschen der Map bei GameReset
+- Code: Refactoring des Codes
+- Code: Verwendung von Autoloads
+- Code: Mehr Verwendung von Signals
+- Code/Fix: Collision Handling
+- Game: Mit gedrückter STRG lässt sich die Schusskraft um 1000 erhöhen, ohne um 100
+
+
 ## Update Alpha.2.1
 Add: Timer auf Ziel und Anzeige der möglichen Punkte bei einem Treffer
 
