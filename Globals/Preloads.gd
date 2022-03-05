@@ -14,9 +14,17 @@ onready var MainMenuScene = preload("res://UI/MainMenuUI.tscn")
 var PlayerRootNode:Node2D
 var PlayerLeft:Node2D
 var PlayerRight:Node2D
+var PlayerShots:Node2D
+#
+##
+var Main:Node2D
 #
 ## UI
 var UIMain:Control
+#
+## Dummys
+onready var DummyTargetGroup:Node2D
+
 #
 ## TileMap
 var Map:TileMap

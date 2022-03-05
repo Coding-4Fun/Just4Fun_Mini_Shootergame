@@ -34,7 +34,17 @@ func _ready() -> void:
 	max_terrain_height = mod
 
 
+func Reset_TileMap() -> void:
+	## Woraround um die Burg zu behalten
+	var Castle = get_used_cells_by_id(6)
+	clear()
+	for i in Castle.size():
+		set_cellv(Castle[i], 6)
+	pass
+
+
 func generate_world_tilemap_base() -> void:
+	Reset_TileMap()
 	randomize()
 	current_displacement = displacement
 	for x in world_tiles_x:

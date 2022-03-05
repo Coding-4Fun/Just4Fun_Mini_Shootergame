@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-signal Hit
 
 export var score : int = 1
 export var autoDespawn = true
@@ -14,6 +13,8 @@ onready var label = $dummyLabel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = "0"
+	autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	
 	if autoDespawn :
 		$despawnTimer.start()
 	else:
@@ -22,7 +23,8 @@ func _ready() -> void:
 
 
 func _hit_ByBall():
-	emit_signal("Hit", score)
+	$despawnTimer.stop()
+	SignalBus.emit_signal("TargetHitted", score)
 	queue_free()
 
 
@@ -32,9 +34,8 @@ func _on_despawnTimer_timeout() -> void:
 
 	if TimeMax <= 0:
 		$despawnTimer.stop()
-		emit_signal("Hit", score*-1)
+		SignalBus.emit_signal("TargetHitted", score*-1)
 		queue_free()
-
 
 
 #func _exit_tree() -> void:
@@ -44,5 +45,14 @@ func _on_despawnTimer_timeout() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	TimeMax -= delta
+	if autoDespawn :
+		TimeMax -= delta
+		
 #	pass
+
+
+#func _enter_tree():
+#	print("Dummy - enter_tree(%s)" % str(position))
+#
+#func _exit_tree():
+#	print("Dummy - exit_tree(%s)" % str(position))
