@@ -7,7 +7,8 @@ onready var MaxScoreSwitch = $cButtSwitchMaxScore
 func _ready():
 	MaxScoreLabel.text = str(MaxScoreSlider.value)
 	MaxScoreSwitch.pressed = Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"] 
-	MaxScoreSlider.value = Config.config_data["Game"]["Condition"]["MinMaxScore"]
+	MaxScoreSlider.value = Config.config_data["Game"]["Condition"]["MinMaxScoreValue"]
+	MaxScoreSlider.editable = Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"] 
 	pass
 
 
