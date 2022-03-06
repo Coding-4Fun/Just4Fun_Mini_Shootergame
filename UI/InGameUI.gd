@@ -60,14 +60,17 @@ func _on_Cannon_CannonPowerChange(newPower : int) -> void:
 func _on_Cannon_Shot() -> void:
 	_shots += 1
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots/labShots.text = str(_shots)
+	GSM.emit_signal("GameStateChange", _score, _hits, _shots) 
 
 
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
+	GSM.emit_signal("GameStateChange", _score, _hits, _shots) 
 	if score > 0:
 		_hits += 1
 		$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits/labHits.text = str(_hits)
+		GSM.emit_signal("GameStateChange", _score, _hits, _shots) 
 	if _shots != 0:
 		var pps:float = float(float(_score) / float(_shots))
 		$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
