@@ -80,7 +80,7 @@ func _on_buttGameOptions_pressed() -> void:
 
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
-	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed)
+	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
 
 
