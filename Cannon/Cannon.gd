@@ -17,9 +17,14 @@ onready var Barrel = get_node("Barrel")
 
 func _ready():
 	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
-		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
+###		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
+		if SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot") != OK:
+			print("Error - Cannon.gd: connect signal CannonShoot")
+		
 	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot"):
-		assert(SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")==OK, "Error: connect signal CannonShooting")
+###		assert(SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")==OK, "Error: connect signal CannonShooting")
+		if SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")!=OK:
+			print("Error - Cannon.gd: connect signal CannonShooting")
 
 	## Kannonen umdrehen, wenn auf der rechten Seite
 
