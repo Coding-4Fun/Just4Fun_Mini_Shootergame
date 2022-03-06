@@ -48,6 +48,6 @@ func _on_buttExit_pressed():
 func _on_buttExit_ready():
 	if OS.get_name() == "HTML5":
 		$centerContainer/vBoxContainer/buttExit.disabled = true
-	else:
-		print("OS: %s" % OS.get_name())
+#	else:
+#		print("OS: %s" % OS.get_name())
 	pass # Replace with function body.

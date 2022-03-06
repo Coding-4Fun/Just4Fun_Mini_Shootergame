@@ -48,7 +48,7 @@ func _on_MainGame_ready() -> void:
 	pass
 
 
-func add_cannon_left(pos:Vector2 = Vector2.INF):
+#func add_cannon_left(pos:Vector2 = Vector2.INF):
 ##	cannonLeft.position = TerrainLine.points[0]
 ##	cannonLeft.position.x = TerrainLine.castlewidth / 2
 #	if pos == Vector2.INF:
@@ -58,7 +58,7 @@ func add_cannon_left(pos:Vector2 = Vector2.INF):
 #		Preloads.PlayerLeft.add_child(cannonLeft)
 #	else:
 #		cannonLeft.position = pos
-	pass
+#	pass
 
 
 func _on_UI_ResetGame() -> void:
