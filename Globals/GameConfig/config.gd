@@ -8,7 +8,13 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 			"DummyTarget": {
 				"TimerEnabled": true,
 				"TimerCountdown": 6
-			}
+			},
+			"Condition": {
+				"MaxShotsEnabled": false,
+				"MaxShotsValue": -0,
+				"MinMaxScoreEnabled": false,
+				"MinMaxScore": -1000
+			},
 		},
 		"Network": {
 			"HostIPAdress": "127.0.0.1",

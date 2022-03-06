@@ -3,9 +3,9 @@ extends Node2D
 
 signal CannonReset
 
-onready var cannonLeft = Preloads.Cannon.instance()
-onready var cannonBarrelLeft = cannonLeft.get_node("Barrel")
-onready var cannonBarrelLeftMuzzle = cannonBarrelLeft.get_node("Muzzle")
+#onready var cannonLeft = Preloads.Cannon.instance()
+#onready var cannonBarrelLeft = cannonLeft.get_node("Barrel")
+#onready var cannonBarrelLeftMuzzle = cannonBarrelLeft.get_node("Muzzle")
 
 #onready var cannonRight = cannon.instance()
 #onready var cannonBarrelRight = cannonRight.get_node("Barrel")
@@ -48,16 +48,17 @@ func _on_MainGame_ready() -> void:
 	pass
 
 
-func add_cannon_left(pos:Vector2 = Vector2.INF):
-#	cannonLeft.position = TerrainLine.points[0]
-#	cannonLeft.position.x = TerrainLine.castlewidth / 2
-	if pos == Vector2.INF:
-		var p = Preloads.Map.plattform[ceil(Preloads.Map.plattform.size()/2)]
-		cannonLeft.position = Preloads.Map.map_to_world(p)
-#		cannonLeft.position.x = Chunk.castlewidth / 2
-		Preloads.PlayerLeft.add_child(cannonLeft)
-	else:
-		cannonLeft.position = pos
+#func add_cannon_left(pos:Vector2 = Vector2.INF):
+##	cannonLeft.position = TerrainLine.points[0]
+##	cannonLeft.position.x = TerrainLine.castlewidth / 2
+#	if pos == Vector2.INF:
+#		var p = Preloads.Map.plattform[ceil(Preloads.Map.plattform.size()/2)]
+#		cannonLeft.position = Preloads.Map.map_to_world(p)
+##		cannonLeft.position.x = Chunk.castlewidth / 2
+#		Preloads.PlayerLeft.add_child(cannonLeft)
+#	else:
+#		cannonLeft.position = pos
+#	pass
 
 
 func _on_UI_ResetGame() -> void:

@@ -13,19 +13,29 @@ onready var OptionUI = $IngameUIBottom/vBoxContainer/vBoxSettings
 
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
-		assert(SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")==OK)
-	
+###		assert(SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")==OK)
+		if SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange") != OK:
+			print("Error - InGameUI.gd: connect signal CannonAngelChange")
+			
 	if !SignalBus.is_connected("UIScoreChange", self, "_on_UIScore_Change"):
-		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
+###		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
+		if SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change") != OK:
+			print("Error - InGameUI.gd: connect signal UIScoreChange")
 	
 	if !SignalBus.is_connected("CannonPowerChange", self, "_on_Cannon_CannonPowerChange"):
-		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
+###		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
+		if SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") != OK:
+			print("Error - InGameUI.gd: connect signal CannonPowerChange")
 	
 	if !SignalBus.is_connected("CannonShoot", self, "_on_Cannon_Shot"):
-		assert(SignalBus.connect("CannonShoot", self, "_on_Cannon_Shot") == OK)
+###		assert(SignalBus.connect("CannonShoot", self, "_on_Cannon_Shot") == OK)
+		if SignalBus.connect("CannonShoot", self, "_on_Cannon_Shot") != OK:
+			print("Error - InGameUI.gd: connect signal CannonShoot")
 
 	if !is_connected("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange"):
-		assert(connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") == OK)
+###		assert(connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") == OK)
+		if connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") != OK:
+			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
 	var test = Preloads.PlayerLeft.find_node("Cannon")
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots/labShots.text = str(_shots)
@@ -80,10 +90,13 @@ func _on_buttGameOptions_pressed() -> void:
 
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
-	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/hBoxOptions/buttSwitchTargetTimer.pressed)
+	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
 
 
 func _on_buttBackToMenu_pressed() -> void:
-	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
+###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
+	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK: 
+		print("Error: change_scene_to()::buttBackToMenu_pressed")
+	Config.save_gameconfig()
 

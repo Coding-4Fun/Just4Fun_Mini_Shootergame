@@ -11,10 +11,15 @@ var Ply = ""
 
 
 func _ready() -> void:
-	if !.is_connected("GroundHit", self, "_on_Ground_Hited"):
-		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
+	if !is_connected("GroundHit", self, "_on_Ground_Hited"):
+###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
+		if connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED) != OK:
+			print("Error - Cannonball.gd: connect signal GroundHit")
+			
 	if !SignalBus.is_connected("exploded", self, "_on_Bullet_exploded"):
-		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
+###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
+		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+			print("Error - Cannonball.gd: connect signal exploded")
 
 
 #func _process(_delta):
