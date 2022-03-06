@@ -12,7 +12,6 @@ var current_rotation = 0
 
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
-onready var InfoPanel = get_node("InfoPanel")
 # onready var Main = get_tree().get_root().get_node("MainGame")
 
 
@@ -39,11 +38,6 @@ func _unhandled_input(event):
 		else:
 			muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
-#		InfoPanel.get_node("popupPanel").visible= true
-#		yield(get_tree(), "idle_frame")
-##		get_tree().ensure_control_visible($InfoPanel/popupPanel)
-#		InfoPanel.get_node("").text = "Test123"
-#		$timer.start()
 	if event.is_action_released("cannon_power_minus"):
 		if Input.is_key_pressed(KEY_CONTROL):
 			muzzle_velocity = clamp(muzzle_velocity-1000, min_velocity, max_velocity)
@@ -68,11 +62,6 @@ func _process(_delta):
 func _reset_CannonPower() -> void:
 	muzzle_velocity = min_velocity
 	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
-
-
-func _on_timer_timeout() -> void:
-	InfoPanel.get_node("popupPanel").visible = false
-	pass # Replace with function body.
 
 
 func _on_Cannon_ready():
