@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/InGameUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/Settings/MaxShotSlider.gd" type="Script" id=2]
 
 [node name="InGameUI" type="Control"]
 margin_right = 1600.0
@@ -17,7 +18,7 @@ size_flags_horizontal = 3
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
 margin_right = 1600.0
-margin_bottom = 100.0
+margin_bottom = 159.0
 mouse_filter = 2
 
 [node name="hBoxHud" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
@@ -219,10 +220,10 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="vBoxSettings" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-visible = false
 margin_top = 60.0
 margin_right = 1600.0
-margin_bottom = 104.0
+margin_bottom = 159.0
+mouse_filter = 0
 
 [node name="hBoxOptions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings"]
 margin_right = 1600.0
@@ -251,9 +252,78 @@ text = "Back to Menu"
 [node name="hBoxConditions" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings"]
 margin_top = 44.0
 margin_right = 1600.0
-margin_bottom = 44.0
+margin_bottom = 99.0
+
+[node name="hBoxContainer" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions"]
+margin_right = 1600.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+margin_right = 115.0
+margin_bottom = 55.0
+text = "Win/Loose
+Conditions"
+
+[node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+margin_left = 119.0
+margin_right = 685.0
+margin_bottom = 55.0
+
+[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer"]
+margin_right = 566.0
+margin_bottom = 40.0
+size_flags_horizontal = 0
+custom_constants/separation = 5
+script = ExtResource( 2 )
+
+[node name="cButtSwitchMaxShots" type="CheckButton" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots"]
+margin_right = 190.0
+margin_bottom = 40.0
+text = "Max Shots"
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots"]
+margin_left = 195.0
+margin_right = 305.0
+margin_bottom = 40.0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+text = "Max Shots"
+valign = 1
+
+[node name="MaxShotSlider" type="HSlider" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots"]
+margin_left = 310.0
+margin_right = 490.0
+margin_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2( 180, 40 )
+size_flags_horizontal = 8
+size_flags_vertical = 5
+min_value = -1.0
+step = 10.0
+rounded = true
+editable = false
+tick_count = 10
+ticks_on_borders = true
+
+[node name="labelMaxShots" type="Label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots"]
+margin_left = 495.0
+margin_top = 7.0
+margin_right = 566.0
+margin_bottom = 33.0
+text = "123456"
+
+[node name="vBoxContainer_2" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+margin_left = 689.0
+margin_right = 1600.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
+[connection signal="pressed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots/cButtSwitchMaxShots" to="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_pressed"]
+[connection signal="value_changed" from="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots/MaxShotSlider" to="IngameUIBottom/vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainer/hBoxContainerMaxShots" method="_on_MaxShotSlider_value_changed"]
