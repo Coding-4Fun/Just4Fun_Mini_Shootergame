@@ -12,7 +12,8 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 			"Condition": {
 				"MaxShotsEnabled": false,
 				"MaxShotsValue": -0,
-				"MaxNegativeScore": -1000
+				"MinMaxScoreEnabled": false,
+				"MinMaxScore": -1000
 			},
 		},
 		"Network": {
