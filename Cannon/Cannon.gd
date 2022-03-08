@@ -34,7 +34,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if GSM.gameWin:
+	if GSM.gameWin != -1:
 		return
 	if event.is_action_released("cannon_shoot"): # and can_shoot:
 		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
