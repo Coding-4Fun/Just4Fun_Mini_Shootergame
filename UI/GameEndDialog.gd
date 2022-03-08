@@ -15,11 +15,15 @@ func set_WinLoose_Text(value) -> void:
 
 
 func DisplayText() -> void:
-	match
-	if GSM.gameWin:
-		winLooseLabel.text = "You have Won"
-	else:
-		winLooseLabel.text = "You have Loose"
+	match GSM.gameWin:
+		1:
+			winLooseLabel.text = "You have Won"
+		2:
+			winLooseLabel.text = "You have Won"
+		0:
+			winLooseLabel.text = "You have Loose"
+		_:
+			winLooseLabel.text = "Just End"
 
 
 func _on_buttNewGame_pressed() -> void:
