@@ -13,6 +13,7 @@ config_version=4
 config/name="J4F_MiniShootEmUp"
 config/description="Just 4 Fun - Mini Shootergame"
 run/main_scene="res://UI/MainMenuUI.tscn"
+run/flush_stdout_on_print=true
 boot_splash/bg_color=Color( 0.109804, 0.372549, 0.47451, 1 )
 config/icon="res://icon.png"
 
@@ -21,6 +22,7 @@ config/icon="res://icon.png"
 SignalBus="*res://Globals/SignalBus/SignalBus.gd"
 Preloads="*res://Globals/Preloads.gd"
 Config="*res://Globals/GameConfig/config.gd"
+GSM="*res://Globals/GameStateManager/GameStateManager.gd"
 
 [debug]
 
@@ -64,6 +66,14 @@ cannon_power_minus={
  ]
 }
 
+[memory]
+
+limits/message_queue/max_size_kb=16384
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=8196
+
 [node]
 
 name_num_separator=2
@@ -71,7 +81,6 @@ name_casing=1
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 environment/default_clear_color=Color( 0.0745098, 0.737255, 0.964706, 1 )
 environment/default_environment="res://default_env.tres"
