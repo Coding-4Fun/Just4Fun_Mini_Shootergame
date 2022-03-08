@@ -170,3 +170,6 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Back to Mainmenu"
+
+[connection signal="pressed" from="marginContainer/centerContainer/vBoxContainer/buttNewGame" to="." method="_on_buttNewGame_pressed"]
+[connection signal="pressed" from="marginContainer/centerContainer/vBoxContainer/buttMainMenu" to="." method="_on_buttMainMenu_pressed"]
