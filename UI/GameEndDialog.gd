@@ -15,6 +15,7 @@ func set_WinLoose_Text(value) -> void:
 
 
 func DisplayText() -> void:
+	match
 	if GSM.gameWin:
 		winLooseLabel.text = "You have Won"
 	else:

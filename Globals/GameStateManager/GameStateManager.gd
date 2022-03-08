@@ -4,7 +4,7 @@ export var _score:int = 0
 export var _hits:int = 0
 export var _shots:int = 0
 
-var gameWin:bool = false
+var gameWin:int = -1
 
 signal GameStateChange
 
@@ -35,7 +35,7 @@ func _check_GameWinCondition() -> void:
 		var maxshots = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
 		if _shots >= maxshots:
 			print("Game Over. You have reached Max Shots")
-			_show_GameOverDialog(true)
+			_show_GameOverDialog(1)
 
 	# Check auf Score <> MinMaxScore
 	if Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"]:
@@ -43,14 +43,14 @@ func _check_GameWinCondition() -> void:
 		if scorevalue < 0:
 			if _score <= scorevalue:
 				print("Game Over. You LOOSE. You have reached the minmum Scores")
-				_show_GameOverDialog()
+				_show_GameOverDialog(0)
 		elif scorevalue > 0:
 			if _score >= scorevalue:
 				print("Game Over. You WON. You have reached the minmum Scores")
-				_show_GameOverDialog(true)
+				_show_GameOverDialog(2)
 
 
-func _show_GameOverDialog(win:bool = false) -> void:
+func _show_GameOverDialog(win:int = 0) -> void:
 	gameWin = win
 	yield(get_tree().create_timer(2.0), "timeout")
 	get_tree().call_group("Shoots", "queue_free")
