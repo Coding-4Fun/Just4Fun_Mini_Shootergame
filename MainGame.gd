@@ -34,7 +34,7 @@ func _enter_tree() -> void:
 
 	## UI
 	Preloads.UIMain = find_node("InGameUI")
-	
+
 	## Dummy Gruppen Node
 	Preloads.DummyTargetGroup = find_node("DummyTargets")
 

@@ -15,7 +15,7 @@ func _ready() -> void:
 ###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
 		if connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
-			
+
 	if !SignalBus.is_connected("exploded", self, "_on_Bullet_exploded"):
 ###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
 		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
@@ -45,8 +45,8 @@ func _physics_process(delta: float) -> void:
 			if collision.collider.is_in_group("Dummy") and collision.collider.has_method("_hit_ByBall"):
 				collision.collider._hit_ByBall()
 			pass
-			
-		
+
+
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
 		emit_signal("GroundHit")
