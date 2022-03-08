@@ -46,7 +46,7 @@ func _check_GameWinCondition() -> void:
 				_show_GameOverDialog(0)
 		elif scorevalue > 0:
 			if _score >= scorevalue:
-				print("Game Over. You WON. You have reached the minmum Scores")
+				print("Game Over. You WON. You have reached the Scores")
 				_show_GameOverDialog(2)
 
 
