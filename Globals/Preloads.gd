@@ -9,6 +9,7 @@ onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 # Main Game Scene
 onready var MainGameScene = preload("res://MainGame.tscn")
 onready var MainMenuScene = preload("res://UI/MainMenuUI.tscn")
+onready var GameOverScene = preload("res://UI/GameEndDialog.tscn")
 
 # Player Node's
 var PlayerRootNode:Node2D
