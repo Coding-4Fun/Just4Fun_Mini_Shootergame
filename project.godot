@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 SignalBus="*res://Globals/SignalBus/SignalBus.gd"
 Preloads="*res://Globals/Preloads.gd"
 Config="*res://Globals/GameConfig/config.gd"
+GSM="*res://Globals/GameStateManager/GameStateManager.gd"
 
 [debug]
 

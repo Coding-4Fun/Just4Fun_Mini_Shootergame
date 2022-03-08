@@ -305,6 +305,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = -1.0
 step = 10.0
+value = 50.0
 rounded = true
 editable = false
 tick_count = 10
@@ -368,7 +369,7 @@ margin_top = 7.0
 margin_right = 911.0
 margin_bottom = 33.0
 rect_min_size = Vector2( 60, 0 )
-text = "-1000"
+text = "MAX"
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]

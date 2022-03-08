@@ -20,7 +20,7 @@ func _ready():
 ###		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
 		if SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot") != OK:
 			print("Error - Cannon.gd: connect signal CannonShoot")
-		
+
 	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot"):
 ###		assert(SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")==OK, "Error: connect signal CannonShooting")
 		if SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")!=OK:
@@ -34,6 +34,8 @@ func _ready():
 
 
 func _unhandled_input(event):
+	if GSM.gameWin != -1:
+		return
 	if event.is_action_released("cannon_shoot"): # and can_shoot:
 		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
 		SignalBus.emit_signal("CannonShoot")
@@ -48,7 +50,7 @@ func _unhandled_input(event):
 			muzzle_velocity = clamp(muzzle_velocity-1000, min_velocity, max_velocity)
 		else:
 			muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
-			
+
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 #		can_shoot = false
 

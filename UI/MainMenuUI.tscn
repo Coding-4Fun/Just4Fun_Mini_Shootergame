@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/Theme/MainTitleFontStyle.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/MainMenuUI.gd" type="Script" id=2]
@@ -8,10 +8,21 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
 
-[sub_resource type="StyleBoxEmpty" id=2]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 5.0
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.137255, 0.513726, 0.6, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -19,13 +30,11 @@ content_margin_top = 5.0
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
-
-[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="MainMenuUI" type="Control"]
 anchor_right = 1.0
@@ -35,7 +44,7 @@ script = ExtResource( 2 )
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.145098, 0.203922, 0.337255, 1 )
+color = Color( 0.145098, 0.203922, 0.337255, 0.72549 )
 
 [node name="labMainTitel" type="Label" parent="."]
 margin_left = 100.0
@@ -68,18 +77,20 @@ margin_right = 802.0
 margin_bottom = 310.0
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
-margin_left = 707.0
-margin_top = 160.0
-margin_right = 893.0
-margin_bottom = 457.0
+margin_left = 700.0
+margin_top = 133.0
+margin_right = 900.0
+margin_bottom = 483.0
+rect_min_size = Vector2( 200, 350 )
+custom_constants/separation = 30
 
 [node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
-margin_right = 186.0
-margin_bottom = 149.0
+margin_right = 200.0
+margin_bottom = 150.0
 custom_colors/font_color_disabled = Color( 0.0862745, 0.266667, 0.286275, 1 )
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 1 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 6 )
 text = "Play"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
@@ -99,18 +110,18 @@ margin_right = 303.0
 margin_bottom = 297.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 5 )
-custom_styles/disabled = SubResource( 6 )
+custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 7 )
 text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
-margin_top = 153.0
-margin_right = 186.0
-margin_bottom = 297.0
+margin_top = 180.0
+margin_right = 200.0
+margin_bottom = 330.0
 hint_tooltip = "Not funcioning in the Browser"
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/normal = SubResource( 6 )
 text = "Exit"
 
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]
