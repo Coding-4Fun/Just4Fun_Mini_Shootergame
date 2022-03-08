@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/Fonts/OpenSansBold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.137255, 0.513726, 0.6, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.137255, 0.513726, 0.682353, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.654902, 0.745098, 0.129412, 1 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.137255, 0.513726, 0.6, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.137255, 0.513726, 0.6, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[node name="GameEndDialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.203922, 0.337255, 0.72549 )
+
+[node name="marginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="centerContainer" type="CenterContainer" parent="marginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 1575.0
+margin_bottom = 875.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vBoxContainer" type="VBoxContainer" parent="marginContainer/centerContainer"]
+margin_left = 475.0
+margin_top = 268.0
+margin_right = 1075.0
+margin_bottom = 581.0
+custom_constants/separation = 29
+
+[node name="label" type="Label" parent="marginContainer/centerContainer/vBoxContainer"]
+margin_right = 600.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 600, 0 )
+mouse_filter = 0
+custom_colors/font_color = Color( 0.384314, 0.701961, 0.764706, 1 )
+custom_colors/font_outline_modulate = Color( 0.72549, 0.223529, 0.223529, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Game Over"
+align = 1
+
+[node name="buttNewGame" type="Button" parent="marginContainer/centerContainer/vBoxContainer"]
+margin_left = 50.0
+margin_top = 134.0
+margin_right = 550.0
+margin_bottom = 209.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "New Game"
+
+[node name="buttMainMenu" type="Button" parent="marginContainer/centerContainer/vBoxContainer"]
+margin_left = 50.0
+margin_top = 238.0
+margin_right = 550.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Back to Mainmenu"
