@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/Fonts/OpenSansBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Theme/MainTitleFontStyle.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/GameEndDialog.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -83,6 +84,7 @@ expand_margin_bottom = 10.0
 [node name="GameEndDialog" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
