@@ -126,12 +126,12 @@ text = "Game Over"
 align = 1
 valign = 1
 
-[node name="label" type="Label" parent="marginContainer/centerContainer/vBoxContainer/labGameOverTitel"]
+[node name="labWinLoose" type="Label" parent="marginContainer/centerContainer/vBoxContainer/labGameOverTitel"]
 margin_left = 530.0
 margin_top = -18.0
 margin_right = 665.0
 margin_bottom = 33.0
-rect_rotation = 26.4
+rect_rotation = 25.0
 mouse_filter = 0
 custom_colors/font_color = Color( 0.384314, 0.764706, 0.462745, 1 )
 custom_colors/font_outline_modulate = Color( 0.72549, 0.223529, 0.223529, 1 )
