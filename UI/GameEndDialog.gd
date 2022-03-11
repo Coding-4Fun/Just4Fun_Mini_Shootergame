@@ -18,10 +18,10 @@ func DisplayText() -> void:
 	match GSM.gameWin:
 		0:	# Maximum Minus Score
 			winLooseLabel.text = "You have Loose"
-		
+
 		1:	# Max Shots Limit
 			winLooseLabel.text = "You have Won\nBy Shots"
-			
+
 		2:	# Maxumim Score
 			winLooseLabel.text = "You have Won\n By Score"
 		_:	# -1 by default
