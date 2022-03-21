@@ -61,7 +61,7 @@ func _show_GameOverDialog(win:int = 0) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Pause"):
+	if event.is_action_pressed("Pause"):
 		if !get_tree().paused:
 			pm = Preloads.PauseMenu.instance()
 			get_tree().get_current_scene().add_child(pm)
