@@ -5,6 +5,7 @@ export var _hits:int = 0
 export var _shots:int = 0
 
 var gameWin:int = -1
+var pm
 
 signal GameStateChange
 
@@ -57,3 +58,17 @@ func _show_GameOverDialog(win:int = 0) -> void:
 	var sc = get_tree().change_scene_to(Preloads.GameOverScene)
 	if sc != OK:
 		print("Error: change_scene_to()::GameOver")
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		if !get_tree().paused:
+			pm = Preloads.PauseMenu.instance()
+			get_tree().get_current_scene().add_child(pm)
+			pause_mode = Node.PAUSE_MODE_PROCESS
+			get_tree().paused = !get_tree().paused
+		else:
+			get_tree().get_current_scene().get_node("PauseMenu").queue_free()
+			pause_mode = Node.PAUSE_MODE_INHERIT
+			get_tree().paused = !get_tree().paused
+
