@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CannonBall/Cannonball.gd" type="Script" id=1]
 [ext_resource path="res://CannonBall/cannonball.png" type="Texture" id=2]
+[ext_resource path="res://CannonBall/flatDark24.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,3 +18,9 @@ texture = ExtResource( 2 )
 z_index = 1
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="OffscreenPosition" type="Sprite" parent="."]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -40, 0 )
