@@ -14,7 +14,7 @@ onready var label = $dummyLabel
 func _ready() -> void:
 	label.text = "0"
 	autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
-	
+
 	if autoDespawn :
 		$despawnTimer.start()
 	else:
@@ -47,7 +47,7 @@ func _on_despawnTimer_timeout() -> void:
 func _process(delta: float) -> void:
 	if autoDespawn :
 		TimeMax -= delta
-		
+
 #	pass
 
 
