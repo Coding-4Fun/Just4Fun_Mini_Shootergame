@@ -12,6 +12,7 @@ var current_rotation = 0
 
 onready var Muzzle = get_node("Barrel/Muzzle")
 onready var Barrel = get_node("Barrel")
+onready var coolDown = get_node("CoolDown")
 # onready var Main = get_tree().get_root().get_node("MainGame")
 
 
@@ -36,9 +37,10 @@ func _ready():
 func _unhandled_input(event):
 	if GSM.gameWin != -1:
 		return
-	if event.is_action_released("cannon_shoot"): # and can_shoot:
+	if event.is_action_released("cannon_shoot") and can_shoot:
 		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
 		SignalBus.emit_signal("CannonShoot")
+		can_shoot = false
 	if event.is_action_released("cannon_power_plus"):
 		if Input.is_key_pressed(KEY_CONTROL):
 			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
@@ -60,10 +62,16 @@ func _process(_delta):
 	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
 	Barrel.rotation_degrees = clampedBarrel
 
-	if can_shoot:
-		if current_rotation != clampedBarrel:
-			SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
-			current_rotation = clampedBarrel
+	if current_rotation != clampedBarrel:
+		SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
+		current_rotation = clampedBarrel
+
+	if !can_shoot:
+		coolDown.value += 1+_delta
+
+	if coolDown.value >= 100:
+		can_shoot = true
+		coolDown.value = 0
 
 
 func _reset_CannonPower() -> void:
