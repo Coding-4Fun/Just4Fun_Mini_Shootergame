@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Terrain/blocks_tileset_16x16.tres" type="TileSet" id=1]
 [ext_resource path="res://MainGame.gd" type="Script" id=2]
@@ -8,9 +8,24 @@
 [ext_resource path="res://Cannon/Cannon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://DummyTarget/DummyTargetGroupNode.tscn" type="PackedScene" id=7]
 [ext_resource path="res://DummyTarget/DummyTargetGroupNode.gd" type="Script" id=8]
+[ext_resource path="res://Terrain/Background/parallaxLayer.gd" type="Script" id=9]
+[ext_resource path="res://Terrain/Background/uncolored_plain.png" type="Texture" id=10]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="parallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="parallaxLayer" type="ParallaxLayer" parent="parallaxBackground"]
+position = Vector2( 0, -200 )
+motion_mirroring = Vector2( 1600, 1024 )
+script = ExtResource( 9 )
+CLOUD_SPEED = -50.0
+
+[node name="sprite" type="Sprite" parent="parallaxBackground/parallaxLayer"]
+scale = Vector2( 1.56348, 1 )
+texture = ExtResource( 10 )
+centered = false
 
 [node name="InGameUI" parent="." instance=ExtResource( 3 )]
 
