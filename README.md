@@ -20,6 +20,19 @@ Auf dem Spielfeld erscheint ein kleines Ziel das bei einem Treffer entfernt wird
 Der Treffer eines Zieles beschert dem Spieler Punkte
 Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
 
+## Alpha.5
+Add: GameState für Win/Loose Conditions
+Add: GameOver
+Add: Parallax Effekt für den Hintergrund
+Add: Cooldown für den Schuss mit anzeige als Balken
+Add: Umschalten Game Pausieren (Esc)
+Add: Indikator der Position des Bullets ausserhalb des Bildschirms
+Fix: Instanzierung der Bullets
+Fix: Kollisionen mit der TileMap
+Fix: Anzeige von Werten in der UI
+Fix: Debugger/Compiler Warnungen
+Fix: Fehler im Export Build
+
 
 ## Alpha.4
 - UI: Kleine Erweiterung im UI
