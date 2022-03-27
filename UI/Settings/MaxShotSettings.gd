@@ -5,9 +5,9 @@ onready var MaxShotSlider = $MaxShotSlider
 onready var MaxShotSwitch = $cButtSwitchMaxShots
 
 func _ready():
+	MaxShotSlider.value = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
 	MaxShotLabel.text = str(MaxShotSlider.value)
 	MaxShotSwitch.pressed = Config.config_data["Game"]["Condition"]["MaxShotsEnabled"] 
-	MaxShotSlider.value = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
 	MaxShotSlider.editable = Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]
 
 
