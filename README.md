@@ -29,6 +29,13 @@ Das automatische Timeout kann in den Einstellungen ein- und ausgeschaltet werden
 ## Einstellungen
 Der Spieler kann über die Einstellungen die Bedingungen einstellen die zum gewinnen oder verlieren einer Runde notwendig sind.
 
+Folgende Optionen sind bis jetzt vorhanden.
+- Beachten der maximalen Schuss An / Aus
+- Einstellen der Schussanzahl
+- Einstellen der Punktzahl
+- Entweder bei erreichen einer negativen Punktzahl
+- Oder erreichen einer Positiven Punktzahl
+
 ## Alpha.5
 - Add: GameState für Win/Loose Conditions
 - Add: GameOver
