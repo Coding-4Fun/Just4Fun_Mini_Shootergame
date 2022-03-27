@@ -65,6 +65,8 @@ func _on_MainGame_ready() -> void:
 func _on_UI_ResetGame() -> void:
 #	print("Main: UIResetGame_Signal")
 	GSM.gameWin = -1
+	GSM.GameTimer.stop()
+	GSM.GameTimerTimeElapsed = 0
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	Preloads.Map.generate_world_tilemap_base()
