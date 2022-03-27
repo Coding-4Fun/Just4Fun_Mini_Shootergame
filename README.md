@@ -26,6 +26,9 @@ Die Ziele haben als Vorgabe ein Timeout. In dieser Zeit hat der Spieler Zeit ein
 Trifft der Spieler in dieser Zeit nicht, wird ein neues Ziel an beliebiger stelle generiert.
 Das automatische Timeout kann in den Einstellungen ein- und ausgeschaltet werden.
 
+## Einstellungen
+Der Spieler kann über die Einstellungen die Bedingungen einstellen die zum gewinnen oder verlieren einer Runde notwendig sind.
+
 ## Alpha.5
 - Add: GameState für Win/Loose Conditions
 - Add: GameOver
