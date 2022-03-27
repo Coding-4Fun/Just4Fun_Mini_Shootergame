@@ -13,7 +13,9 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 				"MaxShotsEnabled": false,
 				"MaxShotsValue": -0,
 				"MinMaxScoreEnabled": false,
-				"MinMaxScore": -1000
+				"MinMaxScore": -1000,
+				"MaxGameTimeEnabled": false,
+				"MaxGameTimeValue": 120
 			},
 		},
 		"Network": {
