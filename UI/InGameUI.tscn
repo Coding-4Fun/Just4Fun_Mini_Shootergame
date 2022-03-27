@@ -48,31 +48,51 @@ margin_bottom = 56.0
 size_flags_horizontal = 3
 text = "Restart"
 
-[node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
+[node name="vBoxContainerGameTimer" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
 margin_left = 224.0
-margin_right = 434.0
+margin_right = 413.0
 margin_bottom = 56.0
+
+[node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
+margin_right = 189.0
+margin_bottom = 26.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel"]
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
 margin_right = 69.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "Angel:"
 
-[node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel"]
+[node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
 margin_left = 73.0
-margin_right = 210.0
+margin_right = 189.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
 align = 1
 
+[node name="hBoxGametimer" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
+margin_top = 30.0
+margin_right = 189.0
+margin_bottom = 56.0
+
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
+margin_right = 123.0
+margin_bottom = 26.0
+text = "Gametime: "
+
+[node name="labelGameTime" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
+margin_left = 127.0
+margin_right = 189.0
+margin_bottom = 26.0
+text = "00:00"
+
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 438.0
-margin_right = 688.0
+margin_left = 417.0
+margin_right = 667.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 250, 0 )
 mouse_filter = 2

@@ -49,7 +49,7 @@ func _ready() -> void:
 
 # Update UI Label Text when the shootpower changed
 func _on_Cannon_CannonAngelChange(newAngel : int) -> void:
-	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxAngel/labAngel.text = str(newAngel)
+	$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel/labAngel".text = str(newAngel)
 
 
 # Update UI Label when the shootangel changed
@@ -89,6 +89,10 @@ func _on_button_pressed() -> void:
 
 func _on_buttGameOptions_pressed() -> void:
 	OptionUI.visible = !OptionUI.visible
+	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true and OptionUI.visible == false:
+		GSM.GameTimer.Start()
+		#$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer/labelGameTimer.Text" = GSM.GameTimerTimeElapsed	
+	$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
 	pass # Replace with function body.
 
 
