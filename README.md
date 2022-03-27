@@ -10,15 +10,44 @@ Der Spieler wird als Kanone am linken Bildschirmrand dargestellt.
 Durch bewegen der Maus kann der Anstellwinkel verändert werden.
 
 Mit dem Mausrad kann die Kraft des Schusses eingestellt werden
-Min = 1500
-Max = 6000
-Änderungen in +/- 100
+- Min = 7500
+- Max = 30000
+- Änderungen in +/- 100 mit Mausrad
+- Änderung in +/- 1000 mit Mausrad + STRG
 
 Mit der linken Maustaste kann ein Schuss ausgelöst werden.
+Der Schuss hat einen Cooldown bis der nächste Schuss ausgelöst werden kann.
 
 Auf dem Spielfeld erscheint ein kleines Ziel das bei einem Treffer entfernt wird und an einer neuen Position erscheint.
 Der Treffer eines Zieles beschert dem Spieler Punkte
 Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
+
+Die Ziele haben als Vorgabe ein Timeout. In dieser Zeit hat der Spieler Zeit ein Ziel zu treffen um sich die Punkte zu sichern.
+Trifft der Spieler in dieser Zeit nicht, wird ein neues Ziel an beliebiger stelle generiert.
+Das automatische Timeout kann in den Einstellungen ein- und ausgeschaltet werden.
+
+## Einstellungen
+Der Spieler kann über die Einstellungen die Bedingungen einstellen die zum gewinnen oder verlieren einer Runde notwendig sind.
+
+Folgende Optionen sind bis jetzt vorhanden.
+- Beachten der maximalen Schuss An / Aus
+- Einstellen der Schussanzahl
+- Einstellen der Punktzahl
+- Entweder bei erreichen einer negativen Punktzahl
+- Oder erreichen einer Positiven Punktzahl
+
+## Alpha.5
+- Add: GameState für Win/Loose Conditions
+- Add: GameOver
+- Add: Parallax Effekt für den Hintergrund
+- Add: Cooldown für den Schuss mit anzeige als Balken
+- Add: Umschalten Game Pausieren (Esc)
+- Add: Indikator der Position des Bullets ausserhalb des Bildschirms
+- Fix: Instanzierung der Bullets
+- Fix: Kollisionen mit der TileMap
+- Fix: Anzeige von Werten in der UI
+- Fix: Debugger/Compiler Warnungen
+- Fix: Fehler im Export Build
 
 
 ## Alpha.4
