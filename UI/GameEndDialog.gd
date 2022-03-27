@@ -24,6 +24,9 @@ func DisplayText() -> void:
 
 		2:	# Maxumim Score
 			winLooseLabel.text = "You have Won\n By Score"
+		
+		3:	# Maxumim Game Time
+			winLooseLabel.text = "You have Won\n By Game Time"
 		_:	# -1 by default
 			winLooseLabel.text = "Just End the Game"
 
