@@ -9,6 +9,7 @@ func _ready():
 	MaxGameTimeSwitch.pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
 	MaxGameTimeSlider.value = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
 	MaxGameTimeSlider.editable = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]
+	# $"labelGameTime"
 	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true:
 		GSM.GameTimer.start()
 
