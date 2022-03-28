@@ -8,6 +8,7 @@ var gameWin:int = -1
 var pm
 var GameTimer:Timer
 var GameTimerTimeElapsed:int = 0
+var GameTimeTextLabel:Label
 
 signal GameStateChange
 
@@ -25,7 +26,15 @@ func _ready():
 
 
 func _on_timer_timeout() ->void:
-	GameTimerTimeElapsed += 1
+	if GSM.gameWin == -1:
+		GameTimerTimeElapsed += 1
+		var timeout = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
+		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
+			_check_GameWinCondition()
+		if GameTimeTextLabel != null:
+			GameTimeTextLabel.text = "%02.0f:%02.0f" % [GameTimerTimeElapsed/60,int(GameTimerTimeElapsed) % 60]
+	else:
+		GameTimer.stop()
 	pass
 
 func _on_GameStateChange(newscore, newhits, newshots) -> void:
