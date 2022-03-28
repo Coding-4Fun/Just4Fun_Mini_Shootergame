@@ -67,6 +67,7 @@ func _on_UI_ResetGame() -> void:
 	GSM.gameWin = -1
 	GSM.GameTimer.stop()
 	GSM.GameTimerTimeElapsed = 0
+	GSM.GameTimeTextLabel.text = "00:00"
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	Preloads.Map.generate_world_tilemap_base()
