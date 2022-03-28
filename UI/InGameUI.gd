@@ -10,6 +10,7 @@ signal UIResetGame
 signal UIdummyTargetTimerChange
 
 onready var OptionUI = $IngameUIBottom/vBoxContainer/vBoxSettings
+onready var GameHudUI = $IngameUIBottom/vBoxContainer/hBoxHud
 
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self, "_on_Cannon_CannonAngelChange"):
@@ -45,6 +46,7 @@ func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
 	$IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	GSM.GameTimeTextLabel = GameHudUI.get_node("vBoxContainerGameTimer/hBoxGametimer/labelGameTime")
 
 
 # Update UI Label Text when the shootpower changed
@@ -90,8 +92,9 @@ func _on_button_pressed() -> void:
 func _on_buttGameOptions_pressed() -> void:
 	OptionUI.visible = !OptionUI.visible
 	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true and OptionUI.visible == false:
-		GSM.GameTimer.Start()
+		GSM.GameTimer.start()
 		#$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer/labelGameTimer.Text" = GSM.GameTimerTimeElapsed	
+	var test = !GSM.GameTimer.is_stopped()
 	$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
 	pass # Replace with function body.
 
