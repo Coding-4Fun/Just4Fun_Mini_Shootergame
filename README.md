@@ -36,6 +36,10 @@ Folgende Optionen sind bis jetzt vorhanden.
 - Entweder bei erreichen einer negativen Punktzahl
 - Oder erreichen einer Positiven Punktzahl
 
+## Alpha.6 (in Arbeit)
+- Add: Neues Spielziel
+  - Gegen die Zeit. Spielzeit als Rundenbegrenzung
+
 ## Alpha.5
 - Add: GameState für Win/Loose Conditions
 - Add: GameOver
