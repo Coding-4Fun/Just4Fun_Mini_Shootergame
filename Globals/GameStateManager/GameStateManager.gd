@@ -33,7 +33,7 @@ func _on_timer_timeout() ->void:
 		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
 			_check_GameWinCondition()
 		if GameTimeTextLabel != null:
-			GameTimeTextLabel.text = "%02.0f:%02.0f" % [GameTimerTimeElapsed/60,int(GameTimerTimeElapsed) % 60]
+			GameTimeTextLabel.text = "%02.0f:%02.0f" % [floor(float(GameTimerTimeElapsed)/60),int(GameTimerTimeElapsed) % 60]
 	else:
 		GameTimer.stop()
 	pass
