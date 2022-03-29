@@ -18,7 +18,7 @@ size_flags_horizontal = 3
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
 margin_right = 1600.0
-margin_bottom = 203.0
+margin_bottom = 100.0
 mouse_filter = 2
 
 [node name="hBoxHud" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
@@ -239,6 +239,8 @@ size_flags_vertical = 0
 text = "123456789"
 
 [node name="vBoxSettings" parent="IngameUIBottom/vBoxContainer" instance=ExtResource( 2 )]
+visible = false
+margin_bottom = 210.0
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
