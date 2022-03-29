@@ -244,3 +244,5 @@ margin_bottom = 210.0
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
+
+[editable path="IngameUIBottom/vBoxContainer/vBoxSettings"]

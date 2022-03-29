@@ -45,7 +45,8 @@ func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(test.min_velocity)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
-	$IngameUIBottom/vBoxContainer/vBoxSettings/colorRect/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	$IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	
 	GSM.GameTimeTextLabel = GameHudUI.get_node("vBoxContainerGameTimer/hBoxGametimer/labelGameTime")
 
 
