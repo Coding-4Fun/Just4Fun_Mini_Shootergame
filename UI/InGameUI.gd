@@ -90,6 +90,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_buttGameOptions_pressed() -> void:
+	Config.save_gameconfig()
 	OptionUI.visible = !OptionUI.visible
 	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true and OptionUI.visible == false:
 		GSM.GameTimer.start()
@@ -102,11 +103,4 @@ func _on_buttGameOptions_pressed() -> void:
 func _on_buttSwitchTargetTimer_pressed() -> void:
 	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed)
 	pass # Replace with function body.
-
-
-func _on_buttBackToMenu_pressed() -> void:
-###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
-	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
-		print("Error: change_scene_to()::buttBackToMenu_pressed")
-	Config.save_gameconfig()
 
