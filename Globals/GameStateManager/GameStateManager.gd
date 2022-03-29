@@ -20,7 +20,8 @@ func _ready():
 			print("Error - GamestateManager: connect GameStateChange")
 			
 	GameTimer = Timer.new()
-	GameTimer.connect("timeout",self,"_on_timer_timeout") 
+	if GameTimer.connect("timeout",self,"_on_timer_timeout"):
+		print("Error - GamestateManager: connect GameTimer_timeout")
 	add_child(GameTimer)
 	pass
 
