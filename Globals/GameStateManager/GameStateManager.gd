@@ -6,6 +6,9 @@ export var _shots:int = 0
 
 var gameWin:int = -1
 var pm
+var GameTimer:Timer
+var GameTimerTimeElapsed:int = 0
+var GameTimeTextLabel:Label
 
 signal GameStateChange
 
@@ -15,8 +18,25 @@ func _ready():
 	if !is_connected("GameStateChange", self, "_on_GameStateChange"):
 		if connect("GameStateChange", self, "_on_GameStateChange"):
 			print("Error - GamestateManager: connect GameStateChange")
+			
+	GameTimer = Timer.new()
+	if GameTimer.connect("timeout",self,"_on_timer_timeout"):
+		print("Error - GamestateManager: connect GameTimer_timeout")
+	add_child(GameTimer)
 	pass
 
+
+func _on_timer_timeout() ->void:
+	if GSM.gameWin == -1:
+		GameTimerTimeElapsed += 1
+		var timeout = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
+		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
+			_check_GameWinCondition()
+		if GameTimeTextLabel != null:
+			GameTimeTextLabel.text = "%02.0f:%02.0f" % [floor(float(GameTimerTimeElapsed)/60),int(GameTimerTimeElapsed) % 60]
+	else:
+		GameTimer.stop()
+	pass
 
 func _on_GameStateChange(newscore, newhits, newshots) -> void:
 	_score = newscore
@@ -31,6 +51,13 @@ func _on_GameStateChange(newscore, newhits, newshots) -> void:
 #				"MinMaxScoreEnabled": false,
 #				"MinMaxScore": -1000
 func _check_GameWinCondition() -> void:
+	# Check Game Timeout
+	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]:
+		var timeout = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
+		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
+			print("Game Over. Your Game Time has left.")
+			_show_GameOverDialog(3)
+		
 	# Check auf Max Shots
 	if Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]:
 		var maxshots = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
