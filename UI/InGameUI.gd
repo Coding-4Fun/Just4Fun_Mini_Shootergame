@@ -45,7 +45,7 @@ func _ready() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(test.min_velocity)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
-	$IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	$IngameUIBottom/vBoxContainer/vBoxSettings/colorRect/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 	GSM.GameTimeTextLabel = GameHudUI.get_node("vBoxContainerGameTimer/hBoxGametimer/labelGameTime")
 
 
@@ -88,19 +88,15 @@ func _on_button_pressed() -> void:
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 	emit_signal("UIResetGame")
 
-
+# Öffnen und schliessen der Settings
 func _on_buttGameOptions_pressed() -> void:
 	Config.save_gameconfig()
 	OptionUI.visible = !OptionUI.visible
 	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true and OptionUI.visible == false:
 		GSM.GameTimer.start()
-		#$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer/labelGameTimer.Text" = GSM.GameTimerTimeElapsed	
-	var test = !GSM.GameTimer.is_stopped()
+
 	$"IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
-	pass # Replace with function body.
 
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
 	emit_signal("UIdummyTargetTimerChange", $IngameUIBottom/vBoxContainer/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed)
-	pass # Replace with function body.
-
