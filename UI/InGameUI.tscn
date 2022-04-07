@@ -217,20 +217,21 @@ rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
 text = "123456789"
 
-[node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints"]
+[node name="hBoxPointsUNSUSED" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints"]
+visible = false
 margin_top = 30.0
 margin_right = 295.0
 margin_bottom = 56.0
 mouse_filter = 2
 size_flags_horizontal = 2
 
-[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot_2"]
+[node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsUNSUSED"]
 margin_right = 171.0
 margin_bottom = 26.0
 size_flags_vertical = 0
 text = "Points per Shot:"
 
-[node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot_2"]
+[node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsUNSUSED"]
 margin_left = 175.0
 margin_right = 295.0
 margin_bottom = 26.0
