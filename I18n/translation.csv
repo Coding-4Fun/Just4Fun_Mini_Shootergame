@@ -3,20 +3,22 @@ MAIN_MENU_BUTTON_PLAY;Play the Game;Spiel starten
 MAIN_MENU_BUTTON_EXIT;Quit Game;Spiel verlassen
 GAME_OVER_NEWGAME;New Game;Neues Spiel starten
 GAME_OVER_MAINMENU;Back to Mainmenu;Zurück ins Hauptmenü
+GAME_OVER_YOUWIN;You Win;Gewonnen
+GAME_OVER_YOULOOSE;You Loose;Verloren
 PAUSED_LABEL_PAUSE;PAUSED;Pausiert
 PAUSE_LABEL_CONTINUE;Press any Key to Continue;Tasten Drücken um fortzufahren
 SETTINGS_ENABLE_TARGET_TIMER;Enable Target Timer;Ziel Timeout aktivieren
-SETTINGS_LABEL_CONDITION;Win/Loose Conditions;Spielende Bedingung
+SETTINGS_LABEL_CONDITION;Win/Loose\nConditions;Spielende\nBedingung
 SETTINGS_LABEL_MAXSHOTS;Max Shots;Maximale Schüsse
-SETTINGS_BUTTON_BACK_MAINMENU;Back to Mainmenu;Zurück ins Hauptmenü
-SETTINGS_LABEL_MAXSCORE;Max Score;Maximale Punkte
-SETTINGS_LABEL_MAXPLAYTIME;Max Play Time;Maximale Spielzeit
-INAGEMUI_BUTTON_SETTINGS;Settings;Einstellungen
+SETTINGS_BUTTON_BACK_MAINMENU;Back to Mainmenu;Zum Hauptmenü
+SETTINGS_LABEL_MAXSCORE;Max Score;Max Punkte
+SETTINGS_LABEL_MAXPLAYTIME;Max Playtime;Max Spielzeit
+INAGEMUI_BUTTON_SETTINGS;Settings;Optionen
 INAGEMUI_BUTTON_RESTART;Restart;Neustart
-INGAMEUI_LABEL_ANGEL;Angel;Winkel
-INAGMEUI_LABEL_POWER;Power;Kraft
-INGAMEUI_LABEL_SCORE;Score;Punkte
-INGAMEUI_LABEL_OVERALL_SHOTS;Overall Shots;Schuss Insgesamt
-INGAMEUI_LABEL_OVERALL_HITS;Overall Hits;Treffer Insgesamt
-INGAMEUI_LABEL_POINTS_PER_SHOT;Points per Shot;Durchschnitt Punkte
-INGAMEUI_LABEL_GAMETIME;Game Time;Spielzeit
+INGAMEUI_LABEL_ANGEL;Angel:;Winkel:
+INAGMEUI_LABEL_POWER;Power:;Kraft:
+INGAMEUI_LABEL_SCORE;Score:;Punkte:
+INGAMEUI_LABEL_OVERALL_SHOTS;Overall Shots:;Schuss Insgesamt:
+INGAMEUI_LABEL_OVERALL_HITS;Overall Hits:;Treffer Insgesamt:
+INGAMEUI_LABEL_POINTS_PER_SHOT;Points per Shot:;Durchschnitt Punkte:
+INGAMEUI_LABEL_GAMETIME;Game Time:;Spielzeit:
