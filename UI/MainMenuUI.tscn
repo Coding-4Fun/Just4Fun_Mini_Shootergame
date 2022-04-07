@@ -71,27 +71,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer"]
-margin_left = 798.0
+margin_left = 955.0
 margin_top = 307.0
-margin_right = 802.0
+margin_right = 959.0
 margin_bottom = 310.0
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
-margin_left = 700.0
 margin_top = 133.0
-margin_right = 900.0
+margin_right = 1915.0
 margin_bottom = 483.0
 rect_min_size = Vector2( 200, 350 )
 custom_constants/separation = 30
 
 [node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
-margin_right = 200.0
+margin_right = 1915.0
 margin_bottom = 150.0
 custom_colors/font_color_disabled = Color( 0.0862745, 0.266667, 0.286275, 1 )
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 6 )
-text = "Play"
+text = "MAIN_MENU_BUTTON_PLAY"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
@@ -116,13 +115,13 @@ text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
 margin_top = 180.0
-margin_right = 200.0
+margin_right = 1915.0
 margin_bottom = 330.0
 hint_tooltip = "Not funcioning in the Browser"
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 8 )
 custom_styles/normal = SubResource( 6 )
-text = "Exit"
+text = "MAIN_MENU_BUTTON_EXIT"
 
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttHightScore" to="." method="_on_buttHightScore_pressed"]
