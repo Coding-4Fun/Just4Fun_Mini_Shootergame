@@ -17,16 +17,16 @@ func set_WinLoose_Text(value) -> void:
 func DisplayText() -> void:
 	match GSM.gameWin:
 		0:	# Maximum Minus Score
-			winLooseLabel.text = "You have Loose"
+			winLooseLabel.text = tr("GAME_OVER_YOULOOSE")
 
 		1:	# Max Shots Limit
-			winLooseLabel.text = "You have Won\nBy Shots"
+			winLooseLabel.text = tr("GAME_OVER_YOUWIN") + "\nBy Shots"
 
 		2:	# Maxumim Score
-			winLooseLabel.text = "You have Won\n By Score"
+			winLooseLabel.text = tr("GAME_OVER_YOUWIN") + "\n By Score"
 		
 		3:	# Maxumim Game Time
-			winLooseLabel.text = "You have Won\n By Game Time"
+			winLooseLabel.text = tr("GAME_OVER_YOUWIN") + "\n By Game Time"
 		_:	# -1 by default
 			winLooseLabel.text = "Just End the Game"
 

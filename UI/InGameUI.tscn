@@ -17,55 +17,55 @@ mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
-margin_right = 1600.0
+margin_right = 2866.0
 margin_bottom = 100.0
 mouse_filter = 2
 
 [node name="hBoxHud" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_right = 1600.0
+margin_right = 2866.0
 margin_bottom = 56.0
 mouse_filter = 2
 
 [node name="hBoxUIButtons" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_right = 220.0
+margin_right = 667.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 220, 0 )
 mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="buttGameOptions" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_right = 108.0
+margin_right = 334.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
-text = "Settings"
+text = "INAGEMUI_BUTTON_SETTINGS"
 
 [node name="buttGameReset" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_left = 112.0
-margin_right = 220.0
+margin_left = 338.0
+margin_right = 667.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
-text = "Restart"
+text = "INAGEMUI_BUTTON_RESTART"
 
 [node name="vBoxContainerGameTimer" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 224.0
-margin_right = 413.0
+margin_left = 671.0
+margin_right = 1054.0
 margin_bottom = 56.0
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
-margin_right = 189.0
+margin_right = 383.0
 margin_bottom = 26.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
-margin_right = 69.0
+margin_right = 269.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Angel:"
+text = "INGAMEUI_LABEL_ANGEL"
 
 [node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
-margin_left = 73.0
-margin_right = 189.0
+margin_left = 273.0
+margin_right = 383.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -74,37 +74,37 @@ align = 1
 
 [node name="hBoxGametimer" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
 margin_top = 30.0
-margin_right = 189.0
+margin_right = 383.0
 margin_bottom = 56.0
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
-margin_right = 123.0
+margin_right = 312.0
 margin_bottom = 26.0
-text = "Gametime: "
+text = "INGAMEUI_LABEL_GAMETIME"
 
 [node name="labelGameTime" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
-margin_left = 127.0
-margin_right = 189.0
+margin_left = 316.0
+margin_right = 378.0
 margin_bottom = 26.0
 text = "00:00"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 417.0
-margin_right = 667.0
+margin_left = 1058.0
+margin_right = 1453.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 250, 0 )
 mouse_filter = 2
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower"]
-margin_right = 75.0
+margin_right = 281.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Power:"
+text = "INAGMEUI_LABEL_POWER"
 
 [node name="labPower" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower"]
-margin_left = 79.0
-margin_right = 250.0
+margin_left = 285.0
+margin_right = 395.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -112,22 +112,22 @@ text = "123456789"
 align = 1
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 692.0
-margin_right = 992.0
+margin_left = 1457.0
+margin_right = 1841.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 size_flags_horizontal = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_right = 66.0
+margin_right = 270.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Score:"
+text = "INGAMEUI_LABEL_SCORE"
 
 [node name="labScore" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_left = 70.0
-margin_right = 300.0
+margin_left = 274.0
+margin_right = 384.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -135,8 +135,8 @@ text = "123456789"
 align = 1
 
 [node name="vBoxContainerShots" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 996.0
-margin_right = 1296.0
+margin_left = 1845.0
+margin_right = 2338.0
 margin_bottom = 56.0
 grow_horizontal = 2
 rect_min_size = Vector2( 300, 0 )
@@ -144,22 +144,22 @@ mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots"]
-margin_right = 300.0
+margin_right = 493.0
 margin_bottom = 26.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots"]
-margin_right = 150.0
+margin_right = 379.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "Overall Shots:"
+text = "INGAMEUI_LABEL_OVERALL_SHOTS"
 
 [node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots"]
-margin_left = 154.0
-margin_right = 300.0
+margin_left = 383.0
+margin_right = 493.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -168,21 +168,21 @@ align = 1
 
 [node name="hBoxHits" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots"]
 margin_top = 30.0
-margin_right = 300.0
+margin_right = 493.0
 margin_bottom = 56.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits"]
-margin_right = 148.0
+margin_right = 356.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "Overall Hits:"
+text = "INGAMEUI_LABEL_OVERALL_HITS"
 
 [node name="labHits" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits"]
-margin_left = 152.0
-margin_right = 300.0
+margin_left = 360.0
+margin_right = 493.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -190,28 +190,28 @@ text = "123456789"
 align = 1
 
 [node name="vBoxContainerPoints" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 1300.0
-margin_right = 1600.0
+margin_left = 2342.0
+margin_right = 2866.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 
 [node name="hBoxPointsPerShot" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints"]
-margin_right = 300.0
+margin_right = 524.0
 margin_bottom = 26.0
 grow_horizontal = 2
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot"]
-margin_right = 171.0
+margin_right = 400.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-text = "Points per Shot:"
+text = "INGAMEUI_LABEL_POINTS_PER_SHOT"
 
 [node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot"]
-margin_left = 175.0
-margin_right = 295.0
+margin_left = 404.0
+margin_right = 524.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_vertical = 0
