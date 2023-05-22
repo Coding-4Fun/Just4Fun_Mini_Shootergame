@@ -1,25 +1,30 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 signal GroundHit
 
-var velocity = Vector2.ZERO
-export var P1 = 1
-onready var screensize = get_viewport().get_visible_rect().size
-onready var pos_offscreen = $OffscreenPosition
+
+@export var P1 = 1
+@onready var screensize = get_viewport().get_visible_rect().size
+@onready var pos_offscreen = $OffscreenPosition
 
 var g = 150
 var Ply = ""
 
 
 func _ready() -> void:
-	if !is_connected("GroundHit", self, "_on_Ground_Hited"):
+	if !is_connected("GroundHit", _on_Ground_Hited):
 ###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
-		if connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED) != OK:
+		if GroundHit.connect(_on_Ground_Hited.bind([]), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
+		# else
+			# GroundHit.connect.bind()
+			# layer.hit.connect(_on_player_hit.bind("sword", 100))
 
-	if !SignalBus.is_connected("exploded", self, "_on_Bullet_exploded"):
+
+	if !SignalBus.is_connected("exploded", self._on_Bullet_exploded):
 ###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
-		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+#		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+		if SignalBus.exploded.connect(_on_Bullet_exploded.bind([]), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal exploded")
 
 
