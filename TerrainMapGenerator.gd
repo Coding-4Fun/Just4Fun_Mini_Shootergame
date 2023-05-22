@@ -5,8 +5,8 @@ var tile_size:Vector2 = Vector2(16,16).ceil()
 onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 onready var midrange:int = screensize.y
 onready var displacement = ceil((midrange / tile_size.y) / 2)
-export var current_displacement = 0
-export var castlewidth = 175
+@export var current_displacement = 0
+@export var castlewidth = 175
 var plattform := []
 
 enum block_types {
@@ -23,7 +23,7 @@ var world_tiles_y:int
 var min_terrain_height:int
 var max_terrain_height:int
 
-export (float) var mod = stepify(castlewidth, tile_size.x) / tile_size.x
+@export (float) var mod = stepify(castlewidth, tile_size.x) / tile_size.x
 
 func _ready() -> void:
 	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)

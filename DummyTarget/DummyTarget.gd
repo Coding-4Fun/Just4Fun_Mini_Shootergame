@@ -1,10 +1,10 @@
 extends StaticBody2D
 
 
-export var score : int = 1
-export var autoDespawn = true
-export var TimeOut = 0.0
-export var TimeMax = 6.0
+@export var score : int = 1
+@export var autoDespawn = true
+@export var TimeOut = 0.0
+@export var TimeMax = 6.0
 
 onready var Main = get_tree().get_root().get_node("MainGame")
 onready var label = $dummyLabel
