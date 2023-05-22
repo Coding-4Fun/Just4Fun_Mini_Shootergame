@@ -1,30 +1,31 @@
 extends Node2D
 
-export var left:bool = true
+@export var left:bool = true
 
-export var muzzle_velocity = 1500
-export var min_velocity = 10000
-export var max_velocity = 60000
-export var gravity = 250
+@export var muzzle_velocity = 1500
+@export var min_velocity = 10000
+@export var max_velocity = 60000
+@export var gravity = 250
 
 var can_shoot = true
 var current_rotation = 0
 
-onready var Muzzle = get_node("Barrel/Muzzle")
-onready var Barrel = get_node("Barrel")
-onready var coolDown = get_node("CoolDown")
-# onready var Main = get_tree().get_root().get_node("MainGame")
+@onready var Muzzle = get_node("Barrel/Muzzle")
+@onready var Barrel = get_node("Barrel")
+@onready var coolDown = get_node("CoolDown")
+# @onready var Main = get_tree().get_root().get_node("MainGame")
 
 
 func _ready():
-	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
+#	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
+	if !SignalBus.is_connected("CannonShoot", self._on_Cannon_Shot):
 ###		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
-		if SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot") != OK:
+		if SignalBus.connect("CannonShoot", Preloads.UIMain._on_Cannon_Shot) != OK:
 			print("Error - Cannon.gd: connect signal CannonShoot")
 
-	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot"):
+	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots._on_Player_Shoot):
 ###		assert(SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")==OK, "Error: connect signal CannonShooting")
-		if SignalBus.connect("CannonShooting", Preloads.PlayerShots, "_on_Player_Shoot")!=OK:
+		if SignalBus.connect("CannonShooting", Preloads.PlayerShots._on_Player_Shoot)!=OK:
 			print("Error - Cannon.gd: connect signal CannonShooting")
 
 	## Kannonen umdrehen, wenn auf der rechten Seite
@@ -42,13 +43,13 @@ func _unhandled_input(event):
 		SignalBus.emit_signal("CannonShoot")
 		can_shoot = false
 	if event.is_action_released("cannon_power_plus"):
-		if Input.is_key_pressed(KEY_CONTROL):
+		if Input.is_key_pressed(KEY_CTRL):
 			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
 		else:
 			muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
 		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 	if event.is_action_released("cannon_power_minus"):
-		if Input.is_key_pressed(KEY_CONTROL):
+		if Input.is_key_pressed(KEY_CTRL):
 			muzzle_velocity = clamp(muzzle_velocity-1000, min_velocity, max_velocity)
 		else:
 			muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
