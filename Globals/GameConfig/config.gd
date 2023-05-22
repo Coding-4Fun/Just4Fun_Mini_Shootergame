@@ -1,6 +1,6 @@
 extends Control
 
-export var config_data:Dictionary = {}
+@export var config_data:Dictionary = {}
 const GAMECONFIGFILE = "res://config.json"
 const CONFIGDATA_DEFAULT:Dictionary = {
 		"Player_name": "Unnamed",
@@ -51,13 +51,13 @@ func _ready() -> void:
 
 
 func get_configdata() -> Dictionary:
-	var file = File.new()
-	if not file.file_exists(GAMECONFIGFILE):
+	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
+	if not FileAccess.file_exists(GAMECONFIGFILE):
 		config_data = CONFIGDATA_DEFAULT
 		save_gameconfig()
-	file.open(GAMECONFIGFILE, File.READ)
+#	file.open(GAMECONFIGFILE, File.READ)
 	var content = file.get_as_text()
-	var data = JSON.parse(content)
+	var data = JSON.parse_string(content)
 	file.close()
 	if data.error == OK :
 		if typeof(data.result) == TYPE_DICTIONARY:
@@ -68,14 +68,14 @@ func get_configdata() -> Dictionary:
 
 
 func save_gameconfig ():
-	var config = File.new()
-	config.open(GAMECONFIGFILE, File.WRITE)
-	config.store_line(to_json(config_data))
+	var config = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
+#	config.open(GAMECONFIGFILE, File.WRITE)
+	config.store_line(JSON.stringify(config_data))
 	config.close()
 
 
 func _on_playername_change(newname:String) -> void:
-	if not newname.empty():
+	if not newname.is_empty():
 		config_data["Player_name"] = newname
 		save_gameconfig()
 	else:

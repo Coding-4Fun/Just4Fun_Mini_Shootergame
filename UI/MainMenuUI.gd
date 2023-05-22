@@ -17,7 +17,7 @@ func _ready():
 
 
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		get_tree().quit() # default behavior
 
 
@@ -42,7 +42,7 @@ func _on_buttSettings_pressed():
 
 func _on_buttExit_pressed():
 	# Close Game, Back to System. Not on HTML
-	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+	get_tree().notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _on_buttExit_ready():
