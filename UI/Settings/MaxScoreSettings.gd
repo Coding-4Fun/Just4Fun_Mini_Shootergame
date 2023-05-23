@@ -1,8 +1,8 @@
 extends Control
 
-onready var MaxScoreLabel = $labelMaxScore
-onready var MaxScoreSlider = $MaxScoreSlider
-onready var MaxScoreSwitch = $cButtSwitchMaxScore
+@onready var MaxScoreLabel = $labelMaxScore
+@onready var MaxScoreSlider = $MaxScoreSlider
+@onready var MaxScoreSwitch = $cButtSwitchMaxScore
 
 func _ready():
 	MaxScoreLabel.text = str(MaxScoreSlider.value)

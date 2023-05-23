@@ -1,8 +1,8 @@
 extends Control
 
-onready var MaxGameTimeLabel = $labelMaxGameTime
-onready var MaxGameTimeSlider = $MaxGameTimeSlider
-onready var MaxGameTimeSwitch = $cButtSwitchMaxGameTime
+@onready var MaxGameTimeLabel = $labelMaxGameTime
+@onready var MaxGameTimeSlider = $MaxGameTimeSlider
+@onready var MaxGameTimeSwitch = $cButtSwitchMaxGameTime
 
 func _ready():
 	MaxGameTimeLabel.text = str(MaxGameTimeSlider.value)
