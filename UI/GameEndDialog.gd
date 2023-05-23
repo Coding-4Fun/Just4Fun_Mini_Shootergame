@@ -1,7 +1,7 @@
 extends Control
 
-var winLooseText:String = "value" setget set_WinLoose_Text
-onready var winLooseLabel = $marginContainer/centerContainer/vBoxContainer/labGameOverTitel/labWinLoose
+var winLooseText:String = "value" : set = set_WinLoose_Text
+@onready var winLooseLabel = $marginContainer/centerContainer/vBoxContainer/labGameOverTitel/labWinLoose
 
 
 # Called when the node enters the scene tree for the first time.

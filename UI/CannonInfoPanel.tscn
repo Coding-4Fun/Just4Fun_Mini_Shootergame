@@ -1,84 +1,60 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cb01072llbqdv"]
 
-[ext_resource path="res://UI/gradienttexture.tres" type="Texture" id=1]
+[ext_resource type="Texture2D" path="res://UI/gradienttexture.tres" id="1"]
 
 [node name="InfoPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="popupPanel" type="PopupPanel" parent="."]
-margin_right = 227.0
-margin_bottom = 111.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ninePatchRect" type="NinePatchRect" parent="popupPanel"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-texture = ExtResource( 1 )
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+texture = ExtResource("1")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="vBoxContainer" type="VBoxContainer" parent="popupPanel/ninePatchRect"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="label" type="Label" parent="popupPanel/ninePatchRect/vBoxContainer"]
-margin_right = 219.0
-margin_bottom = 26.0
+layout_mode = 2
 text = "Cannon 01/02"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="hBoxContainer" type="HBoxContainer" parent="popupPanel/ninePatchRect/vBoxContainer"]
-margin_top = 30.0
-margin_right = 219.0
-margin_bottom = 56.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="popupPanel/ninePatchRect/vBoxContainer/hBoxContainer"]
-margin_right = 107.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Angel:"
 
 [node name="labAngel" type="Label" parent="popupPanel/ninePatchRect/vBoxContainer/hBoxContainer"]
-margin_left = 111.0
-margin_right = 219.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "12345"
 
 [node name="hBoxContainer_2" type="HBoxContainer" parent="popupPanel/ninePatchRect/vBoxContainer"]
-margin_top = 60.0
-margin_right = 219.0
-margin_bottom = 86.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="popupPanel/ninePatchRect/vBoxContainer/hBoxContainer_2"]
-margin_right = 107.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Power:"
 
 [node name="labPower" type="Label" parent="popupPanel/ninePatchRect/vBoxContainer/hBoxContainer_2"]
-margin_left = 111.0
-margin_right = 219.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "12345"

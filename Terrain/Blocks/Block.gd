@@ -16,10 +16,10 @@ var block_sprites = [
 #	preload("res://Terrain/Blocks/Sprites/coal_ore.png")
 ]
 
-var block_type = 1 setget _on_set_blocktype
-var debugtext = "" setget _on_set_debugtext
+var block_type := 1 : set = _on_set_blocktype
+var debugtext := "" : set = _on_set_debugtext
 
-onready var labDebug = $sprite/labDEBUG
+@onready var labDebug = $sprite/labDEBUG
 var togglecollision
 
 func _ready() -> void :

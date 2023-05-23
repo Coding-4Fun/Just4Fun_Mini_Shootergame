@@ -1,5 +1,5 @@
 extends ParallaxLayer
-@export(float) var CLOUD_SPEED = -25
+@export var CLOUD_SPEED : float = -25
 
 func _ready() -> void:
 	pass

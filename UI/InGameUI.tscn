@@ -1,246 +1,267 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bivgupagcj6xf"]
 
-[ext_resource path="res://UI/InGameUI.gd" type="Script" id=1]
-[ext_resource path="res://UI/Settings/InGameUISettings.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" path="res://UI/InGameUI.gd" id="1"]
+[ext_resource type="PackedScene" path="res://UI/Settings/InGameUISettings.tscn" id="2"]
 
 [node name="InGameUI" type="Control"]
-margin_right = 1600.0
-margin_bottom = 900.0
+layout_mode = 3
+anchors_preset = 0
 mouse_filter = 2
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="IngameUIBottom" type="MarginContainer" parent="."]
-margin_right = 1600.0
-margin_bottom = 100.0
+layout_mode = 0
 grow_horizontal = 2
-mouse_filter = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="IngameUIBottom"]
-margin_right = 1600.0
-margin_bottom = 100.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="hBoxHud" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer"]
-margin_right = 1600.0
-margin_bottom = 56.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="hBoxUIButtons" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_right = 220.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 220, 0 )
-mouse_filter = 2
+layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="buttGameOptions" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_right = 108.0
-margin_bottom = 56.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
 [node name="buttGameReset" type="Button" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons"]
-margin_left = 112.0
-margin_right = 220.0
-margin_bottom = 56.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Restart"
 
 [node name="vBoxContainerGameTimer" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 224.0
-margin_right = 413.0
-margin_bottom = 56.0
+layout_mode = 2
 
 [node name="hBoxAngel" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
-margin_right = 189.0
-margin_bottom = 26.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
-margin_right = 69.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Angel:"
 
 [node name="labAngel" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
-margin_left = 73.0
-margin_right = 189.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
-align = 1
 
 [node name="hBoxGametimer" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
-margin_top = 30.0
-margin_right = 189.0
-margin_bottom = 56.0
+layout_mode = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
-margin_right = 123.0
-margin_bottom = 26.0
+layout_mode = 2
 text = "Gametime: "
 
 [node name="labelGameTime" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxGametimer"]
-margin_left = 127.0
-margin_right = 189.0
-margin_bottom = 26.0
+layout_mode = 2
 text = "00:00"
 
 [node name="hBoxPower" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 417.0
-margin_right = 667.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 250, 0 )
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 2
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower"]
-margin_right = 75.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Power:"
 
 [node name="labPower" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower"]
-margin_left = 79.0
-margin_right = 250.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
-align = 1
 
 [node name="hBoxScore" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 692.0
-margin_right = 992.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 300, 0 )
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 2
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_right = 66.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Score:"
 
 [node name="labScore" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore"]
-margin_left = 70.0
-margin_right = 300.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
-align = 1
 
 [node name="vBoxContainerShots" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 996.0
-margin_right = 1296.0
-margin_bottom = 56.0
-grow_horizontal = 2
-rect_min_size = Vector2( 300, 0 )
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="hBoxShots" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots"]
-margin_right = 300.0
-margin_bottom = 26.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots"]
-margin_right = 150.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 150, 0 )
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Overall Shots:"
 
 [node name="labShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots"]
-margin_left = 154.0
-margin_right = 300.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
-align = 1
 
 [node name="hBoxHits" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots"]
-margin_top = 30.0
-margin_right = 300.0
-margin_bottom = 56.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits"]
-margin_right = 148.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Overall Hits:"
 
 [node name="labHits" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits"]
-margin_left = 152.0
-margin_right = 300.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
-align = 1
 
 [node name="vBoxContainerPoints" type="VBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud"]
-margin_left = 1300.0
-margin_right = 1600.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 300, 0 )
+layout_mode = 2
 mouse_filter = 2
 
 [node name="hBoxPointsPerShot" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints"]
-margin_right = 300.0
-margin_bottom = 26.0
-grow_horizontal = 2
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot"]
-margin_right = 171.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Points per Shot:"
 
 [node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot"]
-margin_left = 175.0
-margin_right = 295.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 120, 0 )
+layout_mode = 2
 size_flags_vertical = 0
 text = "123456789"
 
 [node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints"]
-margin_top = 30.0
-margin_right = 295.0
-margin_bottom = 56.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 2
+mouse_filter = 2
 
 [node name="label" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot_2"]
-margin_right = 171.0
-margin_bottom = 26.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Points per Shot:"
 
 [node name="labPointsPerShots" type="Label" parent="IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot_2"]
-margin_left = 175.0
-margin_right = 295.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 120, 0 )
+layout_mode = 2
 size_flags_vertical = 0
 text = "123456789"
 
-[node name="vBoxSettings" parent="IngameUIBottom/vBoxContainer" instance=ExtResource( 2 )]
+[node name="vBoxSettings" parent="IngameUIBottom/vBoxContainer" instance=ExtResource("2")]
 visible = false
-margin_bottom = 210.0
+layout_mode = 2
+
+[node name="vBoxSettings" parent="IngameUIBottom/vBoxContainer/vBoxSettings" index="0"]
+layout_mode = 0
+
+[node name="hBoxOptions" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings" index="0"]
+layout_mode = 2
+
+[node name="buttSwitchTargetTimer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions" index="0"]
+layout_mode = 2
+
+[node name="vSeparator" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions" index="1"]
+layout_mode = 2
+
+[node name="buttBackToMenu" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions" index="2"]
+layout_mode = 2
+
+[node name="hBoxConditions" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings" index="1"]
+layout_mode = 2
+
+[node name="hBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions" index="0"]
+layout_mode = 2
+
+[node name="label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="vBoxContainerShots" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="hBoxContainerMaxShots" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots" index="0"]
+layout_mode = 2
+
+[node name="cButtSwitchMaxShots" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" index="0"]
+layout_mode = 2
+
+[node name="label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" index="1"]
+layout_mode = 2
+
+[node name="MaxShotSlider" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" index="2"]
+layout_mode = 2
+value = 49.0
+
+[node name="labelMaxShots" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" index="3"]
+layout_mode = 2
+
+[node name="vBoxContainerScore" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="hBoxContainerMaxScore" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore" index="0"]
+layout_mode = 2
+
+[node name="cButtSwitchMaxScore" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" index="0"]
+layout_mode = 2
+
+[node name="label" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" index="1"]
+layout_mode = 2
+
+[node name="MaxScoreSlider" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" index="2"]
+layout_mode = 2
+
+[node name="labelMaxScore" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" index="3"]
+layout_mode = 2
+
+[node name="hBoxRoundTime" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings" index="2"]
+layout_mode = 2
+
+[node name="hBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime" index="0"]
+layout_mode = 2
+
+[node name="vSeparator" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="vBoxContainer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="hBoxContainerMaxGameTimer" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="cButtSwitchMaxGameTime" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" index="0"]
+layout_mode = 2
+
+[node name="MaxGameTimeSlider" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" index="1"]
+layout_mode = 2
+value = 59.0
+
+[node name="labelMaxGameTime" parent="IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" index="2"]
+layout_mode = 2
 
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="IngameUIBottom/vBoxContainer/hBoxHud/hBoxUIButtons/buttGameReset" to="." method="_on_button_pressed"]
