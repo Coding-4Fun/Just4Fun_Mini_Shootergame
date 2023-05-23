@@ -38,14 +38,14 @@ func _ready() -> void:
 		if connect("UIdummyTargetTimerChange", Config._on_dummytarget_TimerChange) != OK:
 			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
-	var test = Preloads.PlayerLeft.find_node("Cannon")
+	var test = Preloads.PlayerLeft.find_child("Cannon")
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxShots/labShots.text = str(_shots)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits/labHits.text = str(_hits)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxScore/labScore.text = str(_score)
 	$IngameUIBottom/vBoxContainer/hBoxHud/hBoxPower/labPower.text = str(test.min_velocity)
 	$IngameUIBottom/vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
-	$IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	$IngameUIBottom/vBoxContainer/vBoxSettings/vBoxSettings/hBoxOptions/buttSwitchTargetTimer.button_pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 	
 	GSM.GameTimeTextLabel = GameHudUI.get_node("vBoxContainerGameTimer/hBoxGametimer/labelGameTime")
 

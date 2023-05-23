@@ -6,7 +6,7 @@ extends Control
 
 func _ready():
 	MaxGameTimeLabel.text = str(MaxGameTimeSlider.value)
-	MaxGameTimeSwitch.pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
+	MaxGameTimeSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
 	MaxGameTimeSlider.value = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
 	MaxGameTimeSlider.editable = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]
 	# $"labelGameTime"
