@@ -16,8 +16,8 @@ var target
 
 func _ready():
 #	print("Main: _ready()")
-	if !is_connected("UIResetGame", self, "_on_UI_ResetGame"):
-		var _cn = Preloads.UIMain.connect("UIResetGame", self, "_on_UI_ResetGame")
+	if !is_connected("UIResetGame", self._on_UI_ResetGame):
+		var _cn = Preloads.UIMain.connect("UIResetGame", self._on_UI_ResetGame)
 
 #	var tmp = connect("CannonReset", Preloads.cannonLeft, "_reset_CannonPower")
 #	if (tmp) != OK:
@@ -29,18 +29,18 @@ func _ready():
 func _enter_tree() -> void:
 	# Player Node's
 	Preloads.PlayerRootNode = get_node("Players")
-	Preloads.PlayerLeft = find_node("Player1")
-	Preloads.PlayerRight = find_node("Player2")
-	Preloads.PlayerShots = find_node("Shots")
+	Preloads.PlayerLeft = find_child("Player1")
+	Preloads.PlayerRight = find_child("Player2")
+	Preloads.PlayerShots = find_child("Shots")
 
 	## UI
-	Preloads.UIMain = find_node("InGameUI")
+	Preloads.UIMain = find_child("InGameUI")
 
 	## Dummy Gruppen Node
-	Preloads.DummyTargetGroup = find_node("DummyTargets")
+	Preloads.DummyTargetGroup = find_child("DummyTargets")
 
 	## TileMap
-	Preloads.Map = find_node("TerrainMap")
+	Preloads.Map = find_child("TerrainMap")
 
 
 func _on_MainGame_ready() -> void:
