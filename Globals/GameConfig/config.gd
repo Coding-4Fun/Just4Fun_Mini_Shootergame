@@ -51,19 +51,22 @@ func _ready() -> void:
 
 
 func get_configdata() -> Dictionary:
+	var json = JSON.new()
 	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
 	if not FileAccess.file_exists(GAMECONFIGFILE):
 		config_data = CONFIGDATA_DEFAULT
 		save_gameconfig()
 #	file.open(GAMECONFIGFILE, File.READ)
 	var content = file.get_as_text()
-	var data = JSON.parse_string(content)
+	var data = json.parse(content)
 	file.close()
-	if data.error == OK :
-		if typeof(data.result) == TYPE_DICTIONARY:
-			return data.result
+	if data == OK :
+		if typeof(json.data) == TYPE_DICTIONARY:
+			return json.data
 		else:
 			return CONFIGDATA_DEFAULT
+	else:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", content, " at line ", json.get_error_line())
 	return(CONFIGDATA_DEFAULT)
 
 
