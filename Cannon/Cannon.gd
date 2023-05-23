@@ -2,7 +2,7 @@ extends Node2D
 
 @export var left:bool = true
 
-@export var muzzle_velocity = 1500
+@export var muzzle_velocity : int = 1500
 @export var min_velocity = 10000
 @export var max_velocity = 60000
 @export var gravity = 250
@@ -18,7 +18,7 @@ var current_rotation = 0
 
 func _ready():
 #	if !SignalBus.is_connected("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot"):
-	if !SignalBus.is_connected("CannonShoot", self._on_Cannon_Shot):
+	if !SignalBus.CannonShoot.is_connected( Preloads.UIMain._on_Cannon_Shot):
 ###		assert(SignalBus.connect("CannonShoot", Preloads.UIMain, "_on_Cannon_Shot")==OK)
 		if SignalBus.connect("CannonShoot", Preloads.UIMain._on_Cannon_Shot) != OK:
 			print("Error - Cannon.gd: connect signal CannonShoot")
@@ -81,6 +81,6 @@ func _reset_CannonPower() -> void:
 
 
 func _on_Cannon_ready():
-	muzzle_velocity = floor((max_velocity - min_velocity) / 2)
+	muzzle_velocity = floori((max_velocity - min_velocity) / 2)
 	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 	pass # Replace with function body.
