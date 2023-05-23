@@ -6,8 +6,8 @@ extends StaticBody2D
 @export var TimeOut = 0.0
 @export var TimeMax = 6.0
 
-onready var Main = get_tree().get_root().get_node("MainGame")
-onready var label = $dummyLabel
+@onready var Main = get_tree().get_root().get_node("MainGame")
+@onready var label = $dummyLabel
 
 
 # Called when the node enters the scene tree for the first time.

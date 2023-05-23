@@ -1,45 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dwpyhrww6jkcv"]
 
-[ext_resource path="res://UI/Fonts/OpenSansSemibold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://DummyTarget/DummyTarget.png" type="Texture" id=2]
-[ext_resource path="res://DummyTarget/DummyTarget.gd" type="Script" id=3]
+[ext_resource type="Texture2D" uid="uid://busvvdqv1k5je" path="res://DummyTarget/DummyTarget.png" id="2"]
+[ext_resource type="Script" path="res://DummyTarget/DummyTarget.gd" id="3"]
 
-[sub_resource type="DynamicFont" id=4]
-size = 180
-font_data = ExtResource( 1 )
-
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id="3"]
 radius = 83.0
 height = 398.0
 
 [node name="DummyTarget" type="StaticBody2D" groups=["Dummy"]]
-scale = Vector2( 0.15, 0.08 )
 z_index = 5
+scale = Vector2(0.15, 0.08)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 3 )
+script = ExtResource("3")
 
-[node name="sprite" type="Sprite" parent="."]
-position = Vector2( 2, 5.99994 )
-texture = ExtResource( 2 )
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(2, 5.99994)
+texture = ExtResource("2")
 centered = false
-offset = Vector2( -102, -600 )
+offset = Vector2(-102, -600)
 
 [node name="dummyLabel" type="Label" parent="."]
-margin_left = -280.0
-margin_top = -1425.0
-margin_right = 277.0
-margin_bottom = -655.999
 size_flags_horizontal = 5
-custom_fonts/font = SubResource( 4 )
 text = "21
 0.99"
-align = 1
-valign = 1
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3, -288 )
-shape = SubResource( 3 )
+position = Vector2(3, -288)
+shape = SubResource("3")
 
 [node name="despawnTimer" type="Timer" parent="."]
 wait_time = 0.25

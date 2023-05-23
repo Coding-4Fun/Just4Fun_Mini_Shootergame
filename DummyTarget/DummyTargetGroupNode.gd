@@ -1,27 +1,27 @@
 extends Node2D
 
-var target
-
 func _ready():
 	#	CreateAndAddNewTarget _on_Create_Add_NewTarget
-	if !SignalBus.is_connected("CreateAndAddNewTarget", self, "_on_Create_Add_NewTarget"):
+	if !SignalBus.is_connected("CreateAndAddNewTarget", self._on_Create_Add_NewTarget):
 ###		assert(SignalBus.connect("CreateAndAddNewTarget", self, "_on_Create_Add_NewTarget")==OK)
-		if SignalBus.connect("CreateAndAddNewTarget", self, "_on_Create_Add_NewTarget") != OK:
+		if SignalBus.connect("CreateAndAddNewTarget", self._on_Create_Add_NewTarget) != OK:
 			print("Error - DummyTargetGroupNode.gd: connect signal CreateAndAddNewTarget")
 	
-	if !SignalBus.is_connected("TargetHitted", self, "_on_Target_Hited"):
+	if !SignalBus.is_connected("TargetHitted", self._on_Target_Hited):
 ###		assert(SignalBus.connect("TargetHitted", self, "_on_Target_Hited")==OK)
-		if SignalBus.connect("TargetHitted", self, "_on_Target_Hited") != OK:
+		if SignalBus.connect("TargetHitted", self._on_Target_Hited) != OK:
 			print("Error - DummyTargetGroupNode.gd: connect signal TargetHitted")
 
 	pass
 
 
 func _on_Create_Add_NewTarget() -> void:
+	var target : Node2D
+	
 	randomize()
 
 	var tilecount = Preloads.Map.world_tiles_x
-	var randtile = ceil(rand_range(Preloads.Map.mod + 10, tilecount-1))
+	var randtile = ceil(randi_range(Preloads.Map.mod + 10, tilecount-1))
 
 	var tile_coord
 	
