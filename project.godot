@@ -11,6 +11,9 @@ config_version=5
 [application]
 
 config/name="J4F_MiniShootEmUp"
+config/name_localized={
+"de_DE": "Mini Cannon Shooter"
+}
 config/description="Just 4 Fun - Mini Shootergame"
 run/main_scene="res://UI/MainMenuUI.tscn"
 config/features=PackedStringArray("4.0")
@@ -32,7 +35,9 @@ gdscript/completion/autocomplete_setters_and_getters=true
 
 [display]
 
-window/stretch/mode="2d"
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
 window/size/width=1600
 window/size/height=900
 
@@ -71,6 +76,12 @@ Pause={
 ]
 }
 
+[internationalization]
+
+locale/language_filter=["de", "en"]
+locale/country_filter=["DE", "GB"]
+locale/locale_filter_mode=1
+
 [memory]
 
 limits/message_queue/max_size_kb=16384
@@ -86,6 +97,7 @@ name_casing=1
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 vram_compression/import_etc=true
 environment/default_clear_color=Color(0.0745098, 0.737255, 0.964706, 1)
 environment/default_environment="res://default_env.tres"
