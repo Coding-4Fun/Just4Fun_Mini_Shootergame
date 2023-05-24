@@ -65,22 +65,22 @@ valign = 1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -167.0
+margin_top = -150.0
 margin_bottom = 450.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer"]
 margin_left = 798.0
-margin_top = 307.0
+margin_top = 298.0
 margin_right = 802.0
-margin_bottom = 310.0
+margin_bottom = 301.0
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
 margin_left = 700.0
-margin_top = 133.0
+margin_top = 125.0
 margin_right = 900.0
-margin_bottom = 483.0
+margin_bottom = 475.0
 rect_min_size = Vector2( 200, 350 )
 custom_constants/separation = 30
 
@@ -95,9 +95,9 @@ text = "Play"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
-margin_top = 153.0
+margin_top = 180.0
 margin_right = 347.0
-margin_bottom = 297.0
+margin_bottom = 324.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
@@ -105,9 +105,9 @@ text = "Highscore"
 
 [node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
-margin_top = 153.0
+margin_top = 180.0
 margin_right = 303.0
-margin_bottom = 297.0
+margin_bottom = 324.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/disabled = SubResource( 9 )
