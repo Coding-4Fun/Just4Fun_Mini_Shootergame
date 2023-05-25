@@ -42,7 +42,7 @@ func _on_buttSettings_pressed():
 
 func _on_buttExit_pressed():
 	# Close Game, Back to System. Not on HTML
-	get_tree().notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _on_buttExit_ready():
