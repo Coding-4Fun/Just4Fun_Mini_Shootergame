@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://lci12xbkaqx2"]
+[gd_scene load_steps=4 format=3 uid="uid://lci12xbkaqx2"]
 
 [ext_resource type="Script" path="res://Cannon/Cannon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://beoj8ih7nvgrg" path="res://Cannon/Progress.png" id="2_1twsp"]
 [ext_resource type="Texture2D" uid="uid://ci72mkbxrxjbc" path="res://Cannon/black-cannon-barrel.png" id="2_xcomg"]
 
 [node name="Cannon" type="Node2D"]
@@ -11,6 +12,18 @@ min_velocity = 7500
 max_velocity = 30000
 
 [node name="CoolDown" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = -160.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_progress = ExtResource("2_1twsp")
 tint_progress = Color(0.388235, 0.760784, 0.945098, 1)
 
 [node name="Barrel" type="Sprite2D" parent="."]
