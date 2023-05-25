@@ -41,9 +41,8 @@ func _physics_process(delta: float) -> void:
 		if collider is TileMap:
 			# Find the character's position in tile coordinates
 			var colpos = collision.get_position()
-			var tile_pos = collider.map_to_local(colpos)
+			var tile_pos = collider.local_to_map(colpos)
 			# Find the colliding tile position
-			tile_pos -= collision.get_normal()
 			# Get the tile id
 			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
