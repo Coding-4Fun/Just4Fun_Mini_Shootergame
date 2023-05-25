@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Bullet_exploded(pos):
-	var e = Preloads.Explosion.instance()
+	var e = Preloads.Explosion.instantiate()
 	Preloads.PlayerLeft.add_child(e)
 	e.position = pos
 
