@@ -82,7 +82,7 @@ func _show_GameOverDialog(win:int = 0) -> void:
 	gameWin = win
 	await get_tree().create_timer(2.0).timeout
 	get_tree().call_group("Shoots", "queue_free")
-	var sc = get_tree().change_scene_to(Preloads.GameOverScene)
+	var sc = get_tree().change_scene_to_file(Preloads.GameOverScene)
 	if sc != OK:
 		print("Error: change_scene_to()::GameOver")
 
