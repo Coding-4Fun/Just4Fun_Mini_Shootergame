@@ -24,7 +24,7 @@ func _ready() -> void:
 	if !SignalBus.is_connected("exploded", self._on_Bullet_exploded):
 ###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
 #		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
-		if SignalBus.exploded.connect(_on_Bullet_exploded.bind([]), CONNECT_REFERENCE_COUNTED) != OK:
+		if SignalBus.exploded.connect(_on_Bullet_exploded.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal exploded")
 
 
