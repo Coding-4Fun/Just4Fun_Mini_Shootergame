@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h8vcng8ps4vd"]
+[gd_scene load_steps=12 format=3 uid="uid://h8vcng8ps4vd"]
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://Terrain/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGame.gd" id="2"]
@@ -11,8 +11,17 @@
 [ext_resource type="Script" path="res://Terrain/Background/parallaxLayer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://Terrain/Background/uncolored_plain.png" id="10"]
 
+[sub_resource type="Environment" id="Environment_47r24"]
+background_mode = 3
+background_color = Color(0.305882, 0.517647, 1, 1)
+tonemap_exposure = 0.39
+adjustment_enabled = true
+
 [node name="MainGame" type="Node2D"]
 script = ExtResource("2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_47r24")
 
 [node name="parallaxBackground" type="ParallaxBackground" parent="."]
 
