@@ -8,7 +8,7 @@ func _ready():
 
 func _on_Player_Shoot(pos:Transform2D, velocity, gravity) -> void:
 	randomize()
-	var bullet = Preloads.Bullet.instance()
+	var bullet : CharacterBody2D = Preloads.Bullet.instantiate()
 	bullet.Ply = name
 	bullet.name = str(randi())
 #	bullet.add_to_group("Shoots")
