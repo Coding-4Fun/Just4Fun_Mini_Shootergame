@@ -14,7 +14,7 @@ var Ply = ""
 func _ready() -> void:
 	if !is_connected("GroundHit", _on_Ground_Hited):
 ###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
-		if GroundHit.connect(_on_Ground_Hited.bind([]), CONNECT_REFERENCE_COUNTED) != OK:
+		if GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
 		# else
 			# GroundHit.connect.bind()
@@ -37,13 +37,15 @@ func _physics_process(delta: float) -> void:
 	rotation = velocity.angle()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		if collision.collider is TileMap:
+		var collider = collision.get_collider()
+		if collider is TileMap:
 			# Find the character's position in tile coordinates
-			var tile_pos = collision.collider.world_to_map(position)
+			var colpos = collision.get_position()
+			var tile_pos = collider.map_to_local(colpos)
 			# Find the colliding tile position
-			tile_pos -= collision.normal
+			tile_pos -= collision.get_normal()
 			# Get the tile id
-			var tile_id = collision.collider.get_cellv(tile_pos)
+			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
 				SignalBus.emit_signal("exploded", position + transform.x * 37)
 				emit_signal("GroundHit")
