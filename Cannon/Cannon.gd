@@ -81,6 +81,6 @@ func _reset_CannonPower() -> void:
 
 
 func _on_Cannon_ready():
-	muzzle_velocity = floori((max_velocity - min_velocity) / 2)
+	muzzle_velocity = floori((float)(max_velocity - min_velocity) / 2)
 	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
 	pass # Replace with function body.
