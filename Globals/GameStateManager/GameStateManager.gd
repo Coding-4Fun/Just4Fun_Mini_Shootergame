@@ -18,7 +18,7 @@ func _ready():
 	if !is_connected("GameStateChange", _on_GameStateChange):
 		if connect("GameStateChange", _on_GameStateChange):
 			print("Error - GamestateManager: connect GameStateChange")
-			
+
 	GameTimer = Timer.new()
 	if GameTimer.connect("timeout", _on_timer_timeout):
 		print("Error - GamestateManager: connect GameTimer_timeout")
@@ -57,7 +57,7 @@ func _check_GameWinCondition() -> void:
 		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
 			print("Game Over. Your Game Time has left.")
 			_show_GameOverDialog(3)
-		
+
 	# Check auf Max Shots
 	if Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]:
 		var maxshots = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
@@ -90,13 +90,9 @@ func _show_GameOverDialog(win:int = 0) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):
 		if !get_tree().paused:
-			pm = Preloads.PauseMenu.instance()
+			pm = Preloads.PauseMenu.instantiate()
 			get_tree().get_current_scene().add_child(pm)
 #			pausemode = Node.PROCESS_MODE_PAUSABLE
 			get_tree().paused = !get_tree().paused
-		else:
-			get_tree().get_current_scene().get_node("PauseMenu").queue_free()
-#			pause = Node.PAUSE_MODE_INHERIT
-#			self.pausemode = Node.PAUSEMODEPROCESS
-			get_tree().paused = !get_tree().paused
+
 
