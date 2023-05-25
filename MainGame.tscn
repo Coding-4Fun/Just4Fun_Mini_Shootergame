@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://h8vcng8ps4vd"]
 
-[ext_resource type="TileSet" path="res://Terrain/blocks_tileset_16x16.tres" id="1"]
+[ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://Terrain/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGame.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://bivgupagcj6xf" path="res://UI/InGameUI.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/players.gd" id="4"]
