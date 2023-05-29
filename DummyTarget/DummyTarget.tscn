@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://DummyTarget/DummyTarget.gd" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="3"]
-radius = 83.0
-height = 525.0
+radius = 86.6667
+height = 374.999
 
 [node name="DummyTarget" type="StaticBody2D" groups=["Dummy"]]
 z_index = 5
@@ -31,21 +31,19 @@ offset_right = 276.667
 offset_bottom = -616.999
 grow_horizontal = 2
 size_flags_horizontal = 5
-theme_override_colors/font_color = Color(0, 0.462745, 0.568627, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 6
-theme_override_constants/shadow_outline_size = 6
-theme_override_font_sizes/font_size = 180
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 200
 text = "21
 0.99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -325)
+position = Vector2(0, -412.5)
 shape = SubResource("3")
 
 [node name="despawnTimer" type="Timer" parent="."]
