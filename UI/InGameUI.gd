@@ -5,6 +5,7 @@ extends Control
 var _shots : float = 0
 var _score : float = 0
 var _hits : float = 0
+var _missed : float = 0
 
 var _backgroundMin := Vector2i(170,470)
 
@@ -46,6 +47,7 @@ func _ready() -> void:
 
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
+	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
 	$BoxContainer/HBoxHudTop/hBoxPower/labPower.text = str(test.min_velocity)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
@@ -75,23 +77,28 @@ func _on_Cannon_Shot() -> void:
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
-	GSM.emit_signal("GameStateChange", _score, _hits, _shots)
+	# GSM.emit_signal("GameStateChange", _score, _hits, _shots)
 	if score > 0:
 		_hits += 1
 		$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
-		GSM.emit_signal("GameStateChange", _score, _hits, _shots)
 	if _shots != 0:
 		var pps:float = float(float(_score) / float(_shots))
 		$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
+	if score < 0:
+		_missed += 1
+		$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
+	GSM.emit_signal("GameStateChange", _score, _hits, _shots)
 
 ## Reset the Game
 func _on_buttGameReset_button_pressed() -> void:
 	_shots = 0.0
 	_score = 0.0
 	_hits = 0.0
+	_missed = 0.0
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
+	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 	emit_signal("UIResetGame")
 	GSM.GameTimerTimeElapsed = 0

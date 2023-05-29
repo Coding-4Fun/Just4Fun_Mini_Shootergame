@@ -91,7 +91,6 @@ alignment = 1
 [node name="label" type="Label" parent="BoxContainer/HBoxHudTop/hBoxPower"]
 layout_mode = 2
 size_flags_horizontal = 10
-size_flags_vertical = 0
 theme_override_font_sizes/font_size = 35
 text = "Power:"
 horizontal_alignment = 2
@@ -105,6 +104,7 @@ text = "123456789"
 horizontal_alignment = 2
 
 [node name="VSeparator3" type="VSeparator" parent="BoxContainer/HBoxHudTop"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -169,12 +169,13 @@ layout_mode = 2
 
 [node name="hBoxHits" type="HBoxContainer" parent="BoxContainer/HBoxHudMiddle"]
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
+alignment = 1
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxHits"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_vertical = 0
 theme_override_font_sizes/font_size = 35
 text = "Overall Hits:"
 vertical_alignment = 1
@@ -187,6 +188,7 @@ text = "123456789"
 horizontal_alignment = 2
 
 [node name="VSeparator3" type="VSeparator" parent="BoxContainer/HBoxHudMiddle"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -242,6 +244,33 @@ theme_override_font_sizes/font_size = 35
 text = "123456789"
 
 [node name="VSeparator2" type="VSeparator" parent="BoxContainer/HBoxHudBottom"]
+layout_mode = 2
+
+[node name="hBoxMisHits" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
+custom_minimum_size = Vector2(392, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+alignment = 1
+
+[node name="label" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxMisHits"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 35
+text = "Missed:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="labMissHits" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxMisHits"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "123456789"
+horizontal_alignment = 2
+
+[node name="VSeparator4" type="VSeparator" parent="BoxContainer/HBoxHudBottom"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
