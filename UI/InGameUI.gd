@@ -53,6 +53,7 @@ func _ready() -> void:
 	$BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
 
 	GSM.GameTimeTextLabel = GameHudUI.get_node("hBoxGametimer/labelGameTime")
+	GSM.GameTimerTimeElapsed = 0
 
 
 # Update UI Label Text when the shootpower changed
@@ -93,6 +94,7 @@ func _on_buttGameReset_button_pressed() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 	emit_signal("UIResetGame")
+	GSM.GameTimerTimeElapsed = 0
 
 # Öffnen und schliessen der Settings
 func _on_buttGameOptions_pressed() -> void:
