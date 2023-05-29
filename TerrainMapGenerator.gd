@@ -1,13 +1,13 @@
 extends TileMap
 
-var tile_size:Vector2 = Vector2(16,16).ceil()
+var tile_size:Vector2 = Vector2i(16,16) #.ceil()
 
-onready var screensize:Vector2 = get_viewport().get_visible_rect().size
-onready var midrange:int = screensize.y
-onready var displacement = ceil((midrange / tile_size.y) / 2)
-export var current_displacement = 0
-export var castlewidth = 175
-var plattform := []
+@onready var screensize:Vector2 = get_viewport().get_visible_rect().size
+@onready var midrange:float = screensize.y
+@onready var displacement := ceili((midrange / tile_size.y) / 2)
+@export var current_displacement = 0
+@export var castlewidth = 175
+var plattform := [Vector2i()]
 
 enum block_types {
 	AIR=-1,
@@ -23,7 +23,7 @@ var world_tiles_y:int
 var min_terrain_height:int
 var max_terrain_height:int
 
-export (float) var mod = stepify(castlewidth, tile_size.x) / tile_size.x
+@export var mod : int = floori(snappedf(castlewidth, tile_size.x) / tile_size.x)
 
 func _ready() -> void:
 	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
@@ -36,10 +36,10 @@ func _ready() -> void:
 
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
-	var Castle = get_used_cells_by_id(6)
+	var Castle = get_used_cells_by_id(0, 6)
 	clear()
 	for i in Castle.size():
-		set_cellv(Castle[i], 6)
+		set_cell(0, Castle[i],6, Vector2i(0, 0))
 	pass
 
 
@@ -51,24 +51,24 @@ func generate_world_tilemap_base() -> void:
 		if x <= mod:
 			current_displacement = displacement
 		for y in world_tiles_y:
-			update_dirty_quadrants()
+			# update_dirty_quadrants()
 			# BasePlattform
 			if x <= mod and y == current_displacement:
-				set_cellv(Vector2(x,y), 6)
-				plattform.append(Vector2(x, y))
+				set_cell(0, Vector2i(x,y), 6, Vector2i(0, 0))
+				plattform.append(Vector2i(x, y))
 				continue
 			# Graslinie
 			elif y == current_displacement:
-				set_cellv(Vector2(x,y), 0)
+				set_cell(0, Vector2i(x,y), 0, Vector2i(0, 0))
 			# Unterhalb der Graslinie
 			if y > current_displacement and y < world_tiles_y-2:
-				var rdm = rand_range(1,5)
+				var rdm = randi_range(1,5)
 				rdm = ceil(rdm)
 				rdm = int(rdm)
-				set_cellv(Vector2(x,y), rdm)
+				set_cell(0, Vector2i(x,y), rdm, Vector2i(0, 0))
 			elif y >= world_tiles_y-2:
-				set_cellv(Vector2(x,y), 7)
+				set_cell(0, Vector2i(x,y), 7, Vector2i(0, 0))
 			# End Y Loop
 
-		var change_displacement = current_displacement + sign(rand_range(-5, 5))# pow(-1.0, randi() % 2)
+		var change_displacement = current_displacement + sign(randi_range(-5, 5))# pow(-1.0, randi() % 2)
 		current_displacement = change_displacement

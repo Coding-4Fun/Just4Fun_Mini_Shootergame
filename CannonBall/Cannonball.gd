@@ -1,25 +1,30 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 signal GroundHit
 
-var velocity = Vector2.ZERO
-export var P1 = 1
-onready var screensize = get_viewport().get_visible_rect().size
-onready var pos_offscreen = $OffscreenPosition
+
+@export var P1 = 1
+@onready var screensize = get_viewport().get_visible_rect().size
+@onready var pos_offscreen = $OffscreenPosition
 
 var g = 150
 var Ply = ""
 
 
 func _ready() -> void:
-	if !is_connected("GroundHit", self, "_on_Ground_Hited"):
+	if !is_connected("GroundHit", _on_Ground_Hited):
 ###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
-		if connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED) != OK:
+		if GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
+		# else
+			# GroundHit.connect.bind()
+			# layer.hit.connect(_on_player_hit.bind("sword", 100))
 
-	if !SignalBus.is_connected("exploded", self, "_on_Bullet_exploded"):
+
+	if !SignalBus.is_connected("exploded", self._on_Bullet_exploded):
 ###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
-		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+#		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+		if SignalBus.exploded.connect(_on_Bullet_exploded.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal exploded")
 
 
@@ -32,19 +37,20 @@ func _physics_process(delta: float) -> void:
 	rotation = velocity.angle()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		if collision.collider is TileMap:
+		var collider = collision.get_collider()
+		if collider is TileMap:
 			# Find the character's position in tile coordinates
-			var tile_pos = collision.collider.world_to_map(position)
+			var colpos = collision.get_position()
+			var tile_pos = collider.local_to_map(colpos)
 			# Find the colliding tile position
-			tile_pos -= collision.normal
 			# Get the tile id
-			var tile_id = collision.collider.get_cellv(tile_pos)
+			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
 				SignalBus.emit_signal("exploded", position + transform.x * 37)
 				emit_signal("GroundHit")
-		elif collision.collider is StaticBody2D:
-			if collision.collider.is_in_group("Dummy") and collision.collider.has_method("_hit_ByBall"):
-				collision.collider._hit_ByBall()
+		elif collider is StaticBody2D:
+			if collider.is_in_group("Dummy") and collider.has_method("_hit_ByBall"):
+				collider._hit_ByBall()
 			pass
 
 
@@ -56,7 +62,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Bullet_exploded(pos):
-	var e = Preloads.Explosion.instance()
+	var e = Preloads.Explosion.instantiate()
 	Preloads.PlayerLeft.add_child(e)
 	e.position = pos
 

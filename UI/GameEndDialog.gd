@@ -1,7 +1,7 @@
 extends Control
 
-var winLooseText:String = "value" setget set_WinLoose_Text
-onready var winLooseLabel = $marginContainer/centerContainer/vBoxContainer/labGameOverTitel/labWinLoose
+var winLooseText:String = "value" : set = set_WinLoose_Text
+@onready var winLooseLabel = $marginContainer/centerContainer/vBoxContainer/labGameOverTitel/labWinLoose
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +24,7 @@ func DisplayText() -> void:
 
 		2:	# Maxumim Score
 			winLooseLabel.text = "You have Won\n By Score"
-		
+
 		3:	# Maxumim Game Time
 			winLooseLabel.text = "You have Won\n By Game Time"
 		_:	# -1 by default
@@ -32,12 +32,12 @@ func DisplayText() -> void:
 
 
 func _on_buttNewGame_pressed() -> void:
-	if get_tree().change_scene_to(Preloads.MainGameScene) != OK:
+	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
 		print("Error: change_scene_to()::buttPlay")
 	pass # Replace with function body.
 
 
 func _on_buttMainMenu_pressed() -> void:
-	if get_tree().change_scene_to(Preloads.MainMenuScene) != OK:
+	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
 		print("Error: change_scene_to()::buttBackToMenu_pressed")
 	pass # Replace with function body.

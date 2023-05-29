@@ -1,13 +1,13 @@
 extends Control
 
-onready var MaxShotLabel = $labelMaxShots
-onready var MaxShotSlider = $MaxShotSlider
-onready var MaxShotSwitch = $cButtSwitchMaxShots
+@onready var MaxShotLabel = $labelMaxShots
+@onready var MaxShotSlider = $MaxShotSlider
+@onready var MaxShotSwitch = $cButtSwitchMaxShots
 
 func _ready():
 	MaxShotSlider.value = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
 	MaxShotLabel.text = str(MaxShotSlider.value)
-	MaxShotSwitch.pressed = Config.config_data["Game"]["Condition"]["MaxShotsEnabled"] 
+	MaxShotSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MaxShotsEnabled"] 
 	MaxShotSlider.editable = Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]
 
 

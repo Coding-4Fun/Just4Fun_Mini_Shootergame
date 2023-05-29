@@ -1,18 +1,18 @@
 extends Line2D
 
-export var displacement = 250
-export var iterations = 5
-export var height = 400
-export var castlewidth = 175
-export var castleleftpos = 0
-export var castlerightpos = 0
-export (float) var smooth = 1.1
+@export var displacement = 250
+@export var iterations = 5
+@export var height = 400
+@export var castlewidth = 175
+@export var castleleftpos = 0
+@export var castlerightpos = 0
+@export var smooth : float = 1.1
 
 var current_displacement
 
-onready var colli = $Terrain/TerrainCollision
-onready var root = get_parent()
-onready var screensize = get_viewport().get_visible_rect().size
+@onready var colli = $Terrain/TerrainCollision
+@onready var root = get_parent()
+@onready var screensize = get_viewport().get_visible_rect().size
 
 func _ready():
 	randomize()
@@ -23,7 +23,8 @@ func _ready():
 func init_line():
 	current_displacement = displacement
 
-	points = PoolVector2Array()
+	points = PackedVector2Array()
+
 	var start: Vector2
 	var end: Vector2
 
@@ -42,7 +43,7 @@ func init_line():
 ## Plattform rechts
 	#add_point(Vector2(screensize.x, end.y))
 
-	colli.polygon = PoolVector2Array()
+	colli.polygon = PackedVector2Array()
 	var p = points
 	p.append(Vector2(screensize.x, screensize.y))
 	p.append(Vector2(0, screensize.y))
@@ -52,14 +53,14 @@ func init_line():
 
 
 func _calculate_StartPointInLine() -> Vector2:
-	var start = Vector2(castlewidth, rand_range(height-displacement,
+	var start = Vector2(castlewidth, randi_range(height-displacement,
 								height+displacement))
 	start.y = clamp(start.y, 135, screensize.y-25)
 	return start
 
 
 func _calculate_EndPointInLine() -> Vector2:
-	var end = Vector2(screensize.x, rand_range(height-displacement,
+	var end = Vector2(screensize.x, randi_range(height-displacement,
 								height+displacement))
 	end.y = clamp(end.y, 135, screensize.y-25)
 	return end
@@ -68,7 +69,7 @@ func _calculate_EndPointInLine() -> Vector2:
 func add_points():
 	randomize()
 	var old_points = points
-	points = PoolVector2Array()
+	points = PackedVector2Array()
 	for i in range(old_points.size() - 1):
 		var midpoint = (old_points[i] + old_points[i+1]) / 2
 		midpoint.y += current_displacement * pow(-1.0, randi() % 2)

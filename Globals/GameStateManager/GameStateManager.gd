@@ -1,8 +1,8 @@
 extends Node
 
-export var _score:int = 0
-export var _hits:int = 0
-export var _shots:int = 0
+@export var _score:int = 0
+@export var _hits:int = 0
+@export var _shots:int = 0
 
 var gameWin:int = -1
 var pm
@@ -15,12 +15,12 @@ signal GameStateChange
 #onready var GameOverDlg = preload("res://UI/GameEndDialog.tscn")
 
 func _ready():
-	if !is_connected("GameStateChange", self, "_on_GameStateChange"):
-		if connect("GameStateChange", self, "_on_GameStateChange"):
+	if !is_connected("GameStateChange", _on_GameStateChange):
+		if connect("GameStateChange", _on_GameStateChange):
 			print("Error - GamestateManager: connect GameStateChange")
-			
+
 	GameTimer = Timer.new()
-	if GameTimer.connect("timeout",self,"_on_timer_timeout"):
+	if GameTimer.connect("timeout", _on_timer_timeout):
 		print("Error - GamestateManager: connect GameTimer_timeout")
 	add_child(GameTimer)
 	pass
@@ -57,7 +57,7 @@ func _check_GameWinCondition() -> void:
 		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
 			print("Game Over. Your Game Time has left.")
 			_show_GameOverDialog(3)
-		
+
 	# Check auf Max Shots
 	if Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]:
 		var maxshots = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
@@ -80,9 +80,9 @@ func _check_GameWinCondition() -> void:
 
 func _show_GameOverDialog(win:int = 0) -> void:
 	gameWin = win
-	yield(get_tree().create_timer(2.0), "timeout")
+	await get_tree().create_timer(2.0).timeout
 	get_tree().call_group("Shoots", "queue_free")
-	var sc = get_tree().change_scene_to(Preloads.GameOverScene)
+	var sc = get_tree().change_scene_to_packed(Preloads.GameOverScene)
 	if sc != OK:
 		print("Error: change_scene_to()::GameOver")
 
@@ -90,12 +90,9 @@ func _show_GameOverDialog(win:int = 0) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):
 		if !get_tree().paused:
-			pm = Preloads.PauseMenu.instance()
+			pm = Preloads.PauseMenu.instantiate()
 			get_tree().get_current_scene().add_child(pm)
-			pause_mode = Node.PAUSE_MODE_PROCESS
+#			pausemode = Node.PROCESS_MODE_PAUSABLE
 			get_tree().paused = !get_tree().paused
-		else:
-			get_tree().get_current_scene().get_node("PauseMenu").queue_free()
-			pause_mode = Node.PAUSE_MODE_INHERIT
-			get_tree().paused = !get_tree().paused
+
 

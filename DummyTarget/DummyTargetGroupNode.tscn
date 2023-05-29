@@ -1,3 +1,3 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://dx02vnjoiqc0n"]
 
 [node name="DummyTargetGroupNode" type="Node2D"]

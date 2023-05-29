@@ -1,33 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dls5xb2kvdw06"]
 
-[ext_resource path="res://Terrain/Blocks/Sprites/dirt.png" type="Texture" id=1]
-[ext_resource path="res://Terrain/Blocks/Block.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://dmjosb1qp5a7e" path="res://Terrain/Blocks/Sprites/dirt.png" id="1"]
+[ext_resource type="Script" path="res://Terrain/Blocks/Block.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(64, 64)
 
 [node name="Block" type="StaticBody2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
-[node name="sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1")
 centered = false
 
 [node name="labDEBUG" type="Label" parent="sprite"]
+anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -27.0
-margin_bottom = 27.5
-align = 1
-valign = 1
 uppercase = true
 max_lines_visible = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 32, 32 )
-shape = SubResource( 1 )
+position = Vector2(32, 32)
+shape = SubResource("1")
 disabled = true

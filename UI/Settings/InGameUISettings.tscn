@@ -1,152 +1,122 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://chpd7ewn37es"]
 
-[ext_resource path="res://UI/Settings/MaxGameTimeSettings.gd" type="Script" id=1]
-[ext_resource path="res://UI/Settings/MaxShotSettings.gd" type="Script" id=2]
-[ext_resource path="res://UI/Settings/MaxScoreSettings.gd" type="Script" id=3]
-[ext_resource path="res://UI/Settings/Settings.gd" type="Script" id=4]
+[ext_resource type="Script" path="res://UI/Settings/MaxGameTimeSettings.gd" id="1"]
+[ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2"]
+[ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="3"]
+[ext_resource type="Script" path="res://UI/Settings/Settings.gd" id="4"]
 
-[node name="vBoxSettings" type="ColorRect"]
-show_behind_parent = true
+[node name="vBoxSettings" type="VBoxContainer"]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 1, 1 )
-color = Color( 0.145098, 0.203922, 0.337255, 0.72549 )
-
-[node name="vBoxSettings" type="VBoxContainer" parent="."]
-rect_min_size = Vector2( 1, 1 )
+offset_bottom = 106.0
+grow_horizontal = 2
 mouse_filter = 0
-script = ExtResource( 4 )
+script = ExtResource("4")
 
-[node name="hBoxOptions" type="HBoxContainer" parent="vBoxSettings"]
-margin_right = 1432.0
-margin_bottom = 42.0
-rect_min_size = Vector2( 1, 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
+
+[node name="hBoxOptions" type="HBoxContainer" parent="."]
+layout_mode = 2
+
 mouse_filter = 2
 size_flags_horizontal = 3
 
-[node name="buttSwitchTargetTimer" type="CheckButton" parent="vBoxSettings/hBoxOptions"]
-margin_right = 271.0
-margin_bottom = 42.0
-pressed = true
+
+[node name="buttSwitchTargetTimer" type="CheckButton" parent="hBoxOptions"]
+layout_mode = 2
 text = "Enable Target Timer"
 
-[node name="vSeparator" type="VSeparator" parent="vBoxSettings/hBoxOptions"]
-margin_left = 275.0
-margin_right = 1282.0
-margin_bottom = 42.0
-mouse_filter = 2
-size_flags_horizontal = 3
+[node name="vSeparator" type="VSeparator" parent="hBoxOptions"]
+layout_mode = 2
 
-[node name="buttBackToMenu" type="Button" parent="vBoxSettings/hBoxOptions"]
-margin_left = 1286.0
-margin_right = 1432.0
-margin_bottom = 42.0
+size_flags_horizontal = 3
+mouse_filter = 2
+
+
+[node name="buttBackToMenu" type="Button" parent="hBoxOptions"]
+layout_mode = 2
 text = "Back to Menu"
 
-[node name="hBoxConditions" type="HBoxContainer" parent="vBoxSettings"]
-margin_top = 46.0
-margin_right = 1432.0
-margin_bottom = 117.0
-rect_min_size = Vector2( 1, 1 )
+[node name="hBoxConditions" type="HBoxContainer" parent="."]
+layout_mode = 2
 
-[node name="hBoxContainer" type="HBoxContainer" parent="vBoxSettings/hBoxConditions"]
-margin_right = 1432.0
-margin_bottom = 71.0
+[node name="hBoxContainer" type="HBoxContainer" parent="hBoxConditions"]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="label" type="Label" parent="vBoxSettings/hBoxConditions/hBoxContainer"]
-margin_right = 120.0
-margin_bottom = 71.0
-rect_min_size = Vector2( 120, 0 )
-text = "Win/Loose
-Conditions"
+[node name="label" type="Label" parent="hBoxConditions/hBoxContainer"]
+layout_mode = 2
+text = "Win/Loose Conditions"
 
-[node name="vBoxContainerShots" type="VBoxContainer" parent="vBoxSettings/hBoxConditions/hBoxContainer"]
-margin_left = 124.0
-margin_right = 657.0
-margin_bottom = 71.0
+[node name="vBoxContainerShots" type="VBoxContainer" parent="hBoxConditions/hBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots"]
-margin_right = 533.0
-margin_bottom = 42.0
+[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="hBoxConditions/hBoxContainer/vBoxContainerShots"]
+layout_mode = 2
+
 size_flags_horizontal = 0
-custom_constants/separation = 5
-script = ExtResource( 2 )
+script = ExtResource("2")
 
-[node name="cButtSwitchMaxShots" type="CheckButton" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
-margin_right = 183.0
-margin_bottom = 42.0
+
+[node name="cButtSwitchMaxShots" type="CheckButton" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
 text = "Max Shots"
 
-[node name="label" type="Label" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
-margin_left = 188.0
-margin_right = 291.0
-margin_bottom = 42.0
-grow_vertical = 2
+[node name="label" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
 text = "Max Shots"
-valign = 1
 
-[node name="MaxShotSlider" type="HSlider" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
-margin_left = 296.0
-margin_right = 476.0
-margin_bottom = 42.0
-grow_horizontal = 0
-grow_vertical = 2
-rect_min_size = Vector2( 180, 40 )
+[node name="MaxShotSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
 size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = -1.0
 step = 10.0
-value = 50.0
+value = 49.0
 rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxShots" type="Label" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
-margin_left = 481.0
-margin_top = 4.0
-margin_right = 533.0
-margin_bottom = 38.0
+
+[node name="labelMaxShots" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
 text = "123456"
 
-[node name="vBoxContainerScore" type="VBoxContainer" parent="vBoxSettings/hBoxConditions/hBoxContainer"]
-margin_left = 661.0
-margin_right = 1432.0
-margin_bottom = 71.0
+[node name="vBoxContainerScore" type="VBoxContainer" parent="hBoxConditions/hBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore"]
-margin_right = 771.0
-margin_bottom = 42.0
-custom_constants/separation = 5
-script = ExtResource( 3 )
+[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="hBoxConditions/hBoxContainer/vBoxContainerScore"]
+layout_mode = 2
+size_flags_horizontal = 8
+script = ExtResource("3")
 
-[node name="cButtSwitchMaxScore" type="CheckButton" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
-margin_right = 280.0
-margin_bottom = 42.0
+[node name="cButtSwitchMaxScore" type="CheckButton" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
 text = "Max Negative Score"
 
-[node name="label" type="Label" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
-margin_left = 285.0
-margin_right = 437.0
-margin_bottom = 42.0
-grow_vertical = 2
+[node name="label" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
 text = "Max/Min Score"
-valign = 1
 
-[node name="MaxScoreSlider" type="HSlider" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
-margin_left = 442.0
-margin_right = 692.0
-margin_bottom = 42.0
-grow_horizontal = 0
-grow_vertical = 2
-rect_min_size = Vector2( 250, 40 )
-size_flags_horizontal = 3
+[node name="MaxScoreSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
 size_flags_vertical = 5
 min_value = -1000.0
 max_value = 1000.0
@@ -157,79 +127,60 @@ editable = false
 tick_count = 20
 ticks_on_borders = true
 
-[node name="labelMaxScore" type="Label" parent="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
-margin_left = 697.0
-margin_top = 4.0
-margin_right = 771.0
-margin_bottom = 38.0
-rect_min_size = Vector2( 60, 0 )
+
+[node name="labelMaxScore" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
 text = "MAX"
 
-[node name="hBoxRoundTime" type="HBoxContainer" parent="vBoxSettings"]
-margin_top = 121.0
-margin_right = 1432.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 1, 1 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="hBoxRoundTime" type="HBoxContainer" parent="."]
+layout_mode = 2
 
-[node name="hBoxContainer" type="HBoxContainer" parent="vBoxSettings/hBoxRoundTime"]
-margin_right = 1432.0
-margin_bottom = 42.0
+[node name="hBoxContainer" type="HBoxContainer" parent="hBoxRoundTime"]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="vSeparator" type="VSeparator" parent="vBoxSettings/hBoxRoundTime/hBoxContainer"]
-margin_right = 120.0
-margin_bottom = 42.0
-rect_min_size = Vector2( 120, 0 )
+[node name="vSeparator" type="VSeparator" parent="hBoxRoundTime/hBoxContainer"]
+layout_mode = 2
 
-[node name="vBoxContainer" type="VBoxContainer" parent="vBoxSettings/hBoxRoundTime/hBoxContainer"]
-margin_left = 124.0
-margin_right = 706.0
-margin_bottom = 42.0
+[node name="vBoxContainer" type="VBoxContainer" parent="hBoxRoundTime/hBoxContainer"]
+layout_mode = 2
 
-[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer"]
-margin_right = 582.0
-margin_bottom = 42.0
-script = ExtResource( 1 )
+[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="hBoxRoundTime/hBoxContainer/vBoxContainer"]
+layout_mode = 2
+script = ExtResource("1")
 
-[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
-margin_right = 222.0
-margin_bottom = 42.0
+[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+layout_mode = 2
 text = "Max Play Time"
 
-[node name="MaxGameTimeSlider" type="HSlider" parent="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
-margin_left = 226.0
-margin_right = 526.0
-margin_bottom = 42.0
-grow_horizontal = 0
-grow_vertical = 2
-rect_min_size = Vector2( 300, 40 )
+[node name="MaxGameTimeSlider" type="HSlider" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
 size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = -1.0
 max_value = 600.0
 step = 30.0
-value = 60.0
+value = 59.0
 rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxGameTime" type="Label" parent="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
-margin_left = 530.0
-margin_top = 4.0
-margin_right = 582.0
-margin_bottom = 38.0
+
+[node name="labelMaxGameTime" type="Label" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+layout_mode = 2
+
 text = "00:00"
 
-[connection signal="pressed" from="vBoxSettings/hBoxOptions/buttBackToMenu" to="vBoxSettings" method="_on_buttBackToMenu_pressed"]
-[connection signal="pressed" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/cButtSwitchMaxShots" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_pressed"]
-[connection signal="toggled" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/cButtSwitchMaxShots" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_toggled"]
-[connection signal="value_changed" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/MaxShotSlider" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_MaxShotSlider_value_changed"]
-[connection signal="pressed" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/cButtSwitchMaxScore" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_pressed"]
-[connection signal="toggled" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/cButtSwitchMaxScore" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_toggled"]
-[connection signal="value_changed" from="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/MaxScoreSlider" to="vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_MaxScoreSlider_value_changed"]
-[connection signal="pressed" from="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
-[connection signal="toggled" from="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_toggled"]
-[connection signal="value_changed" from="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_MaxTimeSlider_value_changed"]
+[connection signal="pressed" from="hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
+[connection signal="pressed" from="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_pressed"]
+[connection signal="toggled" from="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_toggled"]
+[connection signal="value_changed" from="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots/MaxShotSlider" to="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots" method="_on_MaxShotSlider_value_changed"]
+[connection signal="pressed" from="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_pressed"]
+[connection signal="toggled" from="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_toggled"]
+[connection signal="value_changed" from="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore/MaxScoreSlider" to="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore" method="_on_MaxScoreSlider_value_changed"]
+[connection signal="pressed" from="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
+[connection signal="toggled" from="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_toggled"]
+[connection signal="value_changed" from="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer" method="_on_MaxTimeSlider_value_changed"]

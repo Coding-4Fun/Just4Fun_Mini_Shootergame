@@ -1,15 +1,72 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://b160gc30aq28t"]
 
-[ext_resource path="res://UI/Theme/MainTitleFontStyle.tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/MainMenuUI.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://UI/MainMenuUI.gd" id="2"]
+[ext_resource type="FontFile" path="res://UI/Theme/main_font.tres" id="2_gy6ot"]
+[ext_resource type="FontFile" uid="uid://clh45xitj17jc" path="res://UI/Theme/MainTitleFontStyle.tres" id="2_xr2el"]
 
-[sub_resource type="StyleBoxEmpty" id=1]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 5.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmjkx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.137255, 0.513726, 0.6, 1 )
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thqf4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtbd4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3eat"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbd8k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.137255, 0.513726, 0.6, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -20,108 +77,181 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 expand_margin_left = 10.0
-expand_margin_right = 10.0
 expand_margin_top = 10.0
+expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="Theme" id="Theme_6melh"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("2_gy6ot")
+Button/styles/disabled = SubResource("StyleBoxFlat_vmjkx")
+Button/styles/focus = SubResource("StyleBoxFlat_thqf4")
+Button/styles/hover = SubResource("StyleBoxFlat_jtbd4")
+Button/styles/normal = SubResource("StyleBoxFlat_e3eat")
+Button/styles/pressed = SubResource("StyleBoxFlat_pbd8k")
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvm8q"]
+bg_color = Color(0.137255, 0.513726, 0.6, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmlxb"]
+bg_color = Color(0.105882, 0.427451, 0.501961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7gyl"]
+bg_color = Color(0.137255, 0.513726, 0.6, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.145098, 0.203922, 0.337255, 0.72549 )
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
 
 [node name="labMainTitel" type="Label" parent="."]
-margin_left = 100.0
-margin_top = 123.0
-margin_right = 1500.0
-margin_bottom = 273.0
-rect_rotation = -5.0
-custom_colors/font_color = Color( 0.0862745, 0.266667, 0.286275, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 4
-custom_constants/shadow_offset_y = 2
-custom_fonts/font = ExtResource( 1 )
+layout_mode = 0
+offset_left = 100.0
+offset_top = 132.0
+offset_right = 1500.0
+offset_bottom = 282.0
+rotation = -0.0872665
+theme = SubResource("Theme_6melh")
+theme_override_colors/font_color = Color(0.0862745, 0.266667, 0.286275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.243137, 0.678431, 0.666667, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_font_sizes/font_size = 140
 text = "Little Fun Mini Shooter Game"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="centerContainer" type="CenterContainer" parent="."]
-anchor_top = 0.5
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -150.0
-margin_bottom = 450.0
+
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer"]
-margin_left = 798.0
-margin_top = 298.0
-margin_right = 802.0
-margin_bottom = 301.0
+
+visible = false
+layout_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
-margin_left = 700.0
-margin_top = 125.0
-margin_right = 900.0
-margin_bottom = 475.0
-rect_min_size = Vector2( 200, 350 )
-custom_constants/separation = 30
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
-margin_right = 200.0
-margin_bottom = 150.0
-custom_colors/font_color_disabled = Color( 0.0862745, 0.266667, 0.286275, 1 )
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/normal = SubResource( 6 )
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_disabled_color = Color(0.0862745, 0.266667, 0.286275, 1)
+theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_font_sizes/font_size = 140
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvm8q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmlxb")
 text = "Play"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
-margin_top = 180.0
-margin_right = 347.0
-margin_bottom = 324.0
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
 text = "Highscore"
 
 [node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
-margin_top = 180.0
-margin_right = 303.0
-margin_bottom = 324.0
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 7 )
+
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
 text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
-margin_top = 180.0
-margin_right = 200.0
-margin_bottom = 330.0
-hint_tooltip = "Not funcioning in the Browser"
-custom_fonts/font = ExtResource( 1 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 6 )
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_disabled_color = Color(0.0862745, 0.266667, 0.286275, 1)
+theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_font_sizes/font_size = 140
+theme_override_styles/normal = SubResource("StyleBoxFlat_c7gyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmlxb")
 text = "Exit"
 
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]

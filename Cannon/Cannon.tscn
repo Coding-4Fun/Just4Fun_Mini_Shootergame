@@ -1,33 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://lci12xbkaqx2"]
 
-[ext_resource path="res://Cannon/Cannon.gd" type="Script" id=1]
-[ext_resource path="res://Cannon/black-cannon-barrel.png" type="Texture" id=2]
-[ext_resource path="res://Cannon/Progress.png" type="Texture" id=3]
+[ext_resource type="Script" path="res://Cannon/Cannon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://beoj8ih7nvgrg" path="res://Cannon/Progress.png" id="2_1twsp"]
+[ext_resource type="Texture2D" uid="uid://ci72mkbxrxjbc" path="res://Cannon/black-cannon-barrel.png" id="2_xcomg"]
 
 [node name="Cannon" type="Node2D"]
-scale = Vector2( 0.1, 0.1 )
-script = ExtResource( 1 )
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1")
 muzzle_velocity = 15000
 min_velocity = 7500
 max_velocity = 30000
 
-[node name="CoolDown" type="TextureProgress" parent="."]
-margin_left = -100.0
-margin_top = -220.0
-margin_right = 100.0
-margin_bottom = -180.0
-rect_min_size = Vector2( 200, 0 )
-texture_progress = ExtResource( 3 )
-tint_progress = Color( 0.388235, 0.760784, 0.945098, 1 )
+[node name="CoolDown" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -225.0
+offset_right = 150.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_progress = ExtResource("2_1twsp")
+tint_progress = Color(0.388235, 0.760784, 0.945098, 1)
 
-[node name="Barrel" type="Sprite" parent="."]
-position = Vector2( 0, -76 )
-rotation = -0.523599
-scale = Vector2( 0.3, 0.15 )
+[node name="Barrel" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource( 2 )
+position = Vector2(0, -76)
+rotation = -0.523599
+scale = Vector2(0.3, 0.15)
+texture = ExtResource("2_xcomg")
 
-[node name="Muzzle" type="Position2D" parent="Barrel"]
-position = Vector2( 400, 45 )
+[node name="Muzzle" type="Marker2D" parent="Barrel"]
+position = Vector2(400, 45)
 
 [connection signal="ready" from="." to="." method="_on_Cannon_ready"]

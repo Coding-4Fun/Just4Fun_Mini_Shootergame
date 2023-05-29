@@ -1,12 +1,12 @@
 extends Control
 
-onready var MaxScoreLabel = $labelMaxScore
-onready var MaxScoreSlider = $MaxScoreSlider
-onready var MaxScoreSwitch = $cButtSwitchMaxScore
+@onready var MaxScoreLabel = $labelMaxScore
+@onready var MaxScoreSlider = $MaxScoreSlider
+@onready var MaxScoreSwitch : CheckButton = $cButtSwitchMaxScore
 
 func _ready():
 	MaxScoreLabel.text = str(MaxScoreSlider.value)
-	MaxScoreSwitch.pressed = Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"] 
+	MaxScoreSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"] 
 	MaxScoreSlider.value = Config.config_data["Game"]["Condition"]["MinMaxScoreValue"]
 	MaxScoreSlider.editable = Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"] 
 	pass

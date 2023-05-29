@@ -1,12 +1,12 @@
 extends Control
 
-onready var MaxGameTimeLabel = $labelMaxGameTime
-onready var MaxGameTimeSlider = $MaxGameTimeSlider
-onready var MaxGameTimeSwitch = $cButtSwitchMaxGameTime
+@onready var MaxGameTimeLabel = $labelMaxGameTime
+@onready var MaxGameTimeSlider = $MaxGameTimeSlider
+@onready var MaxGameTimeSwitch = $cButtSwitchMaxGameTime
 
 func _ready():
 	MaxGameTimeLabel.text = str(MaxGameTimeSlider.value)
-	MaxGameTimeSwitch.pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
+	MaxGameTimeSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
 	MaxGameTimeSlider.value = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
 	MaxGameTimeSlider.editable = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]
 	# $"labelGameTime"

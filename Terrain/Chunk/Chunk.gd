@@ -7,11 +7,11 @@ onready var midrange:int = screensize.y
 onready var displacement = ceil((midrange / tile_width) / 2)
 
 
-export var current_displacement = 0
-export var castlewidth = 175
+@export var current_displacement = 0
+@export var castlewidth = 175
 #export (float) var displacement = 0
 #ceil(midrange / tile_width)
-export (float) var smooth = 1.1
+@export (float) var smooth = 1.1
 
 enum block_types {
 	AIR=-1,
@@ -27,7 +27,7 @@ var tile_height = 16
 var blocscale:float = 0.25
 var surface_height = 64
 
-export (float) var mod = stepify(castlewidth, tile_width) / tile_width
+@export (float) var mod = stepify(castlewidth, tile_width) / tile_width
 
 var points = PoolVector2Array()
 
