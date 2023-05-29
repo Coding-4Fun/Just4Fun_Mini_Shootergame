@@ -37,14 +37,9 @@ gdscript/completion/autocomplete_setters_and_getters=true
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/stretch/mode="viewport"
-window/size/width=1600
-window/size/height=900
-
-[gui]
-
-theme/custom="res://UI/Theme/default.theme"
-theme/custom_font="res://UI/Theme/main_font.tres"
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
 
 [importer_defaults]
 
