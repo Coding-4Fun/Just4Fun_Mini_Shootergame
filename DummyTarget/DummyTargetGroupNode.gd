@@ -34,7 +34,7 @@ func _on_Create_Add_NewTarget() -> void:
 
 	var posi = Preloads.Map.map_to_local(tile_coord)
 	# posi.x += 8
-	posi.y -= Preloads.Map.tile_set.tile_size.y / 2
+	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2)
 
 	target = Preloads.DummyTarget.instantiate()
 	target.position = posi
