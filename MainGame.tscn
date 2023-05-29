@@ -2,9 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://Terrain/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGame.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://bivgupagcj6xf" path="res://UI/InGameUI.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/players.gd" id="4"]
 [ext_resource type="Script" path="res://TerrainMapGenerator.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/IngameUI_Redesign.tscn" id="5_y7iba"]
 [ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://Cannon/Cannon.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://DummyTarget/DummyTargetGroupNode.tscn" id="7"]
 [ext_resource type="Script" path="res://DummyTarget/DummyTargetGroupNode.gd" id="8"]
@@ -26,8 +26,7 @@ environment = SubResource("Environment_47r24")
 [node name="parallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="parallaxLayer" type="ParallaxLayer" parent="parallaxBackground"]
-position = Vector2(0, -200)
-motion_mirroring = Vector2(1600, 1024)
+position = Vector2(0, -250)
 script = ExtResource("9")
 CLOUD_SPEED = -50.0
 
@@ -36,7 +35,9 @@ scale = Vector2(1.56348, 1)
 texture = ExtResource("10")
 centered = false
 
-[node name="InGameUI" parent="." instance=ExtResource("3")]
+[node name="Test" parent="." instance=ExtResource("5_y7iba")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Players" type="Node2D" parent="."]
 
