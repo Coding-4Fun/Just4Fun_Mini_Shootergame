@@ -27,6 +27,7 @@ environment = SubResource("Environment_47r24")
 
 [node name="parallaxLayer" type="ParallaxLayer" parent="parallaxBackground"]
 position = Vector2(0, -250)
+motion_mirroring = Vector2(1600, 0)
 script = ExtResource("9")
 CLOUD_SPEED = -50.0
 
