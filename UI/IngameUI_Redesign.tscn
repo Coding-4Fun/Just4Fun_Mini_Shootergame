@@ -18,12 +18,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2tfgw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 360.0
+offset_bottom = 170.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 color = Color(0.145098, 0.203922, 0.337255, 0.72549)
@@ -277,6 +277,11 @@ visible = false
 layout_mode = 2
 script = ExtResource("2_ipnjd")
 
+[node name="HSeparator" type="HSeparator" parent="BoxContainer/VBoxSetting"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="hBoxOptions" type="HBoxContainer" parent="BoxContainer/VBoxSetting"]
 layout_mode = 2
 mouse_filter = 2
@@ -298,6 +303,10 @@ mouse_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Back to Menu"
+
+[node name="VSeparator3" type="VSeparator" parent="BoxContainer/VBoxSetting/hBoxOptions"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
 
 [node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="BoxContainer/VBoxSetting"]
 layout_mode = 2
@@ -322,10 +331,10 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-min_value = -1.0
+min_value = 30.0
 max_value = 600.0
 step = 30.0
-value = 59.0
+value = 30.0
 rounded = true
 editable = false
 tick_count = 10
@@ -400,9 +409,9 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-min_value = -1.0
+min_value = 1.0
 step = 10.0
-value = 49.0
+value = 1.0
 rounded = true
 editable = false
 tick_count = 10
@@ -418,6 +427,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttBackToMenu" to="BoxContainer/VBoxSetting" method="_on_buttBackToMenu_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
 [connection signal="toggled" from="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_toggled"]
 [connection signal="value_changed" from="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer" method="_on_MaxTimeSlider_value_changed"]
