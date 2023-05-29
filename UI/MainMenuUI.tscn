@@ -196,13 +196,16 @@ custom_minimum_size = Vector2(800, 600)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
+
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer"]
+
 visible = false
 layout_mode = 2
 
@@ -225,14 +228,18 @@ text = "Play"
 
 [node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
+
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
+
 text = "Highscore"
 
 [node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
+
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
+
 text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]

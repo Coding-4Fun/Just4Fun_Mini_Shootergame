@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://UI/InGameUI.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://chpd7ewn37es" path="res://UI/Settings/InGameUISettings.tscn" id="2"]
 
+
 [node name="IngameUIBottom" type="MarginContainer"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -32,6 +33,7 @@ mouse_filter = 2
 
 [node name="hBoxUIButtons" type="HBoxContainer" parent="vBoxContainer/hBoxHud"]
 layout_mode = 2
+
 size_flags_vertical = 3
 mouse_filter = 2
 
@@ -50,8 +52,10 @@ layout_mode = 2
 
 [node name="hBoxAngel" type="HBoxContainer" parent="vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 mouse_filter = 2
+
 
 [node name="label" type="Label" parent="vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
 layout_mode = 2
@@ -60,9 +64,11 @@ text = "Angel:"
 
 [node name="labAngel" type="Label" parent="vBoxContainer/hBoxHud/vBoxContainerGameTimer/hBoxAngel"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
+
 
 [node name="hBoxGametimer" type="HBoxContainer" parent="vBoxContainer/hBoxHud/vBoxContainerGameTimer"]
 layout_mode = 2
@@ -87,9 +93,11 @@ text = "Power:"
 
 [node name="labPower" type="Label" parent="vBoxContainer/hBoxHud/hBoxPower"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
+
 
 [node name="hBoxScore" type="HBoxContainer" parent="vBoxContainer/hBoxHud"]
 layout_mode = 2
@@ -103,6 +111,7 @@ text = "Score:"
 
 [node name="labScore" type="Label" parent="vBoxContainer/hBoxHud/hBoxScore"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "123456789"
@@ -110,6 +119,7 @@ text = "123456789"
 [node name="vBoxContainerShots" type="VBoxContainer" parent="vBoxContainer/hBoxHud"]
 layout_mode = 2
 size_flags_horizontal = 3
+
 mouse_filter = 2
 
 [node name="hBoxShots" type="HBoxContainer" parent="vBoxContainer/hBoxHud/vBoxContainerShots"]
@@ -136,6 +146,7 @@ mouse_filter = 2
 
 [node name="label" type="Label" parent="vBoxContainer/hBoxHud/vBoxContainerShots/hBoxHits"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Overall Hits:"
@@ -148,12 +159,16 @@ text = "123456789"
 
 [node name="vBoxContainerPoints" type="VBoxContainer" parent="vBoxContainer/hBoxHud"]
 layout_mode = 2
+
 mouse_filter = 2
+size_flags_vertical = 3
 
 [node name="hBoxPointsPerShot" type="HBoxContainer" parent="vBoxContainer/hBoxHud/vBoxContainerPoints"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 mouse_filter = 2
+
 
 [node name="label" type="Label" parent="vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot"]
 layout_mode = 2
@@ -167,8 +182,10 @@ text = "123456789"
 
 [node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="vBoxContainer/hBoxHud/vBoxContainerPoints"]
 layout_mode = 2
+
 size_flags_horizontal = 2
 mouse_filter = 2
+
 
 [node name="label" type="Label" parent="vBoxContainer/hBoxHud/vBoxContainerPoints/hBoxPointsPerShot_2"]
 layout_mode = 2
@@ -184,3 +201,4 @@ text = "123456789"
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+
