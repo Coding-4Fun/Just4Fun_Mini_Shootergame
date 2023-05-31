@@ -7,7 +7,7 @@ Changes in Repository
 - Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
 - Create Branch for Godot 4.1.x Dev (3)
 
-### ToDo: Fix CI in Github Action failed since 4.x
+### ToDo: Fixing CI in Github Action failed since 4.x
 
 
 # Just4Fun_Mini_Shootergame
