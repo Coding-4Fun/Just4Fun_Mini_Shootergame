@@ -2,7 +2,7 @@ name: Export projects to HTML5 and deploy to GitHub Pages
 on:
   push:
     branches:
-      - develop
+      - Godot-40x-Stable
 
 env:
   GODOT_VERSION: 4.0.3
