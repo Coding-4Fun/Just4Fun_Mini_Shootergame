@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ncuxb50cjisf"]
 
-[ext_resource type="Script" path="res://UI/IngameUI.gd" id="1_2tfgw"]
+[ext_resource type="Script" path="res://UI/ingameui.gd" id="1_2tfgw"]
 [ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="1_q27g8"]
 [ext_resource type="Script" path="res://UI/Settings/Settings.gd" id="2_ipnjd"]
 [ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_iux2o"]
