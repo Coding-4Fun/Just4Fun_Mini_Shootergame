@@ -1,5 +1,15 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+## Update May 31 2023
+Changes in Repository
+
+- Create Branch for Godot 3.5.x Stable
+- Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
+- Create Branch for Godot 4.1.x Dev (3)
+
+### ToDo: Fix CI in Github Action failed since 4.x
+
+
 # Just4Fun_Mini_Shootergame
 Eigentlich ein Prototyp um Kleinigkeiten auszuprobieren hat es sich zu einem kleinen Shooting Game entwickelt
 
