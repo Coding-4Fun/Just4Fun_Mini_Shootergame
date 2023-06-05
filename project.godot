@@ -15,7 +15,7 @@ config/name_localized={
 "de_DE": "Mini Cannon Shooter"
 }
 config/description="Just 4 Fun - Mini Shootergame"
-run/main_scene="res://UI/MainMenuUI.tscn"
+run/main_scene="res://UI/MainMenuUI/MainMenuUI.tscn"
 config/features=PackedStringArray("4.0")
 run/flush_stdout_on_print=true
 boot_splash/bg_color=Color(0.109804, 0.372549, 0.47451, 1)
@@ -40,6 +40,10 @@ window/size/viewport_height=900
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [importer_defaults]
 
