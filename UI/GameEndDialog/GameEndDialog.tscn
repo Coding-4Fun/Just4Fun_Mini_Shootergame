@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://rd0b5nysx6vq"]
 
 [ext_resource type="FontFile" uid="uid://clh45xitj17jc" path="res://UI/Theme/MainTitleFontStyle.tres" id="2_iqox6"]
-[ext_resource type="Script" path="res://UI/GameEndDialog.gd" id="3"]
+[ext_resource type="Script" path="res://UI/GameEndDialog/GameEndDialog.gd" id="3"]
 [ext_resource type="FontFile" uid="uid://h4nwo1xbv0y3" path="res://UI/Fonts/OpenSansBold.ttf" id="3_dufn7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1q7"]

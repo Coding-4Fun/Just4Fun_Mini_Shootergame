@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bivgupagcj6xf"]
 
-[ext_resource type="Script" path="res://UI/ingameui.gd" id="1"]
+[ext_resource type="Script" path="res://UI/InGameUI/ingameui.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://chpd7ewn37es" path="res://UI/Settings/InGameUISettings.tscn" id="2"]
 
 [node name="IngameUIBottom" type="MarginContainer"]
