@@ -27,7 +27,7 @@ func _on_buttPlay_pressed():
 	var current_scene: Node = get_tree().current_scene
 	current_scene.queue_free()
 	get_tree().current_scene = null
-	
+
 	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
 		print("Error: change_scene_to()::buttPlay")
 #	call_deferred("get_tree().get_root().remove_child()", self)

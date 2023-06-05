@@ -1,24 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://rd0b5nysx6vq"]
+[gd_scene load_steps=3 format=3 uid="uid://rd0b5nysx6vq"]
 
 [ext_resource type="Theme" uid="uid://djmxf62w3y5gd" path="res://UI/Theme/game_theme.tres" id="2_ekb5h"]
 [ext_resource type="Script" path="res://UI/GameEndDialog/GameEndDialog.gd" id="3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1q7"]
-bg_color = Color(0.137255, 0.513726, 0.6, 1)
-draw_center = false
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
 
 [node name="GameEndDialog" type="Control"]
 layout_mode = 3
@@ -63,6 +46,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labWinLoose" type="Label" parent="marginContainer/centerContainer/vBoxContainer/labGameOverTitel"]
+show_behind_parent = true
 layout_mode = 0
 offset_left = 530.0
 offset_top = -18.0
@@ -70,13 +54,8 @@ offset_right = 594.0
 offset_bottom = 8.0
 rotation = 0.436332
 mouse_filter = 0
-theme_override_colors/font_color = Color(0.384314, 0.764706, 0.462745, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.72549, 0.223529, 0.223529, 1)
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 4
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_mv1q7")
+theme = ExtResource("2_ekb5h")
+theme_type_variation = &"GameOverWinLooseLabel"
 text = "You Win"
 horizontal_alignment = 1
 
