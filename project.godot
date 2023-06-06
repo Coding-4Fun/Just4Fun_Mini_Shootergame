@@ -45,6 +45,10 @@ window/stretch/mode="canvas_items"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom="res://UI/Theme/game_theme.tres"
+
 [importer_defaults]
 
 csv_translation={
