@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b160gc30aq28t"]
+[gd_scene load_steps=2 format=3 uid="uid://b160gc30aq28t"]
 
 [ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
-[ext_resource type="Theme" uid="uid://djmxf62w3y5gd" path="res://UI/Theme/game_theme.tres" id="2_0gdpu"]
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -27,7 +26,6 @@ offset_top = 132.0
 offset_right = 1500.0
 offset_bottom = 282.0
 rotation = -0.0872665
-theme = ExtResource("2_0gdpu")
 theme_type_variation = &"MainTitleHeader"
 text = "Little Fun Mini Shooter Game"
 horizontal_alignment = 1
@@ -59,7 +57,6 @@ custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme = ExtResource("2_0gdpu")
 theme_type_variation = &"MainTitleButton"
 text = "Play"
 
@@ -67,12 +64,14 @@ text = "Play"
 visible = false
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
+theme_type_variation = &"MainTitleButton"
 text = "Highscore"
 
 [node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
+theme_type_variation = &"MainTitleButton"
 text = "Settings"
 
 [node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
@@ -80,7 +79,6 @@ custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme = ExtResource("2_0gdpu")
 theme_type_variation = &"MainTitleButton"
 text = "Exit"
 

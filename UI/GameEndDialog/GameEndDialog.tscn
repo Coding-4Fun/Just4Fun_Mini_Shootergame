@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://rd0b5nysx6vq"]
+[gd_scene load_steps=2 format=3 uid="uid://rd0b5nysx6vq"]
 
-[ext_resource type="Theme" uid="uid://djmxf62w3y5gd" path="res://UI/Theme/game_theme.tres" id="2_ekb5h"]
 [ext_resource type="Script" path="res://UI/GameEndDialog/GameEndDialog.gd" id="3"]
 
 [node name="GameEndDialog" type="Control"]
@@ -39,7 +38,6 @@ theme_override_constants/separation = 30
 
 [node name="labGameOverTitel" type="Label" parent="marginContainer/centerContainer/vBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_ekb5h")
 theme_type_variation = &"MainTitleHeader"
 text = "Game Over"
 horizontal_alignment = 1
@@ -54,7 +52,6 @@ offset_right = 594.0
 offset_bottom = 8.0
 rotation = 0.436332
 mouse_filter = 0
-theme = ExtResource("2_ekb5h")
 theme_type_variation = &"GameOverWinLooseLabel"
 text = "You Win"
 horizontal_alignment = 1
@@ -63,7 +60,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_ekb5h")
 theme_type_variation = &"MainTitleButton"
 text = "New Game"
 
@@ -71,7 +67,6 @@ text = "New Game"
 custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_ekb5h")
 theme_type_variation = &"MainTitleButton"
 text = "Back to Mainmenu"
 
