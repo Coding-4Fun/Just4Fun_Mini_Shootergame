@@ -6,16 +6,17 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"Player_name": "Unnamed",
 		"Game": {
 			"DummyTarget": {
-				"TimerEnabled": true,
+				"TimerEnabled": false,
 				"TimerCountdown": 6
 			},
 			"Condition": {
+				"MaxGameTimeValue": 120,
 				"MaxShotsEnabled": false,
 				"MaxShotsValue": -0,
 				"MinMaxScoreEnabled": false,
 				"MinMaxScore": -1000,
 				"MaxGameTimeEnabled": false,
-				"MaxGameTimeValue": 120
+				"MinMaxScoreValue": 1000
 			},
 		},
 		"Network": {
@@ -52,11 +53,11 @@ func _ready() -> void:
 
 func get_configdata() -> Dictionary:
 	var json = JSON.new()
-	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
 	if not FileAccess.file_exists(GAMECONFIGFILE):
-		config_data = CONFIGDATA_DEFAULT
-		save_gameconfig()
-#	file.open(GAMECONFIGFILE, File.READ)
+		save_gameconfig(true)
+		
+	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
+
 	var content = file.get_as_text()
 	var data = json.parse(content)
 	file.close()
@@ -70,7 +71,9 @@ func get_configdata() -> Dictionary:
 	return(CONFIGDATA_DEFAULT)
 
 
-func save_gameconfig ():
+func save_gameconfig (savedefault : bool = false):
+	if savedefault:
+		config_data = CONFIGDATA_DEFAULT
 	var config = FileAccess.open(GAMECONFIGFILE, FileAccess.WRITE)
 #	config.open(GAMECONFIGFILE, File.WRITE)
 	var json = JSON.stringify(config_data, "\t")
