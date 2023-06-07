@@ -7,7 +7,16 @@ Changes in Repository
 - Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
 - Create Branch for Godot 4.1.x Dev (3)
 
-### ToDo: Fix CI in Github Action failed since 4.x
+### Done: Fixing CI in Github Action failed since 4.x
+### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
+### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023) 
+### Fixed: Target Timer ein und ausschaltzen
+### Fixed: Layouts nach 4.0x Migration
+
+### ToDo: Vollständiges Changelog erstellen
+### ToDo: Neues Release bereitstellen. GitHub Action verwenden
+
+Und nun geht weiter mit Optimierungen ....
 
 
 # Just4Fun_Mini_Shootergame
