@@ -7,7 +7,7 @@ var _score : float = 0
 var _hits : float = 0
 var _missed : float = 0
 
-var _backgroundMin := Vector2i(170,470)
+var _backgroundMin := Vector2i(130,350)
 
 signal UIResetGame
 signal UIdummyTargetTimerChange

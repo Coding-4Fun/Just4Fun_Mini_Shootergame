@@ -24,7 +24,7 @@ custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 170.0
+offset_bottom = 130.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 color = Color(0.145098, 0.203922, 0.337255, 0.72549)
@@ -34,7 +34,7 @@ material = SubResource("CanvasItemMaterial_uui47")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 164.0
+offset_bottom = 136.0
 grow_horizontal = 2
 vertical = true
 
@@ -42,33 +42,38 @@ vertical = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 
-[node name="hBoxUIButtons" type="HBoxContainer" parent="BoxContainer/HBoxHudTop"]
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/HBoxHudTop"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 2
+
+[node name="hBoxUIButtons" type="HBoxContainer" parent="BoxContainer/HBoxHudTop/MarginContainer"]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="buttGameOptions" type="Button" parent="BoxContainer/HBoxHudTop/hBoxUIButtons"]
+[node name="buttGameOptions" type="Button" parent="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"InGameUIHudButton"
 text = "Settings"
 
-[node name="buttGameReset" type="Button" parent="BoxContainer/HBoxHudTop/hBoxUIButtons"]
+[node name="buttGameReset" type="Button" parent="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"InGameUIHudButton"
 text = "Restart"
 
 [node name="hBoxAngel" type="HBoxContainer" parent="BoxContainer/HBoxHudTop"]
-custom_minimum_size = Vector2(455, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 mouse_filter = 2
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudTop/hBoxAngel"]
-custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Angel:"
 
@@ -76,11 +81,11 @@ text = "Angel:"
 layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
-text = "123456789"
+text = "0"
 horizontal_alignment = 2
 
 [node name="VSeparator2" type="VSeparator" parent="BoxContainer/HBoxHudTop"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="hBoxPower" type="HBoxContainer" parent="BoxContainer/HBoxHudTop"]
@@ -95,16 +100,16 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Power:"
-horizontal_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="labPower" type="Label" parent="BoxContainer/HBoxHudTop/hBoxPower"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
 text = "123456789"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator3" type="VSeparator" parent="BoxContainer/HBoxHudTop"]
 custom_minimum_size = Vector2(10, 0)
@@ -112,30 +117,28 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="hBoxScore" type="HBoxContainer" parent="BoxContainer/HBoxHudTop"]
-custom_minimum_size = Vector2(475, 0)
+custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
+size_flags_horizontal = 2
 mouse_filter = 2
+alignment = 2
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudTop/hBoxScore"]
-custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
 text = "Score:"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labScore" type="Label" parent="BoxContainer/HBoxHudTop/hBoxScore"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
+size_flags_horizontal = 8
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
 text = "123456789"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator4" type="VSeparator" parent="BoxContainer/HBoxHudTop"]
 custom_minimum_size = Vector2(15, 0)
@@ -154,36 +157,38 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxShots"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
 text = "Overall Shots:"
 vertical_alignment = 1
 
 [node name="labShots" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxShots"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
-text = "123456789"
+text = "0"
 horizontal_alignment = 2
 
 [node name="VSeparator2" type="VSeparator" parent="BoxContainer/HBoxHudMiddle"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="hBoxHits" type="HBoxContainer" parent="BoxContainer/HBoxHudMiddle"]
+custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 mouse_filter = 2
 alignment = 1
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxHits"]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Overall Hits:"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labHits" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxHits"]
@@ -192,6 +197,7 @@ layout_mode = 2
 theme_type_variation = &"InGameUIHudLabel"
 text = "123456789"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator3" type="VSeparator" parent="BoxContainer/HBoxHudMiddle"]
 custom_minimum_size = Vector2(10, 0)
@@ -199,25 +205,26 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="hBoxGametimer" type="HBoxContainer" parent="BoxContainer/HBoxHudMiddle"]
-custom_minimum_size = Vector2(475, 0)
+custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 alignment = 2
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxGametimer"]
-custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Gametime:"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labelGameTime" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxGametimer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 theme_type_variation = &"InGameUIHudLabel"
 text = "00:00"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator4" type="VSeparator" parent="BoxContainer/HBoxHudMiddle"]
 custom_minimum_size = Vector2(15, 0)
@@ -238,24 +245,27 @@ alignment = 1
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Points per Shot:"
 
 [node name="labPointsPerShots" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot"]
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
-text = "123456789"
+text = "0"
+horizontal_alignment = 2
 
 [node name="VSeparator2" type="VSeparator" parent="BoxContainer/HBoxHudBottom"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="hBoxMisHits" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
 custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 mouse_filter = 2
 alignment = 1
 
@@ -265,7 +275,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Missed:"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labMissHits" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxMisHits"]
@@ -274,29 +284,31 @@ layout_mode = 2
 theme_type_variation = &"InGameUIHudLabel"
 text = "123456789"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator4" type="VSeparator" parent="BoxContainer/HBoxHudBottom"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
-custom_minimum_size = Vector2(475, 0)
+visible = false
+custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
 mouse_filter = 2
 alignment = 2
 
 [node name="label" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot_2"]
-custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
 text = "Points per Shot:"
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labPointsPerShots" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot_2"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
@@ -313,7 +325,7 @@ layout_mode = 2
 script = ExtResource("2_ipnjd")
 
 [node name="HSeparator" type="HSeparator" parent="BoxContainer/VBoxSetting"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -325,7 +337,6 @@ mouse_filter = 2
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_type_variation = &"InGameUIHudSwitch"
-theme_override_font_sizes/font_size = 35
 text = "Enable Target Timer"
 icon_alignment = 2
 expand_icon = true
@@ -352,7 +363,6 @@ script = ExtResource("3_aq0iw")
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_type_variation = &"InGameUIHudSwitch"
-theme_override_font_sizes/font_size = 35
 text = "Max Play Time"
 
 [node name="label" type="Label" parent="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer"]
@@ -383,7 +393,6 @@ custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 theme = ExtResource("2_di8h2")
 theme_type_variation = &"InGameUIHudLabel"
-theme_override_font_sizes/font_size = 35
 text = "00:00"
 horizontal_alignment = 1
 
@@ -395,7 +404,6 @@ script = ExtResource("1_q27g8")
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_type_variation = &"InGameUIHudSwitch"
-theme_override_font_sizes/font_size = 35
 text = "Max Negative Score"
 
 [node name="label" type="Label" parent="BoxContainer/VBoxSetting/hBoxContainerMaxScore"]
@@ -436,7 +444,6 @@ script = ExtResource("2_iux2o")
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_type_variation = &"InGameUIHudSwitch"
-theme_override_font_sizes/font_size = 35
 text = "Max Shots"
 
 [node name="label" type="Label" parent="BoxContainer/VBoxSetting/hBoxContainerMaxShots"]
@@ -468,8 +475,8 @@ theme_type_variation = &"InGameUIHudLabel"
 text = "123456"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="BoxContainer/HBoxHudTop/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxHudTop/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttBackToMenu" to="BoxContainer/VBoxSetting" method="_on_buttBackToMenu_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
