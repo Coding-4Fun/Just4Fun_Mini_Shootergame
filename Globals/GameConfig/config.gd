@@ -73,7 +73,7 @@ func get_configdata() -> Dictionary:
 func save_gameconfig ():
 	var config = FileAccess.open(GAMECONFIGFILE, FileAccess.WRITE)
 #	config.open(GAMECONFIGFILE, File.WRITE)
-	var json = JSON.stringify(config_data)
+	var json = JSON.stringify(config_data, "\t")
 	config.store_line(json)
 	config.close()
 

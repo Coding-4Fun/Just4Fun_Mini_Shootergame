@@ -1,0 +1,108 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://djmxf62w3y5gd"]
+
+[ext_resource type="FontVariation" uid="uid://boynskj7gbbuw" path="res://UI/Theme/game_theme_font_variation.tres" id="1_0w410"]
+[ext_resource type="FontVariation" uid="uid://dgu7sfe7thk30" path="res://UI/Theme/game_theme_maintitle_font_variation.tres" id="3_ma15g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1q7"]
+bg_color = Color(0.137255, 0.513726, 0.6, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwlwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmlxb"]
+bg_color = Color(0.105882, 0.427451, 0.501961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvm8q"]
+bg_color = Color(0.137255, 0.513726, 0.6, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+GameOverWinLooseLabel/base_type = &"Label"
+GameOverWinLooseLabel/colors/font_color = Color(0.384314, 0.764706, 0.462745, 1)
+GameOverWinLooseLabel/colors/font_outline_color = Color(0.72549, 0.223529, 0.223529, 1)
+GameOverWinLooseLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+GameOverWinLooseLabel/constants/shadow_offset_x = 5
+GameOverWinLooseLabel/constants/shadow_offset_y = 5
+GameOverWinLooseLabel/font_sizes/font_size = 35
+GameOverWinLooseLabel/styles/normal = SubResource("StyleBoxFlat_mv1q7")
+InGameUIHudButton/base_type = &"Button"
+InGameUIHudButton/font_sizes/font_size = 25
+InGameUIHudLabel/base_type = &"Label"
+InGameUIHudLabel/colors/font_color = Color(0.756863, 0.756863, 0.756863, 1)
+InGameUIHudLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+InGameUIHudLabel/constants/shadow_offset_x = 0
+InGameUIHudLabel/constants/shadow_offset_y = 0
+InGameUIHudLabel/constants/shadow_outline_size = 5
+InGameUIHudLabel/font_sizes/font_size = 35
+InGameUIHudSlider/base_type = &"HSlider"
+InGameUIHudSwitch/base_type = &"CheckButton"
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_0w410")
+Label/styles/normal = SubResource("StyleBoxEmpty_nwlwk")
+MainTitleButton/base_type = &"Button"
+MainTitleButton/font_sizes/font_size = 141
+MainTitleButton/fonts/font = ExtResource("3_ma15g")
+MainTitleButton/styles/hover = SubResource("StyleBoxFlat_cmlxb")
+MainTitleButton/styles/normal = SubResource("StyleBoxFlat_pvm8q")
+MainTitleButton/styles/pressed = null
+MainTitleHeader/base_type = &"Label"
+MainTitleHeader/colors/font_color = Color(0.0862745, 0.266667, 0.286275, 1)
+MainTitleHeader/colors/font_outline_color = Color(0.243137, 0.678431, 0.666667, 1)
+MainTitleHeader/colors/font_shadow_color = Color(0, 0, 0, 1)
+MainTitleHeader/constants/outline_size = 8
+MainTitleHeader/constants/shadow_offset_x = 5
+MainTitleHeader/constants/shadow_offset_y = 4
+MainTitleHeader/font_sizes/font_size = 140
+MainTitleHeader/fonts/font = ExtResource("3_ma15g")
+TargetLabel/base_type = &"Label"
+TargetLabel/colors/font_color = Color(0, 0, 0, 1)
+TargetLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+TargetLabel/constants/outline_size = 17
+TargetLabel/constants/shadow_offset_x = 5
+TargetLabel/constants/shadow_offset_y = 3
+TargetLabel/font_sizes/font_size = 200
