@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://b160gc30aq28t"]
 
-[ext_resource type="Script" path="res://UI/MainMenuUI.gd" id="2"]
-[ext_resource type="FontFile" path="res://UI/Theme/main_font.tres" id="2_gy6ot"]
-[ext_resource type="FontFile" uid="uid://clh45xitj17jc" path="res://UI/Theme/MainTitleFontStyle.tres" id="2_xr2el"]
+[ext_resource type="Script" path="res://UI/MainMenuUI.gd" id="1_m5yfc"]
+[ext_resource type="FontFile" path="res://UI/Theme/main_font.tres" id="2_syquh"]
+[ext_resource type="FontFile" uid="uid://clh45xitj17jc" path="res://UI/Theme/MainTitleFontStyle.tres" id="3_gr63s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmjkx"]
 content_margin_left = 4.0
@@ -98,7 +98,7 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/h_separation = 2
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("2_gy6ot")
+Button/fonts/font = ExtResource("2_syquh")
 Button/styles/disabled = SubResource("StyleBoxFlat_vmjkx")
 Button/styles/focus = SubResource("StyleBoxFlat_thqf4")
 Button/styles/hover = SubResource("StyleBoxFlat_jtbd4")
@@ -162,7 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("2")
+script = ExtResource("1_m5yfc")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -184,7 +184,7 @@ theme_override_colors/font_outline_color = Color(0.243137, 0.678431, 0.666667, 1
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_fonts/font = ExtResource("3_gr63s")
 theme_override_font_sizes/font_size = 140
 text = "Little Fun Mini Shooter Game"
 horizontal_alignment = 1
@@ -217,7 +217,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_colors/font_disabled_color = Color(0.0862745, 0.266667, 0.286275, 1)
-theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_fonts/font = ExtResource("3_gr63s")
 theme_override_font_sizes/font_size = 140
 theme_override_styles/normal = SubResource("StyleBoxFlat_pvm8q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cmlxb")
@@ -241,7 +241,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_colors/font_disabled_color = Color(0.0862745, 0.266667, 0.286275, 1)
-theme_override_fonts/font = ExtResource("2_xr2el")
+theme_override_fonts/font = ExtResource("3_gr63s")
 theme_override_font_sizes/font_size = 140
 theme_override_styles/normal = SubResource("StyleBoxFlat_c7gyl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cmlxb")
