@@ -1,0 +1,31 @@
+{
+	"Audio": {
+		"MasterVolume": 100,
+		"MusicVolume": 100,
+		"SfxVolume": 100
+	},
+	"Game": {
+		"CannonCount": 2,
+		"Condition": {
+			"MaxGameTimeEnabled": false,
+			"MaxGameTimeValue": 600,
+			"MaxShotsEnabled": false,
+			"MaxShotsValue": 100,
+			"MinMaxScore": -1000,
+			"MinMaxScoreEnabled": false,
+			"MinMaxScoreValue": 1000
+		},
+		"DummyTarget": {
+			"TimerCountdown": 6,
+			"TimerEnabled": false
+		},
+		"Player": {
+			"Player_name": "Bucky"
+		}
+	},
+	"Network": {
+		"HostGamePort": "7777",
+		"HostIPAdress": "192.168.178.106",
+		"MaxPlayers": 15
+	}
+}

@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://b160gc30aq28t"]
+
+[ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
+
+[node name="labMainTitel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 132.0
+offset_right = 1500.0
+offset_bottom = 282.0
+rotation = -0.0872665
+theme_type_variation = &"MainTitleHeader"
+text = "Little Fun Mini Shooter Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="centerContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vSeparator" type="VSeparator" parent="centerContainer"]
+visible = false
+layout_mode = 2
+
+[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"MainTitleButton"
+text = "Play"
+
+[node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_type_variation = &"MainTitleButton"
+text = "Highscore"
+
+[node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_type_variation = &"MainTitleButton"
+text = "Settings"
+
+[node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"MainTitleButton"
+text = "Exit"
+
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttHightScore" to="." method="_on_buttHightScore_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttSettings" to="." method="_on_buttSettings_pressed"]
+[connection signal="pressed" from="centerContainer/vBoxContainer/buttExit" to="." method="_on_buttExit_pressed"]
+[connection signal="ready" from="centerContainer/vBoxContainer/buttExit" to="." method="_on_buttExit_ready"]

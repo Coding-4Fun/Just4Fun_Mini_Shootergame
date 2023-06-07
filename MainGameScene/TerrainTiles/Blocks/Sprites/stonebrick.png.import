@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://def1clan6rx5g"
+path="res://.godot/imported/stonebrick.png-a8e492d0726e05a5d0dec7590a3233f0.image"
+
+[deps]
+
+source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/stonebrick.png"
+dest_files=["res://.godot/imported/stonebrick.png-a8e492d0726e05a5d0dec7590a3233f0.image"]
+
+[params]
+

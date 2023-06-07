@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://rd0b5nysx6vq"]
+
+[ext_resource type="Script" path="res://UI/GameEndDialog/GameEndDialog.gd" id="3"]
+
+[node name="GameEndDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
+
+[node name="marginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="centerContainer" type="CenterContainer" parent="marginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vBoxContainer" type="VBoxContainer" parent="marginContainer/centerContainer"]
+custom_minimum_size = Vector2(650, 400)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="labGameOverTitel" type="Label" parent="marginContainer/centerContainer/vBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"MainTitleHeader"
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="labWinLoose" type="Label" parent="marginContainer/centerContainer/vBoxContainer/labGameOverTitel"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 530.0
+offset_top = -18.0
+offset_right = 594.0
+offset_bottom = 8.0
+rotation = 0.436332
+mouse_filter = 0
+theme_type_variation = &"GameOverWinLooseLabel"
+text = "You Win"
+horizontal_alignment = 1
+
+[node name="buttNewGame" type="Button" parent="marginContainer/centerContainer/vBoxContainer"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+text = "New Game"
+
+[node name="buttMainMenu" type="Button" parent="marginContainer/centerContainer/vBoxContainer"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+text = "Back to Mainmenu"
+
+[connection signal="pressed" from="marginContainer/centerContainer/vBoxContainer/buttNewGame" to="." method="_on_buttNewGame_pressed"]
+[connection signal="pressed" from="marginContainer/centerContainer/vBoxContainer/buttMainMenu" to="." method="_on_buttMainMenu_pressed"]
