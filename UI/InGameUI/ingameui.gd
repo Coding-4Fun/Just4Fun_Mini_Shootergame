@@ -11,9 +11,11 @@ var _backgroundMin := Vector2i(130,350)
 
 signal UIResetGame
 signal UIdummyTargetTimerChange
+signal UITerrainSeedChanged
 
 @onready var OptionUI = $BoxContainer/VBoxSetting
 @onready var GameHudUI = $BoxContainer/HBoxHudMiddle
+@onready var SeedLabel: Label = $HBoxMapSeed/LabSeed
 @onready var background: ColorRect = $Background
 
 
@@ -42,6 +44,11 @@ func _ready() -> void:
 ###		assert(connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") == OK)
 		if connect("UIdummyTargetTimerChange", Config._on_dummytarget_TimerChange) != OK:
 			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
+
+	if !is_connected("UITerrainSeedChanged", self._on_terreinSeedChanged):
+###		assert(connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") == OK)
+		if connect("UITerrainSeedChanged", self._on_terreinSeedChanged) != OK:
+			print("Error - InGameUI.gd: connect signal _on_terreinSeedChanged")
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
 
@@ -72,6 +79,11 @@ func _on_Cannon_Shot() -> void:
 	_shots += 1
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
 	GSM.emit_signal("GameStateChange", _score, _hits, _shots)
+
+
+func _on_terreinSeedChanged(mapseed) -> void:
+	SeedLabel.text = mapseed
+	pass
 
 
 func _on_UIScore_Change(score) -> void:
