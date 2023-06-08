@@ -26,7 +26,7 @@ var max_terrain_height:int
 var tile_size:Vector2 = Vector2i(16,16) #.ceil()
 var plattform := [Vector2i()]
 
-	
+
 enum TileDictionaryEnum {
 	AIR=-1,GRAS,DIRT,COBBLE,MOSS_COBBLE,COAL,CLAY,STONEBRICK,REDBRICK
 }
@@ -53,27 +53,27 @@ const noise_types: Array = [
 ]
 
 @onready var noise :FastNoiseLite = FastNoiseLite.new()
-#var img := Image.create(image_size.x, image_size.y, false, image_format) 
+#var img := Image.create(image_size.x, image_size.y, false, image_format)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	
+
 	noise.seed = randi()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.fractal_octaves = 1
 	noise.fractal_gain = 1
-	
+
 	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
 	screenratio = ceil(screensize.x) / ceil(screensize.y)
 # warning-ignore:narrowing_conversion
 	world_tiles_y = ceil(world_tiles_x / screenratio)
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
-	
+
 	GenerateTerrain()
-	
+
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
 	var Castle = get_used_cells_by_id(1, 6)
@@ -84,10 +84,11 @@ func Reset_TileMap() -> void:
 
 func GenerateTerrain() -> void:
 	Reset_TileMap()
-	
-	seed = "123456789".hash()
-	randomize()
-	
+
+#	rng.seed = "123456789".hash()
+	rng.randomize()
+	Preloads.UIMain.emit_signal("UITerrainSeedChanged", str(rng.seed))
+
 	current_displacement = displacement
 	for x in world_tiles_x:
 		if x <= mod:
@@ -97,22 +98,22 @@ func GenerateTerrain() -> void:
 				set_cell(0, Vector2i(x,y), 6, Vector2i(0, 0))
 				plattform.append(Vector2i(x, y))
 				continue
-				
+
 			# Graslinie
 			elif y == current_displacement:
 				set_cell(0, Vector2i(x,y), 0, Vector2i(0, 0))
-				
+
 			# Dirt
 			if y > current_displacement and y < world_tiles_y-2:
 				set_cell(0, Vector2i(x,y), 1, Vector2i(0, 0))
-			
+
 			# Bedrock
 			elif y >= world_tiles_y-2:
 				set_cell(0, Vector2i(x,y), 7, Vector2i(0, 0))
-			
+
 			var fnl = abs(noise.get_noise_2d(x, y))
-				
-		var change_displacement = current_displacement + signi(randi_range(-5, 5))# pow(-1.0, randi() % 2)
+
+		var change_displacement = current_displacement + signi(rng.randi_range(-5, 5))# pow(-1.0, randi() % 2)
 		current_displacement = change_displacement
 	pass
 
