@@ -4,7 +4,7 @@ extends TileMap
 @onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 @onready var midrange:float = screensize.y		# 900px
 @onready var displacement := ceili((midrange / tile_size.y) / 2)	# ((900/16)/2) = 28,125 ~= 28
-@export var current_displacement = 0
+@export var current_displacement : int = 0
 @export var castlewidth = 175
 @export var mod : int = floori(snappedf(castlewidth, tile_size.x) / tile_size.x)	# ((175,16)=176/16)=11
 
@@ -85,6 +85,9 @@ func Reset_TileMap() -> void:
 func GenerateTerrain() -> void:
 	Reset_TileMap()
 	
+	seed = "123456789".hash()
+	randomize()
+	
 	current_displacement = displacement
 	for x in world_tiles_x:
 		if x <= mod:
@@ -109,7 +112,7 @@ func GenerateTerrain() -> void:
 			
 			var fnl = abs(noise.get_noise_2d(x, y))
 				
-		var change_displacement = current_displacement + sign(randi_range(-5, 5))# pow(-1.0, randi() % 2)
+		var change_displacement = current_displacement + signi(randi_range(-5, 5))# pow(-1.0, randi() % 2)
 		current_displacement = change_displacement
 	pass
 
