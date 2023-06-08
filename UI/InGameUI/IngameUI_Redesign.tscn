@@ -475,6 +475,29 @@ theme_type_variation = &"InGameUIHudLabel"
 text = "123456"
 horizontal_alignment = 1
 
+[node name="HBoxMapSeed" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxMapSeed"]
+layout_mode = 2
+theme_type_variation = &"InGameUIHudLabel"
+text = "Mapseed: "
+
+[node name="LabSeed" type="Label" parent="HBoxMapSeed"]
+layout_mode = 2
+theme_type_variation = &"InGameUIHudLabel"
+text = "1234567890"
+
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
