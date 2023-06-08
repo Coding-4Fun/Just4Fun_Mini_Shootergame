@@ -40,7 +40,10 @@ func _enter_tree() -> void:
 	Preloads.DummyTargetGroup = find_child("DummyTargets")
 
 	## TileMap
-	Preloads.Map = find_child("TerrainMap")
+#	Preloads.Map = find_child("TerrainMap")
+
+	## Tilemap for FastNoiseLite Generation
+	Preloads.Map = find_child("TileMapFastNoise")
 
 
 func _on_MainGame_ready() -> void:

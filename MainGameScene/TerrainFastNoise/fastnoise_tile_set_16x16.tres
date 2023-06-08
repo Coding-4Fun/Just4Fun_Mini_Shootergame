@@ -1,0 +1,69 @@
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://5rhtyqps0y"]
+
+[ext_resource type="Texture2D" uid="uid://dqlgidtaa46fj" path="res://MainGameScene/TerrainTiles/sprites/gras_16x16.png" id="1_dv62g"]
+[ext_resource type="Texture2D" uid="uid://dgsxblkmdjnb8" path="res://MainGameScene/TerrainTiles/sprites/dirt_16x16.png" id="2_fytcj"]
+[ext_resource type="Texture2D" uid="uid://bdxsp6j4dnko6" path="res://MainGameScene/TerrainTiles/sprites/cobblestone_16x16.png" id="3_wifgy"]
+[ext_resource type="Texture2D" uid="uid://esm51ddt5goy" path="res://MainGameScene/TerrainTiles/sprites/cobblestone_mossy_16x16.png" id="4_wsgx4"]
+[ext_resource type="Texture2D" uid="uid://cm0fjurxlaje0" path="res://MainGameScene/TerrainTiles/sprites/coal_ore_16x16.png" id="5_xgfvf"]
+[ext_resource type="Texture2D" uid="uid://bvkrp5eoa6qvj" path="res://MainGameScene/TerrainTiles/sprites/clay_16x16.png" id="6_f3ufc"]
+[ext_resource type="Texture2D" uid="uid://ch3ldcyo5tr6l" path="res://MainGameScene/TerrainTiles/sprites/stonebrick_16x16.png" id="7_7vux3"]
+[ext_resource type="Texture2D" uid="uid://dj2ttuj7fl2kw" path="res://MainGameScene/TerrainTiles/sprites/brick_16x16.png" id="8_5ms12"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbre5"]
+texture = ExtResource("1_dv62g")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k0s5"]
+texture = ExtResource("2_fytcj")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su2ir"]
+texture = ExtResource("3_wifgy")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cty77"]
+texture = ExtResource("4_wsgx4")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdiya"]
+texture = ExtResource("5_xgfvf")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yshje"]
+texture = ExtResource("6_f3ufc")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pxip"]
+texture = ExtResource("7_7vux3")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02m21"]
+texture = ExtResource("8_5ms12")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_sbre5")
+sources/1 = SubResource("TileSetAtlasSource_4k0s5")
+sources/2 = SubResource("TileSetAtlasSource_su2ir")
+sources/3 = SubResource("TileSetAtlasSource_cty77")
+sources/4 = SubResource("TileSetAtlasSource_kdiya")
+sources/5 = SubResource("TileSetAtlasSource_yshje")
+sources/6 = SubResource("TileSetAtlasSource_5pxip")
+sources/7 = SubResource("TileSetAtlasSource_02m21")
