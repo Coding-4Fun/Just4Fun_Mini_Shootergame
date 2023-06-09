@@ -70,6 +70,7 @@ script = ExtResource("10_uxs7w")
 tile_set = ExtResource("11_3rpl6")
 format = 2
 layer_0/name = "Terrain"
+layer_0/tile_data = PackedInt32Array(3866675, 131072, 0, 3866676, 65536, 0, 3866677, 65536, 0)
 layer_1/name = "Castle"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
