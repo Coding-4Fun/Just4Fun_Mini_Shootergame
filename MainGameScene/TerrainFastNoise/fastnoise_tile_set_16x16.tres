@@ -11,15 +11,80 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbre5"]
 texture = ExtResource("1_dv62g")
+0:0/next_alternative_id = 9
 0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/probability = 0.0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3, -8, -3)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/8 = 8
+0:0/8/terrain_set = 0
+0:0/8/terrain = 0
+0:0/8/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/8/physics_layer_0/angular_velocity = 0.0
+1:0/next_alternative_id = 8
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/probability = 0.0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, 3, 8, -8, -3)
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/7 = 7
+1:0/7/terrain_set = 0
+1:0/7/terrain = 0
+1:0/7/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/7/physics_layer_0/angular_velocity = 0.0
+1:0/7/terrains_peering_bit/bottom_left_corner = 0
+1:0/7/terrains_peering_bit/left_side = 0
+1:0/7/terrains_peering_bit/top_left_corner = 0
+2:0/next_alternative_id = 9
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/probability = 0.0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, 8, -3.5, 8, 8, -4)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/8 = 8
+2:0/8/terrain_set = 0
+2:0/8/terrain = 0
+2:0/8/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/8/physics_layer_0/angular_velocity = 0.0
+2:0/8/terrains_peering_bit/right_side = 0
+2:0/8/terrains_peering_bit/bottom_right_corner = 0
+2:0/8/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k0s5"]
 texture = ExtResource("2_fytcj")
+0:0/next_alternative_id = 3
 0:0/0 = 0
+0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 0.5, -8, 8, -5, -5.5, 5, -5.5, 8, 8, 8, -1, 8, -8)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su2ir"]
 texture = ExtResource("3_wifgy")
@@ -59,6 +124,9 @@ texture = ExtResource("8_5ms12")
 
 [resource]
 physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.27451, 0.380392, 0.811765, 1)
 sources/0 = SubResource("TileSetAtlasSource_sbre5")
 sources/1 = SubResource("TileSetAtlasSource_4k0s5")
 sources/2 = SubResource("TileSetAtlasSource_su2ir")
