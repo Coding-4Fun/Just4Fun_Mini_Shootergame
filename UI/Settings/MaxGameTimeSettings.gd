@@ -28,3 +28,4 @@ func _on_cButtSwitchMaxGameTime_toggled(button_pressed):
 	Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] = button_pressed
 	if !GSM.GameTimer.is_stopped() and !button_pressed:
 		GSM.GameTimer.stop()
+		GSM.GameTimerTimeElapsed = 0
