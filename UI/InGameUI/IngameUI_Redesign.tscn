@@ -477,6 +477,7 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
+[connection signal="visibility_changed" from="BoxContainer/VBoxSetting" to="BoxContainer/VBoxSetting" method="_on_visibility_changed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer" to="." method="_on_buttSwitchTargetTimer_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttBackToMenu" to="BoxContainer/VBoxSetting" method="_on_buttBackToMenu_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="BoxContainer/VBoxSetting/hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
