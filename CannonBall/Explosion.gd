@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 func _ready():
-	play("default")
+    play("default")
 
 func _on_Explosion_animation_finished():
-	queue_free()
+    queue_free()
