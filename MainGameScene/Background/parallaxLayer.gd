@@ -1,11 +1,11 @@
 extends ParallaxLayer
-export(float) var CLOUD_SPEED = -25.0
+@export var CLOUD_SPEED : float = -25.0
 
 
 func _ready() -> void:
-	pass
+    pass
 
 
 func _process(delta: float) -> void:
-	self.motion_offset.x += CLOUD_SPEED *delta
-	pass
+    self.motion_offset.x += CLOUD_SPEED *delta
+    pass
