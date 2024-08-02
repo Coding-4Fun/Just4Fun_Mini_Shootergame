@@ -5,7 +5,7 @@ on:
     - Godot-42-Stable
 
 env:
-  GODOT_VERSION: 4.2.2
+  GODOT_VERSION: 4.2.1
   EXPORT_NAME: J4F-MiniShooterGame
 
 jobs:
