@@ -13,6 +13,7 @@ grow_horizontal = 2
 mouse_filter = 0
 script = ExtResource("4")
 
+
 [node name="Background" type="ColorRect" parent="."]
 visible = false
 show_behind_parent = true
@@ -22,7 +23,10 @@ color = Color(0.145098, 0.203922, 0.337255, 0.72549)
 
 [node name="hBoxOptions" type="HBoxContainer" parent="."]
 layout_mode = 2
+
 mouse_filter = 2
+size_flags_horizontal = 3
+
 
 [node name="buttSwitchTargetTimer" type="CheckButton" parent="hBoxOptions"]
 layout_mode = 2
@@ -30,8 +34,10 @@ text = "Enable Target Timer"
 
 [node name="vSeparator" type="VSeparator" parent="hBoxOptions"]
 layout_mode = 2
+
 size_flags_horizontal = 3
 mouse_filter = 2
+
 
 [node name="buttBackToMenu" type="Button" parent="hBoxOptions"]
 layout_mode = 2
@@ -54,8 +60,10 @@ size_flags_horizontal = 3
 
 [node name="hBoxContainerMaxShots" type="HBoxContainer" parent="hBoxConditions/hBoxContainer/vBoxContainerShots"]
 layout_mode = 2
+
 size_flags_horizontal = 0
 script = ExtResource("2")
+
 
 [node name="cButtSwitchMaxShots" type="CheckButton" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
 layout_mode = 2
@@ -70,6 +78,7 @@ text = "Max Shots"
 [node name="MaxShotSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+
 size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = -1.0
@@ -79,6 +88,7 @@ rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
+
 
 [node name="labelMaxShots" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
 layout_mode = 2
@@ -106,6 +116,7 @@ text = "Max/Min Score"
 [node name="MaxScoreSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+
 size_flags_vertical = 5
 min_value = -1000.0
 max_value = 1000.0
@@ -115,6 +126,7 @@ rounded = true
 editable = false
 tick_count = 20
 ticks_on_borders = true
+
 
 [node name="labelMaxScore" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
 layout_mode = 2
@@ -144,6 +156,7 @@ text = "Max Play Time"
 [node name="MaxGameTimeSlider" type="HSlider" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+
 size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = -1.0
@@ -155,8 +168,10 @@ editable = false
 tick_count = 10
 ticks_on_borders = true
 
+
 [node name="labelMaxGameTime" type="Label" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
 layout_mode = 2
+
 text = "00:00"
 
 [connection signal="pressed" from="hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
