@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://djmxf62w3y5gd"]
 
-[ext_resource type="FontVariation" path="res://UI/Theme/game_theme_font_variation.tres" id="1_0w410"]
-[ext_resource type="FontVariation" path="res://UI/Theme/game_theme_maintitle_font_variation.tres" id="3_ma15g"]
+[ext_resource type="FontVariation" uid="uid://boynskj7gbbuw" path="res://UI/Theme/game_theme_font_variation.tres" id="1_0w410"]
+[ext_resource type="FontVariation" uid="uid://dgu7sfe7thk30" path="res://UI/Theme/game_theme_maintitle_font_variation.tres" id="3_ma15g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1q7"]
 bg_color = Color(0.137255, 0.513726, 0.6, 1)
