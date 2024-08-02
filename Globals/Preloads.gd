@@ -8,9 +8,9 @@ extends Node
 @onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
 
 # Main Game Scene
-@onready var MainGameScene := load("res://MainGame.tscn")
-@onready var MainMenuScene = preload("res://UI/MainMenuUI.tscn")
-@onready var GameOverScene = preload("res://UI/GameEndDialog.tscn")
+@onready var MainGameScene := load("res://MainGameScene/MainGame.tscn")
+@onready var MainMenuScene = preload("res://UI/MainMenuUI/MainMenuUI.tscn")
+@onready var GameOverScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
 
 # Player Node's
 var PlayerRootNode:Node2D

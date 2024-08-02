@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://h8vcng8ps4vd"]
+
+[ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
+[ext_resource type="Script" path="res://MainGameScene/MainGame.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/players.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
+[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://Cannon/Cannon.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://DummyTarget/DummyTargetGroupNode.tscn" id="7"]
+[ext_resource type="Script" path="res://DummyTarget/DummyTargetGroupNode.gd" id="8"]
+[ext_resource type="Script" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://MainGameScene/Background/uncolored_plain.png" id="10"]
+[ext_resource type="Script" path="res://MainGameScene/TerrainMapGenerator.gd" id="10_uxs7w"]
+
+[sub_resource type="Environment" id="Environment_47r24"]
+background_mode = 3
+background_color = Color(0.305882, 0.517647, 1, 1)
+tonemap_exposure = 0.39
+adjustment_enabled = true
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_47r24")
+
+[node name="parallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="parallaxLayer" type="ParallaxLayer" parent="parallaxBackground"]
+position = Vector2(0, -250)
+motion_mirroring = Vector2(1600, 0)
+script = ExtResource("9")
+CLOUD_SPEED = -50.0
+
+[node name="sprite" type="Sprite2D" parent="parallaxBackground/parallaxLayer"]
+scale = Vector2(1.56348, 1)
+texture = ExtResource("10")
+centered = false
+
+[node name="InGameUI" parent="." instance=ExtResource("5_y7iba")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player1" type="Node2D" parent="Players"]
+
+[node name="Cannon" parent="Players/Player1" instance=ExtResource("6")]
+position = Vector2(186, 388)
+
+[node name="Player2" type="Node2D" parent="Players"]
+
+[node name="Shots" type="Node2D" parent="Players"]
+script = ExtResource("4")
+
+[node name="DummyTargetGroupNode" parent="." instance=ExtResource("7")]
+script = ExtResource("8")
+
+[node name="TerrainMap" type="TileMap" parent="." groups=["Ground"]]
+tile_set = ExtResource("1")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310721, 6, 0, 1310723, 6, 0, 1376257, 6, 0, 1376258, 6, 0, 1376259, 6, 0, 1441793, 6, 0, 1441795, 6, 0, 1507329, 6, 0, 1507330, 6, 0, 1507331, 6, 0, 1572865, 6, 0, 1572866, 6, 0, 1572867, 6, 0, 1572869, 6, 0, 1572871, 6, 0, 1572873, 6, 0, 1572875, 6, 0, 1638401, 6, 0, 1638402, 6, 0, 1638403, 6, 0, 1638404, 6, 0, 1638405, 6, 0, 1638406, 6, 0, 1638407, 6, 0, 1638408, 6, 0, 1638409, 6, 0, 1638410, 6, 0, 1638411, 6, 0, 1703937, 6, 0, 1703938, 6, 0, 1703940, 6, 0, 1703942, 6, 0, 1703944, 6, 0, 1703946, 6, 0, 1703947, 6, 0, 1769473, 6, 0, 1769474, 6, 0, 1769475, 6, 0, 1769476, 6, 0, 1769477, 6, 0, 1769478, 6, 0, 1769479, 6, 0, 1769480, 6, 0, 1769481, 6, 0, 1769482, 6, 0, 1769483, 6, 0, 1835008, 6, 0, 1835009, 6, 0, 1835010, 6, 0, 1835011, 6, 0, 1835012, 6, 0, 1835013, 6, 0, 1835014, 6, 0, 1835015, 6, 0, 1835016, 6, 0, 1835017, 6, 0, 1835018, 6, 0, 1835019, 6, 0)
+script = ExtResource("10_uxs7w")
+
+[connection signal="ready" from="." to="." method="_on_MainGame_ready"]
