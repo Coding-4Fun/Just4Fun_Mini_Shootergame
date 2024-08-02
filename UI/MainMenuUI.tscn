@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b160gc30aq28t"]
 
-[ext_resource type="Script" path="res://UI/MainMenuUI.gd" id="1_m5yfc"]
-[ext_resource type="FontFile" path="res://UI/Theme/main_font.tres" id="2_syquh"]
+[ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="1_m5yfc"]
+[ext_resource type="FontFile" uid="uid://dgu7sfe7thk30" path="res://UI/Theme/game_theme_maintitle_font_variation.tres" id="2_syquh"]
 [ext_resource type="FontFile" uid="uid://clh45xitj17jc" path="res://UI/Theme/MainTitleFontStyle.tres" id="3_gr63s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmjkx"]
