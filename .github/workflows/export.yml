@@ -21,14 +21,18 @@ jobs:
           lfs: true
       - name: Setup
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-          # Add SymLink
-          ln -s ~/.local/share/godot/templates ~/.local/share/godot/export_templates
+           mkdir -v -p ~/.local/share/godot/export_templates/ 
+           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+#          mkdir -v -p ~/.local/share/godot/templates
+#          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+#          # Add SymLink
+#          ln -s ~/.local/share/godot/export_templates ~/.local/share/godot/export_templates
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
           #cd $EXPORT_NAME
+          godot --headless --verbose --editor --quit-after 10
           godot --export-release --headless "Windows Desktop" build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.4
@@ -48,13 +52,16 @@ jobs:
           lfs: true
       - name: Setup
         run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-          ln -s ~/.local/share/godot/templates ~/.local/share/godot/export_templates
+           mkdir -v -p ~/.local/share/godot/export_templates/ 
+           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+#          mkdir -v -p ~/.local/share/godot/templates
+#          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+#          ln -s ~/.local/share/godot/export_templates ~/.local/share/godot/export_templates
       - name: Web Build
         run: |
           mkdir -v -p build/web
           #cd $EXPORT_NAME
+          godot --headless --verbose --editor --quit-after 10
           godot --export-release --headless "Web" build/web/index.html
           cp ./.github/dist/coi-serviceworker.min.js ./build/web/coi-serviceworker.min.js
       - name: Upload Artifact
