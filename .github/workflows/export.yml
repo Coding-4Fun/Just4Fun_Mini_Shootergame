@@ -5,7 +5,7 @@ on:
     - Godot-42-Stable
 
 env:
-  GODOT_VERSION: 4.2.1
+  GODOT_VERSION: 4.2.2
   EXPORT_NAME: J4F-MiniShooterGame
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
       - name: Setup
         run: |
            mkdir -v -p ~/.local/share/godot/export_templates/ 
+           ls -Al /root/.local/share/godot/export_templates
            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 
 #          mkdir -v -p ~/.local/share/godot/templates
@@ -52,6 +53,7 @@ jobs:
           lfs: true
       - name: Setup
         run: |
+           ls -Al /root/.local/share/godot/export_templates
            mkdir -v -p ~/.local/share/godot/export_templates/ 
            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 #          mkdir -v -p ~/.local/share/godot/templates

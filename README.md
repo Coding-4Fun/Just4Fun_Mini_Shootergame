@@ -1,5 +1,15 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+## Update July 02 2024
+
+- Create Branch for Godot 4.3 rc (2)
+- Create Branch for Godot 4.2.2 stable (new default branch)
+
+### Update: Upgrade Project to Engine Version 4.2.2
+### Update Web Version to current
+### Done: Fixing CI in Github Action failed since 4.2.2
+
+
 ## Update May 31 2023
 Changes in Repository
 
