@@ -34,7 +34,7 @@ func _on_Create_Add_NewTarget() -> void:
 
 	var posi = Preloads.Map.map_to_local(tile_coord)
 	# posi.x += 8
-	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2)
+	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2.0)
 
 	target = Preloads.DummyTarget.instantiate()
 	target.position = posi
@@ -47,5 +47,3 @@ func _on_Create_Add_NewTarget() -> void:
 func _on_Target_Hited(score : int) -> void:
 	SignalBus.emit_signal("UIScoreChange", score)
 	SignalBus.emit_signal("CreateAndAddNewTarget")
-
-
