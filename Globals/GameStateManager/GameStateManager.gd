@@ -94,5 +94,3 @@ func _input(event: InputEvent) -> void:
 			get_tree().get_current_scene().add_child(pm)
 #			pausemode = Node.PROCESS_MODE_PAUSABLE
 			get_tree().paused = !get_tree().paused
-
-
