@@ -2,10 +2,10 @@ name: "godot-ci export"
 on:
   push:
     branches:
-    - Godot-40x-Stable
+    - Godot-42-Stable
 
 env:
-  GODOT_VERSION: 4.0.3
+  GODOT_VERSION: 4.2.1
   EXPORT_NAME: J4F-MiniShooterGame
 
 jobs:
@@ -13,10 +13,10 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.0.3
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v4
         with:
           lfs: true
       - name: Setup
@@ -31,7 +31,7 @@ jobs:
           #cd $EXPORT_NAME
           godot --export-release --headless "Windows Desktop" build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4.3.4
         with:
           name: windows
           path: build/windows
@@ -40,10 +40,10 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.0.3
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v4
         with:
           lfs: true
       - name: Setup
@@ -58,7 +58,7 @@ jobs:
           godot --export-release --headless "Web" build/web/index.html
           cp ./.github/dist/coi-serviceworker.min.js ./build/web/coi-serviceworker.min.js
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4.3.4
         with:
           name: web
           path: build/web
@@ -67,7 +67,7 @@ jobs:
         run: |
           apt-get update && apt-get install -y rsync
       - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.2
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           # GITHUB_TOKEN: ${{ github.token }}
           BRANCH: gh-pages # The branch the action should deploy to.
