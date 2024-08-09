@@ -16,39 +16,39 @@ var target
 
 func _ready():
 #	print("Main: _ready()")
-    if !Preloads.UIMain.is_connected("UIResetGame", self._on_UI_ResetGame):
-        var _cn = Preloads.UIMain.connect("UIResetGame", self._on_UI_ResetGame)
+	if !Preloads.UIMain.is_connected("UIResetGame", self._on_UI_ResetGame):
+		var _cn = Preloads.UIMain.connect("UIResetGame", self._on_UI_ResetGame)
 
 
 #	var tmp = connect("CannonReset", Preloads.cannonLeft, "_reset_CannonPower")
 #	if (tmp) != OK:
 #		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
 
-    Preloads.Map.generate_world_tilemap_base()
+	Preloads.Map.generate_world_tilemap_base()
 
 
 func _enter_tree() -> void:
-    # Player Node's
-    Preloads.PlayerRootNode = get_node("Players")
-    Preloads.PlayerLeft = find_child("Player1")
-    Preloads.PlayerRight = find_child("Player2")
-    Preloads.PlayerShots = find_child("Shots")
+	# Player Node's
+	Preloads.PlayerRootNode = get_node("Players")
+	Preloads.PlayerLeft = find_child("Player1")
+	Preloads.PlayerRight = find_child("Player2")
+	Preloads.PlayerShots = find_child("Shots")
 
-    ## UI
-    Preloads.UIMain = find_child("InGameUI")
+	## UI
+	Preloads.UIMain = find_child("InGameUI")
 
-    ## Dummy Gruppen Node
-    Preloads.DummyTargetGroup = find_child("DummyTargets")
+	## Dummy Gruppen Node
+	Preloads.DummyTargetGroup = find_child("DummyTargets")
 
-    ## TileMap
-    Preloads.Map = find_child("TerrainMap")
+	## TileMap
+	Preloads.Map = find_child("TerrainMap")
 
 
 func _on_MainGame_ready() -> void:
 #	add_cannon_left()
-    GSM.gameWin = -1
-    SignalBus.emit_signal("CreateAndAddNewTarget")
-    pass
+	GSM.gameWin = -1
+	SignalBus.emit_signal("CreateAndAddNewTarget")
+	pass
 
 
 #func add_cannon_left(pos:Vector2 = Vector2.INF):
@@ -66,14 +66,14 @@ func _on_MainGame_ready() -> void:
 
 func _on_UI_ResetGame() -> void:
 #	print("Main: UIResetGame_Signal")
-    GSM.gameWin = -1
-    GSM.GameTimer.stop()
-    GSM.GameTimerTimeElapsed = 0
-    GSM.GameTimeTextLabel.text = "00:00"
-    get_tree().call_group("Dummy", "queue_free")
-    get_tree().call_group("Shoots", "queue_free")
-    Preloads.Map.generate_world_tilemap_base()
-    SignalBus.emit_signal("CreateAndAddNewTarget")
+	GSM.gameWin = -1
+	GSM.GameTimer.stop()
+	GSM.GameTimerTimeElapsed = 0
+	GSM.GameTimeTextLabel.text = "00:00"
+	get_tree().call_group("Dummy", "queue_free")
+	get_tree().call_group("Shoots", "queue_free")
+	Preloads.Map.generate_world_tilemap_base()
+	SignalBus.emit_signal("CreateAndAddNewTarget")
 
 
 #func update_trajectory():

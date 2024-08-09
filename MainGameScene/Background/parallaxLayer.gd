@@ -3,9 +3,9 @@ extends ParallaxLayer
 
 
 func _ready() -> void:
-    pass
+	pass
 
 
 func _process(delta: float) -> void:
-    self.motion_offset.x += CLOUD_SPEED *delta
-    pass
+	self.motion_offset.x += CLOUD_SPEED *delta
+	pass
