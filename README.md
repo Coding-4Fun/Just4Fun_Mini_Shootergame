@@ -19,7 +19,7 @@ Changes in Repository
 
 ### Done: Fixing CI in Github Action failed since 4.x
 ### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
-### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023) 
+### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023)
 ### Fixed: Target Timer ein und ausschaltzen
 ### Fixed: Layouts nach 4.0x Migration
 
