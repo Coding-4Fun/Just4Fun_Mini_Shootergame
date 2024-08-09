@@ -17,4 +17,3 @@ func _input(event: InputEvent) -> void:
 			get_tree().paused = !get_tree().paused
 			get_tree().get_current_scene().get_node("PauseMenu").queue_free()
 			get_viewport().set_input_as_handled()
-
