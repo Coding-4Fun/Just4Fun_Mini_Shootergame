@@ -28,10 +28,8 @@ func _on_buttPlay_pressed():
 	current_scene.queue_free()
 	get_tree().current_scene = null
 
-	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
+	if get_tree().change_scene_to_packed(Preloads.GameSettingsScene) != OK:
 		print("Error: change_scene_to()::buttPlay")
-#	call_deferred("get_tree().get_root().remove_child()", self)
-	pass # Replace with function body.
 
 
 func _on_buttHightScore_pressed():
