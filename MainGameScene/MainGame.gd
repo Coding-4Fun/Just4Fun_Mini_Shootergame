@@ -17,12 +17,7 @@ var target
 func _ready():
 #	print("Main: _ready()")
 	if !Preloads.UIMain.is_connected("UIResetGame", self._on_UI_ResetGame):
-			var _cn = Preloads.UIMain.connect("UIResetGame", self._on_UI_ResetGame)
-
-
-#	var tmp = connect("CannonReset", Preloads.cannonLeft, "_reset_CannonPower")
-#	if (tmp) != OK:
-#		print("Connect MainGame::_ready() -> Connect to CannonReset Fehlgeschlagen: %s" % tmp)
+			var _cn = Preloads.UIMain.UIResetGame.connect(self._on_UI_ResetGame)
 
 	Preloads.Map.generate_world_tilemap_base()
 

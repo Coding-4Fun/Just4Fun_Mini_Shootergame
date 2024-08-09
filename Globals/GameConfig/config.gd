@@ -45,11 +45,6 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 func _ready() -> void:
 	config_data = get_configdata()
 
-	# lobby.connect("playername_changed", self, "_on_playername_change")
-	# lobby.connect("hostip_changed", self, "_on_hostip_change")
-	# lobby.connect("hostport_changed", self, "_on_hostport_change")
-	# lobby.connect("maxplayers_changed", self, "_on_maxplayer_change")
-
 
 func get_configdata() -> Dictionary:
 	var json = JSON.new()

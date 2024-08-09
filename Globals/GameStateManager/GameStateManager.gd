@@ -16,11 +16,11 @@ signal GameStateChange
 
 func _ready():
 	if !is_connected("GameStateChange", _on_GameStateChange):
-		if connect("GameStateChange", _on_GameStateChange):
+		if GameStateChange.connect(_on_GameStateChange):
 			print("Error - GamestateManager: connect GameStateChange")
 
 	GameTimer = Timer.new()
-	if GameTimer.connect("timeout", _on_timer_timeout):
+	if GameTimer.timeout.connect(_on_timer_timeout):
 		print("Error - GamestateManager: connect GameTimer_timeout")
 	add_child(GameTimer)
 	pass

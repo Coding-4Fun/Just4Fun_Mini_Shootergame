@@ -19,28 +19,23 @@ signal UIdummyTargetTimerChange
 
 func _ready() -> void:
 	if !SignalBus.is_connected("CannonAngelChange", self._on_Cannon_CannonAngelChange):
-###		assert(SignalBus.connect("CannonAngelChange", self, "_on_Cannon_CannonAngelChange")==OK)
-		if SignalBus.connect("CannonAngelChange", self._on_Cannon_CannonAngelChange) != OK:
+		if SignalBus.CannonAngelChange.connect(self._on_Cannon_CannonAngelChange) != OK:
 			print("Error - InGameUI.gd: connect signal CannonAngelChange")
 
 	if !SignalBus.is_connected("UIScoreChange", self._on_UIScore_Change):
-###		assert(SignalBus.connect("UIScoreChange", self, "_on_UIScore_Change")==OK)
-		if SignalBus.connect("UIScoreChange", self._on_UIScore_Change) != OK:
+		if SignalBus.UIScoreChange.connect(self._on_UIScore_Change) != OK:
 			print("Error - InGameUI.gd: connect signal UIScoreChange")
 
 	if !SignalBus.is_connected("CannonPowerChange", self._on_Cannon_CannonPowerChange):
-###		assert(SignalBus.connect("CannonPowerChange", self, "_on_Cannon_CannonPowerChange") == OK)
-		if SignalBus.connect("CannonPowerChange", self._on_Cannon_CannonPowerChange) != OK:
+		if SignalBus.CannonPowerChange.connect(self._on_Cannon_CannonPowerChange) != OK:
 			print("Error - InGameUI.gd: connect signal CannonPowerChange")
 
 	if !SignalBus.is_connected("CannonShoot", self._on_Cannon_Shot):
-###		assert(SignalBus.connect("CannonShoot", self, "_on_Cannon_Shot") == OK)
-		if SignalBus.connect("CannonShoot", self._on_Cannon_Shot) != OK:
+		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
 
 	if !is_connected("UIdummyTargetTimerChange", Config._on_dummytarget_TimerChange):
-###		assert(connect("UIdummyTargetTimerChange", Config, "_on_dummytarget_TimerChange") == OK)
-		if connect("UIdummyTargetTimerChange", Config._on_dummytarget_TimerChange) != OK:
+		if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
 			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
