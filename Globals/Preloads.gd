@@ -10,6 +10,7 @@ extends Node
 # Main Game Scene
 @onready var MainGameScene := load("res://MainGameScene/MainGame.tscn")
 @onready var MainMenuScene = preload("res://UI/MainMenuUI/MainMenuUI.tscn")
+@onready var GameSettingsScene = preload("res://UI/GameSettingsDialog/GameSettings.tscn")
 @onready var GameOverScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
 
 # Player Node's
