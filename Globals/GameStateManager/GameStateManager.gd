@@ -15,7 +15,7 @@ signal GameStateChange
 #onready var GameOverDlg = preload("res://UI/GameEndDialog.tscn")
 
 func _ready():
-	if !is_connected("GameStateChange", _on_GameStateChange):
+	if !GameStateChange.is_connected(_on_GameStateChange):
 		if GameStateChange.connect(_on_GameStateChange):
 			print("Error - GamestateManager: connect GameStateChange")
 

@@ -12,11 +12,11 @@ var Ply = ""
 
 
 func _ready() -> void:
-	if !is_connected("GroundHit", _on_Ground_Hited):
+	if !GroundHit.is_connected(_on_Ground_Hited):
 		if GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
 
-	if !SignalBus.is_connected("exploded", self._on_Bullet_exploded):
+	if !SignalBus.exploded.is_connected(self._on_Bullet_exploded):
 		if SignalBus.exploded.connect(_on_Bullet_exploded.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal exploded")
 

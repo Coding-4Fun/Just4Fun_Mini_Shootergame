@@ -21,7 +21,7 @@ func _ready():
 		if SignalBus.CannonShoot.connect(Preloads.UIMain._on_Cannon_Shot) != OK:
 			print("Error - Cannon.gd: connect signal CannonShoot")
 
-	if !SignalBus.is_connected("CannonShooting", Preloads.PlayerShots._on_Player_Shoot):
+	if !SignalBus.CannonShooting.is_connected(Preloads.PlayerShots._on_Player_Shoot):
 		if SignalBus.CannonShooting.connect(Preloads.PlayerShots._on_Player_Shoot)!=OK:
 			print("Error - Cannon.gd: connect signal CannonShooting")
 

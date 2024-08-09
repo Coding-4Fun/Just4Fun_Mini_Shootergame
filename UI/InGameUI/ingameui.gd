@@ -18,23 +18,23 @@ signal UIdummyTargetTimerChange
 
 
 func _ready() -> void:
-	if !SignalBus.is_connected("CannonAngelChange", self._on_Cannon_CannonAngelChange):
+	if !SignalBus.CannonAngelChange.is_connected(self._on_Cannon_CannonAngelChange):
 		if SignalBus.CannonAngelChange.connect(self._on_Cannon_CannonAngelChange) != OK:
 			print("Error - InGameUI.gd: connect signal CannonAngelChange")
 
-	if !SignalBus.is_connected("UIScoreChange", self._on_UIScore_Change):
+	if !SignalBus.UIScoreChange.is_connected(self._on_UIScore_Change):
 		if SignalBus.UIScoreChange.connect(self._on_UIScore_Change) != OK:
 			print("Error - InGameUI.gd: connect signal UIScoreChange")
 
-	if !SignalBus.is_connected("CannonPowerChange", self._on_Cannon_CannonPowerChange):
+	if !SignalBus.CannonPowerChange.is_connected(self._on_Cannon_CannonPowerChange):
 		if SignalBus.CannonPowerChange.connect(self._on_Cannon_CannonPowerChange) != OK:
 			print("Error - InGameUI.gd: connect signal CannonPowerChange")
 
-	if !SignalBus.is_connected("CannonShoot", self._on_Cannon_Shot):
+	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
 
-	if !is_connected("UIdummyTargetTimerChange", Config._on_dummytarget_TimerChange):
+	if !UIdummyTargetTimerChange.is_connected(Config._on_dummytarget_TimerChange):
 		if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
 			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
