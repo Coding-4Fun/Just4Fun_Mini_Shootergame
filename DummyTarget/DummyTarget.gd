@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _hit_ByBall():
 	$despawnTimer.stop()
-	SignalBus.emit_signal("TargetHitted", score)
+	SignalBus.TargetHitted.emit(score)
 	queue_free()
 
 
@@ -34,7 +34,7 @@ func _on_despawnTimer_timeout() -> void:
 
 	if TimeMax <= 0:
 		$despawnTimer.stop()
-		SignalBus.emit_signal("TargetHitted", score*-1)
+		SignalBus.TargetHitted.emit( score*-1)
 		queue_free()
 
 

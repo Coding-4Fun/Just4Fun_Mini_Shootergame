@@ -46,8 +46,8 @@ func _physics_process(delta: float) -> void:
 			# Get the tile id
 			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
-				SignalBus.emit_signal("exploded", position + transform.x * 37)
-				emit_signal("GroundHit")
+				SignalBus.exploded.emit(position + transform.x * 37)
+				GroundHit.emit()
 		elif collider is StaticBody2D:
 			if collider.is_in_group("Dummy") and collider.has_method("_hit_ByBall"):
 				collider._hit_ByBall()
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
-		emit_signal("GroundHit")
+		GroundHit.emit()
 		call_deferred("queue_free")
 		pass
 
@@ -68,7 +68,7 @@ func _on_Bullet_exploded(pos):
 
 
 func _on_Ground_Hited() -> void:
-	SignalBus.emit_signal("UIScoreChange", -2)
+	SignalBus.UIScoreChange.emit(-2)
 
 
 # asteroid script

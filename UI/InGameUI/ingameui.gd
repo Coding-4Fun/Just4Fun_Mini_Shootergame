@@ -71,7 +71,7 @@ func _on_Cannon_CannonPowerChange(newPower : int) -> void:
 func _on_Cannon_Shot() -> void:
 	_shots += 1
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
-	GSM.emit_signal("GameStateChange", _score, _hits, _shots)
+	GSM.GameStateChange.emit(_score, _hits, _shots)
 
 
 func _on_UIScore_Change(score) -> void:
@@ -87,7 +87,7 @@ func _on_UIScore_Change(score) -> void:
 	if score < 0:
 		_missed += 1
 		$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
-	GSM.emit_signal("GameStateChange", _score, _hits, _shots)
+	GSM.GameStateChange.emit(_score, _hits, _shots)
 
 ## Reset the Game
 func _on_buttGameReset_button_pressed() -> void:
@@ -100,7 +100,7 @@ func _on_buttGameReset_button_pressed() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
-	emit_signal("UIResetGame")
+	UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
 
 # Öffnen und schliessen der Settings
@@ -121,4 +121,4 @@ func _on_buttGameOptions_pressed() -> void:
 
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
-	emit_signal("UIdummyTargetTimerChange", $BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
+	UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)

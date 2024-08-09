@@ -39,22 +39,22 @@ func _unhandled_input(event):
 	if GSM.gameWin != -1:
 		return
 	if event.is_action_released("cannon_shoot") and can_shoot:
-		SignalBus.emit_signal("CannonShooting", Muzzle.global_transform, muzzle_velocity, gravity)
-		SignalBus.emit_signal("CannonShoot")
+		SignalBus.CannonShooting.emit(Muzzle.global_transform, muzzle_velocity, gravity)
+		SignalBus.CannonShoot.emit()
 		can_shoot = false
 	if event.is_action_released("cannon_power_plus"):
 		if Input.is_key_pressed(KEY_CTRL):
 			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
 		else:
 			muzzle_velocity = clamp(muzzle_velocity+100, min_velocity, max_velocity)
-		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+		SignalBus.CannonPowerChange.emit(muzzle_velocity)
 	if event.is_action_released("cannon_power_minus"):
 		if Input.is_key_pressed(KEY_CTRL):
 			muzzle_velocity = clamp(muzzle_velocity-1000, min_velocity, max_velocity)
 		else:
 			muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
 
-		SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+		SignalBus.CannonPowerChange.emit(muzzle_velocity)
 #		can_shoot = false
 
 
@@ -64,7 +64,7 @@ func _process(_delta):
 	Barrel.rotation_degrees = clampedBarrel
 
 	if current_rotation != clampedBarrel:
-		SignalBus.emit_signal("CannonAngelChange", clampedBarrel*-1)
+		SignalBus.CannonAngelChange.emit(clampedBarrel*-1)
 		current_rotation = clampedBarrel
 
 	if !can_shoot:
@@ -77,10 +77,10 @@ func _process(_delta):
 
 func _reset_CannonPower() -> void:
 	muzzle_velocity = min_velocity
-	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+	SignalBus.CannonPowerChange.emit(muzzle_velocity)
 
 
 func _on_Cannon_ready():
 	muzzle_velocity = floori((float)(max_velocity - min_velocity) / 2)
-	SignalBus.emit_signal("CannonPowerChange", muzzle_velocity)
+	SignalBus.CannonPowerChange.emit(muzzle_velocity)
 	pass # Replace with function body.

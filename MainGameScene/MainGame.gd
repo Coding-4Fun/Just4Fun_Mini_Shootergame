@@ -47,7 +47,7 @@ func _enter_tree() -> void:
 func _on_MainGame_ready() -> void:
 #	add_cannon_left()
 	GSM.gameWin = -1
-	SignalBus.emit_signal("CreateAndAddNewTarget")
+	SignalBus.CreateAndAddNewTarget.emit()
 	pass
 
 
@@ -73,7 +73,7 @@ func _on_UI_ResetGame() -> void:
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	Preloads.Map.generate_world_tilemap_base()
-	SignalBus.emit_signal("CreateAndAddNewTarget")
+	SignalBus.CreateAndAddNewTarget.emit()
 
 
 #func update_trajectory():
