@@ -13,6 +13,7 @@ var current_rotation = 0
 @onready var Muzzle = get_node("Barrel/Muzzle")
 @onready var Barrel = get_node("Barrel")
 @onready var coolDown = get_node("CoolDown")
+
 # @onready var Main = get_tree().get_root().get_node("MainGame")
 
 

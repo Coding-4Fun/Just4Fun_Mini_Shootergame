@@ -26,8 +26,8 @@ func _ready() -> void:
 		if SignalBus.UIScoreChange.connect(self._on_UIScore_Change) != OK:
 			print("Error - InGameUI.gd: connect signal UIScoreChange")
 
-	if !SignalBus.CannonPowerChange.is_connected(self._on_Cannon_CannonPowerChange):
-		if SignalBus.CannonPowerChange.connect(self._on_Cannon_CannonPowerChange) != OK:
+	if !SignalBus.CannonPowerChange.is_connected(_on_Cannon_CannonPowerChange):
+		if SignalBus.CannonPowerChange.connect(_on_Cannon_CannonPowerChange, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED) != OK:
 			print("Error - InGameUI.gd: connect signal CannonPowerChange")
 
 	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):

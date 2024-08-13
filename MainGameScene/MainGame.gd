@@ -1,8 +1,5 @@
 extends Node2D
 
-
-signal CannonReset
-
 #onready var cannonLeft = Preloads.Cannon.instance()
 #onready var cannonBarrelLeft = cannonLeft.get_node("Barrel")
 #onready var cannonBarrelLeftMuzzle = cannonBarrelLeft.get_node("Muzzle")
