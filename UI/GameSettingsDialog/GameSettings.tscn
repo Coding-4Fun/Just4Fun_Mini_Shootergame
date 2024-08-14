@@ -224,5 +224,7 @@ mouse_filter = 2
 layout_mode = 2
 text = "Back to Menu"
 
+[connection signal="toggled" from="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="." method="_on_c_butt_switch_max_game_time_toggled"]
+[connection signal="drag_ended" from="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="." method="_on_max_game_time_slider_drag_ended"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/hBoxButtons/buttStartGame" to="." method="_on_butt_start_game_pressed"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/hBoxButtons/buttBackToMenu" to="." method="_on_butt_back_to_menu_pressed"]
