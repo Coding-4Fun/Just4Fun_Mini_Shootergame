@@ -22,12 +22,7 @@ func _notification(what):
 
 
 func _on_buttPlay_pressed():
-	# Change Scene to Game Scene
-#	get_tree().get_root().add_child(Preloads.MainGame)
-	var current_scene: Node = get_tree().current_scene
-	current_scene.queue_free()
-	get_tree().current_scene = null
-
+	# Change Scene to GameSettings Scene
 	if get_tree().change_scene_to_packed(Preloads.GameSettingsScene) != OK:
 		print("Error: change_scene_to()::buttPlay")
 

@@ -18,9 +18,5 @@ func _on_butt_start_game_pressed() -> void:
 
 
 func _on_butt_back_to_menu_pressed() -> void:
-	var current_scene: Node = get_tree().current_scene
-	current_scene.queue_free()
-	get_tree().current_scene = null
-
-	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
+	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
 		print("Error: change_scene_to()::buttBackToMenu_pressed")
