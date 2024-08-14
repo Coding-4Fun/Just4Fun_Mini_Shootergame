@@ -7,9 +7,14 @@
 [ext_resource type="Script" path="res://UI/Settings/Settings.gd" id="4"]
 
 [node name="VBoxSetting" type="VBoxContainer"]
-visible = false
-top_level = true
 z_index = 10
+custom_minimum_size = Vector2(0, 220)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 218.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 0
 script = ExtResource("4")
 
 [node name="HSeparator" type="HSeparator" parent="."]
