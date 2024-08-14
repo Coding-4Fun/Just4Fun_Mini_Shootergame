@@ -16,7 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_2tfgw")
 
 [node name="Background" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1, 1)
+custom_minimum_size = Vector2(1, 140)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -27,11 +27,11 @@ color = Color(0.145098, 0.203922, 0.337255, 0.72549)
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 material = SubResource("CanvasItemMaterial_uui47")
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 136.0
-grow_horizontal = 2
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 140.0
+mouse_filter = 2
 vertical = true
 
 [node name="HBoxHudTop" type="HBoxContainer" parent="BoxContainer"]
@@ -316,6 +316,7 @@ custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
 [node name="VBoxSetting" parent="BoxContainer" instance=ExtResource("2_mqj4i")]
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
