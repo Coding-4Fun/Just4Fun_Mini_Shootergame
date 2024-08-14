@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bivgupagcj6xf"]
-
-[ext_resource type="Script" path="res://UI/InGameUI/ingameui.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://chpd7ewn37es" path="res://UI/Settings/InGameUISettings.tscn" id="2"]
+[gd_scene format=3 uid="uid://bivgupagcj6xf"]
 
 [node name="IngameUIBottom" type="MarginContainer"]
 anchors_preset = 10
@@ -15,7 +12,6 @@ theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 0
-script = ExtResource("1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
@@ -181,7 +177,152 @@ layout_mode = 2
 size_flags_vertical = 0
 text = "123456789"
 
-[node name="vBoxSettings" parent="vBoxContainer" instance=ExtResource("2")]
+[node name="vBoxSettings" type="VBoxContainer" parent="vBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="Background" type="ColorRect" parent="vBoxContainer/vBoxSettings"]
+visible = false
+show_behind_parent = true
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
+
+[node name="hBoxOptions" type="HBoxContainer" parent="vBoxContainer/vBoxSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="buttSwitchTargetTimer" type="CheckButton" parent="vBoxContainer/vBoxSettings/hBoxOptions"]
+layout_mode = 2
+text = "Enable Target Timer"
+
+[node name="vSeparator" type="VSeparator" parent="vBoxContainer/vBoxSettings/hBoxOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="buttBackToMenu" type="Button" parent="vBoxContainer/vBoxSettings/hBoxOptions"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="hBoxConditions" type="HBoxContainer" parent="vBoxContainer/vBoxSettings"]
+layout_mode = 2
+
+[node name="hBoxContainer" type="HBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxConditions"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+layout_mode = 2
+text = "Win/Loose Conditions"
+
+[node name="vBoxContainerShots" type="VBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="cButtSwitchMaxShots" type="CheckButton" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
+text = "Max Shots"
+
+[node name="label" type="Label" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+text = "Max Shots"
+
+[node name="MaxShotSlider" type="HSlider" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+min_value = -1.0
+step = 10.0
+value = 49.0
+rounded = true
+editable = false
+tick_count = 10
+ticks_on_borders = true
+
+[node name="labelMaxShots" type="Label" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+layout_mode = 2
+text = "123456"
+
+[node name="vBoxContainerScore" type="VBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="cButtSwitchMaxScore" type="CheckButton" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
+text = "Max Negative Score"
+
+[node name="label" type="Label" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+text = "Max/Min Score"
+
+[node name="MaxScoreSlider" type="HSlider" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 5
+min_value = -1000.0
+max_value = 1000.0
+step = 100.0
+value = 200.0
+rounded = true
+editable = false
+tick_count = 20
+ticks_on_borders = true
+
+[node name="labelMaxScore" type="Label" parent="vBoxContainer/vBoxSettings/hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+layout_mode = 2
+text = "MAX"
+
+[node name="hBoxRoundTime" type="HBoxContainer" parent="vBoxContainer/vBoxSettings"]
+layout_mode = 2
+
+[node name="hBoxContainer" type="HBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxRoundTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="vSeparator" type="VSeparator" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer"]
+layout_mode = 2
+
+[node name="vBoxContainer" type="VBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer"]
+layout_mode = 2
+
+[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+layout_mode = 2
+text = "Max Play Time"
+
+[node name="MaxGameTimeSlider" type="HSlider" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+min_value = -1.0
+max_value = 600.0
+step = 30.0
+value = 59.0
+rounded = true
+editable = false
+tick_count = 10
+ticks_on_borders = true
+
+[node name="labelMaxGameTime" type="Label" parent="vBoxContainer/vBoxSettings/hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+layout_mode = 2
+text = "00:00"
