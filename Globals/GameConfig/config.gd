@@ -7,7 +7,7 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"Game": {
 			"DummyTarget": {
 				"TimerEnabled": false,
-				"TimerCountdown": 6
+				"TimerCountdown": 6.0
 			},
 			"Condition": {
 				"MaxGameTimeValue": 120,
@@ -36,6 +36,9 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 #signal playername_changed (string)
 # signal dummyTargetTimerChange
  # (string)
+
+signal ConfigValueChange
+
 #signal hostip_changed(string)
 #signal hostport_changed(string)
 #signal maxplayers_changed(string)
@@ -44,6 +47,8 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 
 func _ready() -> void:
 	config_data = get_configdata()
+
+	ConfigValueChange.connect(_on_config_value_changed)
 
 
 func get_configdata() -> Dictionary:
@@ -87,6 +92,17 @@ func _on_playername_change(newname:String) -> void:
 func _on_dummytarget_TimerChange(newValue:bool) -> void:
 	Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
 
+
+func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
+	# Check Object for Empty
+	# Chack Value for NULL
+	
+	# group can be empty
+	# if root empty then obj == root
+	print("Signal Received: ConfigValueChange: ", [obj, value, root, group])
+	
+	# save new Value to Config Dict / conf_File
+	pass
 
 # func _on_hostip_change(newhostip:String) -> void:
 	# if not newhostip.empty():
