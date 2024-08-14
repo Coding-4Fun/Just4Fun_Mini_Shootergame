@@ -37,7 +37,7 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 # signal dummyTargetTimerChange
  # (string)
 
-signal ConfigValueChange
+signal ConfigValueChanged
 
 #signal hostip_changed(string)
 #signal hostport_changed(string)
@@ -48,7 +48,7 @@ signal ConfigValueChange
 func _ready() -> void:
 	config_data = get_configdata()
 
-	ConfigValueChange.connect(_on_config_value_changed)
+	ConfigValueChanged.connect(_on_config_value_changed)
 
 
 func get_configdata() -> Dictionary:
