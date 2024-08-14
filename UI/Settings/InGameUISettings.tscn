@@ -1,27 +1,33 @@
-[gd_scene format=3 uid="uid://chpd7ewn37es"]
+[gd_scene load_steps=6 format=3 uid="uid://chpd7ewn37es"]
 
-[node name="vBoxSettings" type="VBoxContainer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 106.0
-grow_horizontal = 2
-mouse_filter = 0
+[ext_resource type="Script" path="res://UI/Settings/MaxGameTimeSettings.gd" id="1"]
+[ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2"]
+[ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="3"]
+[ext_resource type="Theme" uid="uid://djmxf62w3y5gd" path="res://UI/Theme/game_theme.tres" id="3_yf480"]
+[ext_resource type="Script" path="res://UI/Settings/Settings.gd" id="4"]
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="VBoxSetting" type="VBoxContainer"]
 visible = false
-show_behind_parent = true
+top_level = true
+z_index = 10
+script = ExtResource("4")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.145098, 0.203922, 0.337255, 0.72549)
 
 [node name="hBoxOptions" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="buttSwitchTargetTimer" type="CheckButton" parent="hBoxOptions"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_type_variation = &"InGameUIHudSwitch"
 text = "Enable Target Timer"
+icon_alignment = 2
+expand_icon = true
 
 [node name="vSeparator" type="VSeparator" parent="hBoxOptions"]
 layout_mode = 2
@@ -30,76 +36,77 @@ mouse_filter = 2
 
 [node name="buttBackToMenu" type="Button" parent="hBoxOptions"]
 layout_mode = 2
+theme_type_variation = &"InGameUIHudButton"
 text = "Back to Menu"
 
-[node name="hBoxConditions" type="HBoxContainer" parent="."]
+[node name="VSeparator3" type="VSeparator" parent="hBoxOptions"]
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="hBoxContainer" type="HBoxContainer" parent="hBoxConditions"]
+[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+script = ExtResource("1")
 
-[node name="label" type="Label" parent="hBoxConditions/hBoxContainer"]
+[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
-text = "Win/Loose Conditions"
+theme_type_variation = &"InGameUIHudSwitch"
+text = "Max Play Time"
 
-[node name="vBoxContainerShots" type="VBoxContainer" parent="hBoxConditions/hBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="hBoxConditions/hBoxContainer/vBoxContainerShots"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="cButtSwitchMaxShots" type="CheckButton" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
-layout_mode = 2
-text = "Max Shots"
-
-[node name="label" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+[node name="label" type="Label" parent="hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(255, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-text = "Max Shots"
+theme_type_variation = &"InGameUIHudLabel"
+text = "Max Playtime"
 
-[node name="MaxShotSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+[node name="MaxGameTimeSlider" type="HSlider" parent="hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-min_value = -1.0
-step = 10.0
-value = 49.0
+theme_type_variation = &"InGameUIHudSlider"
+min_value = 30.0
+max_value = 600.0
+step = 30.0
+value = 30.0
 rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxShots" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerShots/hBoxContainerMaxShots"]
+[node name="labelMaxGameTime" type="Label" parent="hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-text = "123456"
+theme = ExtResource("3_yf480")
+theme_type_variation = &"InGameUIHudLabel"
+text = "00:00"
+horizontal_alignment = 1
 
-[node name="vBoxContainerScore" type="VBoxContainer" parent="hBoxConditions/hBoxContainer"]
+[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+script = ExtResource("3")
 
-[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="hBoxConditions/hBoxContainer/vBoxContainerScore"]
+[node name="cButtSwitchMaxScore" type="CheckButton" parent="hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="cButtSwitchMaxScore" type="CheckButton" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
-layout_mode = 2
+theme_type_variation = &"InGameUIHudSwitch"
 text = "Max Negative Score"
 
-[node name="label" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+[node name="label" type="Label" parent="hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(255, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
+theme_type_variation = &"InGameUIHudLabel"
 text = "Max/Min Score"
 
-[node name="MaxScoreSlider" type="HSlider" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+[node name="MaxScoreSlider" type="HSlider" parent="hBoxContainerMaxScore"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 5
+theme_type_variation = &"InGameUIHudSlider"
 min_value = -1000.0
 max_value = 1000.0
 step = 100.0
@@ -109,44 +116,60 @@ editable = false
 tick_count = 20
 ticks_on_borders = true
 
-[node name="labelMaxScore" type="Label" parent="hBoxConditions/hBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+[node name="labelMaxScore" type="Label" parent="hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
+theme_type_variation = &"InGameUIHudLabel"
 text = "MAX"
+horizontal_alignment = 1
 
-[node name="hBoxRoundTime" type="HBoxContainer" parent="."]
+[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2")
 
-[node name="hBoxContainer" type="HBoxContainer" parent="hBoxRoundTime"]
+[node name="cButtSwitchMaxShots" type="CheckButton" parent="hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+theme_type_variation = &"InGameUIHudSwitch"
+text = "Max Shots"
 
-[node name="vSeparator" type="VSeparator" parent="hBoxRoundTime/hBoxContainer"]
+[node name="label" type="Label" parent="hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(255, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+theme_type_variation = &"InGameUIHudLabel"
+text = "Max Shots"
 
-[node name="vBoxContainer" type="VBoxContainer" parent="hBoxRoundTime/hBoxContainer"]
-layout_mode = 2
-
-[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="hBoxRoundTime/hBoxContainer/vBoxContainer"]
-layout_mode = 2
-
-[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
-layout_mode = 2
-text = "Max Play Time"
-
-[node name="MaxGameTimeSlider" type="HSlider" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="MaxShotSlider" type="HSlider" parent="hBoxContainerMaxShots"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-min_value = -1.0
-max_value = 600.0
-step = 30.0
-value = 59.0
+theme_type_variation = &"InGameUIHudSlider"
+min_value = 1.0
+step = 10.0
+value = 1.0
 rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxGameTime" type="Label" parent="hBoxRoundTime/hBoxContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="labelMaxShots" type="Label" parent="hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-text = "00:00"
+theme_type_variation = &"InGameUIHudLabel"
+text = "123456"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
+[connection signal="pressed" from="hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
+[connection signal="toggled" from="hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_toggled"]
+[connection signal="value_changed" from="hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="hBoxContainerMaxGameTimer" method="_on_MaxTimeSlider_value_changed"]
+[connection signal="pressed" from="hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_pressed"]
+[connection signal="toggled" from="hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_toggled"]
+[connection signal="value_changed" from="hBoxContainerMaxScore/MaxScoreSlider" to="hBoxContainerMaxScore" method="_on_MaxScoreSlider_value_changed"]
+[connection signal="pressed" from="hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_pressed"]
+[connection signal="toggled" from="hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_toggled"]
+[connection signal="value_changed" from="hBoxContainerMaxShots/MaxShotSlider" to="hBoxContainerMaxShots" method="_on_MaxShotSlider_value_changed"]
