@@ -5,13 +5,13 @@ extends Node
 @onready var Explosion:PackedScene = preload("res://CannonBall/Explosion.tscn")
 @onready var DummyTarget:PackedScene = preload("res://DummyTarget/DummyTarget.tscn")
 @onready var PauseMenu:PackedScene = preload("res://UI/Pause/PauseMenu.tscn")
-@onready var Bullet = preload("res://CannonBall/Cannonball.tscn")
+@onready var Bullet :PackedScene = preload("res://CannonBall/Cannonball.tscn")
 
 # Main Game Scene
-@onready var MainGameScene := load("res://MainGameScene/MainGame.tscn")
-@onready var MainMenuScene = preload("res://UI/MainMenuUI/MainMenuUI.tscn")
-@onready var GameSettingsScene = preload("res://UI/GameSettingsDialog/GameSettings.tscn")
-@onready var GameOverScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
+@onready var MainGameScene :PackedScene = load("res://MainGameScene/MainGame.tscn")
+@onready var MainMenuScene :PackedScene = load("res://UI/MainMenuUI/MainMenuUI.tscn")
+@onready var GameSettingsScene :PackedScene = preload("res://UI/GameSettingsDialog/GameSettings.tscn")
+@onready var GameOverScene :PackedScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
 
 # Player Node's
 var PlayerRootNode:Node2D
