@@ -2,7 +2,7 @@ extends Control
 
 @export var config_data:Dictionary = {}
 const GAMECONFIGFILE = "res://config.json"
-const CONFIGDATA_DEFAULT:Dictionary = {
+const CONFIGDATA_DEFAULT_JSON:Dictionary = {
 		"Player_name": "Unnamed",
 		"Game": {
 			"DummyTarget": {
@@ -32,6 +32,26 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"Video": {},
 		"KeyBinding": {}
 	}
+const CONFIGDATA_DEFAULT:Dictionary = {
+		"Game/PlayerName": "Unnamed",
+		"Game/DummyTarget/TimerEnabled": false,
+		"Game/DummyTarget/TimerCountdown": 6.0,
+		"Game/condition/MaxGameTimeValue": 120,
+		"Game/condition/MaxShotsEnabled": false,
+		"Game/condition/MaxShotsValue": -0,
+		"Game/condition/MinMaxScoreEnabled": false,
+		"Game/condition/MinMaxScore": -1000,
+		"Game/condition/MaxGameTimeEnabled": false,
+		"Game/condition/MinMaxScoreValue": 1000,
+		"Network/HostIPAdress": "127.0.0.1",
+		"Network/HostGamePort": "21277",
+		"Network/MaxPlayers": 2,
+		"AudioMasterVolume": 100,
+		"AudioSfxVolume": 100,
+		"AudioMusicVolume": 100,
+		"Video": null,
+		"KeyBinding": null
+		}
 
 #signal playername_changed (string)
 # signal dummyTargetTimerChange
@@ -71,6 +91,11 @@ func get_configdata() -> Dictionary:
 	return(CONFIGDATA_DEFAULT)
 
 
+func get_configdata_value() -> Variant:
+	var v : Variant = ""
+	return v
+
+
 func save_gameconfig (savedefault : bool = false):
 	if savedefault:
 		config_data = CONFIGDATA_DEFAULT
@@ -95,13 +120,33 @@ func _on_dummytarget_TimerChange(newValue:bool) -> void:
 
 func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
 	# Check Object for Empty
+	if obj.is_empty():
+		return
+
 	# Chack Value for NULL
+	if value == null:
+		return
+
+
+	#"User {} is {}.".format([42, "Godot"], "{}"))
+	var p : String = "/{}/{}/{}".format( [root, group, obj], "{}")
+	var j : String = "/".join([root, group, obj])
 	
-	# group can be empty
+	print("config_Data_unmodified: ")
+	print(config_data)
+	
+	print(p, " >> ", j)
+	if p in config_data:
+		config_data[j] = value
+	
+	print("config_Data_modified: ")
+	print(config_data)
+
 	# if root empty then obj == root
 	print("Signal Received: ConfigValueChange: ", [obj, value, root, group])
 	
 	# save new Value to Config Dict / conf_File
+	#Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
 	pass
 
 # func _on_hostip_change(newhostip:String) -> void:
