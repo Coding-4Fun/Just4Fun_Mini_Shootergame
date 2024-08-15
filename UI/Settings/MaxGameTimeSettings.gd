@@ -24,7 +24,7 @@ func _ready():
 func _on_c_butt_switch_max_game_time_toggled(toggled_on: bool) -> void:
 	MaxGameTimeSlider.editable = toggled_on
 
-	Config.ConfigValueChanged.emit("TimerEnabled", toggled_on, "Game", "DummyTarget")
+	Config.ConfigValueChanged.emit("MaxGameTimeEnabled", toggled_on, "Game", "Condition")
 	pass # Replace with function body.
 
 
@@ -33,7 +33,7 @@ func _on_max_game_time_slider_drag_ended(value_changed: bool) -> void:
 		var value = MaxGameTimeSlider.value
 		var minsek:String = "%02.0f:%02.0f" % [floor(value/60),int(value) % 60]
 		MaxGameTimeLabel.text = str(minsek)
-		Config.ConfigValueChanged.emit("TimerCountdown", value, "Game", "DummyTarget")
+		Config.ConfigValueChanged.emit("MaxGameTimeValue", value, "Game", "Condition")
 
 
 #func _on_MaxTimeSlider_value_changed(value):
