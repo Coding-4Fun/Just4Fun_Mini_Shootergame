@@ -29,7 +29,7 @@ func _ready():
 func _on_timer_timeout() ->void:
 	if GSM.gameWin == -1:
 		GameTimerTimeElapsed += 1
-		var timeout = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
+		var timeout = Config.get_configdata_value("GameConditionMaxGameTimeValue")
 		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
 			_check_GameWinCondition()
 		if GameTimeTextLabel != null:
@@ -52,22 +52,22 @@ func _on_GameStateChange(newscore, newhits, newshots) -> void:
 #				"MinMaxScore": -1000
 func _check_GameWinCondition() -> void:
 	# Check Game Timeout
-	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]:
-		var timeout = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
+	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
+		var timeout = Config.get_configdata_value("GameConditionMaxGameTimeValue")
 		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
 			print("Game Over. Your Game Time has left.")
 			_show_GameOverDialog(3)
 
 	# Check auf Max Shots
-	if Config.config_data["Game"]["Condition"]["MaxShotsEnabled"]:
-		var maxshots = Config.config_data["Game"]["Condition"]["MaxShotsValue"]
+	if Config.get_configdata_value("GameConditionMaxShotsEnabled"):
+		var maxshots = Config.get_configdata_value("GameConditionMaxShotsValue")
 		if _shots >= maxshots:
 			print("Game Over. You have reached Max Shots")
 			_show_GameOverDialog(1)
 
 	# Check auf Score <> MinMaxScore
-	if Config.config_data["Game"]["Condition"]["MinMaxScoreEnabled"]:
-		var scorevalue = Config.config_data["Game"]["Condition"]["MinMaxScoreValue"]
+	if Config.get_configdata_value("GameConditionMinMaxScoreEnabled"):
+		var scorevalue = Config.get_configdata_value("GameConditionMinMaxScoreValue")
 		if scorevalue < 0:
 			if _score <= scorevalue:
 				print("Game Over. You LOOSE. You have reached the minmum Scores")

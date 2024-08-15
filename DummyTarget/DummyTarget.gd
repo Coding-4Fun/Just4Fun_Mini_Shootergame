@@ -13,7 +13,7 @@ extends StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = "0"
-	autoDespawn = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
+	autoDespawn = Config.get_configdata_value("GameDummyTargetTimerEnabled")
 
 	if autoDespawn :
 		$despawnTimer.start()
