@@ -51,27 +51,27 @@ custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+[node name="vBoxGamePlayConditions" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
 
-[node name="label" type="Label" parent="centerContainer/vBoxContainer/HBoxContainer3"]
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions"]
 layout_mode = 2
 text = "Gameplay Conditions"
 
-[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions"]
 layout_mode = 2
 
-[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 text = "Max Play Time"
 
-[node name="Label" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Play Time"
 
-[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -85,7 +85,7 @@ editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "00:00"
@@ -202,7 +202,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = 3.0
 max_value = 10.0
-value = 3.0
+value = 6.0
 rounded = true
 editable = false
 tick_count = 10
@@ -245,23 +245,16 @@ mouse_filter = 2
 [node name="hBoxButtons" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
+alignment = 1
 
 [node name="buttStartGame" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 25
 text = "Start Game"
-
-[node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer/hBoxButtons"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
 
 [node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 4
 text = "Back to Menu"
-
-[connection signal="toggled" from="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="." method="_on_c_butt_switch_max_game_time_toggled"]
-[connection signal="drag_ended" from="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="." method="_on_max_game_time_slider_drag_ended"]
