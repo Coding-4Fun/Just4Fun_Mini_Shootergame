@@ -1,9 +1,7 @@
 extends Control
 
-
 @onready var butt_start_game: Button = $centerContainer/vBoxContainer/hBoxButtons/buttStartGame
 @onready var butt_back_to_menu: Button = $centerContainer/vBoxContainer/hBoxButtons/buttBackToMenu
-
 
 
 # Called when the node enters the scene tree for the first time.

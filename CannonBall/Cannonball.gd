@@ -21,10 +21,6 @@ func _ready() -> void:
 			print("Error - Cannonball.gd: connect signal exploded")
 
 
-#func _process(_delta):
-#	pass
-
-
 func _physics_process(delta: float) -> void:
 	velocity.y += g * delta
 	rotation = velocity.angle()
@@ -44,14 +40,12 @@ func _physics_process(delta: float) -> void:
 		elif collider is StaticBody2D:
 			if collider.is_in_group("Dummy") and collider.has_method("_hit_ByBall"):
 				collider._hit_ByBall()
-			pass
 
 
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
 		GroundHit.emit()
 		call_deferred("queue_free")
-		pass
 
 
 func _on_Bullet_exploded(pos):
@@ -73,7 +67,7 @@ func _process(_delta) -> void:
 	if g_pos.x < camera_rect.position.x || \
 			g_pos.y < 0 || \
 			g_pos.x > screensize.x:
-#				 || g_pos.y > screensize.y:
+
 		pos_offscreen.show()
 		var new_pos = pos_offscreen.get_global_position()
 		# clamping ensures indicator stays in visible area of screen
@@ -81,6 +75,5 @@ func _process(_delta) -> void:
 		new_pos.x = clamp(g_pos.x, 0, screensize.x)
 		new_pos.y = clamp(g_pos.y, 0, screensize.y)
 		pos_offscreen.set_global_position(new_pos)
-#		printt(new_pos.x, new_pos.y)
-	else: # asteroid is inside camera bounds
+	else:
 		pos_offscreen.hide()

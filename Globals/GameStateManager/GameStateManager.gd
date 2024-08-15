@@ -12,7 +12,6 @@ var GameTimeTextLabel:Label
 
 signal GameStateChange
 
-#onready var GameOverDlg = preload("res://UI/GameEndDialog.tscn")
 
 func _ready():
 	if !GameStateChange.is_connected(_on_GameStateChange):
@@ -23,7 +22,6 @@ func _ready():
 	if GameTimer.timeout.connect(_on_timer_timeout):
 		print("Error - GamestateManager: connect GameTimer_timeout")
 	add_child(GameTimer)
-	pass
 
 
 func _on_timer_timeout() ->void:
@@ -36,20 +34,15 @@ func _on_timer_timeout() ->void:
 			GameTimeTextLabel.text = "%02.0f:%02.0f" % [floor(float(GameTimerTimeElapsed)/60),int(GameTimerTimeElapsed) % 60]
 	else:
 		GameTimer.stop()
-	pass
+
 
 func _on_GameStateChange(newscore, newhits, newshots) -> void:
 	_score = newscore
 	_shots = newshots
 	_hits = newhits
 	_check_GameWinCondition()
-	pass
 
-#"Condition": {
-#				"MaxShotsEnabled": false,
-#				"MaxShotsValue": -0,
-#				"MinMaxScoreEnabled": false,
-#				"MinMaxScore": -1000
+
 func _check_GameWinCondition() -> void:
 	# Check Game Timeout
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
@@ -92,5 +85,4 @@ func _input(event: InputEvent) -> void:
 		if !get_tree().paused:
 			pm = Preloads.PauseMenu.instantiate()
 			get_tree().get_current_scene().add_child(pm)
-#			pausemode = Node.PROCESS_MODE_PAUSABLE
 			get_tree().paused = !get_tree().paused

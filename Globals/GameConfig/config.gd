@@ -43,27 +43,18 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GameConditionMinMaxScore": -1000,
 		"GameConditionMaxGameTimeEnabled": false,
 		"GameConditionMinMaxScoreValue": 1000,
-		"NetworkHostIPAdress": "127.0.0.1",
-		"NetworkHostGamePort": "21277",
-		"NetworkMaxPlayers": 2,
-		"AudioMasterVolume": 100,
-		"AudioSfxVolume": 100,
-		"AudioMusicVolume": 100,
-		"Video": null,
-		"KeyBinding": null
+		"GameNetworkHostIPAdress": "127.0.0.1",
+		"GameNetworkHostGamePort": "21277",
+		"GameNetworkMaxPlayers": 2,
+		"GameAudioMasterVolume": 100,
+		"GameAudioSfxVolume": 100,
+		"GameAudioMusicVolume": 100,
+		"GameVideo": null,
+		"GameKeyBinding": null
 		}
-
-#signal playername_changed (string)
-# signal dummyTargetTimerChange
- # (string)
 
 signal ConfigValueChanged
 
-#signal hostip_changed(string)
-#signal hostport_changed(string)
-#signal maxplayers_changed(string)
-
-# onready var lobby = get_node("/root/Lobby")
 
 func _ready() -> void:
 	config_data = get_configdata()
@@ -93,14 +84,10 @@ func get_configdata() -> Dictionary:
 
 func get_configdata_value(valuetoget: String, vType : Variant.Type = Variant.Type.TYPE_NIL) -> Variant:
 	var v : Variant = ""
-	#Game/condition/MaxShotsValue
-	#print(valuetoget)
-	#print(config_data)
+	
 	if valuetoget in config_data:
 		v = config_data[valuetoget]
-		#print("FOUND")
-	#else:
-		#print("NOTFOUND")
+
 	return v
 
 
@@ -135,47 +122,10 @@ func _on_config_value_changed(obj: String= "", value : Variant = null, root: Str
 	if value == null:
 		return
 
-
-	#"User {} is {}.".format([42, "Godot"], "{}"))
-	var p : String = "/{}/{}/{}".format( [root, group, obj], "{}")
 	var j : String = "/".join([root, group, obj])
-	
-	print("config_Data_unmodified: ")
-	print(config_data)
-	
-	print(p, " >> ", j)
-	if p in config_data:
+
+	# save new Value to Config Dict / conf_File
+	if j in config_data:
 		config_data[j] = value
 	
-	print("config_Data_modified: ")
-	print(config_data)
-
-	# if root empty then obj == root
 	print("Signal Received: ConfigValueChange: ", [obj, value, root, group])
-	
-	# save new Value to Config Dict / conf_File
-	#Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
-	pass
-
-# func _on_hostip_change(newhostip:String) -> void:
-	# if not newhostip.empty():
-		# Config.config_data["Network"]["HostIPAdress"] = newhostip
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte IP Adresse eingeben")
-
-
-# func _on_hostport_change(newhostport: int) -> void:
-	# if newhostport > 0:
-		# Config.config_data["Network"]["HostGamePort"] = newhostport
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte Port eingeben")
-
-
-# func _on_maxplayer_change(newmaxplayers:int) -> void:
-	# if newmaxplayers > 0:
-		# Config.config_data["Network"]["MaxPlayers"] = newmaxplayers
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte Maximale anzahl Spieler eingeben")

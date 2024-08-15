@@ -38,21 +38,7 @@ func _on_despawnTimer_timeout() -> void:
 		queue_free()
 
 
-#func _exit_tree() -> void:
-#	print("Dummy exit Tree")
-#	pass
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if autoDespawn :
 		TimeMax -= delta
-
-#	pass
-
-
-#func _enter_tree():
-#	print("Dummy - enter_tree(%s)" % str(position))
-#
-#func _exit_tree():
-#	print("Dummy - exit_tree(%s)" % str(position))

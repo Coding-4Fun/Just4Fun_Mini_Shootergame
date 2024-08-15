@@ -70,7 +70,7 @@ func _on_Cannon_Shot() -> void:
 func _on_UIScore_Change(score) -> void:
 	_score += score
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
-	# GSM.emit_signal("GameStateChange", _score, _hits, _shots)
+
 	if score > 0:
 		_hits += 1
 		$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)

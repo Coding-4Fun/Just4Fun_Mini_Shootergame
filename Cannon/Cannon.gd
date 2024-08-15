@@ -14,8 +14,6 @@ var current_rotation = 0
 @onready var Barrel = get_node("Barrel")
 @onready var coolDown = get_node("CoolDown")
 
-# @onready var Main = get_tree().get_root().get_node("MainGame")
-
 
 func _ready():
 	if !SignalBus.CannonShoot.is_connected( Preloads.UIMain._on_Cannon_Shot):
@@ -25,10 +23,6 @@ func _ready():
 	if !SignalBus.CannonShooting.is_connected(Preloads.PlayerShots._on_Player_Shoot):
 		if SignalBus.CannonShooting.connect(Preloads.PlayerShots._on_Player_Shoot)!=OK:
 			print("Error - Cannon.gd: connect signal CannonShooting")
-
-
-#func _unhandled_key_input(event):
-#	pass
 
 
 func _unhandled_input(event):
@@ -51,7 +45,6 @@ func _unhandled_input(event):
 			muzzle_velocity = clamp(muzzle_velocity-100, min_velocity, max_velocity)
 
 		SignalBus.CannonPowerChange.emit(muzzle_velocity)
-#		can_shoot = false
 
 
 func _process(_delta):
@@ -79,4 +72,3 @@ func _reset_CannonPower() -> void:
 func _on_Cannon_ready():
 	muzzle_velocity = floori((float)(max_velocity - min_velocity) / 2)
 	SignalBus.CannonPowerChange.emit(muzzle_velocity)
-	pass # Replace with function body.

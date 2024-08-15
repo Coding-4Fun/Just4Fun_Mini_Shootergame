@@ -33,12 +33,6 @@ func _ready():
 
 	# UI Signals
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
