@@ -78,13 +78,13 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
-min_value = -1.0
+min_value = 30.0
 max_value = 600.0
 step = 30.0
-value = 59.0
+value = 60.0
 rounded = true
 editable = false
-tick_count = 10
+tick_count = 9
 ticks_on_borders = true
 
 [node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
@@ -121,9 +121,9 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
-min_value = -1.0
+min_value = 5.0
 step = 10.0
-value = 49.0
+value = 25.0
 rounded = true
 editable = false
 tick_count = 10
@@ -161,7 +161,7 @@ step = 100.0
 value = 200.0
 rounded = true
 editable = false
-tick_count = 20
+tick_count = 10
 ticks_on_borders = true
 
 [node name="labelMaxScore" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxScore"]
@@ -203,7 +203,7 @@ max_value = 10.0
 value = 6.0
 rounded = true
 editable = false
-tick_count = 10
+tick_count = 7
 ticks_on_borders = true
 
 [node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
