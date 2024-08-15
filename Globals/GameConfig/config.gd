@@ -33,19 +33,19 @@ const CONFIGDATA_DEFAULT_JSON:Dictionary = {
 		"KeyBinding": {}
 	}
 const CONFIGDATA_DEFAULT:Dictionary = {
-		"Game/PlayerName": "Unnamed",
-		"Game/DummyTarget/TimerEnabled": false,
-		"Game/DummyTarget/TimerCountdown": 6.0,
-		"Game/condition/MaxGameTimeValue": 120,
-		"Game/condition/MaxShotsEnabled": false,
-		"Game/condition/MaxShotsValue": -0,
-		"Game/condition/MinMaxScoreEnabled": false,
-		"Game/condition/MinMaxScore": -1000,
-		"Game/condition/MaxGameTimeEnabled": false,
-		"Game/condition/MinMaxScoreValue": 1000,
-		"Network/HostIPAdress": "127.0.0.1",
-		"Network/HostGamePort": "21277",
-		"Network/MaxPlayers": 2,
+		"GamePlayerName": "Unnamed",
+		"GameDummyTargetTimerEnabled": false,
+		"GameDummyTargetTimerCountdown": 6.0,
+		"GameConditionMaxGameTimeValue": 120,
+		"GameConditionMaxShotsEnabled": false,
+		"GameConditionMaxShotsValue": -0,
+		"GameConditionMinMaxScoreEnabled": false,
+		"GameConditionMinMaxScore": -1000,
+		"GameConditionMaxGameTimeEnabled": false,
+		"GameConditionMinMaxScoreValue": 1000,
+		"NetworkHostIPAdress": "127.0.0.1",
+		"NetworkHostGamePort": "21277",
+		"NetworkMaxPlayers": 2,
 		"AudioMasterVolume": 100,
 		"AudioSfxVolume": 100,
 		"AudioMusicVolume": 100,
@@ -91,8 +91,16 @@ func get_configdata() -> Dictionary:
 	return(CONFIGDATA_DEFAULT)
 
 
-func get_configdata_value() -> Variant:
+func get_configdata_value(valuetoget: String, vType : Variant.Type = Variant.Type.TYPE_NIL) -> Variant:
 	var v : Variant = ""
+	#Game/condition/MaxShotsValue
+	#print(valuetoget)
+	#print(config_data)
+	if valuetoget in config_data:
+		v = config_data[valuetoget]
+		#print("FOUND")
+	#else:
+		#print("NOTFOUND")
 	return v
 
 
