@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var DummyTargetTimeLabel : Label = $hBoxTargetTimer/labelMaxGameTime
-@onready var DummyTargetTimerSwitch : CheckButton = $hBoxTargetTimer/cButtSwitchTargetTimer
-@onready var DummyTargetTimerSlider : HSlider = $hBoxTargetTimer/MaxGameTimeSlider
+@onready var DummyTargetTimeLabel : Label = $labelMaxGameTime
+@onready var DummyTargetTimerSwitch : CheckButton = $cButtSwitchTargetTimer
+@onready var DummyTargetTimerSlider : HSlider = $MaxGameTimeSlider
 
 
 # Called when the node enters the scene tree for the first time.
