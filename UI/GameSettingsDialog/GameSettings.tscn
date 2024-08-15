@@ -62,8 +62,14 @@ text = "Gameplay Conditions"
 layout_mode = 2
 
 [node name="cButtSwitchMaxGameTime" type="CheckButton" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 text = "Max Play Time"
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Play Time"
 
 [node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
 custom_minimum_size = Vector2(300, 0)
@@ -80,8 +86,10 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "00:00"
+horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
@@ -92,14 +100,15 @@ text = "Win/Loose Conditions"
 
 [node name="hBoxContainerMaxShots" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 script = ExtResource("2_jw5od")
 
 [node name="cButtSwitchMaxShots" type="CheckButton" parent="centerContainer/vBoxContainer/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 text = "Max Shots"
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
@@ -108,7 +117,7 @@ text = "Max Shots"
 [node name="MaxShotSlider" type="HSlider" parent="centerContainer/vBoxContainer/hBoxContainerMaxShots"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 size_flags_vertical = 5
 min_value = -1.0
 step = 10.0
@@ -119,8 +128,10 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="labelMaxShots" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "123456"
+horizontal_alignment = 2
 
 [node name="vBoxContainerScore" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
@@ -128,13 +139,15 @@ size_flags_horizontal = 3
 
 [node name="hBoxContainerMaxScore" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxContainerScore"]
 layout_mode = 2
-size_flags_horizontal = 8
 
 [node name="cButtSwitchMaxScore" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Max Negative Score"
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
@@ -154,6 +167,7 @@ tick_count = 20
 ticks_on_borders = true
 
 [node name="labelMaxScore" type="Label" parent="centerContainer/vBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "MAX"
 horizontal_alignment = 2
@@ -166,42 +180,39 @@ script = ExtResource("3_nubox")
 layout_mode = 2
 text = "Target Timer Conditions"
 
-[node name="hBoxTargetTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+[node name="hBoxTargetTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxDummyTimer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="buttSwitchTargetTimer" type="CheckButton" parent="centerContainer/vBoxContainer/hBoxTargetTimer"]
+[node name="cButtSwitchTargetTimer" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 text = "Enable Target Timer"
 
-[node name="hBoxContainerMaxGameTimer2" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-theme_override_constants/separation = 10
+text = "Time"
 
-[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer2"]
-layout_mode = 2
-text = "Target Time"
-
-[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer2"]
+[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 5
 min_value = 3.0
 max_value = 10.0
-step = 0.5
 value = 3.0
 rounded = true
 editable = false
 tick_count = 10
 ticks_on_borders = true
 
-[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer2"]
+[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
 layout_mode = 2
 text = "00"
 
-[node name="labelMaxGameTime2" type="Label" parent="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer2"]
+[node name="labelMaxGameTime2" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTimer/hBoxTargetTimer"]
 layout_mode = 2
 text = "sek."
 
@@ -238,15 +249,18 @@ mouse_filter = 2
 
 [node name="buttStartGame" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Start Game"
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer/hBoxButtons"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
 layout_mode = 2
+size_flags_horizontal = 10
 text = "Back to Menu"
 
 [connection signal="toggled" from="centerContainer/vBoxContainer/hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="." method="_on_c_butt_switch_max_game_time_toggled"]
