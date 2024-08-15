@@ -32,7 +32,8 @@ func DisplayText() -> void:
 
 
 func _on_buttNewGame_pressed() -> void:
-	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
+	#if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
+	if get_tree().change_scene_to_packed(Preloads.GameSettingsScene) != OK:
 		print("Error: change_scene_to()::buttPlay")
 	pass # Replace with function body.
 
