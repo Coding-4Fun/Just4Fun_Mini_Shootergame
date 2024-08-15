@@ -47,8 +47,6 @@ func _ready() -> void:
 	$BoxContainer/HBoxHudTop/hBoxPower/labPower.text = str(test.min_velocity)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
-	$BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed = Config.config_data["Game"]["DummyTarget"]["TimerEnabled"]
-
 	GSM.GameTimeTextLabel = GameHudUI.get_node("hBoxGametimer/labelGameTime")
 	GSM.GameTimerTimeElapsed = 0
 
@@ -109,7 +107,7 @@ func _on_buttGameOptions_pressed() -> void:
 	else:
 		background.size.y = _backgroundMin.x
 
-	if Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] == true and OptionUI.visible == false:
+	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true and OptionUI.visible == false:
 		GSM.GameTimer.start()
 
 	$"BoxContainer/HBoxHudMiddle/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
