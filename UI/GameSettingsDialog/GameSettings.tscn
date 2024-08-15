@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdg32fb7rseev"]
+[gd_scene load_steps=4 format=3 uid="uid://bdg32fb7rseev"]
 
 [ext_resource type="Script" path="res://UI/GameSettingsDialog/game_settings.gd" id="1_efcby"]
 [ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_jw5od"]
+[ext_resource type="Script" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
 
 [node name="GameSettings" type="Control"]
 layout_mode = 3
@@ -155,11 +156,13 @@ ticks_on_borders = true
 [node name="labelMaxScore" type="Label" parent="centerContainer/vBoxContainer/vBoxContainerScore/hBoxContainerMaxScore"]
 layout_mode = 2
 text = "MAX"
+horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+[node name="vBoxDummyTimer" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
+script = ExtResource("3_nubox")
 
-[node name="label" type="Label" parent="centerContainer/vBoxContainer/HBoxContainer2"]
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTimer"]
 layout_mode = 2
 text = "Target Timer Conditions"
 
