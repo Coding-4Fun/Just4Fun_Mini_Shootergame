@@ -122,10 +122,10 @@ func _on_config_value_changed(obj: String= "", value : Variant = null, root: Str
 	if value == null:
 		return
 
-	var j : String = "/".join([root, group, obj])
+	var configKey : String = "%s%s%s" % [root, group, obj]
 
 	# save new Value to Config Dict / conf_File
-	if j in config_data:
-		config_data[j] = value
+	if configKey in config_data:
+		config_data[configKey] = value
 	
 	print("Signal Received: ConfigValueChange: ", [obj, value, root, group])
