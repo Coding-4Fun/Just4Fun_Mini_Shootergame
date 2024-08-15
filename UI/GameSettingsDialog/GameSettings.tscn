@@ -205,6 +205,26 @@ text = "00"
 layout_mode = 2
 text = "sek."
 
+[node name="VBoxToDo" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Reload Time Options"
+
+[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: TerainSeed"
+
+[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: PlayerName"
+
+[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Highscores"
+
 [node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
