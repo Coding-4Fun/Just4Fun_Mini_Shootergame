@@ -169,12 +169,3 @@ text = "123456"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="hBoxOptions/buttBackToMenu" to="." method="_on_buttBackToMenu_pressed"]
-[connection signal="pressed" from="hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_pressed"]
-[connection signal="toggled" from="hBoxContainerMaxGameTimer/cButtSwitchMaxGameTime" to="hBoxContainerMaxGameTimer" method="_on_cButtSwitchMaxGameTime_toggled"]
-[connection signal="value_changed" from="hBoxContainerMaxGameTimer/MaxGameTimeSlider" to="hBoxContainerMaxGameTimer" method="_on_MaxTimeSlider_value_changed"]
-[connection signal="pressed" from="hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_pressed"]
-[connection signal="toggled" from="hBoxContainerMaxScore/cButtSwitchMaxScore" to="hBoxContainerMaxScore" method="_on_cButtSwitchMaxScore_toggled"]
-[connection signal="value_changed" from="hBoxContainerMaxScore/MaxScoreSlider" to="hBoxContainerMaxScore" method="_on_MaxScoreSlider_value_changed"]
-[connection signal="pressed" from="hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_pressed"]
-[connection signal="toggled" from="hBoxContainerMaxShots/cButtSwitchMaxShots" to="hBoxContainerMaxShots" method="_on_cButtSwitchMaxShots_toggled"]
-[connection signal="value_changed" from="hBoxContainerMaxShots/MaxShotSlider" to="hBoxContainerMaxShots" method="_on_MaxShotSlider_value_changed"]
