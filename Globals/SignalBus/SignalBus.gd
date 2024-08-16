@@ -44,7 +44,7 @@ func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
 
 
 func _on_Floating_Text_Signal(text : String, pos : Vector2) -> void:
-	print(text)
+	#print(text)
 	
 	var floating_text : Node2D= Preloads.floating_text_scene.instantiate() as Node2D
 	var fgl = get_tree().get_first_node_in_group("foreground_layer")
