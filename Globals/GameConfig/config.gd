@@ -82,7 +82,7 @@ func get_configdata() -> Dictionary:
 	return(CONFIGDATA_DEFAULT)
 
 
-func get_configdata_value(valuetoget: String, vType : Variant.Type = Variant.Type.TYPE_NIL) -> Variant:
+func get_configdata_value(valuetoget: String, _vType : Variant.Type = Variant.Type.TYPE_NIL) -> Variant:
 	var v : Variant = ""
 	
 	if valuetoget in config_data:
