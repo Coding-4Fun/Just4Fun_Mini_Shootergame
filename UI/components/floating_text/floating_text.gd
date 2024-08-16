@@ -13,11 +13,11 @@ func start(text: String):
 	var tween = create_tween()
 	tween.set_parallel()
 
-	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 16), .3)\
+	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 24), .5)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.chain()
 
-	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 48), .5)\
+	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 64), .6)\
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "scale", Vector2.ZERO, .5)\
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
@@ -26,7 +26,7 @@ func start(text: String):
 	tween.tween_callback(queue_free)
 
 	var scale_tween = create_tween()
-	scale_tween.tween_property(self, "scale", Vector2.ONE * 1.5, .15)\
+	scale_tween.tween_property(self, "scale", Vector2.ONE * 1.5, .25)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	scale_tween.tween_property(self, "scale", Vector2.ONE, .15)\
+	scale_tween.tween_property(self, "scale", Vector2.ONE, .25)\
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
