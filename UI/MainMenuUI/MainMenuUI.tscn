@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b160gc30aq28t"]
+[gd_scene load_steps=3 format=3 uid="uid://b160gc30aq28t"]
 
 [ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dmu80fq6rvrp" path="res://UI/components/sound_button/sound_button.tscn" id="2_asn34"]
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -51,6 +52,15 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 theme_override_constants/separation = 30
+
+[node name="SoundButton" parent="centerContainer/vBoxContainer" instance=ExtResource("2_asn34")]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"MainTitleButton"
+text = "Play	"
+script = null
 
 [node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(200, 150)
