@@ -12,6 +12,7 @@ func _ready():
 	
 	MaxGameTimeSwitch.button_pressed = Config.get_configdata_value("GameConditionMaxGameTimeEnabled")
 	MaxGameTimeSlider.value = Config.get_configdata_value("GameConditionMaxGameTimeValue")
+	MaxGameTimeLabel.text = str("%02.0f:%02.0f" % [floor(MaxGameTimeSlider.value/60),int(MaxGameTimeSlider.value) % 60])
 	MaxGameTimeSlider.editable = Config.get_configdata_value("GameConditionMaxGameTimeEnabled")
 	# $"labelGameTime"
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
