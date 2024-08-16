@@ -46,6 +46,10 @@ window/stretch/mode="canvas_items"
 
 import/blender/enabled=false
 
+[global_group]
+
+foreground_layer=""
+
 [gui]
 
 theme/custom="res://UI/Theme/game_theme.tres"

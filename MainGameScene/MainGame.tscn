@@ -21,7 +21,7 @@ adjustment_enabled = true
 [node name="MainGame" type="Node2D"]
 script = ExtResource("2")
 
-[node name="Vignette" parent="." instance=ExtResource("2_jfj17")]
+[node name="Vignette" parent="." groups=["foreground_layer"] instance=ExtResource("2_jfj17")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_47r24")
