@@ -43,5 +43,6 @@ func _on_Create_Add_NewTarget() -> void:
 
 
 func _on_Target_Hited(score : int) -> void:
-	SignalBus.UIScoreChange.emit(score)
-	SignalBus.CreateAndAddNewTarget.emit()
+	if score != 0:
+		SignalBus.UIScoreChange.emit(score)
+		SignalBus.CreateAndAddNewTarget.emit()
