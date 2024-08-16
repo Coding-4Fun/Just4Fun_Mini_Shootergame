@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 
 func _on_butt_start_game_pressed() -> void:
 	Config.save_gameconfig()
-	#if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
-		#print("Error: change_scene_to()::buttPlay")
+	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
+		print("Error: change_scene_to()::buttPlay")
 
 
 func _on_butt_back_to_menu_pressed() -> void:
