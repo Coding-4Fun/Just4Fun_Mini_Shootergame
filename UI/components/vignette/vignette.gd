@@ -7,8 +7,10 @@ func _ready():
 	SignalBus.GroundHit.connect(on_player_damaged)
 
 
-func on_player_damaged(_score = 0):
-	# if score < 0 then flash red
+func on_player_damaged(score = 0):
+	if score <= 0:
+		$AnimationPlayer.play("missed")
+		
 	# if score == 0 
-	#if score > 0 then flash green
-	$AnimationPlayer.play("hit")
+	if score > 0:
+		$AnimationPlayer.play("hit")
