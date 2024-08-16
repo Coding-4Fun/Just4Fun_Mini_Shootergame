@@ -13,6 +13,7 @@ signal exploded
 #Target Signals
 signal CreateAndAddNewTarget
 signal TargetHitted
+signal GroundHit
 
 # UI Signals
 signal UIScoreChange
@@ -30,6 +31,7 @@ func _ready():
 	#Target Signals
 	CreateAndAddNewTarget.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	TargetHitted.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	GroundHit.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 	# UI Signals
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)

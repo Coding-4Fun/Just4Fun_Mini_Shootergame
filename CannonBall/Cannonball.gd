@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal GroundHit
+
 
 
 @export var P1 = 1
@@ -12,8 +12,8 @@ var Ply = ""
 
 
 func _ready() -> void:
-	if !GroundHit.is_connected(_on_Ground_Hited):
-		if GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
+	if !SignalBus.GroundHit.is_connected(_on_Ground_Hited):
+		if SignalBus.GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
 
 	if !SignalBus.exploded.is_connected(self._on_Bullet_exploded):
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
 				SignalBus.exploded.emit(position + transform.x * 37)
-				GroundHit.emit()
+				SignalBus.GroundHit.emit()
 		elif collider is StaticBody2D:
 			if collider.is_in_group("Dummy") and collider.has_method("_hit_ByBall"):
 				collider._hit_ByBall()
@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
-		GroundHit.emit()
+		SignalBus.GroundHit.emit()
 		call_deferred("queue_free")
 
 
