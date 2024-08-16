@@ -1,16 +1,19 @@
 extends Control
 
-## Handle Signals for UI Updates
-
 var _shots : float = 0
 var _score : float = 0
 var _hits : float = 0
 var _missed : float = 0
 
-var _backgroundMin := Vector2i(130,350)
+## Holds the background size 
+## x = w/o Settings
+## y = w/ Settings
+@export var _backgroundMin := Vector2i(130,220)
 
+## Handle Signals for UI Updates
 signal UIResetGame
 signal UIdummyTargetTimerChange
+
 
 @onready var OptionUI = $BoxContainer/VBoxSetting
 @onready var GameHudUI = $BoxContainer/HBoxHudMiddle
@@ -33,10 +36,10 @@ func _ready() -> void:
 	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
-
-	if !UIdummyTargetTimerChange.is_connected(Config._on_dummytarget_TimerChange):
-		if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
-			print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
+#
+	#if !UIdummyTargetTimerChange.is_connected(Config._on_dummytarget_TimerChange):
+		#if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
+			#print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
 
@@ -115,3 +118,13 @@ func _on_buttGameOptions_pressed() -> void:
 
 func _on_buttSwitchTargetTimer_pressed() -> void:
 	UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
+
+
+func _on_butt_back_to_menu_pressed() -> void:
+###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
+	if !GSM.GameTimer.is_stopped():
+		GSM.GameTimer.stop()
+
+	Config.save_gameconfig()
+	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
+		print("Error: change_scene_to()::buttBackToMenu_pressed")

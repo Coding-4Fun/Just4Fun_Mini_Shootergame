@@ -109,10 +109,6 @@ func _on_playername_change(newname:String) -> void:
 		print("Bitte name eingeben")
 
 
-func _on_dummytarget_TimerChange(newValue:bool) -> void:
-	Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
-
-
 func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
 	# Check Object for Empty
 	if obj.is_empty():
