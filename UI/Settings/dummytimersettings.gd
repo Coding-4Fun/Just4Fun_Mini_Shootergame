@@ -8,6 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	DummyTargetTimerSwitch.button_pressed = Config.get_configdata_value("GameDummyTargetTimerEnabled", Variant.Type.TYPE_BOOL)
+	DummyTargetTimerSlider.editable = Config.get_configdata_value("GameDummyTargetTimerEnabled", Variant.Type.TYPE_BOOL)
+	DummyTargetTimerSlider.value = Config.get_configdata_value("GameDummyTargetTimerCountdown", Variant.Type.TYPE_FLOAT)
+	
 	DummyTargetTimerSwitch.toggled.connect(_on_c_butt_switch_target_timer_toggled)
 	DummyTargetTimerSlider.drag_ended.connect(_on_max_game_time_slider_drag_ended)
 	pass # Replace with function body.
