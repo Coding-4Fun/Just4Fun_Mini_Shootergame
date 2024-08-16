@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://h8vcng8ps4vd"]
+[gd_scene load_steps=13 format=3 uid="uid://h8vcng8ps4vd"]
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGameScene/MainGame.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://UI/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" path="res://scripts/players.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
 [ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://Cannon/Cannon.tscn" id="6"]
@@ -19,6 +20,8 @@ adjustment_enabled = true
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("2")
+
+[node name="Vignette" parent="." instance=ExtResource("2_jfj17")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_47r24")
