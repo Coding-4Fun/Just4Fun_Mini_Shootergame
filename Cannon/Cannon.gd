@@ -62,6 +62,7 @@ func _process(_delta):
 	if coolDown.value >= 100:
 		can_shoot = true
 		coolDown.value = 0
+		SignalBus.FloatingText.emit("Cannon : %s @ %s" % ["RELOADED", str(global_position)], global_position)
 
 
 func _reset_CannonPower() -> void:
