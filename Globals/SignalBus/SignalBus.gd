@@ -1,11 +1,12 @@
 extends Node
 
+# global signals 
+signal FloatingText
 # Cannon Signals
 signal CannonPowerChange
 signal CannonAngelChange
 signal CannonShoot
 signal CannonShooting
-
 
 # CannonBall Signals
 signal exploded
@@ -31,6 +32,7 @@ func _ready():
 	#Target Signals
 	CreateAndAddNewTarget.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	TargetHitted.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	FloatingText.connect(_on_Floating_Text_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	GroundHit.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 	# UI Signals
@@ -38,4 +40,16 @@ func _ready():
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
+	pass
+
+
+func _on_Floating_Text_Signal(text : String, pos : Vector2) -> void:
+	print(text)
+	
+	var floating_text : Node2D= Preloads.floating_text_scene.instantiate() as Node2D
+	var fgl = get_tree().get_first_node_in_group("foreground_layer")
+	fgl.add_child(floating_text)
+
+	floating_text.global_position = pos + (Vector2.UP * 16)
+	floating_text.start(text)
 	pass

@@ -6,6 +6,7 @@ extends Node
 @onready var DummyTarget:PackedScene = preload("res://DummyTarget/DummyTarget.tscn")
 @onready var PauseMenu:PackedScene = preload("res://UI/Pause/PauseMenu.tscn")
 @onready var Bullet :PackedScene = preload("res://CannonBall/Cannonball.tscn")
+@onready var floating_text_scene :PackedScene = preload("res://UI/components/floating_text/floating_text.tscn")
 
 # Main Game Scene
 @onready var MainGameScene :PackedScene = load("res://MainGameScene/MainGame.tscn")
