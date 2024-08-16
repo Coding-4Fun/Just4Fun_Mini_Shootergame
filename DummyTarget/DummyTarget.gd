@@ -35,7 +35,7 @@ func _on_despawnTimer_timeout() -> void:
 	if TimeMax <= 0:
 		$despawnTimer.stop()
 		SignalBus.TargetHitted.emit( score*-1)
-		SignalBus.FloatingText.emit("DummyTarget : %s @ %s" % [str(score), str(global_position)], global_position)
+		SignalBus.FloatingText.emit(str(score), global_position)
 		queue_free()
 
 
