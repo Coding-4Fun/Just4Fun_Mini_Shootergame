@@ -16,10 +16,11 @@ func _ready() -> void:
 	autoDespawn = Config.get_configdata_value("GameDummyTargetTimerEnabled")
 
 	if autoDespawn :
+		TimeMax = Config.get_configdata_value("GameDummyTargetTimerCountdown")
 		$despawnTimer.start()
 	else:
 		var tmp = "%s"
-		label.text = tmp % [score]
+		label.text = "%s" % [score]
 
 
 func _hit_ByBall():
@@ -30,7 +31,7 @@ func _hit_ByBall():
 
 func _on_despawnTimer_timeout() -> void:
 	var tmp = "%s\n%3.2f"
-	label.text = tmp % [score, TimeMax]
+	label.text = "%s\n%3.2f" % [score, TimeMax]
 
 	if TimeMax <= 0:
 		$despawnTimer.stop()
