@@ -59,6 +59,20 @@ custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 theme_override_constants/separation = 10
 
+[node name="HBoxPlayername" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/HBoxPlayername"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "Player Name"
+
+[node name="LineEdit" type="LineEdit" parent="centerContainer/vBoxContainer/HBoxPlayername"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+tooltip_text = "Set your name for Highscores and Multiplayer"
+placeholder_text = "Type Your Name here"
+
 [node name="vBoxGamePlayConditions" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
 
@@ -215,12 +229,15 @@ tick_count = 7
 ticks_on_borders = true
 
 [node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 text = "00"
+horizontal_alignment = 2
 
 [node name="labelMaxGameTime2" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
 layout_mode = 2
 text = "sek."
+horizontal_alignment = 2
 
 [node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
 visible = false
