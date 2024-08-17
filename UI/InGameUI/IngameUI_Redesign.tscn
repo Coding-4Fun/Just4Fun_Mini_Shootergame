@@ -5,6 +5,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uui47"]
 
 [node name="InGameUI" type="Control"]
+process_mode = 3
 top_level = true
 layout_mode = 3
 anchors_preset = 15
