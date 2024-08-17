@@ -28,6 +28,7 @@ Preloads="*res://Globals/Preloads.gd"
 SignalBus="*res://Globals/SignalBus/SignalBus.gd"
 Config="*res://Globals/GameConfig/config.gd"
 GSM="*res://Globals/GameStateManager/GameStateManager.gd"
+ScreenTransition="*res://Globals/scene_transition/screen_transition.tscn"
 
 [debug]
 
