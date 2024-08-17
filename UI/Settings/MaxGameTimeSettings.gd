@@ -14,9 +14,6 @@ func _ready():
 	MaxGameTimeSlider.value = Config.get_configdata_value("GameConditionMaxGameTimeValue")
 	MaxGameTimeLabel.text = str("%02.0f:%02.0f" % [floor(MaxGameTimeSlider.value/60),int(MaxGameTimeSlider.value) % 60])
 	MaxGameTimeSlider.editable = Config.get_configdata_value("GameConditionMaxGameTimeEnabled")
-	# $"labelGameTime"
-	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
-		GSM.GameTimer.start()
 
 	MaxGameTimeSwitch.toggled.connect(_on_c_butt_switch_max_game_time_toggled)
 	MaxGameTimeSlider.drag_ended.connect(_on_max_game_time_slider_drag_ended)
