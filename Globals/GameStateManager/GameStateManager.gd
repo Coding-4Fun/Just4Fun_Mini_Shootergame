@@ -9,6 +9,7 @@ var pm
 var GameTimer:Timer
 var GameTimerTimeElapsed:int = 0
 var GameTimeTextLabel:Label
+var GameTimerTimeout:int = -1
 
 signal GameStateChange
 
@@ -19,6 +20,8 @@ func _ready():
 			print("Error - GamestateManager: connect GameStateChange")
 
 	GameTimer = Timer.new()
+	GameTimerTimeout = Config.get_configdata_value("GameConditionMaxGameTimeValue")
+	GameTimer.autostart = false
 	if GameTimer.timeout.connect(_on_timer_timeout):
 		print("Error - GamestateManager: connect GameTimer_timeout")
 	add_child(GameTimer)
@@ -27,8 +30,7 @@ func _ready():
 func _on_timer_timeout() ->void:
 	if GSM.gameWin == -1:
 		GameTimerTimeElapsed += 1
-		var timeout = Config.get_configdata_value("GameConditionMaxGameTimeValue")
-		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
+		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= GameTimerTimeout:
 			_check_GameWinCondition()
 		if GameTimeTextLabel != null:
 			GameTimeTextLabel.text = "%02.0f:%02.0f" % [floor(float(GameTimerTimeElapsed)/60),int(GameTimerTimeElapsed) % 60]
@@ -46,8 +48,7 @@ func _on_GameStateChange(newscore, newhits, newshots) -> void:
 func _check_GameWinCondition() -> void:
 	# Check Game Timeout
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
-		var timeout = Config.get_configdata_value("GameConditionMaxGameTimeValue")
-		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= timeout:
+		if !GameTimer.is_stopped() and GameTimerTimeElapsed >= GameTimerTimeout:
 			print("Game Over. Your Game Time has left.")
 			_show_GameOverDialog(3)
 
