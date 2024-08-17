@@ -126,5 +126,6 @@ func _on_butt_back_to_menu_pressed() -> void:
 		GSM.GameTimer.stop()
 
 	Config.save_gameconfig()
-	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
-		print("Error: change_scene_to()::buttBackToMenu_pressed")
+
+	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
+	await ScreenTransition.transitioned_halfway

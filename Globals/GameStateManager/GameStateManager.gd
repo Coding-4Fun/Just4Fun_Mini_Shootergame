@@ -75,9 +75,10 @@ func _show_GameOverDialog(win:int = 0) -> void:
 	gameWin = win
 	await get_tree().create_timer(2.0).timeout
 	get_tree().call_group("Shoots", "queue_free")
-	var sc = get_tree().change_scene_to_packed(Preloads.GameOverScene)
-	if sc != OK:
-		print("Error: change_scene_to()::GameOver")
+
+	ScreenTransition.transition_to_packedscene(Preloads.GameOverScene)
+	await ScreenTransition.transitioned_halfway
+
 
 
 func _input(event: InputEvent) -> void:

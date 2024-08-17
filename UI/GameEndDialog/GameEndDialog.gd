@@ -32,10 +32,10 @@ func DisplayText() -> void:
 
 
 func _on_buttNewGame_pressed() -> void:
-	if get_tree().change_scene_to_packed(Preloads.GameSettingsScene) != OK:
-		print("Error: change_scene_to()::buttPlay")
+	ScreenTransition.transition_to_packedscene(Preloads.GameSettingsScene)
+	await ScreenTransition.transitioned_halfway
 
 
 func _on_buttMainMenu_pressed() -> void:
-	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
-		print("Error: change_scene_to()::buttBackToMenu_pressed")
+	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
+	await ScreenTransition.transitioned_halfway
