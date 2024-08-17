@@ -50,6 +50,8 @@ func _ready() -> void:
 	$BoxContainer/HBoxHudTop/hBoxPower/labPower.text = str(test.min_velocity)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
+	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
+		GSM.GameTimer.start()
 	GSM.GameTimeTextLabel = GameHudUI.get_node("hBoxGametimer/labelGameTime")
 	GSM.GameTimerTimeElapsed = 0
 
@@ -101,18 +103,19 @@ func _on_buttGameReset_button_pressed() -> void:
 
 # Öffnen und schliessen der Settings
 func _on_buttGameOptions_pressed() -> void:
-	Config.save_gameconfig()
-
 	OptionUI.visible = !OptionUI.visible
 
 	if OptionUI.visible:
 		background.size.y = _backgroundMin.y
 	else:
 		background.size.y = _backgroundMin.x
+		Config.save_gameconfig()
 
-	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true and OptionUI.visible == false:
-		GSM.GameTimer.start()
+	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
+		GSM.GameTimer.paused = OptionUI.visible
 
+	get_tree().paused = OptionUI.visible
+	
 	$"BoxContainer/HBoxHudMiddle/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
 
 
@@ -124,6 +127,7 @@ func _on_butt_back_to_menu_pressed() -> void:
 ###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
 	if !GSM.GameTimer.is_stopped():
 		GSM.GameTimer.stop()
+	get_tree().paused = false
 
 	Config.save_gameconfig()
 
