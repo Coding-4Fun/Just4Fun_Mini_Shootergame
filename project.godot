@@ -15,7 +15,7 @@ config/name_localized={
 "de_DE": "Mini Cannon Shooter"
 }
 config/description="Just 4 Fun - Mini Shootergame"
-config/tags=PackedStringArray("2d", "godot4.3", "godot_rc", "projekt", "singleplayer")
+config/tags=PackedStringArray("2d", "gd_stable", "godot4.3", "projekt", "singleplayer")
 run/main_scene="res://UI/MainMenuUI/MainMenuUI.tscn"
 config/features=PackedStringArray("4.3")
 run/flush_stdout_on_print=true
@@ -28,6 +28,7 @@ Preloads="*res://Globals/Preloads.gd"
 SignalBus="*res://Globals/SignalBus/SignalBus.gd"
 Config="*res://Globals/GameConfig/config.gd"
 GSM="*res://Globals/GameStateManager/GameStateManager.gd"
+ScreenTransition="*res://Globals/scene_transition/screen_transition.tscn"
 
 [debug]
 
@@ -45,6 +46,10 @@ window/stretch/mode="canvas_items"
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+foreground_layer=""
 
 [gui]
 

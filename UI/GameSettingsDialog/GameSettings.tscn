@@ -1,0 +1,283 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdg32fb7rseev"]
+
+[ext_resource type="Script" path="res://UI/GameSettingsDialog/game_settings.gd" id="1_efcby"]
+[ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_jw5od"]
+[ext_resource type="Script" path="res://UI/Settings/MaxGameTimeSettings.gd" id="2_nvwev"]
+[ext_resource type="Script" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
+[ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="4_bcppk"]
+
+[node name="GameSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_efcby")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.203922, 0.337255, 0.72549)
+
+[node name="labMainTitel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 132.0
+offset_right = 1500.0
+offset_bottom = 282.0
+rotation = -0.0872665
+theme_type_variation = &"MainTitleHeader"
+text = "Little Fun Mini Shooter Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="centerContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxPlayername" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/HBoxPlayername"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "Player Name"
+
+[node name="LineEditUserName" type="LineEdit" parent="centerContainer/vBoxContainer/HBoxPlayername"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+tooltip_text = "Set your name for Highscores and Multiplayer"
+placeholder_text = "Type Your Name here"
+
+[node name="vBoxGamePlayConditions" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions"]
+layout_mode = 2
+text = "Gameplay Conditions"
+
+[node name="hBoxContainerMaxGameTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions"]
+layout_mode = 2
+script = ExtResource("2_nvwev")
+
+[node name="cButtSwitchMaxGameTime" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "Max Play Time"
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Play Time"
+
+[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+min_value = 30.0
+max_value = 600.0
+step = 30.0
+value = 60.0
+rounded = true
+editable = false
+tick_count = 9
+ticks_on_borders = true
+
+[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxGamePlayConditions/hBoxContainerMaxGameTimer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="vBoxWinLooseConditions" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions"]
+layout_mode = 2
+text = "Win/Loose Conditions"
+
+[node name="hBoxContainerMaxShots" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions"]
+layout_mode = 2
+script = ExtResource("2_jw5od")
+
+[node name="cButtSwitchMaxShots" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "Max Shots"
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+text = "Max Shots"
+
+[node name="MaxShotSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+min_value = 5.0
+step = 10.0
+value = 25.0
+rounded = true
+editable = false
+tick_count = 10
+ticks_on_borders = true
+
+[node name="labelMaxShots" type="Label" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxShots"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="hBoxContainerMaxScore" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions"]
+layout_mode = 2
+script = ExtResource("4_bcppk")
+
+[node name="cButtSwitchMaxScore" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Max Negative Score"
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+text = "Max/Min Score"
+
+[node name="MaxScoreSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 5
+min_value = -1000.0
+max_value = 1000.0
+step = 100.0
+value = 200.0
+rounded = true
+editable = false
+tick_count = 10
+ticks_on_borders = true
+
+[node name="labelMaxScore" type="Label" parent="centerContainer/vBoxContainer/vBoxWinLooseConditions/hBoxContainerMaxScore"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "MAX"
+horizontal_alignment = 2
+
+[node name="vBoxDummyTargetTimer" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer"]
+layout_mode = 2
+text = "Target Timer Conditions"
+
+[node name="hBoxTargetTimer" type="HBoxContainer" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("3_nubox")
+
+[node name="cButtSwitchTargetTimer" type="CheckButton" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "Enable Target Timer"
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Time"
+
+[node name="MaxGameTimeSlider" type="HSlider" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+min_value = 3.0
+max_value = 10.0
+value = 6.0
+rounded = true
+editable = false
+tick_count = 7
+ticks_on_borders = true
+
+[node name="labelMaxGameTime" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+
+[node name="labelMaxGameTime2" type="Label" parent="centerContainer/vBoxContainer/vBoxDummyTargetTimer/hBoxTargetTimer"]
+layout_mode = 2
+text = "sek."
+horizontal_alignment = 2
+
+[node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Reload Cooldown Time Options"
+
+[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: TerainSeed"
+
+[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: PlayerName"
+
+[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Highscores"
+
+[node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="hBoxButtons" type="HBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="buttStartGame" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Start Game"
+
+[node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Back to Menu"

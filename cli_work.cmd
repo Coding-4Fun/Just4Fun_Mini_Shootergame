@@ -10,9 +10,9 @@ cls
 REM Full Project Path
 set "project=%~dp0"
 REM Path to Godot Executable
-set "gdpath=C:\Proggen\Godot\Godot_v4.3-rc"
-set "godotexe=Godot_v4.3-rc3_win64.exe"
-set "godotver=Godot_v4.3-rc3_win64.exe --version"
+set "gdpath=C:\Proggen\Godot\Godot_v4.3-stable"
+set "godotexe=Godot_v4.3-stable_win64.exe"
+set "godotver=Godot_v4.3-stable_win64.exe --version"
 REM Full Engine Path
 set "build_godot=%gdpath%\%godotexe%"
 

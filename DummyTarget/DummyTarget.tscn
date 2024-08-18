@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="3"]
 radius = 86.6667
-height = 374.999
+height = 475.0
 
 [node name="DummyTarget" type="StaticBody2D" groups=["Dummy"]]
 z_index = 5
@@ -38,7 +38,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="collisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -412.5)
+position = Vector2(0, -350)
 shape = SubResource("3")
 
 [node name="despawnTimer" type="Timer" parent="."]

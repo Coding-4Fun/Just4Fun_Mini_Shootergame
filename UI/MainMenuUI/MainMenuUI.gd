@@ -1,19 +1,10 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+@onready var random_stream_player_component: Node = $centerContainer/vBoxContainer/RandomStreamPlayerComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _notification(what):
@@ -22,16 +13,11 @@ func _notification(what):
 
 
 func _on_buttPlay_pressed():
-	# Change Scene to Game Scene
-#	get_tree().get_root().add_child(Preloads.MainGame)
-	var current_scene: Node = get_tree().current_scene
-	current_scene.queue_free()
-	get_tree().current_scene = null
-
-	if get_tree().change_scene_to_packed(Preloads.MainGameScene) != OK:
-		print("Error: change_scene_to()::buttPlay")
-#	call_deferred("get_tree().get_root().remove_child()", self)
-	pass # Replace with function body.
+	# Change Scene to GameSettings Scene
+	random_stream_player_component.play_random()
+	
+	ScreenTransition.transition_to_packedscene(Preloads.GameSettingsScene)
+	await ScreenTransition.transitioned_halfway
 
 
 func _on_buttHightScore_pressed():
@@ -45,7 +31,10 @@ func _on_buttSettings_pressed():
 
 
 func _on_buttExit_pressed():
+	random_stream_player_component.play_random()
 	# Close Game, Back to System. Not on HTML
+	ScreenTransition.transition(false)
+	await ScreenTransition.transitioned_halfway
 	notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 

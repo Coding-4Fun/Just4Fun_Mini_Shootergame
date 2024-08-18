@@ -2,14 +2,12 @@ extends Node2D
 
 func _ready():
 	#	CreateAndAddNewTarget _on_Create_Add_NewTarget
-	if !SignalBus.is_connected("CreateAndAddNewTarget", self._on_Create_Add_NewTarget):
-###		assert(SignalBus.connect("CreateAndAddNewTarget", self, "_on_Create_Add_NewTarget")==OK)
-		if SignalBus.connect("CreateAndAddNewTarget", self._on_Create_Add_NewTarget) != OK:
+	if !SignalBus.CreateAndAddNewTarget.is_connected(self._on_Create_Add_NewTarget):
+		if SignalBus.CreateAndAddNewTarget.connect(self._on_Create_Add_NewTarget) != OK:
 			print("Error - DummyTargetGroupNode.gd: connect signal CreateAndAddNewTarget")
 
-	if !SignalBus.is_connected("TargetHitted", self._on_Target_Hited):
-###		assert(SignalBus.connect("TargetHitted", self, "_on_Target_Hited")==OK)
-		if SignalBus.connect("TargetHitted", self._on_Target_Hited) != OK:
+	if !SignalBus.TargetHitted.is_connected(self._on_Target_Hited):
+		if SignalBus.TargetHitted.connect(self._on_Target_Hited) != OK:
 			print("Error - DummyTargetGroupNode.gd: connect signal TargetHitted")
 
 	pass
@@ -45,5 +43,6 @@ func _on_Create_Add_NewTarget() -> void:
 
 
 func _on_Target_Hited(score : int) -> void:
-	SignalBus.emit_signal("UIScoreChange", score)
-	SignalBus.emit_signal("CreateAndAddNewTarget")
+	if score != 0:
+		SignalBus.UIScoreChange.emit(score)
+		SignalBus.CreateAndAddNewTarget.emit()

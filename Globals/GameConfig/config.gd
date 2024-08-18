@@ -2,12 +2,12 @@ extends Control
 
 @export var config_data:Dictionary = {}
 const GAMECONFIGFILE = "res://config.json"
-const CONFIGDATA_DEFAULT:Dictionary = {
+const CONFIGDATA_DEFAULT_JSON:Dictionary = {
 		"Player_name": "Unnamed",
 		"Game": {
 			"DummyTarget": {
 				"TimerEnabled": false,
-				"TimerCountdown": 6
+				"TimerCountdown": 6.0
 			},
 			"Condition": {
 				"MaxGameTimeValue": 120,
@@ -32,23 +32,34 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"Video": {},
 		"KeyBinding": {}
 	}
+const CONFIGDATA_DEFAULT:Dictionary = {
+		"GamePlayerName": "Unnamed",
+		"GameDummyTargetTimerEnabled": false,
+		"GameDummyTargetTimerCountdown": 6.0,
+		"GameConditionMaxGameTimeValue": 150,
+		"GameConditionMaxShotsEnabled": true,
+		"GameConditionMaxShotsValue": 10,
+		"GameConditionMinMaxScoreEnabled": true,
+		"GameConditionMinMaxScore": -100,
+		"GameConditionMaxGameTimeEnabled": false,
+		"GameConditionMinMaxScoreValue": 1000,
+		"GameNetworkHostIPAdress": "127.0.0.1",
+		"GameNetworkHostGamePort": "21277",
+		"GameNetworkMaxPlayers": 2,
+		"GameAudioMasterVolume": 100,
+		"GameAudioSfxVolume": 100,
+		"GameAudioMusicVolume": 100,
+		"GameVideo": null,
+		"GameKeyBinding": null
+		}
 
-#signal playername_changed (string)
-# signal dummyTargetTimerChange
- # (string)
-#signal hostip_changed(string)
-#signal hostport_changed(string)
-#signal maxplayers_changed(string)
+signal ConfigValueChanged
 
-# onready var lobby = get_node("/root/Lobby")
 
 func _ready() -> void:
 	config_data = get_configdata()
 
-	# lobby.connect("playername_changed", self, "_on_playername_change")
-	# lobby.connect("hostip_changed", self, "_on_hostip_change")
-	# lobby.connect("hostport_changed", self, "_on_hostport_change")
-	# lobby.connect("maxplayers_changed", self, "_on_maxplayer_change")
+	ConfigValueChanged.connect(_on_config_value_changed)
 
 
 func get_configdata() -> Dictionary:
@@ -71,6 +82,15 @@ func get_configdata() -> Dictionary:
 	return(CONFIGDATA_DEFAULT)
 
 
+func get_configdata_value(valuetoget: String, _vType : Variant.Type = Variant.Type.TYPE_NIL) -> Variant:
+	var v : Variant = ""
+	
+	if valuetoget in config_data:
+		v = config_data[valuetoget]
+
+	return v
+
+
 func save_gameconfig (savedefault : bool = false):
 	if savedefault:
 		config_data = CONFIGDATA_DEFAULT
@@ -81,37 +101,19 @@ func save_gameconfig (savedefault : bool = false):
 	config.close()
 
 
-func _on_playername_change(newname:String) -> void:
-	if not newname.is_empty():
-		config_data["Player_name"] = newname
-		save_gameconfig()
-	else:
-		print("Bitte name eingeben")
 
+#func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
+func _on_config_value_changed(obj: String= "", value : Variant = null) -> void:
+	# Check Object for Empty
+	if obj.is_empty():
+		return
 
-func _on_dummytarget_TimerChange(newValue:bool) -> void:
-	Config.config_data["Game"]["DummyTarget"]["TimerEnabled"] = newValue
+	# Chack Value for NULL
+	if value == null:
+		return
 
-
-# func _on_hostip_change(newhostip:String) -> void:
-	# if not newhostip.empty():
-		# Config.config_data["Network"]["HostIPAdress"] = newhostip
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte IP Adresse eingeben")
-
-
-# func _on_hostport_change(newhostport: int) -> void:
-	# if newhostport > 0:
-		# Config.config_data["Network"]["HostGamePort"] = newhostport
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte Port eingeben")
-
-
-# func _on_maxplayer_change(newmaxplayers:int) -> void:
-	# if newmaxplayers > 0:
-		# Config.config_data["Network"]["MaxPlayers"] = newmaxplayers
-		# Config.save_gameconfig()
-	# else:
-		# print("Bitte Maximale anzahl Spieler eingeben")
+	# save new Value to Config Dict / conf_File
+	if obj in config_data:
+		config_data[obj] = value
+	
+	print("Signal Received: ConfigValueChange: ", [obj, value])

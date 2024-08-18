@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal GroundHit
+
 
 
 @export var P1 = 1
@@ -12,24 +12,13 @@ var Ply = ""
 
 
 func _ready() -> void:
-	if !is_connected("GroundHit", _on_Ground_Hited):
-###		assert(.connect("GroundHit", self, "_on_Ground_Hited", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler1")
-		if GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
+	if !SignalBus.GroundHit.is_connected(_on_Ground_Hited):
+		if SignalBus.GroundHit.connect(_on_Ground_Hited.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal GroundHit")
-		# else
-			# GroundHit.connect.bind()
-			# layer.hit.connect(_on_player_hit.bind("sword", 100))
 
-
-	if !SignalBus.is_connected("exploded", self._on_Bullet_exploded):
-###		assert(SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED)==OK, "Fehler2")
-#		if SignalBus.connect("exploded", self, "_on_Bullet_exploded", [], CONNECT_REFERENCE_COUNTED) != OK:
+	if !SignalBus.exploded.is_connected(self._on_Bullet_exploded):
 		if SignalBus.exploded.connect(_on_Bullet_exploded.bind(), CONNECT_REFERENCE_COUNTED) != OK:
 			print("Error - Cannonball.gd: connect signal exploded")
-
-
-#func _process(_delta):
-#	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -46,19 +35,17 @@ func _physics_process(delta: float) -> void:
 			# Get the tile id
 			var tile_id = collider.get_cell_source_id(0,tile_pos)
 			if tile_id == 0:
-				SignalBus.emit_signal("exploded", position + transform.x * 37)
-				emit_signal("GroundHit")
+				SignalBus.exploded.emit(position + transform.x * 37)
+				SignalBus.GroundHit.emit()
 		elif collider is StaticBody2D:
 			if collider.is_in_group("Dummy") and collider.has_method("_hit_ByBall"):
 				collider._hit_ByBall()
-			pass
 
 
 		call_deferred("queue_free")
 	elif position.x > screensize.x or position.y > screensize.y:
-		emit_signal("GroundHit")
+		SignalBus.GroundHit.emit()
 		call_deferred("queue_free")
-		pass
 
 
 func _on_Bullet_exploded(pos):
@@ -68,7 +55,7 @@ func _on_Bullet_exploded(pos):
 
 
 func _on_Ground_Hited() -> void:
-	SignalBus.emit_signal("UIScoreChange", -2)
+	SignalBus.UIScoreChange.emit(-2)
 
 
 # asteroid script
@@ -80,7 +67,7 @@ func _process(_delta) -> void:
 	if g_pos.x < camera_rect.position.x || \
 			g_pos.y < 0 || \
 			g_pos.x > screensize.x:
-#				 || g_pos.y > screensize.y:
+
 		pos_offscreen.show()
 		var new_pos = pos_offscreen.get_global_position()
 		# clamping ensures indicator stays in visible area of screen
@@ -88,6 +75,5 @@ func _process(_delta) -> void:
 		new_pos.x = clamp(g_pos.x, 0, screensize.x)
 		new_pos.y = clamp(g_pos.y, 0, screensize.y)
 		pos_offscreen.set_global_position(new_pos)
-#		printt(new_pos.x, new_pos.y)
-	else: # asteroid is inside camera bounds
+	else:
 		pos_offscreen.hide()
