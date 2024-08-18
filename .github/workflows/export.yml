@@ -2,7 +2,7 @@ name: "godot-ci export"
 on:
   push:
     branches:
-    - Godot-43-Stable
+      - Godot-43-Stable
 
 env:
   GODOT_VERSION: 4.3
