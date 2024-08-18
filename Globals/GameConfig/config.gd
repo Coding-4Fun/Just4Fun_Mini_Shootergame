@@ -101,15 +101,9 @@ func save_gameconfig (savedefault : bool = false):
 	config.close()
 
 
-func _on_playername_change(newname:String) -> void:
-	if not newname.is_empty():
-		config_data["Player_name"] = newname
-		save_gameconfig()
-	else:
-		print("Bitte name eingeben")
 
-
-func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
+#func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
+func _on_config_value_changed(obj: String= "", value : Variant = null) -> void:
 	# Check Object for Empty
 	if obj.is_empty():
 		return
@@ -118,10 +112,8 @@ func _on_config_value_changed(obj: String= "", value : Variant = null, root: Str
 	if value == null:
 		return
 
-	var configKey : String = "%s%s%s" % [root, group, obj]
-
 	# save new Value to Config Dict / conf_File
-	if configKey in config_data:
-		config_data[configKey] = value
+	if obj in config_data:
+		config_data[obj] = value
 	
-	print("Signal Received: ConfigValueChange: ", [obj, value, root, group])
+	print("Signal Received: ConfigValueChange: ", [obj, value])
