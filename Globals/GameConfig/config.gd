@@ -55,7 +55,7 @@ func get_configdata() -> Dictionary:
 	var json = JSON.new()
 	if not FileAccess.file_exists(GAMECONFIGFILE):
 		save_gameconfig(true)
-		
+
 	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
 
 	var content = file.get_as_text()

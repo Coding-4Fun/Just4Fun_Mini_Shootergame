@@ -2,25 +2,25 @@ name: Export projects to HTML5 and deploy to GitHub Pages
 on:
   push:
     branches:
-      - Godot-40x-Stable
+      - Godot-42-Stable
 
 env:
-  GODOT_VERSION: 4.0.3
+  GODOT_VERSION: 4.2.1
 
 jobs:
   export-html5:
     name: Export projects to HTML5 and deploy to GitHub Pages
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:4.0.3
+      image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup
         run: |
           mkdir -p ~/.local/share/godot/templates/
-          mv /root/.local/share/godot/templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
+          mv /root/.local/share/godot/export_templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
       - name: Export projects to HTML5
         run: |
           BASEDIR="$PWD"

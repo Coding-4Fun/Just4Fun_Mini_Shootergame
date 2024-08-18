@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ch3ldcyo5tr6l" path="res://MainGameScene/TerrainTiles/sprites/stonebrick_16x16.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://cm0fjurxlaje0" path="res://MainGameScene/TerrainTiles/sprites/coal_ore_16x16.png" id="8"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lfoq"]
 texture = ExtResource("4")
 0:0/next_alternative_id = 8
@@ -356,4 +355,3 @@ sources/4 = SubResource("TileSetAtlasSource_myuie")
 sources/5 = SubResource("TileSetAtlasSource_bl77l")
 sources/6 = SubResource("TileSetAtlasSource_jx8fr")
 sources/7 = SubResource("TileSetAtlasSource_r4jek")
-

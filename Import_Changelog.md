@@ -1,6 +1,6 @@
 https://github.com/Coding-4Fun/godot3_procgen_demos/commits/master
 
-Original aus 
+Original aus
 https://github.com/kidscancode/godot3_procgen_demos
 http://kidscancode.org/blog/2018/08/godot3_procgen1/
 

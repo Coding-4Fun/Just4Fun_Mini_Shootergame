@@ -1,5 +1,15 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+## Update July 02 2024
+
+- Create Branch for Godot 4.3 rc (2)
+- Create Branch for Godot 4.2.2 stable (new default branch)
+
+### Update: Upgrade Project to Engine Version 4.2.2
+### Update Web Version to current
+### Done: Fixing CI in Github Action failed since 4.2.2
+
+
 ## Update May 31 2023
 Changes in Repository
 
@@ -9,7 +19,7 @@ Changes in Repository
 
 ### Done: Fixing CI in Github Action failed since 4.x
 ### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
-### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023) 
+### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023)
 ### Fixed: Target Timer ein und ausschaltzen
 ### Fixed: Layouts nach 4.0x Migration
 

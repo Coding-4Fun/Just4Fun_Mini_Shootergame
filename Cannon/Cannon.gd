@@ -58,7 +58,7 @@ func _unhandled_input(event):
 #		can_shoot = false
 
 
-func _process(_delta):		
+func _process(_delta):
 	Barrel.look_at(get_global_mouse_position())
 	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
 	Barrel.rotation_degrees = clampedBarrel
