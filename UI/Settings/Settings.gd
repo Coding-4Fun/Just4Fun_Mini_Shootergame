@@ -16,3 +16,10 @@ func _on_buttBackToMenu_pressed() -> void:
 	if get_tree().change_scene_to_packed(Preloads.MainMenuScene) != OK:
 		print("Error: change_scene_to()::buttBackToMenu_pressed")
 	Config.save_gameconfig()
+
+
+func _on_visibility_changed():
+	if visible:
+		SignalBus.GameSettingsOpened.emit()
+	else:
+		SignalBus.GameSettingsClosed.emit()

@@ -32,9 +32,9 @@ func _on_Create_Add_NewTarget() -> void:
 #			print("Tile: %s" % str(tile_coord))
 			break
 
-	var posi = Preloads.Map.map_to_local(tile_coord)
+	var posi:Vector2i = Preloads.Map.map_to_local(tile_coord)
 	# posi.x += 8
-	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2)
+	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2.0)
 
 	target = Preloads.DummyTarget.instantiate()
 	target.position = posi

@@ -6,6 +6,9 @@ signal CannonAngelChange
 signal CannonShoot
 signal CannonShooting
 
+signal GameSettingsOpened
+signal GameSettingsClosed
+
 
 # CannonBall Signals
 signal exploded
