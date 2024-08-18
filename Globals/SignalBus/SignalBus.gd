@@ -2,6 +2,7 @@ extends Node
 
 # global signals 
 signal FloatingText
+
 # Cannon Signals
 signal CannonPowerChange
 signal CannonAngelChange
@@ -18,6 +19,9 @@ signal GroundHit
 
 # UI Signals
 signal UIScoreChange
+
+# settings signals
+signal PlayernameChange
 
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
@@ -37,6 +41,7 @@ func _ready():
 
 	# UI Signals
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	PlayernameChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
