@@ -67,7 +67,7 @@ custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
 text = "Player Name"
 
-[node name="LineEdit" type="LineEdit" parent="centerContainer/vBoxContainer/HBoxPlayername"]
+[node name="LineEditUserName" type="LineEdit" parent="centerContainer/vBoxContainer/HBoxPlayername"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 tooltip_text = "Set your name for Highscores and Multiplayer"
