@@ -16,7 +16,7 @@ func _ready():
 
 func _on_cButtSwitchMaxScore_toggled(toggled_on: bool):
 	MaxScoreSlider.editable = toggled_on
-	Config.ConfigValueChanged.emit("MinMaxScoreEnabled", toggled_on, "Game", "Condition")
+	Config.ConfigValueChanged.emit("GameConditionMinMaxScoreEnabled", toggled_on)
 
 
 func _on_MaxScoreSlider_drag_ended(value_changed: bool) -> void:
@@ -25,4 +25,4 @@ func _on_MaxScoreSlider_drag_ended(value_changed: bool) -> void:
 		#var minsek:String = "%02.0f" % [int(value) % 60]
 		#MaxScoreLabel.text = str(minsek)
 		MaxScoreLabel.text = str(value)
-		Config.ConfigValueChanged.emit("MinMaxScoreValue", value, "Game", "Condition")
+		Config.ConfigValueChanged.emit("GameConditionMinMaxScoreValue", value)
