@@ -19,6 +19,8 @@
 - Button mit Klick-Effekt hinzugefügt
 - Spiel pausiert, wenn Settingsbutton (zum beenden) benutzt wird
 
+- Update GitHub Actions for Godot Engine 4.3 stable release
+
 
 ## Update July 02 2024
 
