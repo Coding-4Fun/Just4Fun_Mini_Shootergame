@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://di4l1ben37h3b"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://di4l1ben37h3b"]
 
 [ext_resource type="Texture2D" uid="uid://dgsxblkmdjnb8" path="res://MainGameScene/TerrainTiles/sprites/dirt_16x16.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bdxsp6j4dnko6" path="res://MainGameScene/TerrainTiles/sprites/cobblestone_16x16.png" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvkrp5eoa6qvj" path="res://MainGameScene/TerrainTiles/sprites/clay_16x16.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://ch3ldcyo5tr6l" path="res://MainGameScene/TerrainTiles/sprites/stonebrick_16x16.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://cm0fjurxlaje0" path="res://MainGameScene/TerrainTiles/sprites/coal_ore_16x16.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://c2lxpyrhuewr0" path="res://MainGameScene/TerrainTiles/sprites/gras_16x16_atlas.png" id="9_3co0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lfoq"]
 texture = ExtResource("4")
@@ -217,6 +218,12 @@ texture = ExtResource("5")
 0:0/7/transpose = true
 0:0/7/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bexgd"]
+texture = ExtResource("9_3co0x")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5lfoq")
@@ -227,3 +234,4 @@ sources/4 = SubResource("TileSetAtlasSource_myuie")
 sources/5 = SubResource("TileSetAtlasSource_bl77l")
 sources/6 = SubResource("TileSetAtlasSource_jx8fr")
 sources/7 = SubResource("TileSetAtlasSource_r4jek")
+sources/8 = SubResource("TileSetAtlasSource_bexgd")
