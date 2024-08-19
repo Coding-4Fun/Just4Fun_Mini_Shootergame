@@ -47,6 +47,7 @@ func generate_world_tilemap_base() -> void:
 	Reset_TileMap()
 	randomize()
 	current_displacement = displacement
+	var chgdispl = 0
 	for x in world_tiles_x:
 		if x <= mod:
 			current_displacement = displacement
@@ -59,16 +60,27 @@ func generate_world_tilemap_base() -> void:
 				continue
 			# Graslinie
 			elif y == current_displacement:
-				set_cell(0, Vector2i(x,y), 0, Vector2i(0, 0))
+				if chgdispl == 0:
+					print("X=%d / Y=%d -- current == 0: %d" % [x, y, chgdispl])
+					set_cell(0, Vector2i(x,y), 8, Vector2i(0, 0))
+				elif chgdispl < 0:
+					print("X=%d / Y=%d -- current < 0: %d" % [x, y, chgdispl])
+					set_cell(0, Vector2i(x,y), 8, Vector2i(1, 0))
+				elif chgdispl > 0:
+					print("X=%d / Y=%d -- current > 0: %d" % [x, y, chgdispl])
+					set_cell(0, Vector2i(x,y), 8, Vector2i(2, 0))
+				#set_cell(0, Vector2i(x,y), 0, Vector2i(0, 0))
+			elif y > current_displacement and y <= current_displacement+2:
+				set_cell(0, Vector2i(x,y), 1, Vector2i(0, 0))
 			# Unterhalb der Graslinie
-			if y > current_displacement and y < world_tiles_y-2:
+			if y > current_displacement+2 and y < world_tiles_y-2:
 				var rdm = randi_range(1,5)
-				rdm = ceil(rdm)
-				rdm = int(rdm)
+				rdm = ceili(rdm)
+				#rdm = int(rdm)
 				set_cell(0, Vector2i(x,y), rdm, Vector2i(0, 0))
 			elif y >= world_tiles_y-2:
 				set_cell(0, Vector2i(x,y), 7, Vector2i(0, 0))
 			# End Y Loop
-
-		var change_displacement = current_displacement + sign(randi_range(-5, 5))# pow(-1.0, randi() % 2)
+		chgdispl = sign(randi_range(-5, 5))		# -1 || 0 || 1
+		var change_displacement = current_displacement + chgdispl
 		current_displacement = change_displacement
