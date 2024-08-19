@@ -34,7 +34,7 @@ jobs:
           mkdir -v -p build/windows
           #cd $EXPORT_NAME
           godot --headless --verbose --editor --import
-          godot --export-release --headless "Windows Desktop" build/windows/$EXPORT_NAME.exe
+          godot --export-release --headless "Windows" build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.4
         with:
