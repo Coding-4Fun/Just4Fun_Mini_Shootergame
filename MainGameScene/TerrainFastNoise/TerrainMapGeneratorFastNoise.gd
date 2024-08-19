@@ -7,7 +7,7 @@ class TileDictionary:
 #    public static Vector2i GRASSIER_GRASS = new(2, 4);
 #    public static Vector2i ROCK = new(2, 2);
 #    public static Vector2i ROCKIER_ROCK = new(0, 4);
-	
+
 	const GRASS := Vector2i(0, 0)
 	const DIRT := Vector2i(0, 0)
 	const COBBLE := Vector2i(0, 0)
