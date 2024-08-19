@@ -2,7 +2,7 @@ name: "godot-ci export"
 on:
   push:
     branches:
-      - Godot-43-Stable
+      - Godot-43-stable
 
 env:
   GODOT_VERSION: 4.3
@@ -10,7 +10,7 @@ env:
 
 jobs:
   export-windows:
-    name: Windows Export
+    name: Windows
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.3
@@ -33,8 +33,8 @@ jobs:
         run: |
           mkdir -v -p build/windows
           #cd $EXPORT_NAME
-          godot --headless --verbose --editor --quit-after 10
-          godot --export-release --headless "Windows Desktop" build/windows/$EXPORT_NAME.exe
+          godot --headless --verbose --editor --import
+          godot --export-release --headless "Windows" build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.4
         with:
@@ -42,7 +42,7 @@ jobs:
           path: build/windows
 
   export-web:
-    name: Web Export
+    name: Web
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.3
@@ -63,7 +63,7 @@ jobs:
         run: |
           mkdir -v -p build/web
           #cd $EXPORT_NAME
-          godot --headless --verbose --editor --quit-after 10
+          godot --headless --verbose --editor --import
           godot --export-release --headless "Web" build/web/index.html
           cp ./.github/dist/coi-serviceworker.min.js ./build/web/coi-serviceworker.min.js
       - name: Upload Artifact

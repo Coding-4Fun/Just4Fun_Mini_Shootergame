@@ -1,5 +1,27 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+## Update August 18 2024
+
+- Migrate to Godot Engine 4.3 stable
+- InGame Settings überarbeitet
+-- Vor dem eigentlichen Level kommen jetzt erst die Einstellungen für die Schwierigkeit
+-- Einstellungen aus der Ingame UI entfernt
+-- Überarbeiten der Einstellungen und das diese fehlerfrei funktionieren
+- Einstellungen für einen Spieler Namen hinzugefügt
+-- Für zukünftige Highscores und Multiplayer
+- Einstellung für DummyTarget Timer hinzugefügt
+- Überarbeiten des speichern und laden der Einstellungen
+- Einen Vignetten Effekt für Treffer und Fehlschüsse hinzugefügt
+- Einen Floating Text Effekt für Punkte und Reloaded Meldung hinzugefügt
+- Szenen Übergang überarbeitet
+- Viele Code Optimierungen und Kleinere Fehlerbehebungen
+- Scriptcode aufgeräumt
+- Button mit Klick-Effekt hinzugefügt
+- Spiel pausiert, wenn Settingsbutton (zum beenden) benutzt wird
+
+- Update GitHub Actions for Godot Engine 4.3 stable release
+
+
 ## Update July 02 2024
 
 - Create Branch for Godot 4.3 rc (2)
@@ -12,7 +34,7 @@
 
 ## Update May 31 2023
 Changes in Repository
-
+ 
 - Create Branch for Godot 3.5.x Stable
 - Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
 - Create Branch for Godot 4.1.x Dev (3)
