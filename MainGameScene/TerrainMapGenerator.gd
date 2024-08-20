@@ -84,6 +84,9 @@ func generate_world_tilemap_base() -> void:
 			elif y >= world_tiles_y-2:
 				set_cell(0, Vector2i(x,y), 7, Vector2i(0, 0))
 			# End Y Loop
+		var lastchg = chgdispl
 		chgdispl = sign(randi_range(-5, 5))		# -1 || 0 || 1
+		if lastchg != 0 and lastchg !=chgdispl:
+			chgdispl = 0
 		var change_displacement = current_displacement + chgdispl
 		current_displacement = change_displacement
