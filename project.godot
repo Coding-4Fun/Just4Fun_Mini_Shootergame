@@ -15,7 +15,7 @@ config/name_localized={
 "de_DE": "Mini Cannon Shooter"
 }
 config/description="Just 4 Fun - Mini Shootergame"
-config/tags=PackedStringArray("2d", "gd_stable", "godot4.3", "projekt", "singleplayer")
+config/tags=PackedStringArray("2d", "develop", "gd_stable", "godot4.3", "projekt", "singleplayer")
 run/main_scene="res://UI/MainMenuUI/MainMenuUI.tscn"
 config/features=PackedStringArray("4.3")
 run/flush_stdout_on_print=true
