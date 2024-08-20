@@ -63,13 +63,10 @@ func generate_world_tilemap_base() -> void:
 			elif y == current_displacement:
 				chgdispl = chgdispl *-1
 				if chgdispl == 0:
-					print("X=%d / Y=%d -- current == 0: %d" % [x, y, chgdispl])
 					set_cell(0, Vector2i(x,y), 8, Vector2i(0, 0))
 				elif chgdispl < 0:
-					print("X=%d / Y=%d -- current < 0: %d" % [x, y, chgdispl])
 					set_cell(0, Vector2i(x,y-1), 8, Vector2i(1, 0))
 				elif chgdispl > 0:
-					print("X=%d / Y=%d -- current > 0: %d" % [x, y, chgdispl])
 					set_cell(0, Vector2i(x,y), 8, Vector2i(2, 0))
 
 			# Dirt für Graslinie + 2
