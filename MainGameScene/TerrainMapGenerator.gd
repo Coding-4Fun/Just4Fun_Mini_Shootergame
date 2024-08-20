@@ -52,32 +52,35 @@ func generate_world_tilemap_base() -> void:
 		if x <= mod:
 			current_displacement = displacement
 		for y in world_tiles_y:
-			# update_dirty_quadrants()
+
 			# BasePlattform
 			if x <= mod and y == current_displacement:
 				set_cell(0, Vector2i(x,y), 6, Vector2i(0, 0))
 				plattform.append(Vector2i(x, y))
+				chgdispl = 0
 				continue
 			# Graslinie
 			elif y == current_displacement:
+				chgdispl = chgdispl *-1
 				if chgdispl == 0:
 					print("X=%d / Y=%d -- current == 0: %d" % [x, y, chgdispl])
 					set_cell(0, Vector2i(x,y), 8, Vector2i(0, 0))
 				elif chgdispl < 0:
 					print("X=%d / Y=%d -- current < 0: %d" % [x, y, chgdispl])
-					set_cell(0, Vector2i(x,y), 8, Vector2i(1, 0))
+					set_cell(0, Vector2i(x,y-1), 8, Vector2i(1, 0))
 				elif chgdispl > 0:
 					print("X=%d / Y=%d -- current > 0: %d" % [x, y, chgdispl])
 					set_cell(0, Vector2i(x,y), 8, Vector2i(2, 0))
-				#set_cell(0, Vector2i(x,y), 0, Vector2i(0, 0))
+
+			# Dirt für Graslinie + 2
 			elif y > current_displacement and y <= current_displacement+2:
-				set_cell(0, Vector2i(x,y), 1, Vector2i(0, 0))
-			# Unterhalb der Graslinie
+				set_cell(0, Vector2i(x,y-1 if chgdispl < 0 else y), 1, Vector2i(0, 0))
+
+			# Unterhalb der Dirtlinie, zufällige Tiles
 			if y > current_displacement+2 and y < world_tiles_y-2:
 				var rdm = randi_range(1,5)
-				rdm = ceili(rdm)
-				#rdm = int(rdm)
-				set_cell(0, Vector2i(x,y), rdm, Vector2i(0, 0))
+				set_cell(0, Vector2i(x,y-1 if chgdispl < 0 else y), rdm, Vector2i(0, 0))
+			# Abschluss Linie , y - 2
 			elif y >= world_tiles_y-2:
 				set_cell(0, Vector2i(x,y), 7, Vector2i(0, 0))
 			# End Y Loop
