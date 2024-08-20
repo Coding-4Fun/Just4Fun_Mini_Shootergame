@@ -221,8 +221,11 @@ texture = ExtResource("5")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bexgd"]
 texture = ExtResource("9_3co0x")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, 8, 8, 8)
 
 [resource]
 physics_layer_0/collision_layer = 1
