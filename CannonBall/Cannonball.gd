@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			# Find the colliding tile position
 			# Get the tile id
 			var tile_id = collider.get_cell_source_id(0,tile_pos)
-			if tile_id == 0:
+			if tile_id == 8:
 				SignalBus.exploded.emit(position + transform.x * 37)
 				SignalBus.GroundHit.emit()
 		elif collider is StaticBody2D:
