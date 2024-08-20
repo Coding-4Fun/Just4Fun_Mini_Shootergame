@@ -1,5 +1,11 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+## Überarbeitung der Terraingenerierung
+
+- Erweitern der oberen Linie mit Dirt Tles
+- Übergänge mit Sloops umgesetzt
+
+
 ## Update August 18 2024
 
 - Migrate to Godot Engine 4.3 stable
@@ -30,25 +36,6 @@
 ### Update: Upgrade Project to Engine Version 4.2.2
 ### Update Web Version to current
 ### Done: Fixing CI in Github Action failed since 4.2.2
-
-
-## Update May 31 2023
-Changes in Repository
- 
-- Create Branch for Godot 3.5.x Stable
-- Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
-- Create Branch for Godot 4.1.x Dev (3)
-
-### Done: Fixing CI in Github Action failed since 4.x
-### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
-### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023)
-### Fixed: Target Timer ein und ausschaltzen
-### Fixed: Layouts nach 4.0x Migration
-
-### ToDo: Vollständiges Changelog erstellen
-### ToDo: Neues Release bereitstellen. GitHub Action verwenden
-
-Und nun geht weiter mit Optimierungen ....
 
 
 # Just4Fun_Mini_Shootergame
@@ -86,6 +73,27 @@ Folgende Optionen sind bis jetzt vorhanden.
 - Einstellen der Punktzahl
 - Entweder bei erreichen einer negativen Punktzahl
 - Oder erreichen einer Positiven Punktzahl
+
+# Changelog
+
+## Update May 31 2023
+Changes in Repository
+ 
+- Create Branch for Godot 3.5.x Stable
+- Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
+- Create Branch for Godot 4.1.x Dev (3)
+
+### Done: Fixing CI in Github Action failed since 4.x
+### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
+### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023)
+### Fixed: Target Timer ein und ausschaltzen
+### Fixed: Layouts nach 4.0x Migration
+
+### ToDo: Vollständiges Changelog erstellen
+### ToDo: Neues Release bereitstellen. GitHub Action verwenden
+
+Und nun geht weiter mit Optimierungen ....
+
 
 ## Alpha.6 (in Arbeit)
 - Add: Neues Spielziel
