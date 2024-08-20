@@ -25,7 +25,7 @@ func _on_Create_Add_NewTarget() -> void:
 
 	for y in range(0, Preloads.Map.world_tiles_y-1):
 		var tid = Preloads.Map.get_cell_source_id(0,Vector2i(randtile, y))
-		if tid == 0:
+		if tid == 8:
 			tile_coord = Vector2i(randtile, y)
 #			print("Tile: %s" % str(tile_coord))
 			break
