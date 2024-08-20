@@ -1,5 +1,8 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
 
+![Image](assets/screenshots/game_title_banner.png)
+
+
 ## Überarbeitung der Terraingenerierung
 
 - Erweitern der oberen Linie mit Dirt Tles
@@ -43,6 +46,8 @@ Eigentlich ein Prototyp um Kleinigkeiten auszuprobieren hat es sich zu einem kle
 
 Ausgelagert in ein eigenes Projekt um es noch weiter zu einem Spiel auszubauen.
 
+![Image](assets/screenshots/ingame_and_ui.png)
+
 ## Beschreibung
 Der Spieler wird als Kanone am linken Bildschirmrand dargestellt.
 Durch bewegen der Maus kann der Anstellwinkel verändert werden.
@@ -65,6 +70,9 @@ Trifft der Spieler in dieser Zeit nicht, wird ein neues Ziel an beliebiger stell
 Das automatische Timeout kann in den Einstellungen ein- und ausgeschaltet werden.
 
 ## Einstellungen
+
+![Image](assets/screenshots/game_settings.png)
+
 Der Spieler kann über die Einstellungen die Bedingungen einstellen die zum gewinnen oder verlieren einer Runde notwendig sind.
 
 Folgende Optionen sind bis jetzt vorhanden.
