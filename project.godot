@@ -107,6 +107,7 @@ name_casing=1
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+gl_compatibility/fallback_to_angle=false
 vram_compression/import_etc=true
 environment/default_clear_color=Color(0.0745098, 0.737255, 0.964706, 1)
 environment/default_environment="res://default_env.tres"
