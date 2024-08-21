@@ -36,10 +36,10 @@ func _ready() -> void:
 
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
-	var Castle = get_used_cells_by_id(0, 6)
+	var Castle = get_used_cells_by_id(2, 6)
 	clear()
 	for i in Castle.size():
-		set_cell(0, Castle[i],6, Vector2i(0, 0))
+		set_cell(2, Castle[i],6, Vector2i(0, 0))
 	pass
 
 
