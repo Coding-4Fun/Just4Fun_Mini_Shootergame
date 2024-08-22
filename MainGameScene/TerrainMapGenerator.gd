@@ -28,8 +28,8 @@ var max_terrain_height:int
 func _ready() -> void:
 	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
 	screenratio = ceil(screensize.x) / ceil(screensize.y)
-# warning-ignore:narrowing_conversion
-	world_tiles_y = ceil(world_tiles_x / screenratio)
+
+	world_tiles_y = ceili(float(world_tiles_x) / screenratio)
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
 
