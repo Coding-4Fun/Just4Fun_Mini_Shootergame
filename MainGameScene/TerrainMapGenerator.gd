@@ -1,12 +1,12 @@
 extends TileMap
 
-var tile_size:Vector2 = Vector2i(16,16) #.ceil()
+var tile_size:Vector2 = Vector2(16.0,16.0) #.ceil()
 
 @onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 @onready var midrange:float = screensize.y
 @onready var displacement := ceili((midrange / tile_size.y) / 2)
 @export var current_displacement = 0
-@export var castlewidth = 175
+@export var castlewidth : float = 175.0
 var plattform := [Vector2i()]
 
 enum block_types {
@@ -17,20 +17,22 @@ enum block_types {
 	BEDROCK = 3
 }
 
-var world_tiles_x:int
-var screenratio:float
-var world_tiles_y:int
-var min_terrain_height:int
-var max_terrain_height:int
+# ToDo: Change to Vector2i(x,y)
+var world_tiles_x : int
+var screenratio : float
+var world_tiles_y : int
+var min_terrain_height : int
+var max_terrain_height : int
 
-@export var mod : int = floori(snappedf(castlewidth, tile_size.x) / tile_size.x)
+# maybe: pattern size, get_used_cell array, or pattern size
+@export var mod : int = floori(snapped(castlewidth, tile_size.x) / tile_size.x)
 
 # ToDo: Get new TileMapLayer and use them
 # Split script to the layer
 
 func _ready() -> void:
-	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
-	screenratio = ceil(screensize.x) / ceil(screensize.y)
+	world_tiles_x = int(screensize.x / tile_size.x)
+	screenratio = screensize.x / screensize.y
 
 	world_tiles_y = ceili(float(world_tiles_x) / screenratio)
 	min_terrain_height = world_tiles_y - mod
