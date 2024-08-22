@@ -25,6 +25,9 @@ var max_terrain_height:int
 
 @export var mod : int = floori(snappedf(castlewidth, tile_size.x) / tile_size.x)
 
+# ToDo: Get new TileMapLayer and use them
+# Split script to the layer
+
 func _ready() -> void:
 	world_tiles_x = int(screensize.ceil().x / tile_size.ceil().x)
 	screenratio = ceil(screensize.x) / ceil(screensize.y)
@@ -36,6 +39,7 @@ func _ready() -> void:
 
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
+	# ToDo: get the pattern in the TileSet an set random pattern for castle
 	var Castle = get_used_cells_by_id(2, 6)
 	clear()
 	for i in Castle.size():
