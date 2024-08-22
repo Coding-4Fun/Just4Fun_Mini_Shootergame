@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://h8vcng8ps4vd"]
+[gd_scene load_steps=13 format=4 uid="uid://h8vcng8ps4vd"]
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGameScene/MainGame.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://UI/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" path="res://scripts/players.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
+[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://Cannon/Cannon.tscn" id="6_6q48v"]
 [ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://DummyTarget/DummyTargetGroupNode.tscn" id="7"]
 [ext_resource type="Script" path="res://DummyTarget/DummyTargetGroupNode.gd" id="8"]
 [ext_resource type="Script" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
@@ -46,6 +47,9 @@ size_flags_vertical = 3
 
 [node name="Player1" type="Node2D" parent="Players"]
 
+[node name="Cannon" parent="Players/Player1" instance=ExtResource("6_6q48v")]
+position = Vector2(184, 392)
+
 [node name="Player2" type="Node2D" parent="Players"]
 
 [node name="Shots" type="Node2D" parent="Players"]
@@ -65,13 +69,11 @@ tile_set = ExtResource("1")
 
 [node name="LayerCannon" type="TileMapLayer" parent="TerrainMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAALABgACQAAAAAAAQA=")
 tile_set = ExtResource("1")
 
 [node name="LayerCastle" type="TileMapLayer" parent="TerrainMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAABwABgAAAAAABgABABQABgAAAAAAAAABABUABgAAAAAABgABABYABgAAAAAABgABABcABgAAAAAABgABABgABgAAAAAABgABABkABgAAAAAABgABABoABgAAAAAABgABABsABgAAAAAABgABABwABgAAAAAAAwACABUABgAAAAAAAAACABcABgAAAAAAAgACABgABgAAAAAAAAACABkABgAAAAAAAAACABoABgAAAAAAAAACABsABgAAAAAAAAACABwABgAAAAAAAwADABQABwAAAAAAAQADABUABgAAAAAABwADABYABgAAAAAABwADABcABgAAAAAABwADABgABgAAAAAABwADABkABgAAAAAAAAADABsABgAAAAAAAAADABwABgAAAAAAAwAEABkABgAAAAAAAAAEABoABgAAAAAABgAEABsABgAAAAAAAAAEABwABgAAAAAAAwAFABgABgAAAAAAAAAFABkABgAAAAAAAAAFABsABgAAAAAAAAAFABwABgAAAAAAAwAGABkABgAAAAAAAAAGABoABgAAAAAABwAGABsABgAAAAAAAAAGABwABgAAAAAAAwAHABgABgAAAAAAAAAHABkABgAAAAAAAAAHABsABgAAAAAAAAAHABwABgAAAAAAAwAIABkABgAAAAAAAAAIABoABgAAAAAABgAIABsABgAAAAAAAAAIABwABgAAAAAAAwAJABgABgAAAAAAAAAJABkABgAAAAAAAAAJABsABgAAAAAAAAAJABwABgAAAAAAAwAKABkABgAAAAAAAAAKABoABgAAAAAABwAKABsABgAAAAAAAAAKABwABgAAAAAAAwALABgABwAAAAAAAQALABkABgAAAAAABwALABoABgAAAAAABwALABsABgAAAAAABwALABwABgAAAAAAAwAMABwABgAAAAAABwA=")
+tile_map_data = PackedByteArray("AAAAABwABgAAAAAABgABABQABgAAAAAAAAABABUABgAAAAAABgABABYABgAAAAAABgABABcABgAAAAAABgABABgABgAAAAAABgABABkABgAAAAAABgABABoABgAAAAAABgABABsABgAAAAAABgABABwABgAAAAAAAwACABUABgAAAAAAAAACABcABgAAAAAAAgACABgABgAAAAAAAAACABkABgAAAAAAAAACABoABgAAAAAAAAACABsABgAAAAAAAAACABwABgAAAAAAAwADABUABgAAAAAABwADABYABgAAAAAABwADABcABgAAAAAABwADABgABgAAAAAABwADABkABgAAAAAAAAADABsABgAAAAAAAAADABwABgAAAAAAAwAEABkABgAAAAAAAAAEABoABgAAAAAABgAEABsABgAAAAAAAAAEABwABgAAAAAAAwAFABgABgAAAAAAAAAFABkABgAAAAAAAAAFABsABgAAAAAAAAAFABwABgAAAAAAAwAGABkABgAAAAAAAAAGABoABgAAAAAABwAGABsABgAAAAAAAAAGABwABgAAAAAAAwAHABgABgAAAAAAAAAHABkABgAAAAAAAAAHABsABgAAAAAAAAAHABwABgAAAAAAAwAIABkABgAAAAAAAAAIABoABgAAAAAABgAIABsABgAAAAAAAAAIABwABgAAAAAAAwAJABgABgAAAAAAAAAJABkABgAAAAAAAAAJABsABgAAAAAAAAAJABwABgAAAAAAAwAKABkABgAAAAAAAAAKABoABgAAAAAABwAKABsABgAAAAAAAAAKABwABgAAAAAAAwALABgABwAAAAAAAQALABkABgAAAAAABwALABoABgAAAAAABwALABsABgAAAAAABwALABwABgAAAAAAAwAMABwABgAAAAAABwADABQABgAAAAAAAAA=")
 tile_set = ExtResource("1")
 
 [connection signal="ready" from="." to="." method="_on_MainGame_ready"]
-[connection signal="ready" from="TerrainMap/LayerCannon/Cannon" to="TerrainMap/LayerCannon/Cannon" method="_on_Cannon_ready"]
