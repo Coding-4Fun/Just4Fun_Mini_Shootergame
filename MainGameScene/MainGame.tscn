@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://h8vcng8ps4vd"]
+[gd_scene load_steps=17 format=4 uid="uid://h8vcng8ps4vd"]
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGameScene/MainGame.gd" id="2"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://MainGameScene/Background/uncolored_plain.png" id="10"]
 [ext_resource type="Script" path="res://MainGameScene/TerrainMapGenerator.gd" id="10_uxs7w"]
+[ext_resource type="Script" path="res://MainGameScene/terrain.gd" id="12_6ypvd"]
+[ext_resource type="Script" path="res://MainGameScene/terrain_layer/layer_terrain.gd" id="13_sxh5i"]
+[ext_resource type="Script" path="res://MainGameScene/terrain_layer/layer_cannon.gd" id="14_k42sh"]
+[ext_resource type="Script" path="res://MainGameScene/terrain_layer/layer_castle.gd" id="15_5fhnt"]
 
 [sub_resource type="Environment" id="Environment_47r24"]
 background_mode = 3
@@ -63,17 +67,23 @@ tile_set = ExtResource("1")
 format = 2
 script = ExtResource("10_uxs7w")
 
-[node name="LayerTerrain" type="TileMapLayer" parent="TerrainMap" groups=["Ground"]]
-use_parent_material = true
-tile_set = ExtResource("1")
+[node name="Terrain" type="Node2D" parent="."]
+script = ExtResource("12_6ypvd")
 
-[node name="LayerCannon" type="TileMapLayer" parent="TerrainMap"]
+[node name="LayerTerrain" type="TileMapLayer" parent="Terrain" groups=["Ground"]]
 use_parent_material = true
 tile_set = ExtResource("1")
+script = ExtResource("13_sxh5i")
 
-[node name="LayerCastle" type="TileMapLayer" parent="TerrainMap"]
+[node name="LayerCannon" type="TileMapLayer" parent="Terrain"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAABwABgAAAAAABgABABQABgAAAAAAAAABABUABgAAAAAABgABABYABgAAAAAABgABABcABgAAAAAABgABABgABgAAAAAABgABABkABgAAAAAABgABABoABgAAAAAABgABABsABgAAAAAABgABABwABgAAAAAAAwACABUABgAAAAAAAAACABcABgAAAAAAAgACABgABgAAAAAAAAACABkABgAAAAAAAAACABoABgAAAAAAAAACABsABgAAAAAAAAACABwABgAAAAAAAwADABUABgAAAAAABwADABYABgAAAAAABwADABcABgAAAAAABwADABgABgAAAAAABwADABkABgAAAAAAAAADABsABgAAAAAAAAADABwABgAAAAAAAwAEABkABgAAAAAAAAAEABoABgAAAAAABgAEABsABgAAAAAAAAAEABwABgAAAAAAAwAFABgABgAAAAAAAAAFABkABgAAAAAAAAAFABsABgAAAAAAAAAFABwABgAAAAAAAwAGABkABgAAAAAAAAAGABoABgAAAAAABwAGABsABgAAAAAAAAAGABwABgAAAAAAAwAHABgABgAAAAAAAAAHABkABgAAAAAAAAAHABsABgAAAAAAAAAHABwABgAAAAAAAwAIABkABgAAAAAAAAAIABoABgAAAAAABgAIABsABgAAAAAAAAAIABwABgAAAAAAAwAJABgABgAAAAAAAAAJABkABgAAAAAAAAAJABsABgAAAAAAAAAJABwABgAAAAAAAwAKABkABgAAAAAAAAAKABoABgAAAAAABwAKABsABgAAAAAAAAAKABwABgAAAAAAAwALABgABwAAAAAAAQALABkABgAAAAAABwALABoABgAAAAAABwALABsABgAAAAAABwALABwABgAAAAAAAwAMABwABgAAAAAABwADABQABgAAAAAAAAA=")
 tile_set = ExtResource("1")
+script = ExtResource("14_k42sh")
+
+[node name="LayerCastle" type="TileMapLayer" parent="Terrain"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAABwABgAAAAAABgABABQABgAAAAAAAAABABUABgAAAAAABgABABYABgAAAAAABgABABcABgAAAAAABgABABgABgAAAAAABgABABkABgAAAAAABgABABoABgAAAAAABgABABsABgAAAAAABgABABwABgAAAAAAAwACABUABgAAAAAAAAACABcABgAAAAAAAgACABgABgAAAAAAAAACABkABgAAAAAAAAACABoABgAAAAAAAAACABsABgAAAAAAAAACABwABgAAAAAAAwADABUABgAAAAAABwADABYABgAAAAAABwADABcABgAAAAAABwADABgABgAAAAAABwADABkABgAAAAAAAAADABsABgAAAAAAAAADABwABgAAAAAAAwAEABkABgAAAAAAAAAEABoABgAAAAAABgAEABsABgAAAAAAAAAEABwABgAAAAAAAwAFABkABgAAAAAAAAAFABsABgAAAAAAAAAFABwABgAAAAAAAwAGABkABgAAAAAAAAAGABoABgAAAAAABwAGABsABgAAAAAAAAAGABwABgAAAAAAAwAHABgABgAAAAAAAAAHABkABgAAAAAAAAAHABsABgAAAAAAAAAHABwABgAAAAAAAwAIABkABgAAAAAAAAAIABoABgAAAAAABgAIABsABgAAAAAAAAAIABwABgAAAAAAAwAJABgABgAAAAAAAAAJABkABgAAAAAAAAAJABsABgAAAAAAAAAJABwABgAAAAAAAwAKABkABgAAAAAAAAAKABoABgAAAAAABwAKABsABgAAAAAAAAAKABwABgAAAAAAAwALABgABwAAAAAAAQALABkABgAAAAAABwALABoABgAAAAAABwALABsABgAAAAAABwALABwABgAAAAAAAwAMABwABgAAAAAABwADABQABgAAAAAAAAA=")
+tile_set = ExtResource("1")
+script = ExtResource("15_5fhnt")
 
 [connection signal="ready" from="." to="." method="_on_MainGame_ready"]
