@@ -98,7 +98,7 @@ func _on_buttGameReset_button_pressed() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
-	UIResetGame.emit()
+	SignalBus.UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
 
 # Öffnen und schliessen der Settings
