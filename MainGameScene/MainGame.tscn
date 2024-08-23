@@ -63,6 +63,8 @@ script = ExtResource("4")
 script = ExtResource("8")
 
 [node name="TerrainMap" type="TileMap" parent="." groups=["Ground"]]
+process_mode = 4
+visible = false
 tile_set = ExtResource("1")
 format = 2
 script = ExtResource("10_uxs7w")
