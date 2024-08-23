@@ -37,6 +37,7 @@ func _ready() -> void:
 	world_tiles_y = ceili(float(world_tiles_x) / screenratio)
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
+	SignalBus.MapGenerateWorldTileMap.connect(_on_MapGeneratorWorldTileMap)
 
 
 
@@ -50,6 +51,10 @@ func Reset_TileMap() -> void:
 	for i in Castle.size():
 		set_cell(2, Castle[i],6, Vector2i(0, 0))
 	pass
+
+
+func _on_MapGeneratorWorldTileMap() -> void:
+	generate_world_tilemap_base()
 
 
 func generate_world_tilemap_base() -> void:
