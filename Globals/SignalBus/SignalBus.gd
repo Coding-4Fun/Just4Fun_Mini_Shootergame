@@ -3,6 +3,10 @@ extends Node
 # global signals 
 signal FloatingText
 
+# TileMap Signals
+signal MapSetCastle
+signal MapGenerateWorldTileMap
+
 # Cannon Signals
 signal CannonPowerChange
 signal CannonAngelChange
@@ -19,6 +23,7 @@ signal GroundHit
 
 # UI Signals
 signal UIScoreChange
+signal UIResetGame
 
 # settings signals
 signal PlayernameChange
@@ -41,7 +46,12 @@ func _ready():
 
 	# UI Signals
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	UIResetGame.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	PlayernameChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	
+	# Terrain / Map
+	MapSetCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	MapGenerateWorldTileMap.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
