@@ -43,13 +43,13 @@ func _ready() -> void:
 
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
-	displacement = ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
+	#displacement = ceili((midrange / tile_size.y) / 2) # + randi_range(-10, 10)
 
 	# ToDo: get the pattern in the TileSet an set random pattern for castle
-	var Castle = get_used_cells_by_id(2, 6)
+	#var Castle = get_used_cells_by_id(2, 6)
 	clear()
-	for i in Castle.size():
-		set_cell(2, Castle[i],6, Vector2i(0, 0))
+	#for i in Castle.size():
+		#set_cell(2, Castle[i],6, Vector2i(0, 0))
 	pass
 
 
