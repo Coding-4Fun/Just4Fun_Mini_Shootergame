@@ -4,10 +4,10 @@ var tile_size:Vector2 = Vector2(16.0,16.0) #.ceil()
 
 @onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 @onready var midrange:float = screensize.y
-@onready var displacement := ceili((midrange / tile_size.y) / 2)
+@onready var displacement := ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
 @export var current_displacement = 0
-@export var castlewidth : float = 175.0
-var plattform := [Vector2i()]
+@export var castlewidth : float = 200.0
+var plattform : Array[Vector2i] = []
 
 enum block_types {
 	AIR=-1,
@@ -39,8 +39,11 @@ func _ready() -> void:
 	max_terrain_height = mod
 
 
+
 func Reset_TileMap() -> void:
 	## Woraround um die Burg zu behalten
+	displacement = ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
+
 	# ToDo: get the pattern in the TileSet an set random pattern for castle
 	var Castle = get_used_cells_by_id(2, 6)
 	clear()
