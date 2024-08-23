@@ -6,8 +6,8 @@ var target
 
 func _ready():
 	#ToDo: Change to global SignalBus
-	if !Preloads.UIMain.UIResetGame.is_connected(self._on_UI_ResetGame):
-			var _cn = Preloads.UIMain.UIResetGame.connect(self._on_UI_ResetGame)
+	if !SignalBus.UIResetGame.is_connected(self._on_UI_ResetGame):
+			var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
 
 	# ToDo change to global Signal
 	Preloads.Map.generate_world_tilemap_base()
@@ -43,5 +43,6 @@ func _on_UI_ResetGame() -> void:
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
 	#ToDo: Change to Signal
-	Preloads.Map.generate_world_tilemap_base()
+	#Preloads.Map.generate_world_tilemap_base()
+	SignalBus.MapGenerateWorldTileMap.emit()
 	SignalBus.CreateAndAddNewTarget.emit()
