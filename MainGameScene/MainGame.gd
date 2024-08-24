@@ -10,7 +10,7 @@ func _ready():
 			var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
 
 	# ToDo change to global Signal
-	Preloads.Map.generate_world_tilemap_base()
+	SignalBus.MapGenerateWorldTileMap.emit()
 
 
 func _enter_tree() -> void:
@@ -27,6 +27,7 @@ func _enter_tree() -> void:
 	Preloads.DummyTargetGroup = find_child("DummyTargets")
 
 	## TileMap
+	# ToDo: Using TileMapLayer TerrainLayer
 	Preloads.Map = find_child("TerrainMap")
 
 
