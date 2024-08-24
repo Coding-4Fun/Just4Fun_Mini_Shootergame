@@ -11,7 +11,6 @@ var _missed : float = 0
 @export var _backgroundMin := Vector2i(130,220)
 
 ## Handle Signals for UI Updates
-signal UIResetGame
 signal UIdummyTargetTimerChange
 
 
