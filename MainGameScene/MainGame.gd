@@ -28,7 +28,9 @@ func _enter_tree() -> void:
 
 	## TileMap
 	# ToDo: Using TileMapLayer TerrainLayer
-	Preloads.Map = find_child("TerrainMap")
+	Preloads.Map = find_child("LayerTerrain")
+
+	pass
 
 
 func _on_MainGame_ready() -> void:

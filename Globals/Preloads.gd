@@ -31,4 +31,4 @@ var UIMain:Control
 
 #
 ## TileMap
-var Map:TileMap
+var Map:TileMapLayerBase
