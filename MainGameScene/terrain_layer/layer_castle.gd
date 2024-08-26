@@ -20,5 +20,10 @@ func _on_MapGenerator_PlaceCastle(pos : Vector2i) -> void:
 	var pattern :TileMapPattern = tile_set.get_pattern(0)
 	var pattern_size = pattern.get_size()
 	pos.y -= pattern_size.y
-	set_pattern(pos, pattern)	
+	set_pattern(pos, pattern)
+	var mount = get_used_cells_by_id(10, Vector2i(0,5))
+	if mount.size():
+		var maplocal : Vector2 = map_to_local(mount[0])
+		var mapglobal = to_global(maplocal)
+		SignalBus.MapGeneratorPlaceCannon.emit(to_global(maplocal))
 	pass
