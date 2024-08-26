@@ -15,9 +15,11 @@ func _on_MapGenerator_GenerateTerrain() -> void:
 
 func _on_MapGenerator_PlaceCastle(pos : Vector2i) -> void:
 	clear()
-	print("CastleLayer_Place signal")
 	var pattern_count = tile_set.get_patterns_count()
-	var pattern :TileMapPattern = tile_set.get_pattern(0)
+	var p_idx : int = 0
+	if pattern_count > 1:
+		p_idx = randi_range(0,pattern_count)
+	var pattern :TileMapPattern = tile_set.get_pattern(p_idx)
 	var pattern_size = pattern.get_size()
 	pos.y -= pattern_size.y
 	set_pattern(pos, pattern)
@@ -25,5 +27,5 @@ func _on_MapGenerator_PlaceCastle(pos : Vector2i) -> void:
 	if mount.size():
 		var maplocal : Vector2 = map_to_local(mount[0])
 		var mapglobal = to_global(maplocal)
-		SignalBus.MapGeneratorPlaceCannon.emit(to_global(maplocal))
+		SignalBus.MapGeneratorPlaceCannon.emit(mapglobal)
 	pass
