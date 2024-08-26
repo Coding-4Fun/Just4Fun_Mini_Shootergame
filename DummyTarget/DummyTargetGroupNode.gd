@@ -18,21 +18,21 @@ func _on_Create_Add_NewTarget() -> void:
 
 	randomize()
 
-	var tilecount = Preloads.Map.world_tiles_x
-	var randtile = ceil(randi_range(Preloads.Map.mod + 10, tilecount-1))
+	var tilecount = Preloads.MapLayer.world_tiles_x
+	var randtile = ceil(randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
 
 	var tile_coord : Vector2i
 
-	for y in range(0, Preloads.Map.world_tiles_y-1):
-		var tid = Preloads.Map.get_cell_source_id(Vector2i(randtile, y))
+	for y in range(0, Preloads.MapLayer.world_tiles_y-1):
+		var tid = Preloads.MapLayer.get_cell_source_id(Vector2i(randtile, y))
 		if tid == 8:
 			tile_coord = Vector2i(randtile, y)
 #			print("Tile: %s" % str(tile_coord))
 			break
 
-	var posi:Vector2i = Preloads.Map.map_to_local(tile_coord)
+	var posi:Vector2i = Preloads.MapLayer.map_to_local(tile_coord)
 	# posi.x += 8
-	posi.y -= floori(Preloads.Map.tile_set.tile_size.y / 2.0)
+	posi.y -= floori(Preloads.MapLayer.tile_set.tile_size.y / 2.0)
 
 	target = Preloads.DummyTarget.instantiate()
 	target.position = posi
