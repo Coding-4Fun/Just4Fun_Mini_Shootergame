@@ -73,13 +73,11 @@ script = ExtResource("10_uxs7w")
 script = ExtResource("12_6ypvd")
 
 [node name="LayerTerrain" type="TileMapLayer" parent="Terrain" groups=["Ground"]]
-visible = false
 use_parent_material = true
 tile_set = ExtResource("1")
 script = ExtResource("13_sxh5i")
 
 [node name="LayerCannon" type="TileMapLayer" parent="Terrain"]
-visible = false
 use_parent_material = true
 tile_set = ExtResource("1")
 script = ExtResource("14_k42sh")
