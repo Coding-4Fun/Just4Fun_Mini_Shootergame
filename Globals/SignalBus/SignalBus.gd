@@ -8,9 +8,6 @@ signal MapGeneratorGenerateTerrain
 signal MapGeneratorPlaceCastle
 signal MapGeneratorPlaceCannon
 
-signal MapSetCastle
-signal MapGenerateWorldTileMap
-
 # Cannon Signals
 signal CannonPowerChange
 signal CannonAngelChange
@@ -52,11 +49,7 @@ func _ready():
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	UIResetGame.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	PlayernameChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	
-	# Terrain / Map
-	MapSetCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	MapGenerateWorldTileMap.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	
+
 	MapGeneratorGenerateTerrain.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	MapGeneratorPlaceCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	MapGeneratorPlaceCannon.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)

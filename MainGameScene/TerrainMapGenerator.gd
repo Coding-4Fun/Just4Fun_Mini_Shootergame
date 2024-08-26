@@ -37,7 +37,7 @@ func _ready() -> void:
 	world_tiles_y = ceili(float(world_tiles_x) / screenratio)
 	min_terrain_height = world_tiles_y - mod
 	max_terrain_height = mod
-	SignalBus.MapGenerateWorldTileMap.connect(_on_MapGeneratorWorldTileMap)
+	SignalBus.MapGeneratorGenerateTerrain.connect(_on_MapGeneratorWorldTileMap)
 
 
 

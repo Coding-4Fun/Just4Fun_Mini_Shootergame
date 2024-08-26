@@ -10,7 +10,7 @@ func _ready():
 			var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
 
 	# ToDo change to global Signal
-	SignalBus.MapGenerateWorldTileMap.emit()
+	SignalBus.MapGeneratorGenerateTerrain.emit()
 
 
 func _enter_tree() -> void:
@@ -49,5 +49,5 @@ func _on_UI_ResetGame() -> void:
 	get_tree().call_group("Shoots", "queue_free")
 	#ToDo: Change to Signal
 	#Preloads.Map.generate_world_tilemap_base()
-	SignalBus.MapGenerateWorldTileMap.emit()
+	SignalBus.MapGeneratorGenerateTerrain.emit()
 	SignalBus.CreateAndAddNewTarget.emit()
