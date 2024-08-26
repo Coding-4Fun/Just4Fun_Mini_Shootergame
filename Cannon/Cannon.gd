@@ -23,6 +23,8 @@ func _ready():
 	if !SignalBus.CannonShooting.is_connected(Preloads.PlayerShots._on_Player_Shoot):
 		if SignalBus.CannonShooting.connect(Preloads.PlayerShots._on_Player_Shoot)!=OK:
 			print("Error - Cannon.gd: connect signal CannonShooting")
+	
+	SignalBus.MapGeneratorPlaceCannon.connect(_on_MapGenerator_PlaceCannon)
 
 
 func _unhandled_input(event):
@@ -73,3 +75,8 @@ func _reset_CannonPower() -> void:
 func _on_Cannon_ready():
 	muzzle_velocity = floori((float)(max_velocity - min_velocity) / 2)
 	SignalBus.CannonPowerChange.emit(muzzle_velocity)
+
+
+func _on_MapGenerator_PlaceCannon(pos : Vector2) -> void:
+	global_position = pos
+	pass
