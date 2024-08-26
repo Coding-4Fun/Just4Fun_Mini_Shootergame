@@ -15,20 +15,17 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func Reset_TileMap() -> void:
-	clear()
-	pass
-
-
 func _on_MapGeneratorWorldTileMap() -> void:
+	displacement = ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
 	generate_world_tilemap_base()
 
 
 func generate_world_tilemap_base() -> void:
-	Reset_TileMap()
+	clear()
 	randomize()
 	current_displacement = displacement
 	var chgdispl = 0
+	plattform.clear()
 	for x in world_tiles_x:
 		if x <= mod:
 			current_displacement = displacement
@@ -68,3 +65,4 @@ func generate_world_tilemap_base() -> void:
 			chgdispl = 0
 		var change_displacement = current_displacement + chgdispl
 		current_displacement = change_displacement
+	SignalBus.MapGeneratorPlaceCastle.emit(plattform[0])
