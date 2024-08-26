@@ -46,11 +46,10 @@ func _on_MapGenerator_GenerateTerrain() -> void:
 
 
 func _on_MapGenerator_PlaceCastle(_pos : Vector2i) -> void:
-	#print("TileMapLayerBase CastleLayer_Place signal")
 	pass
 
 
-func _on_MapGenerator_PlaceCannon(pattern : Vector2i) -> void:
+func _on_MapGenerator_PlaceCannon(_pattern : Vector2i) -> void:
 	pass
 
 
