@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdg32fb7rseev"]
+[gd_scene load_steps=7 format=3 uid="uid://bdg32fb7rseev"]
 
 [ext_resource type="Script" path="res://UI/GameSettingsDialog/game_settings.gd" id="1_efcby"]
 [ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_jw5od"]
 [ext_resource type="Script" path="res://UI/Settings/MaxGameTimeSettings.gd" id="2_nvwev"]
 [ext_resource type="Script" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
 [ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="4_bcppk"]
+[ext_resource type="Texture2D" uid="uid://c4cul21yoa34n" path="res://assets/ui/wurfel.png" id="6_xkio1"]
 
 [node name="GameSettings" type="Control"]
 layout_mode = 3
@@ -240,7 +241,6 @@ text = "sek."
 horizontal_alignment = 2
 
 [node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
@@ -253,11 +253,39 @@ text = "ToDo: TerainSeed"
 
 [node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
 layout_mode = 2
-text = "ToDo: PlayerName"
+text = "ToDo: "
 
 [node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
 layout_mode = 2
 text = "ToDo: Highscores"
+
+[node name="VBoxTerrainSeed" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxTerrainSeed"]
+layout_mode = 2
+text = "Terrain Seed"
+
+[node name="HBoxPlayername" type="HBoxContainer" parent="centerContainer/vBoxContainer/VBoxTerrainSeed"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+text = "SEED"
+
+[node name="LineEditGenerateRandomSeed" type="LineEdit" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+tooltip_text = "Set your name for Highscores and Multiplayer"
+placeholder_text = "Press Button to generate"
+
+[node name="TexButtGenerateRandomSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("6_xkio1")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
