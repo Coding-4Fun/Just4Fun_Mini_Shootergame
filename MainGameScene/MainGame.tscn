@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://h8vcng8ps4vd"]
+[gd_scene load_steps=16 format=3 uid="uid://h8vcng8ps4vd"]
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" path="res://MainGameScene/MainGame.gd" id="2"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://DummyTarget/DummyTargetGroupNode.gd" id="8"]
 [ext_resource type="Script" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://MainGameScene/Background/uncolored_plain.png" id="10"]
-[ext_resource type="Script" path="res://MainGameScene/TerrainMapGenerator.gd" id="10_uxs7w"]
 [ext_resource type="Script" path="res://MainGameScene/terrain.gd" id="12_6ypvd"]
 [ext_resource type="Script" path="res://MainGameScene/terrain_layer/layer_terrain.gd" id="13_sxh5i"]
 [ext_resource type="Script" path="res://MainGameScene/terrain_layer/layer_cannon.gd" id="14_k42sh"]
@@ -62,13 +61,6 @@ script = ExtResource("4")
 [node name="DummyTargetGroupNode" parent="." instance=ExtResource("7")]
 script = ExtResource("8")
 
-[node name="TerrainMap" type="TileMap" parent="." groups=["Ground"]]
-process_mode = 4
-visible = false
-tile_set = ExtResource("1")
-format = 2
-script = ExtResource("10_uxs7w")
-
 [node name="Terrain" type="Node2D" parent="."]
 script = ExtResource("12_6ypvd")
 
@@ -84,7 +76,6 @@ script = ExtResource("14_k42sh")
 
 [node name="LayerCastle" type="TileMapLayer" parent="Terrain"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAABQACgAAAAAAAAAAABUACgAAAAQAAAAAABwABgAAAAAABgABABQACgAAAAIAAAABABUABgAAAAAABgABABYABgAAAAAABgABABcABgAAAAAABgABABgABgAAAAAABgABABkABgAAAAAABgABABoABgAAAAAABgABABsABgAAAAAABgABABwABgAAAAAAAwACABQACgAAAAEAAAACABUABgAAAAAAAAACABcABgAAAAAAAgACABgABgAAAAAAAAACABkABgAAAAAAAAACABoABgAAAAAAAAACABsABgAAAAAAAAACABwABgAAAAAAAwADABQACgAAAAAAAAADABUABgAAAAAABwADABYABgAAAAAABwADABcABgAAAAAABwADABgABgAAAAAABwADABkABgAAAAAAAAADABsABgAAAAAAAAADABwABgAAAAAAAwAEABQACgAAAAIAAAAEABUACgAAAAMAAAAEABgACgAAAAIAAAAEABkABgAAAAAAAAAEABoABgAAAAAABgAEABsABgAAAAAAAAAEABwABgAAAAAAAwAFABgACgAAAAAAAAAFABkABgAAAAAAAAAFABsABgAAAAAAAAAFABwABgAAAAAAAwAGABgACgAAAAIAAAAGABkABgAAAAAAAAAGABoABgAAAAAABwAGABsABgAAAAAAAAAGABwABgAAAAAAAwAHABgACgAAAAAAAAAHABkABgAAAAAAAAAHABsABgAAAAAAAAAHABwABgAAAAAAAwAIABgACgAAAAIAAAAIABkABgAAAAAAAAAIABoABgAAAAAABgAIABsABgAAAAAAAAAIABwABgAAAAAAAwAJABgACgAAAAAAAAAJABkABgAAAAAAAAAJABsABgAAAAAAAAAJABwABgAAAAAAAwAKABgACgAAAAIAAAAKABkABgAAAAAAAAAKABoABgAAAAAABwAKABsABgAAAAAAAAAKABwABgAAAAAAAwALABgACgAAAAAAAAALABkABgAAAAAABwALABoABgAAAAAABwALABsABgAAAAAABwALABwABgAAAAAAAwAMABgACgAAAAIAAAAMABkACgAAAAMAAAAMABwABgAAAAAABwA=")
 tile_set = ExtResource("1")
 script = ExtResource("15_5fhnt")
 
