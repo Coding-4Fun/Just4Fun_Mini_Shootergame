@@ -30,5 +30,7 @@ var UIMain:Control
 @onready var DummyTargetGroup:Node2D
 
 #
-## TileMap
-var Map:TileMapLayerBase
+## TileMapLayer's
+var MapLayer:TileMapLayerBase
+var CannonLayer:TileMapLayerBase
+var CastleLayer:TileMapLayerBase
