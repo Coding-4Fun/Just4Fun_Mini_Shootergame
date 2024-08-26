@@ -8,5 +8,5 @@ func _ready() -> void:
 
 
 ## Placing the Cannon inside the Castle
-func _on_MapGenerator_PlaceCannon(pattern : Vector2i) -> void:
-	pass
+#func _on_MapGenerator_PlaceCannon(_pattern : Vector2i) -> void:
+	#pass
