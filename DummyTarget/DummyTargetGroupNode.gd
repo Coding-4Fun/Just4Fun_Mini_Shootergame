@@ -32,7 +32,7 @@ func _on_Create_Add_NewTarget() -> void:
 
 	var posi:Vector2i = Preloads.MapLayer.map_to_local(tile_coord)
 	# posi.x += 8
-	posi.y -= floori(Preloads.MapLayer.tile_set.tile_size.y / 2.0)
+	#posi.y += floori(Preloads.MapLayer.tile_set.tile_size.y) # / 4.0)
 
 	target = Preloads.DummyTarget.instantiate()
 	target.position = posi
