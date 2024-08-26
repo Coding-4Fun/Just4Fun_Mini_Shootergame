@@ -50,7 +50,7 @@ func _on_MapGenerator_PlaceCastle(_pos : Vector2i) -> void:
 	pass
 
 
-func _on_MapGenerator_PlaceCannon() -> void:
+func _on_MapGenerator_PlaceCannon(pattern : Vector2i) -> void:
 	pass
 
 
