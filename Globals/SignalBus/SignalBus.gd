@@ -4,6 +4,10 @@ extends Node
 signal FloatingText
 
 # TileMap Signals
+signal MapGeneratorGenerateTerrain
+signal MapGeneratorPlaceCastle
+signal MapGeneratorPlaceCannon
+
 signal MapSetCastle
 signal MapGenerateWorldTileMap
 
@@ -52,6 +56,10 @@ func _ready():
 	# Terrain / Map
 	MapSetCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	MapGenerateWorldTileMap.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	
+	MapGeneratorGenerateTerrain.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	MapGeneratorPlaceCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	MapGeneratorPlaceCannon.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):

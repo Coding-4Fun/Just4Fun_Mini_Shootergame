@@ -35,7 +35,24 @@ func _start():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.MapGeneratorGenerateTerrain.connect(_on_MapGenerator_GenerateTerrain)
+	SignalBus.MapGeneratorPlaceCastle.connect(_on_MapGenerator_PlaceCastle)
+	SignalBus.MapGeneratorPlaceCannon.connect(_on_MapGenerator_PlaceCannon)
 	pass # Replace with function body.
+
+
+func _on_MapGenerator_GenerateTerrain() -> void:
+	pass
+
+
+func _on_MapGenerator_PlaceCastle(_pos : Vector2i) -> void:
+	#print("TileMapLayerBase CastleLayer_Place signal")
+	pass
+
+
+func _on_MapGenerator_PlaceCannon() -> void:
+	pass
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
