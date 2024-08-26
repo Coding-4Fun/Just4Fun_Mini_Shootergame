@@ -14,6 +14,8 @@ extends Node
 @onready var GameSettingsScene :PackedScene = preload("res://UI/GameSettingsDialog/GameSettings.tscn")
 @onready var GameOverScene :PackedScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
 
+@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+
 # Player Node's
 var PlayerRootNode:Node2D
 var PlayerLeft:Node2D
@@ -34,3 +36,8 @@ var UIMain:Control
 var MapLayer:TileMapLayerBase
 var CannonLayer:TileMapLayerBase
 var CastleLayer:TileMapLayerBase
+
+
+func _ready():
+	rng.seed = 212197721011977
+	pass # Replace with function body.
