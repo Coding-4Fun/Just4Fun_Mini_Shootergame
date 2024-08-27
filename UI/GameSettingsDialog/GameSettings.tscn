@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdg32fb7rseev"]
+[gd_scene load_steps=9 format=3 uid="uid://bdg32fb7rseev"]
 
 [ext_resource type="Script" path="res://UI/GameSettingsDialog/game_settings.gd" id="1_efcby"]
 [ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_jw5od"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
 [ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="4_bcppk"]
 [ext_resource type="Texture2D" uid="uid://c4cul21yoa34n" path="res://assets/ui/wurfel.png" id="6_xkio1"]
+[ext_resource type="Texture2D" uid="uid://cl2tdfnbynoys" path="res://assets/ui/ActionPaste.svg" id="7_3d6p0"]
+[ext_resource type="Texture2D" uid="uid://c02bntkhyu328" path="res://assets/ui/ActionCopy.svg" id="8_xeboe"]
 
 [node name="GameSettings" type="Control"]
 layout_mode = 3
@@ -284,6 +286,20 @@ placeholder_text = "Press Button to generate"
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture_normal = ExtResource("6_xkio1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TexButtCopySeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("7_3d6p0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TexButtPasteSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("8_xeboe")
 ignore_texture_size = true
 stretch_mode = 0
 

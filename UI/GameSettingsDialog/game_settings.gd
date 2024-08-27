@@ -5,6 +5,8 @@ extends Control
 @onready var line_edit_user_name: LineEdit = $centerContainer/vBoxContainer/HBoxPlayername/LineEditUserName
 @onready var tex_butt_generate_random_seed: TextureButton = $centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername/TexButtGenerateRandomSeed
 @onready var line_edit_generate_random_seed: LineEdit = $centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername/LineEditGenerateRandomSeed
+@onready var tex_butt_copy_seed: TextureButton = $centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername/TexButtCopySeed
+@onready var tex_butt_paste_seed: TextureButton = $centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername/TexButtPasteSeed
 
 
 var playerhaschange : bool = false
@@ -21,6 +23,8 @@ func _ready() -> void:
 	line_edit_user_name.text_changed.connect(_on_playername_change)
 	line_edit_user_name.text = Config.get_configdata_value("GamePlayerName", Variant.Type.TYPE_STRING)
 
+	tex_butt_copy_seed.pressed.connect(_on_tex_butt_copy_seed)
+	tex_butt_paste_seed.pressed.connect(_on_tex_butt_paste_seed)
 	pass # Replace with function body.
 
 
@@ -56,4 +60,12 @@ func _on_tex_butt_generate_random_seed() -> void:
 
 
 func _on_line_edit_generate_random_seed_changed() -> void:
+	pass
+
+
+func _on_tex_butt_copy_seed() -> void:
+	pass
+
+
+func _on_tex_butt_paste_seed() -> void:
 	pass
