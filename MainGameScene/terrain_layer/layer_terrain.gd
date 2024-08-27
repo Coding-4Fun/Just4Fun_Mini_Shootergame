@@ -22,7 +22,8 @@ func _on_MapGeneratorWorldTileMap() -> void:
 
 func generate_world_tilemap_base() -> void:
 	clear()
-	randomize()
+	#randomize()
+	print("WorldGenerator Seed: %s" % str(Preloads.rng.seed))
 	current_displacement = displacement
 	var chgdispl = 0
 	plattform.clear()

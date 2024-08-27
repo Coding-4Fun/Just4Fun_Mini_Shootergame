@@ -16,10 +16,12 @@ func _ready():
 func _on_Create_Add_NewTarget() -> void:
 	var target : Node2D
 
-	randomize()
+	#randomize()
+	print("DummyTarget Seed: %s" % str(Preloads.rng.seed))
 
 	var tilecount = Preloads.MapLayer.world_tiles_x
-	var randtile = ceil(randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
+	var randtile = ceil(Preloads.rng.randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
+	#var randtile = ceil(randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
 
 	var tile_coord : Vector2i
 
