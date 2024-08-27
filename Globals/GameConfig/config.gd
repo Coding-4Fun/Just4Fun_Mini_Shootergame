@@ -89,7 +89,8 @@ func get_configdata_value(valuetoget: String, _vType : Variant.Type = Variant.Ty
 	
 	if valuetoget in config_data:
 		v = config_data[valuetoget]
-
+	elif CONFIGDATA_DEFAULT.has(valuetoget):
+		config_data[valuetoget] = CONFIGDATA_DEFAULT[valuetoget]
 	return v
 
 
