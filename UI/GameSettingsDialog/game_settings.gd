@@ -59,8 +59,7 @@ func _on_tex_butt_generate_random_seed() -> void:
 	pass
 
 
-func _on_line_edit_generate_random_seed_changed() -> void:
-	
+func _on_line_edit_generate_random_seed_changed(new_text : String) -> void:
 	pass
 
 
