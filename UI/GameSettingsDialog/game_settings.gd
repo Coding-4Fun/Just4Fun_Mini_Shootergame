@@ -60,12 +60,15 @@ func _on_tex_butt_generate_random_seed() -> void:
 
 
 func _on_line_edit_generate_random_seed_changed() -> void:
+	
 	pass
 
 
 func _on_tex_butt_copy_seed() -> void:
+	DisplayServer.clipboard_set(line_edit_generate_random_seed.text)
 	pass
 
 
 func _on_tex_butt_paste_seed() -> void:
+	line_edit_generate_random_seed.text = DisplayServer.clipboard_get()
 	pass
