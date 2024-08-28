@@ -10,6 +10,7 @@ extends Control
 
 
 var playerhaschange : bool = false
+var randomseedchanged : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +19,8 @@ func _ready() -> void:
 	butt_back_to_menu.pressed.connect(_on_butt_back_to_menu_pressed)
 	
 	tex_butt_generate_random_seed.pressed.connect(_on_tex_butt_generate_random_seed)
-	#line_edit_generate_random_seed.text_changed.connect(_on_line_edit_generate_random_seed_changed)
+	line_edit_generate_random_seed.text_changed.connect(_on_line_edit_generate_random_seed_changed)
+	line_edit_generate_random_seed.text_submitted.connect(_on_line_edit_generate_random_seed_text_submitted)
 	
 	line_edit_user_name.text_changed.connect(_on_playername_change)
 	line_edit_user_name.text = Config.get_configdata_value("GamePlayerName", Variant.Type.TYPE_STRING)
@@ -56,9 +58,19 @@ func _on_playername_change(_newname:String) -> void:
 	playerhaschange = true
 
 
+func _on_line_edit_generate_random_seed_changed(_new_text : String) -> void:
+	randomseedchanged = true
+	print("RANDOMSEED Changed")
+
+
+func _on_line_edit_generate_random_seed_text_submitted(_new_text : String) -> void:
+	print("Custom Submitted")
+	pass
+
+
 func _on_tex_butt_generate_random_seed() -> void:
 	#Preloads.rng.randomize()
-	
+	randomseedchanged = false
 	line_edit_generate_random_seed.text = str(Preloads.rng.randi())
 	#signi()
 	print("RandomSeedGenerator: Number -> %s" % line_edit_generate_random_seed.text)
