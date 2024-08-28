@@ -39,9 +39,9 @@ func _process(_delta: float) -> void:
 
 func _on_butt_start_game_pressed() -> void:
 	if playerhaschange:
-		Config.ConfigValueChanged.emit("GamePlayerName", line_edit_user_name.text)
+		SignalBus.ConfigValueChanged.emit("GamePlayerName", line_edit_user_name.text)
 	print("GameSettings Seed: %s" % str(Preloads.rng.seed))
-	Config.save_gameconfig()
+	SignalBus.ConfigSaveDataToFile.emit()
 	ScreenTransition.transition_to_packedscene(Preloads.MainGameScene)
 	
 	await ScreenTransition.transitioned_halfway

@@ -16,11 +16,11 @@ func _ready():
 
 func _on_cButtSwitchMaxShots_toggled(toggled_on: bool):
 	$MaxShotSlider.editable = toggled_on
-	Config.ConfigValueChanged.emit("GameConditionMaxShotsEnabled", toggled_on)
+	SignalBus.ConfigValueChanged.emit("GameConditionMaxShotsEnabled", toggled_on)
 
 
 func _on_MaxShotSlider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		var value = MaxShotSlider.value
 		MaxShotLabel.text = str(value)
-		Config.ConfigValueChanged.emit("GameConditionMaxShotsValue", value)
+		SignalBus.ConfigValueChanged.emit("GameConditionMaxShotsValue", value)

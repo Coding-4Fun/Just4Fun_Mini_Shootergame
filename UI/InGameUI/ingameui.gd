@@ -108,7 +108,6 @@ func _on_buttGameOptions_pressed() -> void:
 		background.size.y = _backgroundMin.y
 	else:
 		background.size.y = _backgroundMin.x
-		Config.save_gameconfig()
 
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
 		GSM.GameTimer.paused = OptionUI.visible
@@ -127,8 +126,6 @@ func _on_butt_back_to_menu_pressed() -> void:
 	if !GSM.GameTimer.is_stopped():
 		GSM.GameTimer.stop()
 	get_tree().paused = false
-
-	Config.save_gameconfig()
 
 	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
 	await ScreenTransition.transitioned_halfway
