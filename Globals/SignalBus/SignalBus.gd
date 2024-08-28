@@ -29,6 +29,7 @@ signal UIResetGame
 # settings signals
 signal PlayernameChange
 signal ConfigValueChanged
+signal ConfigSaveDataToFile
 
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
@@ -58,6 +59,7 @@ func _ready():
 	
 	# Config
 	ConfigValueChanged.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	ConfigSaveDataToFile.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
