@@ -11,6 +11,7 @@ extends Control
 
 var playerhaschange : bool = false
 var randomseedchanged : bool = false
+var randomseedhash : int = -1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +29,9 @@ func _ready() -> void:
 	tex_butt_copy_seed.pressed.connect(_on_tex_butt_copy_seed)
 	tex_butt_paste_seed.pressed.connect(_on_tex_butt_paste_seed)
 	
+	line_edit_generate_random_seed.text = str(Preloads.rng.state)
+	#Config.get_configdata_value("GameRandom")
+	
 	print("GameSettings -> RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("GameSettings -> RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
 	print("GameSettings -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.seed)))
@@ -42,10 +46,11 @@ func _process(_delta: float) -> void:
 func _on_butt_start_game_pressed() -> void:
 	if playerhaschange:
 		SignalBus.ConfigValueChanged.emit("GamePlayerName", line_edit_user_name.text)
-	print("GameSettings Seed: %s" % str(Preloads.rng.seed))
-	SignalBus.ConfigSaveDataToFile.emit()
+
+	if randomseedchanged:
+		pass
+
 	ScreenTransition.transition_to_packedscene(Preloads.MainGameScene)
-	
 	await ScreenTransition.transitioned_halfway
 
 
@@ -60,18 +65,24 @@ func _on_playername_change(_newname:String) -> void:
 
 func _on_line_edit_generate_random_seed_changed(_new_text : String) -> void:
 	randomseedchanged = true
+	randomseedhash = hash(str(_new_text))
 	print("RANDOMSEED Changed")
 
 
 func _on_line_edit_generate_random_seed_text_submitted(_new_text : String) -> void:
+	randomseedhash = hash(str(_new_text))
+	randomseedchanged = true
 	print("Custom Submitted")
 	pass
 
 
 func _on_tex_butt_generate_random_seed() -> void:
 	#Preloads.rng.randomize()
-	randomseedchanged = false
-	line_edit_generate_random_seed.text = str(Preloads.rng.randi())
+	if randomseedchanged:
+		randomseedchanged = false
+		Preloads._initRNG()
+	
+	line_edit_generate_random_seed.text = str(Preloads.rng.randi()) # Hashing ???
 	#signi()
 	print("RandomSeedGenerator: Number -> %s" % line_edit_generate_random_seed.text)
 	print("RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
@@ -87,4 +98,5 @@ func _on_tex_butt_copy_seed() -> void:
 
 func _on_tex_butt_paste_seed() -> void:
 	line_edit_generate_random_seed.text = DisplayServer.clipboard_get()
+	randomseedchanged = true
 	pass
