@@ -4,6 +4,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Preloads._initRNG()
+	
 	print("GameStart -> RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("GameStart -> RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
 	print("GameStart -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.seed)))
