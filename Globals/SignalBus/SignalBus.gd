@@ -28,6 +28,7 @@ signal UIResetGame
 
 # settings signals
 signal PlayernameChange
+signal ConfigValueChanged
 
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
@@ -50,9 +51,13 @@ func _ready():
 	UIResetGame.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	PlayernameChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
+	# Map Generator
 	MapGeneratorGenerateTerrain.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	MapGeneratorPlaceCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	MapGeneratorPlaceCannon.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	
+	# Config
+	ConfigValueChanged.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):

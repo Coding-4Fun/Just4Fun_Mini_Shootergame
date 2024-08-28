@@ -55,13 +55,10 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GameKeyBinding": null
 		}
 
-signal ConfigValueChanged
-
 
 func _ready() -> void:
 	config_data = get_configdata()
-
-	ConfigValueChanged.connect(_on_config_value_changed)
+	SignalBus.ConfigValueChanged.connect(_on_config_value_changed)
 
 
 func get_configdata() -> Dictionary:
