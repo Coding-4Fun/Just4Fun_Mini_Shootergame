@@ -39,12 +39,16 @@ var CastleLayer:TileMapLayerBase
 
 
 func _ready():
-	### ToDo: Load from Config or Set Default value
-	var seed = Config.get_configdata_value("MapGeneratorSeed")
-	if typeof(seed) == Variant.Type.TYPE_INT:
-		rng.seed = seed 
+	pass
+
+
+## Load from Config or Set Default value
+func _initRNG() -> void:
+	var _seed = Config.get_configdata_value("MapGeneratorSeed")
+	if typeof(_seed) == Variant.Type.TYPE_INT:
+		rng.seed = _seed 
 	else:
 		rng.seed = 212197721011977
-		Config.ConfigValueChanged.emit()
-	#rng.state = Config.get_configdata_value("MapGeneratorState") 
+		SignalBus.ConfigValueChanged.emit("MapGeneratorSeed", rng.seed)
+		SignalBus.ConfigValueChanged.emit("MapGeneratorState", rng.state)
 	pass # Replace with function body.
