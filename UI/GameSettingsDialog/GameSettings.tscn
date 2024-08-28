@@ -279,7 +279,7 @@ text = "SEED"
 [node name="LineEditGenerateRandomSeed" type="LineEdit" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-tooltip_text = "Set your name for Highscores and Multiplayer"
+tooltip_text = "Press Enter after setting Custom Seed"
 placeholder_text = "Press Button to generate"
 
 [node name="TexButtGenerateRandomSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
