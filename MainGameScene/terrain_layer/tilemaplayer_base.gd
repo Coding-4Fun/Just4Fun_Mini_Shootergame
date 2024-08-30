@@ -1,7 +1,7 @@
 extends TileMapLayer
 class_name TileMapLayerBase
 
-var tile_size:Vector2 = Vector2(16.0,16.0)
+@onready var tile_size:Vector2i = tile_set.tile_size
 
 @onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 @onready var midrange:float = screensize.y
@@ -21,8 +21,6 @@ enum block_types {
 
 # ToDo: Change to Vector2i(x,y)
 var world_tiles_count : Vector2i = Vector2i()
-var world_tiles_x : int
-var world_tiles_y : int
 var screenratio : float
 var min_terrain_height : int
 var max_terrain_height : int
