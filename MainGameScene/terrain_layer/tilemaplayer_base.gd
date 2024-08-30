@@ -27,10 +27,15 @@ var screenratio : float
 var min_terrain_height : int
 var max_terrain_height : int
 
+
 ## Calls from outside to initialize
 func _start():
 	print("Start() is called: %s" % name)
 	pass
+
+
+func _enter_tree() -> void:
+	print("_enter_tree() is called: %s" % name)
 
 
 # Called when the node enters the scene tree for the first time.
