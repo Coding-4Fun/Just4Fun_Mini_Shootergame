@@ -5,11 +5,9 @@ var target
 
 
 func _ready():
-	#ToDo: Change to global SignalBus
 	if !SignalBus.UIResetGame.is_connected(self._on_UI_ResetGame):
 			var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
 
-	# ToDo change to global Signal
 	SignalBus.MapGeneratorGenerateTerrain.emit()
 
 
@@ -47,7 +45,6 @@ func _on_UI_ResetGame() -> void:
 	GSM.GameTimeTextLabel.text = "00:00"
 	get_tree().call_group("Dummy", "queue_free")
 	get_tree().call_group("Shoots", "queue_free")
-	#ToDo: Change to Signal
-	#Preloads.Map.generate_world_tilemap_base()
+
 	SignalBus.MapGeneratorGenerateTerrain.emit()
 	SignalBus.CreateAndAddNewTarget.emit()
