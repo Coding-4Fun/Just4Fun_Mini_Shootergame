@@ -29,12 +29,12 @@ func _ready() -> void:
 	tex_butt_copy_seed.pressed.connect(_on_tex_butt_copy_seed)
 	tex_butt_paste_seed.pressed.connect(_on_tex_butt_paste_seed)
 	
-	line_edit_generate_random_seed.text = str(Preloads.rng.state)
+	line_edit_generate_random_seed.text = str(Preloads.rng.randi())
 	#Config.get_configdata_value("GameRandom")
 	
 	print("GameSettings -> RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("GameSettings -> RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
-	print("GameSettings -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.seed)))
+	print("GameSettings -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.state)))
 	pass # Replace with function body.
 
 
@@ -87,7 +87,6 @@ func _on_tex_butt_generate_random_seed() -> void:
 	print("RandomSeedGenerator: Number -> %s" % line_edit_generate_random_seed.text)
 	print("RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
-	print("RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.seed)))
 	pass
 
 
