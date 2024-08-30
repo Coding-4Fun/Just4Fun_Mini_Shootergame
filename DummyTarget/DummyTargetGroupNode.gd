@@ -19,13 +19,13 @@ func _on_Create_Add_NewTarget() -> void:
 	#randomize()
 	print("DummyTarget Seed: %s" % str(Preloads.rng.seed))
 
-	var tilecount = Preloads.MapLayer.world_tiles_x
+	var tilecount = Preloads.MapLayer.world_tiles_count.x
 	var randtile = ceil(Preloads.rng.randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
 	#var randtile = ceil(randi_range(Preloads.MapLayer.mod + 10, tilecount-1))
 
 	var tile_coord : Vector2i
 
-	for y in range(0, Preloads.MapLayer.world_tiles_y-1):
+	for y in range(0, Preloads.MapLayer.world_tiles_count.y-1):
 		var tid = Preloads.MapLayer.get_cell_source_id(Vector2i(randtile, y))
 		if tid == 8:
 			tile_coord = Vector2i(randtile, y)
