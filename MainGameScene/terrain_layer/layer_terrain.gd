@@ -4,12 +4,6 @@ extends TileMapLayerBase
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	world_tiles_x = int(screensize.x / tile_size.x)
-	screenratio = screensize.x / screensize.y
-
-	world_tiles_y = ceili(float(world_tiles_x) / screenratio)
-	min_terrain_height = world_tiles_y - mod
-	max_terrain_height = mod
 
 	SignalBus.MapGeneratorGenerateTerrain.connect(_on_MapGeneratorWorldTileMap)
 	pass # Replace with function body.
@@ -27,10 +21,10 @@ func generate_world_tilemap_base() -> void:
 	current_displacement = displacement
 	var chgdispl = 0
 	plattform.clear()
-	for x in world_tiles_x:
+	for x in world_tiles_count.x:
 		if x <= mod:
 			current_displacement = displacement
-		for y in world_tiles_y:
+		for y in world_tiles_count.y:
 
 			# BasePlattform
 			if x <= mod and y == current_displacement:
@@ -53,11 +47,11 @@ func generate_world_tilemap_base() -> void:
 				set_cell(Vector2i(x,y-1 if chgdispl < 0 else y), 1, Vector2i(0, 0))
 
 			# Unterhalb der Dirtlinie, zufällige Tiles
-			if y > current_displacement+2 and y < world_tiles_y-2:
+			if y > current_displacement+2 and y < world_tiles_count.y-2:
 				var rdm = randi_range(1,5)
 				set_cell(Vector2i(x,y-1 if chgdispl < 0 else y), rdm, Vector2i(0, 0))
 			# Abschluss Linie , y - 2
-			elif y >= world_tiles_y-2:
+			elif y >= world_tiles_count.y-2:
 				set_cell(Vector2i(x,y), 7, Vector2i(0, 0))
 			# End Y Loop
 		var lastchg = chgdispl

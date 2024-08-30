@@ -5,10 +5,10 @@ class_name TileMapLayerBase
 
 @onready var screensize:Vector2 = get_viewport().get_visible_rect().size
 @onready var midrange:float = screensize.y
-@onready var displacement := ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
+@export var displacement := ceili((midrange / tile_size.y) / 2) + randi_range(-10, 10)
 @export var current_displacement = 0
 @export var castlewidth : float = 200.0
-@export var mod : int = floori(snapped(castlewidth, tile_size.x) / tile_size.x)
+@export var mod = 0
 var plattform : Array[Vector2i] = []
 
 enum block_types {
@@ -38,6 +38,15 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("_ready() is called: %s" % name)
+	world_tiles_count.x = int(screensize.x / tile_size.x)
+	screenratio = screensize.x / screensize.y
+	mod = floori(snapped(castlewidth, tile_size.x) / tile_size.x)
+
+	world_tiles_count.y = ceili(float(world_tiles_count.x) / screenratio)
+	min_terrain_height = world_tiles_count.y - mod
+	max_terrain_height = mod
+
 	SignalBus.MapGeneratorGenerateTerrain.connect(_on_MapGenerator_GenerateTerrain)
 	SignalBus.MapGeneratorPlaceCastle.connect(_on_MapGenerator_PlaceCastle)
 	SignalBus.MapGeneratorPlaceCannon.connect(_on_MapGenerator_PlaceCannon)
