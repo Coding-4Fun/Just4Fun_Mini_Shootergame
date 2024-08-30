@@ -33,9 +33,9 @@ var UIMain:Control
 
 #
 ## TileMapLayer's
-var MapLayer:TileMapLayerBase
-var CannonLayer:TileMapLayerBase
-var CastleLayer:TileMapLayerBase
+var TerrainLayer: TileMapLayerBase
+var CannonLayer:  TileMapLayerBase
+var CastleLayer:  TileMapLayerBase
 
 
 func _ready():
