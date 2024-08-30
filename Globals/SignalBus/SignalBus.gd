@@ -31,6 +31,10 @@ signal PlayernameChange
 signal ConfigValueChanged
 signal ConfigSaveDataToFile
 
+# RandomNumberGenerator signals
+signal RNGSaveInitState
+signal RNGResetInitState
+
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
 	CannonPowerChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
