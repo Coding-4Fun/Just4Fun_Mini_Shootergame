@@ -109,8 +109,8 @@ func _on_buttGameOptions_pressed() -> void:
 	$"BoxContainer/HBoxHudMiddle/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
 
 
-func _on_buttSwitchTargetTimer_pressed() -> void:
-	UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
+#func _on_buttSwitchTargetTimer_pressed() -> void:
+	#UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
 
 
 func _on_butt_back_to_menu_pressed() -> void:
