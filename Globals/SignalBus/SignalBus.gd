@@ -32,8 +32,8 @@ signal ConfigValueChanged
 signal ConfigSaveDataToFile
 
 # RandomNumberGenerator signals
-signal RNGSaveInitState
-signal RNGResetInitState
+signal RNGSaveLastState
+signal RNGResetLastState
 
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
@@ -66,18 +66,18 @@ func _ready():
 	ConfigSaveDataToFile.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 	# RandomNumberGenerator signals
-	RNGSaveInitState.connect(_on_RNGSaveInitState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	RNGResetInitState.connect(_on_RNGResetInitState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	RNGSaveLastState.connect(_on_RNGSaveLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	RNGResetLastState.connect(_on_RNGResetLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
 	pass
 
 
-func _on_RNGSaveInitState() -> void:
+func _on_RNGSaveLastState() -> void:
 	pass
 
 
-func _on_RNGResetInitState() -> void:
+func _on_RNGResetLastState() -> void:
 	pass
 
 
