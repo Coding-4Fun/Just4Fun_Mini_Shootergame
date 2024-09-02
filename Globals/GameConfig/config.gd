@@ -45,6 +45,7 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GameConditionMinMaxScoreValue": 1000,
 		"MapGeneratorSeed": 212197721011977,
 		"MapGeneratorState": -1,
+		"MapGeneratorLastState": -1,
 		"GameNetworkHostIPAdress": "127.0.0.1",
 		"GameNetworkHostGamePort": "21277",
 		"GameNetworkMaxPlayers": 2,
