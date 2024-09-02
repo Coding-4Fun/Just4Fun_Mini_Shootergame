@@ -70,32 +70,21 @@ func _on_line_edit_generate_random_seed_changed(_new_text : String) -> void:
 
 
 func _on_line_edit_generate_random_seed_text_submitted(_new_text : String) -> void:
-	randomseedhash = hash(str(_new_text))
-	randomseedchanged = true
-	print("Custom Submitted")
 	pass
 
 
 func _on_tex_butt_generate_random_seed() -> void:
-	#Preloads.rng.randomize()
-	if randomseedchanged:
-		randomseedchanged = false
-		Preloads._initRNG()
-	
 	line_edit_generate_random_seed.text = str(Preloads.rng.randi()) # Hashing ???
-	#signi()
-	print("RandomSeedGenerator: Number -> %s" % line_edit_generate_random_seed.text)
-	print("RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
-	print("RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
 	pass
 
 
 func _on_tex_butt_copy_seed() -> void:
+	# ToDo: Encode Base64 and set JSON Content to Settings
 	DisplayServer.clipboard_set(line_edit_generate_random_seed.text)
 	pass
 
 
 func _on_tex_butt_paste_seed() -> void:
+	# ToDo: Decode Base64 and set JSON Content to Settings
 	line_edit_generate_random_seed.text = DisplayServer.clipboard_get()
-	randomseedchanged = true
 	pass
