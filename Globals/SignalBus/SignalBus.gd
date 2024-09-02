@@ -65,8 +65,19 @@ func _ready():
 	ConfigValueChanged.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	ConfigSaveDataToFile.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
+	# RandomNumberGenerator signals
+	RNGSaveInitState.connect(_on_RNGSaveInitState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	RNGResetInitState.connect(_on_RNGResetInitState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
+	pass
+
+
+func _on_RNGSaveInitState() -> void:
+	pass
+
+
+func _on_RNGResetInitState() -> void:
 	pass
 
 
