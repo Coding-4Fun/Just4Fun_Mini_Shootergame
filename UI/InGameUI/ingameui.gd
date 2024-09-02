@@ -10,10 +10,6 @@ var _missed : float = 0
 ## y = w/ Settings
 @export var _backgroundMin := Vector2i(130,220)
 
-## Handle Signals for UI Updates
-signal UIdummyTargetTimerChange
-
-
 @onready var OptionUI = $BoxContainer/VBoxSetting
 @onready var GameHudUI = $BoxContainer/HBoxHudMiddle
 @onready var background: ColorRect = $Background
@@ -35,10 +31,6 @@ func _ready() -> void:
 	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
-#
-	#if !UIdummyTargetTimerChange.is_connected(Config._on_dummytarget_TimerChange):
-		#if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
-			#print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
 
