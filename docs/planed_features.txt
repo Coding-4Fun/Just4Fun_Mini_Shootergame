@@ -1,0 +1,36 @@
+02.09.2024
+Move Restart Button from IngameUI to Pause Menu
+Replace Settings Button to open Pause Menu
+
+Rework Pause Menu
+- Continue
+- Restart Level
+	- With same Values for Generator
+- New Level
+	- Generate new Level with new Seed
+- Back to Settinsgs
+	- Ends the Level
+	- Settings Dialog
+- Back to Main Menu
+- Back to Desktop
+	- Close the Game
+
+
+Settings Menu
+- Add Option for Reload Cooldown Timer
+
+
+Score Dialog
+- Show Score Dialog on rounds end
+
+
+Game Mode's
+- New Gamemode
+	- Defence
+		- Like Tower defence with waves of enemys
+	- Presets
+		- Sets preselected Values
+
+
+Terrain generation
+- possibility to use custom Seeds for generation
