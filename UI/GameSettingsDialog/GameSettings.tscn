@@ -242,25 +242,6 @@ layout_mode = 2
 text = "sek."
 horizontal_alignment = 2
 
-[node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
-layout_mode = 2
-
-[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
-layout_mode = 2
-text = "ToDo: Reload Cooldown Time Options"
-
-[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
-layout_mode = 2
-text = "ToDo: TerainSeed"
-
-[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
-layout_mode = 2
-text = "ToDo: "
-
-[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
-layout_mode = 2
-text = "ToDo: Highscores"
-
 [node name="VBoxTerrainSeed" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
 
@@ -281,6 +262,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 tooltip_text = "Press Enter after setting Custom Seed"
 placeholder_text = "Press Button to generate"
+editable = false
 
 [node name="TexButtGenerateRandomSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
 custom_minimum_size = Vector2(32, 32)
@@ -327,3 +309,24 @@ layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 text = "Back to Menu"
+
+[node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
+visible = false
+layout_mode = 2
+vertical = true
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Reload Cooldown Time Options"
+
+[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: TerainSeed"
+
+[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: "
+
+[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Highscores"
