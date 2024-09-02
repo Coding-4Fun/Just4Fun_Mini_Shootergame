@@ -18,10 +18,14 @@ Rework Pause Menu
 
 Settings Menu
 - Add Option for Reload Cooldown Timer
+- Copy / Paste Setting + Seed 
+	- As base64 encoded JSON String
+- save As base64 encoded JSON String with Custom Name
 
 
 Score Dialog
 - Show Score Dialog on rounds end
+- Maybe Online highscorelist
 
 
 Game Mode's
@@ -30,6 +34,7 @@ Game Mode's
 		- Like Tower defence with waves of enemys
 	- Presets
 		- Sets preselected Values
+			- save As base64 encoded JSON String
 
 
 Terrain generation
