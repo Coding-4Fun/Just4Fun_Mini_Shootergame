@@ -67,17 +67,14 @@ func _ready():
 
 	# RandomNumberGenerator signals
 	RNGSaveLastState.connect(_on_RNGSaveLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
-	RNGResetLastState.connect(_on_RNGResetLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	RNGResetLastState.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
 	pass
 
 
-func _on_RNGSaveLastState() -> void:
-	pass
-
-
-func _on_RNGResetLastState() -> void:
+func _on_RNGSaveLastState(lastseed : int) -> void:
+	SignalBus.ConfigValueChanged.emit("GameMapGeneratorLastState", lastseed)
 	pass
 
 
