@@ -14,6 +14,7 @@ var _missed : float = 0
 @onready var GameHudUI = $BoxContainer/HBoxHudMiddle
 @onready var background: ColorRect = $Background
 
+@onready var texbut_game_menu: TextureButton = $BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/texbutGameMenu
 
 func _ready() -> void:
 	if !SignalBus.CannonAngelChange.is_connected(self._on_Cannon_CannonAngelChange):
@@ -31,6 +32,12 @@ func _ready() -> void:
 	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
+
+	if !SignalBus.UIResetGame.is_connected(self._on_ResetUI):
+		if SignalBus.UIResetGame.connect(self._on_ResetUI) != OK:
+			print("Error - InGameUI.gd: connect signal CannonShoot")
+
+	texbut_game_menu.pressed.connect(_on_textbutGameMenuPressed)
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
 
@@ -79,7 +86,7 @@ func _on_UIScore_Change(score) -> void:
 	GSM.GameStateChange.emit(_score, _hits, _shots)
 
 ## Reset the Game
-func _on_buttGameReset_button_pressed() -> void:
+func _on_ResetUI() -> void:
 	_shots = 0.0
 	_score = 0.0
 	_hits = 0.0
@@ -89,7 +96,7 @@ func _on_buttGameReset_button_pressed() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
-	SignalBus.UIResetGame.emit()
+#	SignalBus.UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
 
 # Öffnen und schliessen der Settings
@@ -121,3 +128,11 @@ func _on_butt_back_to_menu_pressed() -> void:
 
 	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
 	await ScreenTransition.transitioned_halfway
+
+
+func _on_textbutGameMenuPressed() -> void:
+	# ToDo: Pause Menü öffnen
+	var pm = Preloads.PauseMenu.instantiate()
+	get_tree().get_current_scene().add_child(pm)
+	get_tree().paused = !get_tree().paused
+	pass
