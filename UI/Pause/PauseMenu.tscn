@@ -17,18 +17,70 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0.145098, 0.121569, 0.121569, 0.666667)
 
-[node name="label" type="Label" parent="CenterContainer/colorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/colorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -269.0
-offset_top = -73.5
-offset_right = 269.0
-offset_bottom = 73.5
+offset_left = -271.5
+offset_top = -96.0
+offset_right = 271.5
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="label" type="Label" parent="CenterContainer/colorRect/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 140
 text = "PAUSED"
+
+[node name="ButtContinue" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Fortsetzen"
+
+[node name="ButtRestartLevel" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Neustart"
+
+[node name="ButtNewLevel" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Neues Level"
+
+[node name="ButtBackToSettings" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Beenden zu Gamesettings"
+
+[node name="ButtBackToMainMenu" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Beenden zu Hauptmenu"
+
+[node name="ButtBackToDesktop" type="Button" parent="CenterContainer/colorRect/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"MainTitleButton"
+theme_override_font_sizes/font_size = 50
+text = "Beenden zu Desktop"
