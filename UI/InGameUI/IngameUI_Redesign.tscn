@@ -52,7 +52,7 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="TextureButton" type="TextureButton" parent="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons"]
+[node name="texbutGameMenu" type="TextureButton" parent="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -359,6 +359,4 @@ text = "Back to Menu"
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameOptions" to="." method="_on_buttGameOptions_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/buttGameReset" to="." method="_on_buttGameReset_button_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxSetting/hBoxOptions/buttBackToMenu" to="." method="_on_butt_back_to_menu_pressed"]
