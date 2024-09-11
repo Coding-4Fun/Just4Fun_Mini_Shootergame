@@ -1,9 +1,12 @@
 02.09.2024
 Move Restart Button from IngameUI to Pause Menu
-Replace Settings Button to open Pause Menu
+WIP: Replace Settings Button to open Pause Menu
 
+WIP: 
+	Done: Menu Design
+	Done: ButtonSignals
 Rework Pause Menu
-- Continue
+- Done: Continue
 - Restart Level
 	- With same Values for Generator
 - New Level
