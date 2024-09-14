@@ -41,6 +41,14 @@ func _on_ButtContinuePressed() -> void:
 
 
 func _on_ButtRestartLevelPressed() -> void:
+	# Unpause
+	if get_tree().paused:
+		get_tree().paused = !get_tree().paused
+		queue_free()
+	# ResetUI
+	SignalBus.UIResetGame.emit()
+	# Reset GameTimer if enabled
+	## Reset Seed to Beginning
 	pass
 
 
