@@ -298,17 +298,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+text = "Back to Menu"
+
 [node name="buttStartGame" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start Game"
-
-[node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-text = "Back to Menu"
 
 [node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
 visible = false
