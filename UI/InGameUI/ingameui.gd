@@ -11,7 +11,7 @@ var _missed : float = 0
 @export var _backgroundMin := Vector2i(130,220)
 
 @onready var OptionUI = $BoxContainer/VBoxSetting
-@onready var GameHudUI = $BoxContainer/HBoxHudMiddle
+@onready var GameHudUI = $BoxContainer/HBoxHudBottom
 @onready var background: ColorRect = $Background
 
 @onready var texbut_game_menu: TextureButton = $BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/texbutGameMenu
@@ -46,7 +46,7 @@ func _ready() -> void:
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
 	$BoxContainer/HBoxHudTop/hBoxPower/labPower.text = str(test.min_velocity)
-	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
+	$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
 		GSM.GameTimer.start()
@@ -79,7 +79,8 @@ func _on_UIScore_Change(score) -> void:
 		$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	if _shots != 0:
 		var pps:float = float(float(_score) / float(_shots))
-		$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
+		$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
+		#$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots
 	if score < 0:
 		_missed += 1
 		$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
@@ -95,7 +96,7 @@ func _on_ResetUI() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
-	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
+	$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 #	SignalBus.UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
 

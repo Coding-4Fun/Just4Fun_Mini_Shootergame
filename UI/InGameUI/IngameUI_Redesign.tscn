@@ -213,27 +213,28 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hBoxGametimer" type="HBoxContainer" parent="BoxContainer/HBoxHudMiddle"]
+[node name="hBoxPointsPerShot" type="HBoxContainer" parent="BoxContainer/HBoxHudMiddle"]
 custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
 size_flags_horizontal = 2
+mouse_filter = 2
 alignment = 2
 
-[node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxGametimer"]
+[node name="label" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxPointsPerShot"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
-text = "Gametime:"
+text = "Points per Shot:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labelGameTime" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxGametimer"]
+[node name="labPointsPerShots" type="Label" parent="BoxContainer/HBoxHudMiddle/hBoxPointsPerShot"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
+size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
-text = "00:00"
+text = "123456789"
 horizontal_alignment = 2
-vertical_alignment = 1
 
 [node name="VSeparator4" type="VSeparator" parent="BoxContainer/HBoxHudMiddle"]
 custom_minimum_size = Vector2(15, 0)
@@ -300,29 +301,27 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hBoxPointsPerShot_2" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
-visible = false
+[node name="hBoxGametimer" type="HBoxContainer" parent="BoxContainer/HBoxHudBottom"]
 custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
 size_flags_horizontal = 2
-mouse_filter = 2
 alignment = 2
 
-[node name="label" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot_2"]
+[node name="label" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxGametimer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"InGameUIHudLabel"
-text = "Points per Shot:"
+text = "Gametime:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labPointsPerShots" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxPointsPerShot_2"]
+[node name="labelGameTime" type="Label" parent="BoxContainer/HBoxHudBottom/hBoxGametimer"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-size_flags_vertical = 0
 theme_type_variation = &"InGameUIHudLabel"
-text = "123456789"
+text = "00:00"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VSeparator3" type="VSeparator" parent="BoxContainer/HBoxHudBottom"]
 custom_minimum_size = Vector2(15, 0)
