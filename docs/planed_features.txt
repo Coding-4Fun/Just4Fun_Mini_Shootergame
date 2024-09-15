@@ -1,16 +1,15 @@
-02.09.2024
-Move Restart Button from IngameUI to Pause Menu
-WIP: Replace Settings Button to open Pause Menu
+DONE: Move Restart Button from IngameUI to Pause Menu
+DONE: Replace Settings Button to open Pause Menu
 
-WIP: 
+DONE: 
 	Done: Menu Design
 	Done: ButtonSignals
-Rework Pause Menu
-- Done: Continue
+DONE: Rework Pause Menu
+- Continue
 - Restart Level
-	- With same Values for Generator
+	- TBD: With same Values for Generator
 - New Level
-	- Generate new Level with new Seed
+	- TBD: Generate new Level with new Seed
 - Back to Settinsgs
 	- Ends the Level
 	- Settings Dialog
@@ -24,6 +23,7 @@ Settings Menu
 - Copy / Paste Setting + Seed 
 	- As base64 encoded JSON String
 - save As base64 encoded JSON String with Custom Name
+	- Dropdown for reloading saved settings
 
 
 Score Dialog
@@ -35,6 +35,13 @@ Game Mode's
 - New Gamemode
 	- Defence
 		- Like Tower defence with waves of enemys
+		- Rogue Like
+			- permanent Perks / Meta Progress
+				- More Area of Effect AoE
+				- shorter Reloads
+				- Double Shots
+				- More Goal Hitpoints
+				
 	- Presets
 		- Sets preselected Values
 			- save As base64 encoded JSON String
@@ -42,3 +49,16 @@ Game Mode's
 
 Terrain generation
 - possibility to use custom Seeds for generation
+
+Updater:
+	- Lookup GitHub for new releases
+		- Only fetch if new Update 
+			- Show Change notice
+	- Maybe .NET Client
+		- Download and install
+		- Restart
+
+BUGS:
+	- Back to MainMenu in GameOverDialog
+	- double transition to GameOVERdIALOG
+	- Escape Key (Pause Menu) in all Dialog / Scenes
