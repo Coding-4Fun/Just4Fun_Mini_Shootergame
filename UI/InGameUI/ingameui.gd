@@ -5,14 +5,7 @@ var _score : float = 0
 var _hits : float = 0
 var _missed : float = 0
 
-## Holds the background size 
-## x = w/o Settings
-## y = w/ Settings
-@export var _backgroundMin := Vector2i(130,220)
-
-@onready var OptionUI = $BoxContainer/VBoxSetting
 @onready var GameHudUI = $BoxContainer/HBoxHudBottom
-@onready var background: ColorRect = $Background
 
 @onready var texbut_game_menu: TextureButton = $BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/texbutGameMenu
 
@@ -99,36 +92,6 @@ func _on_ResetUI() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 #	SignalBus.UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
-
-# Öffnen und schliessen der Settings
-func _on_buttGameOptions_pressed() -> void:
-	OptionUI.visible = !OptionUI.visible
-
-	if OptionUI.visible:
-		background.size.y = _backgroundMin.y
-	else:
-		background.size.y = _backgroundMin.x
-
-	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
-		GSM.GameTimer.paused = OptionUI.visible
-
-	get_tree().paused = OptionUI.visible
-	
-	$"BoxContainer/HBoxHudMiddle/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
-
-
-#func _on_buttSwitchTargetTimer_pressed() -> void:
-	#UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
-
-
-func _on_butt_back_to_menu_pressed() -> void:
-###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
-	if !GSM.GameTimer.is_stopped():
-		GSM.GameTimer.stop()
-	get_tree().paused = false
-
-	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
-	await ScreenTransition.transitioned_halfway
 
 
 func _on_textbutGameMenuPressed() -> void:
