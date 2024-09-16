@@ -5,20 +5,9 @@ var _score : float = 0
 var _hits : float = 0
 var _missed : float = 0
 
-## Holds the background size 
-## x = w/o Settings
-## y = w/ Settings
-@export var _backgroundMin := Vector2i(130,220)
+@onready var GameHudUI = $BoxContainer/HBoxHudBottom
 
-## Handle Signals for UI Updates
-signal UIResetGame
-signal UIdummyTargetTimerChange
-
-
-@onready var OptionUI = $BoxContainer/VBoxSetting
-@onready var GameHudUI = $BoxContainer/HBoxHudMiddle
-@onready var background: ColorRect = $Background
-
+@onready var texbut_game_menu: TextureButton = $BoxContainer/HBoxHudTop/MarginContainer/hBoxUIButtons/texbutGameMenu
 
 func _ready() -> void:
 	if !SignalBus.CannonAngelChange.is_connected(self._on_Cannon_CannonAngelChange):
@@ -36,10 +25,12 @@ func _ready() -> void:
 	if !SignalBus.CannonShoot.is_connected(self._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(self._on_Cannon_Shot) != OK:
 			print("Error - InGameUI.gd: connect signal CannonShoot")
-#
-	#if !UIdummyTargetTimerChange.is_connected(Config._on_dummytarget_TimerChange):
-		#if UIdummyTargetTimerChange.connect(Config._on_dummytarget_TimerChange) != OK:
-			#print("Error - InGameUI.gd: connect signal UIdummyTargetTimerChange")
+
+	if !SignalBus.UIResetGame.is_connected(self._on_ResetUI):
+		if SignalBus.UIResetGame.connect(self._on_ResetUI) != OK:
+			print("Error - InGameUI.gd: connect signal CannonShoot")
+
+	texbut_game_menu.pressed.connect(_on_textbutGameMenuPressed)
 
 	var test = Preloads.PlayerLeft.find_child("Cannon")
 
@@ -48,7 +39,7 @@ func _ready() -> void:
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	$BoxContainer/HBoxHudTop/hBoxScore/labScore.text = str(_score)
 	$BoxContainer/HBoxHudTop/hBoxPower/labPower.text = str(test.min_velocity)
-	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
+	$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
 
 	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled"):
 		GSM.GameTimer.start()
@@ -81,14 +72,15 @@ func _on_UIScore_Change(score) -> void:
 		$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	if _shots != 0:
 		var pps:float = float(float(_score) / float(_shots))
-		$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
+		$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "%.3f" % pps
+		#$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots
 	if score < 0:
 		_missed += 1
 		$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
 	GSM.GameStateChange.emit(_score, _hits, _shots)
 
 ## Reset the Game
-func _on_buttGameReset_button_pressed() -> void:
+func _on_ResetUI() -> void:
 	_shots = 0.0
 	_score = 0.0
 	_hits = 0.0
@@ -97,39 +89,14 @@ func _on_buttGameReset_button_pressed() -> void:
 	$BoxContainer/HBoxHudMiddle/hBoxShots/labShots.text = str(_shots)
 	$BoxContainer/HBoxHudMiddle/hBoxHits/labHits.text = str(_hits)
 	$BoxContainer/HBoxHudBottom/hBoxMisHits/labMissHits.text = str(_missed)
-	$BoxContainer/HBoxHudBottom/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
-	UIResetGame.emit()
+	$BoxContainer/HBoxHudMiddle/hBoxPointsPerShot/labPointsPerShots.text = "0.0"
+#	SignalBus.UIResetGame.emit()
 	GSM.GameTimerTimeElapsed = 0
 
-# Öffnen und schliessen der Settings
-func _on_buttGameOptions_pressed() -> void:
-	OptionUI.visible = !OptionUI.visible
 
-	if OptionUI.visible:
-		background.size.y = _backgroundMin.y
-	else:
-		background.size.y = _backgroundMin.x
-		Config.save_gameconfig()
-
-	if Config.get_configdata_value("GameConditionMaxGameTimeEnabled") == true:
-		GSM.GameTimer.paused = OptionUI.visible
-
-	get_tree().paused = OptionUI.visible
-	
-	$"BoxContainer/HBoxHudMiddle/hBoxGametimer".visible = !GSM.GameTimer.is_stopped()
-
-
-func _on_buttSwitchTargetTimer_pressed() -> void:
-	UIdummyTargetTimerChange.emit($BoxContainer/VBoxSetting/hBoxOptions/buttSwitchTargetTimer.button_pressed)
-
-
-func _on_butt_back_to_menu_pressed() -> void:
-###	assert(get_tree().change_scene_to(Preloads.MainMenuScene) == OK, "Error: change_scene_to()::buttBackToMenu_pressed")
-	if !GSM.GameTimer.is_stopped():
-		GSM.GameTimer.stop()
-	get_tree().paused = false
-
-	Config.save_gameconfig()
-
-	ScreenTransition.transition_to_packedscene(Preloads.MainMenuScene)
-	await ScreenTransition.transitioned_halfway
+func _on_textbutGameMenuPressed() -> void:
+	# ToDo: Pause Menü öffnen
+	var pm = Preloads.PauseMenu.instantiate()
+	get_tree().get_current_scene().add_child(pm)
+	get_tree().paused = !get_tree().paused
+	pass

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdg32fb7rseev"]
+[gd_scene load_steps=9 format=3 uid="uid://bdg32fb7rseev"]
 
 [ext_resource type="Script" path="res://UI/GameSettingsDialog/game_settings.gd" id="1_efcby"]
 [ext_resource type="Script" path="res://UI/Settings/MaxShotSettings.gd" id="2_jw5od"]
 [ext_resource type="Script" path="res://UI/Settings/MaxGameTimeSettings.gd" id="2_nvwev"]
 [ext_resource type="Script" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
 [ext_resource type="Script" path="res://UI/Settings/MaxScoreSettings.gd" id="4_bcppk"]
+[ext_resource type="Texture2D" uid="uid://c4cul21yoa34n" path="res://assets/ui/wurfel.png" id="6_xkio1"]
+[ext_resource type="Texture2D" uid="uid://cl2tdfnbynoys" path="res://assets/ui/ActionPaste.svg" id="7_3d6p0"]
+[ext_resource type="Texture2D" uid="uid://c02bntkhyu328" path="res://assets/ui/ActionCopy.svg" id="8_xeboe"]
 
 [node name="GameSettings" type="Control"]
 layout_mode = 3
@@ -239,25 +242,50 @@ layout_mode = 2
 text = "sek."
 horizontal_alignment = 2
 
-[node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
-visible = false
+[node name="VBoxTerrainSeed" type="VBoxContainer" parent="centerContainer/vBoxContainer"]
 layout_mode = 2
 
-[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxTerrainSeed"]
 layout_mode = 2
-text = "ToDo: Reload Cooldown Time Options"
+text = "Terrain Seed"
 
-[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+[node name="HBoxPlayername" type="HBoxContainer" parent="centerContainer/vBoxContainer/VBoxTerrainSeed"]
 layout_mode = 2
-text = "ToDo: TerainSeed"
 
-[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+[node name="Label" type="Label" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(205, 0)
 layout_mode = 2
-text = "ToDo: PlayerName"
+text = "SEED"
 
-[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+[node name="LineEditGenerateRandomSeed" type="LineEdit" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "ToDo: Highscores"
+tooltip_text = "Press Enter after setting Custom Seed"
+placeholder_text = "Press Button to generate"
+editable = false
+
+[node name="TexButtGenerateRandomSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("6_xkio1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TexButtCopySeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "Copy Seed to Clipboard"
+texture_normal = ExtResource("7_3d6p0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TexButtPasteSeed" type="TextureButton" parent="centerContainer/vBoxContainer/VBoxTerrainSeed/HBoxPlayername"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+tooltip_text = "Paste Seed from Clipboard"
+texture_normal = ExtResource("8_xeboe")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="vSeparator" type="VSeparator" parent="centerContainer/vBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -270,14 +298,35 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+text = "Back to Menu"
+
 [node name="buttStartGame" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Start Game"
 
-[node name="buttBackToMenu" type="Button" parent="centerContainer/vBoxContainer/hBoxButtons"]
+[node name="VBoxToDo" type="FlowContainer" parent="centerContainer/vBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-text = "Back to Menu"
+vertical = true
+
+[node name="label" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Reload Cooldown Time Options"
+
+[node name="label2" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: TerainSeed"
+
+[node name="label3" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: "
+
+[node name="label4" type="Label" parent="centerContainer/vBoxContainer/VBoxToDo"]
+layout_mode = 2
+text = "ToDo: Highscores"

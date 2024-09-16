@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Player_Shoot(pos:Transform2D, velocity, gravity) -> void:
-	randomize()
+	#randomize()
 	var bullet : CharacterBody2D = Preloads.Bullet.instantiate()
 	bullet.Ply = name
 	bullet.name = str(randi())

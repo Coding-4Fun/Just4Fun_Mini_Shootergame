@@ -43,6 +43,9 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GameConditionMinMaxScore": -100,
 		"GameConditionMaxGameTimeEnabled": false,
 		"GameConditionMinMaxScoreValue": 1000,
+		"GameMapGeneratorSeed": 212197721011977,
+		"GameMapGeneratorState": 0,
+		"GameMapGeneratorLastState": 0,
 		"GameNetworkHostIPAdress": "127.0.0.1",
 		"GameNetworkHostGamePort": "21277",
 		"GameNetworkMaxPlayers": 2,
@@ -53,19 +56,23 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GameKeyBinding": null
 		}
 
-signal ConfigValueChanged
+#signal ConfigValueChanged
 
 
 func _ready() -> void:
-	config_data = get_configdata()
+	config_data = load_configdata_from_file()
+	_check_DefaultConfig()
+	
+	SignalBus.ConfigValueChanged.connect(_on_config_value_changed)
+	SignalBus.ConfigSaveDataToFile.connect(_on_ConfigSaveDataToFile)
 
-	ConfigValueChanged.connect(_on_config_value_changed)
+	SignalBus.ConfigSaveDataToFile.emit()
 
 
-func get_configdata() -> Dictionary:
+func load_configdata_from_file() -> Dictionary:
 	var json = JSON.new()
 	if not FileAccess.file_exists(GAMECONFIGFILE):
-		save_gameconfig(true)
+		SignalBus.ConfigSaveDataToFile.emit(true)
 
 	var file = FileAccess.open(GAMECONFIGFILE, FileAccess.READ)
 
@@ -87,11 +94,13 @@ func get_configdata_value(valuetoget: String, _vType : Variant.Type = Variant.Ty
 	
 	if valuetoget in config_data:
 		v = config_data[valuetoget]
-
+	else:
+		return get_defaultvalue(valuetoget)
+		
 	return v
 
 
-func save_gameconfig (savedefault : bool = false):
+func _save_gameconfig (savedefault : bool = false):
 	if savedefault:
 		config_data = CONFIGDATA_DEFAULT
 	var config = FileAccess.open(GAMECONFIGFILE, FileAccess.WRITE)
@@ -99,7 +108,6 @@ func save_gameconfig (savedefault : bool = false):
 	var json = JSON.stringify(config_data, "\t")
 	config.store_line(json)
 	config.close()
-
 
 
 #func _on_config_value_changed(obj: String= "", value : Variant = null, root: String = "Game", group: String= "") -> void:
@@ -115,5 +123,29 @@ func _on_config_value_changed(obj: String= "", value : Variant = null) -> void:
 	# save new Value to Config Dict / conf_File
 	if obj in config_data:
 		config_data[obj] = value
+	else: #if not in memory, check if default value exists
+		var def = get_defaultvalue(obj)
+		if typeof(def) != Variant.Type.TYPE_NIL:
+			config_data[obj] = value
 	
+	SignalBus.ConfigSaveDataToFile.emit()
 	print("Signal Received: ConfigValueChange: ", [obj, value])
+
+
+func _check_DefaultConfig() -> void:
+	var keys = CONFIGDATA_DEFAULT.keys()
+	for k in keys:
+		if not k in config_data:
+			config_data[k] = get_defaultvalue(k)
+	pass
+
+
+func get_defaultvalue(key : String) -> Variant:
+	if key in CONFIGDATA_DEFAULT:
+		return CONFIGDATA_DEFAULT.get(key)
+
+	return null
+
+
+func _on_ConfigSaveDataToFile(savedefault : bool = false) -> void:
+	_save_gameconfig(savedefault)

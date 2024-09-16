@@ -27,14 +27,14 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var collider = collision.get_collider()
-		if collider is TileMap:
+		if collider is TileMapLayerBase:
 			# Find the character's position in tile coordinates
 			var colpos = collision.get_position()
 			var tile_pos = collider.local_to_map(colpos)
 			# Find the colliding tile position
 			# Get the tile id
-			var tile_id = collider.get_cell_source_id(0,tile_pos)
-			if tile_id == 0:
+			var tile_id = collider.get_cell_source_id(tile_pos)
+			if tile_id == 8:
 				SignalBus.exploded.emit(position + transform.x * 37)
 				SignalBus.GroundHit.emit()
 		elif collider is StaticBody2D:

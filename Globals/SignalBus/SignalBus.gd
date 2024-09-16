@@ -3,6 +3,11 @@ extends Node
 # global signals 
 signal FloatingText
 
+# TileMap Signals
+signal MapGeneratorGenerateTerrain
+signal MapGeneratorPlaceCastle
+signal MapGeneratorPlaceCannon
+
 # Cannon Signals
 signal CannonPowerChange
 signal CannonAngelChange
@@ -19,9 +24,16 @@ signal GroundHit
 
 # UI Signals
 signal UIScoreChange
+signal UIResetGame
 
 # settings signals
 signal PlayernameChange
+signal ConfigValueChanged
+signal ConfigSaveDataToFile
+
+# RandomNumberGenerator signals
+signal RNGSaveLastState
+signal RNGResetLastState
 
 ## Dumy func to prevent UNUSED_SIGNAL Warning
 func _ready():
@@ -41,10 +53,28 @@ func _ready():
 
 	# UI Signals
 	UIScoreChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	UIResetGame.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 	PlayernameChange.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
+	# Map Generator
+	MapGeneratorGenerateTerrain.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	MapGeneratorPlaceCastle.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	MapGeneratorPlaceCannon.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	
+	# Config
+	ConfigValueChanged.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	ConfigSaveDataToFile.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+
+	# RandomNumberGenerator signals
+	RNGSaveLastState.connect(_on_RNGSaveLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	RNGResetLastState.connect(_on_Dummy_Signal, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
 
 func _on_Dummy_Signal(_var1=null, _var2=null, _var3=null):
+	pass
+
+
+func _on_RNGSaveLastState(lastseed : int) -> void:
+	SignalBus.ConfigValueChanged.emit("GameMapGeneratorLastState", lastseed)
 	pass
 
 
