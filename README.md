@@ -2,6 +2,21 @@
 
 ![Image](assets/screenshots/game_title_banner.png)
 
+## Update Septemper 16 2024
+- Neue Tiles, slopes statt eckige Absätze
+- Migration zu neuen TileMapLayer
+- W.I.P: Generierung des Terrains per Seed
+-- Add Button in Setting um einen Seed zu Generieren / nutzen
+- Neustrukturierung des Pause Dialog
+-- Neuer Button zum aufrufen des Menüs + per ESC
+-- Entfernen der nicht mehr benötigten Buttons aus der InGame UI
+-- Fortsetzen
+-- Aktuelles Level neustarten
+-- Neues Level generieren
+-- Zurück zu settings
+-- Zurück zum Hauptmenü
+-- Beenden
+
 
 ## Überarbeitung der Terraingenerierung
 
