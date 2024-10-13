@@ -30,8 +30,12 @@ func _enter_tree() -> void:
 	Preloads.CannonLayer = find_child("LayerCannon")
 	Preloads.CastleLayer = find_child("LayerCastle")
 
+	GSM.IsInGameScene = true
 	pass
 
+
+func _exit_tree() -> void:
+	GSM.IsInGameScene = false
 
 func _on_MainGame_ready() -> void:
 	GSM.gameWin = -1

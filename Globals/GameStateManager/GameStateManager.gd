@@ -10,6 +10,7 @@ var GameTimer:Timer
 var GameTimerTimeElapsed:int = 0
 var GameTimeTextLabel:Label
 var GameTimerTimeout:int = -1
+var IsInGameScene : bool = false
 
 ## ToDo: Change to global SignalBus ?
 signal GameStateChange
@@ -84,6 +85,8 @@ func _show_GameOverDialog(win:int = 0) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if !IsInGameScene:
+		return
 	if event.is_action_pressed("Pause"):
 		if !get_tree().paused:
 			pm = Preloads.PauseMenu.instantiate()
