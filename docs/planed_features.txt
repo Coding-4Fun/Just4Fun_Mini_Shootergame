@@ -61,4 +61,6 @@ Updater:
 BUGS:
 	- Back to MainMenu in GameOverDialog
 	- double transition to GameOVERdIALOG
-	- Escape Key (Pause Menu) in all Dialog / Scenes
+	- Escape Key (Pause Menu) 
+		- FIXED: Menu opens in all Dialog / Scenes
+		- Restart generate new Terrain
