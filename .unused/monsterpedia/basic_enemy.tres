@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://b3uiksys2kfgb"]
+
+[ext_resource type="Texture2D" uid="uid://h3mxamv724yf" path="res://assets/enemies/basic_enemy.png" id="1_kkkf2"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="1_vmw2v"]
+
+[resource]
+script = ExtResource("1_vmw2v")
+id = "BasicEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 0
+kills_to_unlock = 0
+rounds_to_unlock = 0
+times_enemy_killed = 0
+enemy_texture = ExtResource("1_kkkf2")
+title = "Basic Enemy"
+description = "the weekes enemy on the field. Low hitpoints, slowly"
+EnemyName = "BasicEnemy"
+weigthness = 8.0
+max_health = 8.0
+drop_percent = 0.3
+max_speed = 35
+acceleration = 5.0

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://8blgmkqeei4k"]
+
+[ext_resource type="Texture2D" uid="uid://df0sd6sprpdn4" path="res://assets/enemies/ghost.png" id="1_hwf05"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_5fd3f"]
+
+[resource]
+script = ExtResource("2_5fd3f")
+id = "GhostEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 400
+enemy_texture = ExtResource("1_hwf05")
+title = "Ghost Enemy"
+description = "Green ghost"
+EnemyName = "GhostEnemy"
+weigthness = 40.0
+max_health = 45.0
+drop_percent = 0.3
+max_speed = 35
+acceleration = 6.0

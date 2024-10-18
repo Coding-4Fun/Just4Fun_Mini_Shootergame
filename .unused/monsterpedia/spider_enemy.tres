@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://32v6u3hguqfe"]
+
+[ext_resource type="Texture2D" uid="uid://bvcy41kqwegju" path="res://assets/enemies/spider.png" id="1_mkgtk"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_gbsmg"]
+
+[resource]
+script = ExtResource("2_gbsmg")
+id = "SpiderEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 1000
+enemy_texture = ExtResource("1_mkgtk")
+title = "Spider Enemy"
+description = "8 leg spider"
+EnemyName = "SpiderEnemy"
+weigthness = 65.0
+max_health = 80.0
+drop_percent = 0.8
+max_speed = 75
+acceleration = 8.0

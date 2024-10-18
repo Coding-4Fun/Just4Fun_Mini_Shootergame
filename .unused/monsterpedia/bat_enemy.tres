@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://byqmfk1j8prxi"]
+
+[ext_resource type="Texture2D" uid="uid://ccdq72f4kreq3" path="res://assets/enemies/bat.png" id="1_qqbjx"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_pikr6"]
+
+[resource]
+script = ExtResource("2_pikr6")
+id = "BatEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 60
+kills_to_unlock = 0
+rounds_to_unlock = 0
+times_enemy_killed = 0
+enemy_texture = ExtResource("1_qqbjx")
+title = "Bat Enemy"
+description = "Bat Enemy, faster enemy and more to com."
+EnemyName = "BatEnemy"
+weigthness = 35.0
+max_health = 25.0
+drop_percent = 0.45
+max_speed = 50
+acceleration = 6.0

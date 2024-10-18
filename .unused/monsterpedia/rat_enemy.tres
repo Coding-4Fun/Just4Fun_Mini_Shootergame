@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://cio8yycpcphod"]
+
+[ext_resource type="Texture2D" uid="uid://bsomirw6obw5l" path="res://assets/enemies/gold_rat.png" id="1_n504n"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_8k1jb"]
+
+[resource]
+script = ExtResource("2_8k1jb")
+id = "RatEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 500
+enemy_texture = ExtResource("1_n504n")
+title = "Rat Enemy"
+description = "little golden rat"
+EnemyName = "RatEnemy"
+weigthness = 25.0
+max_health = 25.0
+drop_percent = 0.6
+max_speed = 70
+acceleration = 6.0

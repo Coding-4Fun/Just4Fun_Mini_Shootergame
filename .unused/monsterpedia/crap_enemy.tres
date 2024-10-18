@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://dh41aajhkv74r"]
+
+[ext_resource type="Texture2D" uid="uid://bmht0e7e7ks4g" path="res://assets/enemies/krebs.png" id="1_ih52d"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_soofc"]
+
+[resource]
+script = ExtResource("2_soofc")
+id = "CrabEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 300
+enemy_texture = ExtResource("1_ih52d")
+title = "Crab Enemy"
+description = "Red Crab"
+EnemyName = "CrabEnemy"
+weigthness = 25.0
+max_health = 25.0
+drop_percent = 0.45
+max_speed = 50
+acceleration = 6.0

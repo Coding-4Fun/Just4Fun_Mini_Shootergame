@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw6ratlioukit"]
+
+[ext_resource type="Script" path="res://scenes/ui/ingame/enemie_info_box_ui.gd" id="1_0cego"]
+[ext_resource type="Texture2D" uid="uid://blf0amfwao884" path="res://scenes/game_entities/basic_enemy/basic_enemy.png" id="1_nwfv5"]
+
+[node name="EnemieInfoBoxUI" type="HBoxContainer"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_0cego")
+
+[node name="EnemiesOnField" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="EnemiesOnField"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_nwfv5")
+
+[node name="LabelEnemyName" type="Label" parent="EnemiesOnField"]
+layout_mode = 2
+text = "EnemyName"
+vertical_alignment = 1
+
+[node name="EnemiesKillCounter" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+
+[node name="LabelKillCount" type="Label" parent="EnemiesKillCounter"]
+layout_mode = 2
+text = "KillCounter
+"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="EnemiesKillCounter"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_nwfv5")

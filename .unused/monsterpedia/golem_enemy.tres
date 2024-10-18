@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://crrs1lgitfw5o"]
+
+[ext_resource type="Texture2D" uid="uid://n6k1vyg0go21" path="res://assets/enemies/golem.png" id="1_gf66f"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_oxdfe"]
+
+[resource]
+script = ExtResource("2_oxdfe")
+id = "GolemEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 750
+enemy_texture = ExtResource("1_gf66f")
+title = "Golem Enemy"
+description = "one eyed golem"
+EnemyName = "GolemEnemy"
+weigthness = 40.0
+max_health = 55.0
+drop_percent = 0.4
+max_speed = 30
+acceleration = 6.0

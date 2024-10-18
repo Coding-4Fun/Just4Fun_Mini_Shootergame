@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://b07hj2vtm4mnq"]
+
+[ext_resource type="Texture2D" uid="uid://bcixsf4fh1e0r" path="res://assets/enemies/grey_ghost.png" id="1_yo5a2"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_g0o23"]
+
+[resource]
+script = ExtResource("2_g0o23")
+id = "GreyGhostEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 600
+enemy_texture = ExtResource("1_yo5a2")
+title = "Gray Ghost Enemy"
+description = "Angry grey ghost"
+EnemyName = "GreyGhostEnemy"
+weigthness = 50.0
+max_health = 50.0
+drop_percent = 0.4
+max_speed = 45
+acceleration = 7.0

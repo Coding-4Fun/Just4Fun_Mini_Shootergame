@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7oscp6ruixxp"]
+
+[ext_resource type="Script" path="res://scenes/manager/ComponentsManager.gd" id="1_s6426"]
+
+[node name="ComponentsManager" type="Node"]
+script = ExtResource("1_s6426")

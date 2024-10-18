@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MonsterPedia" load_steps=3 format=3 uid="uid://susrtsal06fv"]
+
+[ext_resource type="Texture2D" uid="uid://dkdll7m2g8evj" path="res://assets/enemies/wizard_enemy.png" id="1_fbbwr"]
+[ext_resource type="Script" path="res://resources/monsterpedia/monsterpedia.gd" id="2_g16q6"]
+
+[resource]
+script = ExtResource("2_g16q6")
+id = "WizardEnemy"
+max_quantity = 1
+experience_cost = 10
+is_unlocked = false
+time_played_to_unlock = 300
+kills_to_unlock = 0
+rounds_to_unlock = 0
+times_enemy_killed = 0
+enemy_texture = ExtResource("1_fbbwr")
+title = "Wizard Enemy"
+description = "A little wizzard"
+EnemyName = "WizardEnemy"
+weigthness = 30.0
+max_health = 15.0
+drop_percent = 0.6
+max_speed = 45
+acceleration = 5.0

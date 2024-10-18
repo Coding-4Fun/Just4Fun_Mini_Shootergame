@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://coww3dn7pcexf"]
+
+[ext_resource type="Script" path="res://scenes/component/Health_Bar_Component.gd" id="1_hrqfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn6f8"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[node name="HealthBarComponent" type="ProgressBar"]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -18.0
+pivot_offset = Vector2(16, 3)
+theme_override_styles/fill = SubResource("StyleBoxFlat_gn6f8")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+script = ExtResource("1_hrqfg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "HEALTH"
+horizontal_alignment = 1
+vertical_alignment = 1
