@@ -1,4 +1,0 @@
-[submodule "Simple-TODO-submodule"]
-	path = Simple-TODO-submodule
-	url = ../../Fox-Alpha/Fork-Godot-Simple-TODO
-	branch = master
