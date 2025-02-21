@@ -25,7 +25,7 @@ func _ready() -> void:
 #buttSwitchTargetTimer
 func _on_c_butt_switch_target_timer_toggled(toggled_on: bool) -> void:
 	DummyTargetTimerSlider.editable = toggled_on
-	Config.ConfigValueChanged.emit("GameDummyTargetTimerEnabled", toggled_on)
+	SignalBus.ConfigValueChanged.emit("GameDummyTargetTimerEnabled", toggled_on)
 	pass # Replace with function body.
 
 
@@ -34,4 +34,4 @@ func _on_max_game_time_slider_drag_ended(value_changed: bool) -> void:
 		var value = DummyTargetTimerSlider.value
 		var minsek:String = "%02.0f" % [int(value) % 60]
 		DummyTargetTimeLabel.text = str(minsek)
-		Config.ConfigValueChanged.emit("GameDummyTargetTimerCountdown", value)
+		SignalBus.ConfigValueChanged.emit("GameDummyTargetTimerCountdown", value)

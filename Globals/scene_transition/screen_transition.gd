@@ -11,7 +11,7 @@ func _ready() -> void:
 	animation_player.animation_finished.connect(on_animation_finished)
 
 
-func on_animation_finished(anim: String):
+func on_animation_finished(_anim: String):
 	color_rect.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	pass
 

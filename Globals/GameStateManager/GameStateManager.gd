@@ -5,12 +5,13 @@ extends Node
 @export var _shots:int = 0
 
 var gameWin:int = -1
-var pm
+var pm:Node
 var GameTimer:Timer
 var GameTimerTimeElapsed:int = 0
 var GameTimeTextLabel:Label
 var GameTimerTimeout:int = -1
 
+## ToDo: Change to global SignalBus ?
 signal GameStateChange
 
 

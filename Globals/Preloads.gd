@@ -14,6 +14,8 @@ extends Node
 @onready var GameSettingsScene :PackedScene = preload("res://UI/GameSettingsDialog/GameSettings.tscn")
 @onready var GameOverScene :PackedScene = preload("res://UI/GameEndDialog/GameEndDialog.tscn")
 
+@onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+
 # Player Node's
 var PlayerRootNode:Node2D
 var PlayerLeft:Node2D
@@ -30,5 +32,29 @@ var UIMain:Control
 @onready var DummyTargetGroup:Node2D
 
 #
-## TileMap
-var Map:TileMap
+## TileMapLayer's
+var TerrainLayer: TileMapLayerBase
+var CannonLayer:  TileMapLayerBase
+var CastleLayer:  TileMapLayerBase
+
+
+func _ready():
+	SignalBus.RNGResetLastState.connect(_on_RNGResetLastState, ConnectFlags.CONNECT_PERSIST | ConnectFlags.CONNECT_DEFERRED)
+	pass
+
+
+func _on_RNGResetLastState() -> void:
+	rng.state = Config.get_configdata_value("GameMapGeneratorLastState", Variant.Type.TYPE_INT)
+	pass
+
+
+## Load from Config or Set Default value
+func _initRNG() -> void:
+	var _seed = Config.get_configdata_value("GameMapGeneratorSeed")
+	if typeof(_seed) == Variant.Type.TYPE_INT:
+		rng.seed = _seed 
+	else:
+		rng.seed = 212197721011977
+		SignalBus.ConfigValueChanged.emit("GameMapGeneratorSeed", rng.seed)
+		SignalBus.ConfigValueChanged.emit("GameMapGeneratorState", rng.state)
+	pass # Replace with function body.
