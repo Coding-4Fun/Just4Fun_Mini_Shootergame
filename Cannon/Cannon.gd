@@ -50,6 +50,8 @@ func _unhandled_input(event):
 
 
 func _process(_delta):
+	if GSM.gameWin != -1:
+		return
 	Barrel.look_at(get_global_mouse_position())
 	var clampedBarrel = clamp(floor(Barrel.rotation_degrees), -75, -15)
 	Barrel.rotation_degrees = clampedBarrel
