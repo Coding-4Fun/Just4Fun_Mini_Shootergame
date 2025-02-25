@@ -16,7 +16,8 @@ const CONFIGDATA_DEFAULT_JSON:Dictionary = {
 				"MinMaxScoreEnabled": false,
 				"MinMaxScore": -1000,
 				"MaxGameTimeEnabled": false,
-				"MinMaxScoreValue": 1000
+				"MinMaxScoreValue": 1000,
+				"GameCannonReloadTimer" : 3
 			},
 		},
 		"Network": {
@@ -36,6 +37,7 @@ const CONFIGDATA_DEFAULT:Dictionary = {
 		"GamePlayerName": "Unnamed",
 		"GameDummyTargetTimerEnabled": false,
 		"GameDummyTargetTimerCountdown": 6.0,
+		"GameConditionCannonReloadTimer" : 1,
 		"GameConditionMaxGameTimeValue": 150,
 		"GameConditionMaxShotsEnabled": true,
 		"GameConditionMaxShotsValue": 10,

@@ -19,6 +19,8 @@ var current_rotation := 0
 
 
 func _ready():
+	cooldown = Config.get_configdata_value("GameConditionCannonReloadTimer")
+	
 	if !SignalBus.CannonShoot.is_connected( Preloads.UIMain._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(Preloads.UIMain._on_Cannon_Shot) != OK:
 			print("Error - Cannon.gd: connect signal CannonShoot")
