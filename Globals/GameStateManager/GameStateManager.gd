@@ -1,8 +1,15 @@
 extends Node
 
-@export var _score:int = 0
+@export var _score:int = 0:
+	set(new_value):
+		if _score != new_value:
+			_score = new_value
+			SignalBus.UIScoreChange.emit(_score)
 @export var _hits:int = 0
-@export var _shots:int = 0
+@export var _shots:int = 0:
+	set(new_value):
+		if _shots != new_value:
+			_shots = new_value
 
 var gameWin:int = -1
 var pm:Node
@@ -41,7 +48,7 @@ func _on_timer_timeout() ->void:
 
 
 func _on_GameStateChange(newscore, newhits, newshots) -> void:
-	_score = newscore
+	_score += newscore
 	_shots = newshots
 	_hits = newhits
 	_check_GameWinCondition()
@@ -92,3 +99,9 @@ func _input(event: InputEvent) -> void:
 			pm = Preloads.PauseMenu.instantiate()
 			get_tree().get_current_scene().add_child(pm)
 			get_tree().paused = !get_tree().paused
+
+func GetScore() -> int:
+	return _score
+
+func GetShots() -> int:
+	return _shots
