@@ -8,6 +8,7 @@ extends Node2D
 @export var gravity = 250
 @export var cooldown_tick := 3
 
+var cooldownactive = true
 var cooldown := 3
 var can_shoot := true
 var current_rotation := 0
@@ -20,6 +21,7 @@ var current_rotation := 0
 
 func _ready():
 	cooldown = Config.get_configdata_value("GameConditionCannonReloadTimer")
+	cooldownactive = Config.get_configdata_value("GameConditionCannonReloadTimerEnabled")
 	
 	if !SignalBus.CannonShoot.is_connected( Preloads.UIMain._on_Cannon_Shot):
 		if SignalBus.CannonShoot.connect(Preloads.UIMain._on_Cannon_Shot) != OK:
@@ -41,9 +43,12 @@ func _unhandled_input(event):
 	if event.is_action_released("cannon_shoot") and can_shoot:
 		SignalBus.CannonShooting.emit(Muzzle.global_transform, muzzle_velocity, gravity)
 		SignalBus.CannonShoot.emit()
-		SignalBus.FloatingText.emit(str(cooldown_tick), global_position)
-		cooldowntimer.start()
-		can_shoot = false
+		if cooldownactive:
+			SignalBus.FloatingText.emit(str(cooldown_tick), global_position)
+			cooldowntimer.start()
+			can_shoot = false
+		else:
+			SignalBus.FloatingText.emit("READY", global_position)
 	if event.is_action_released("cannon_power_plus"):
 		if Input.is_key_pressed(KEY_CTRL):
 			muzzle_velocity = clamp(muzzle_velocity+1000, min_velocity, max_velocity)
@@ -74,12 +79,13 @@ func _process(_delta):
 		coolDown.value += 1+_delta
 		
 
-	if coolDown.value >= coolDown.max_value:
-		can_shoot = true
-		coolDown.value = 0
-		cooldowntimer.stop()
-		cooldown_tick = cooldown
-		SignalBus.FloatingText.emit("RELOADED", global_position)
+	if cooldownactive:
+		if coolDown.value >= coolDown.max_value:
+			can_shoot = true
+			coolDown.value = 0
+			cooldowntimer.stop()
+			cooldown_tick = cooldown
+			SignalBus.FloatingText.emit("RELOADED", global_position)
 
 
 func _reset_CannonPower() -> void:
