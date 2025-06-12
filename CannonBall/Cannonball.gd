@@ -56,24 +56,3 @@ func _on_Bullet_exploded(pos):
 
 func _on_Ground_Hited() -> void:
 	SignalBus.UIScoreChange.emit(-2)
-
-
-# asteroid script
-func _process(_delta) -> void:
-	var g_pos = get_global_position()
-	var camera_rect = get_viewport().get_visible_rect() # get the rectangle for what the camera can "see"
-
-	# if asteroid is outside camera bounds:
-	if g_pos.x < camera_rect.position.x || \
-			g_pos.y < 0 || \
-			g_pos.x > screensize.x:
-
-		pos_offscreen.show()
-		var new_pos = pos_offscreen.get_global_position()
-		# clamping ensures indicator stays in visible area of screen
-		# sort of a bonus that clamping also ensures indicator is as close to asteroid as possible while still being visible
-		new_pos.x = clamp(g_pos.x, 0, screensize.x)
-		new_pos.y = clamp(g_pos.y, 0, screensize.y)
-		pos_offscreen.set_global_position(new_pos)
-	else:
-		pos_offscreen.hide()

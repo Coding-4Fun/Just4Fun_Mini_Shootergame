@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://lci12xbkaqx2"]
 
-[ext_resource type="Script" path="res://Cannon/Cannon.gd" id="1"]
+[ext_resource type="Script" uid="uid://c03em0h3aokic" path="res://Cannon/Cannon.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://beoj8ih7nvgrg" path="res://Cannon/Progress.png" id="2_1twsp"]
 [ext_resource type="Texture2D" uid="uid://ci72mkbxrxjbc" path="res://Cannon/black-cannon-barrel.png" id="2_xcomg"]
 
@@ -39,4 +39,7 @@ texture = ExtResource("2_xcomg")
 [node name="Muzzle" type="Marker2D" parent="Barrel"]
 position = Vector2(400, 45)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="ready" from="." to="." method="_on_Cannon_ready"]
+[connection signal="timeout" from="Timer" to="." method="_on_cooldowntimer_timeout"]

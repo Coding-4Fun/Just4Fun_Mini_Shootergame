@@ -23,6 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 hinting=1
 subpixel_positioning=1
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
@@ -33,7 +34,7 @@ preload=[{
 "glyphs": [],
 "name": "Neue Konfiguration",
 "size": Vector2i(16, 0),
-"variation_embolden": 0.0
+&"variation_embolden": 0.0
 }]
 language_support={}
 script_support={}

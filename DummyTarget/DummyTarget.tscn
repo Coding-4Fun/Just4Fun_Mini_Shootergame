@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwpyhrww6jkcv"]
 
 [ext_resource type="Texture2D" uid="uid://busvvdqv1k5je" path="res://DummyTarget/DummyTarget.png" id="2"]
-[ext_resource type="Script" path="res://DummyTarget/DummyTarget.gd" id="3"]
+[ext_resource type="Script" uid="uid://dro5nw13scevk" path="res://DummyTarget/DummyTarget.gd" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="3"]
 radius = 86.6667

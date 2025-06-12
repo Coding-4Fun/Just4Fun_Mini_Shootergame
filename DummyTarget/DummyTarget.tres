@@ -1,9 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bnhjnubkxo5qp"]
 
 [sub_resource type="FontFile" id="1"]
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

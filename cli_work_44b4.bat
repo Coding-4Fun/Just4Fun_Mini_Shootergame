@@ -10,9 +10,9 @@ cls
 REM Full Project Path
 set "project=%~dp0"
 REM Path to Godot Executable
-set "gdpath=C:\Proggen\Godot\Godot_v4.4-dev"
-set "godotexe=Godot_v4.4-dev6_win64.exe"
-set "godotver=Godot_v4.4-dev6_win64.exe --version"
+set "gdpath=C:\Proggen\Godot\Godot_v4.4-beta"
+set "godotexe=Godot_v4.4-beta4_win64.exe"
+set "godotver=Godot_v4.4-beta4_win64.exe --version"
 REM Full Engine Path
 set "build_godot=%gdpath%\%godotexe%"
 
@@ -20,28 +20,28 @@ REM Profilename in export_presets.cfg
 REM set "build_profile=Windows Desktop"
 set "build_profile=Windows"
 REM export Type export-debug or export-release or export-pack (musst be .pck or .zip)
-REM set "build_type=export-debug"
-set "build_type=export-release"
+set "build_type=export-debug"
+REM set "build_type=export-release"
 REM set "build_type=export-pack"
 
-
-REM Path to Export root folder
-set "build_path=C:\Proggen\Godot\Projekte\Just4Fun_Mini_Shootergame\export\gd-4-4\"
-REM Subfolder for Export Profile, overwrites preset
-set "build_folder=%build_path%%build_profile%"
-
 REM Version sufffix for binary name
-set "build_version=_alpha7"
+set "build_version=_alpha9"
 REM Version sufffix for Engine Version
 set "build_gdversion="
-FOR /F %%I IN ('=%gdpath%\%godotver%') DO @SET "build_gdversion=_%%I"
+FOR /F %%I IN ('=%gdpath%\%godotver%') DO @SET "build_gdversion=%%I"
+
+set "build_project_name=MiniShooterGame"
+REM Path to Export root folder
+set "build_path=C:\Proggen\Godot\Projekte\export\%build_gdversion%\%build_project_name%"
+REM Subfolder for Export Profile, overwrites preset
+set "build_folder=%build_path%\%build_profile%"
 
 REM Output binary name
-set "build_bin=MiniShooterGame%build_version%%build_gdversion%.exe"
+set "build_bin=%build_project_name%_%build_version%_%build_gdversion%.exe"
 REM Full Build Path+Name
 set "build_project=%build_folder%\%build_bin%"
 REM Full Build Log output
-set "build_log=%build_folder%\export.log.txt"
+set "build_log=%build_folder%\%build_project_name%_export.log.txt"
 
 :: #####
 :: execute
@@ -86,6 +86,7 @@ exit /b 0
 :check_engine
 echo checking Engine Settings
 echo PATH: "%build_godot%"
+echo Version: "%build_gdversion%"
 
 if NOT exist "%build_godot%" (
     echo path to engine or engine executabele does not exist
@@ -105,7 +106,10 @@ if NOT exist "%project%project.godot" (
 echo ExportFolder: "%build_folder%"
 if NOT exist "%build_folder%\." (
     echo the build folder does not exist
-	exit /b -1
+	echo creating ...
+	mkdir "%build_folder%"
+	::exit /b -1
+	call :check_folder || echo check_folder Failed && exit /b -99
 )
 
 exit /b 0

@@ -15,9 +15,9 @@ config/name_localized={
 "de_DE": "Mini Cannon Shooter"
 }
 config/description="Just 4 Fun - Mini Shootergame"
-config/tags=PackedStringArray("2d", "develop", "gd_stable", "godot4.3", "projekt", "singleplayer")
+config/tags=PackedStringArray("2d", "develop", "gd_beta", "godot_4.4", "projekt", "singleplayer")
 run/main_scene="res://UI/MainMenuUI/MainMenuUI.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 run/flush_stdout_on_print=true
 boot_splash/bg_color=Color(0.109804, 0.372549, 0.47451, 1)
 config/icon="res://icon.png"
@@ -107,6 +107,7 @@ name_casing=1
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+gl_compatibility/fallback_to_angle=false
 vram_compression/import_etc=true
 environment/default_clear_color=Color(0.0745098, 0.737255, 0.964706, 1)
 environment/default_environment="res://default_env.tres"

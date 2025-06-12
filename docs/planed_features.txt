@@ -19,7 +19,7 @@ DONE: Rework Pause Menu
 
 
 Settings Menu
-- Add Option for Reload Cooldown Timer
+- DONE: Add Option for Reload Cooldown Timer
 - Copy / Paste Setting + Seed 
 	- As base64 encoded JSON String
 - save As base64 encoded JSON String with Custom Name
@@ -32,6 +32,10 @@ Score Dialog
 
 
 Game Mode's
+- General
+	- DONE: Add Reload Cooldown Timer setting
+	- DONE: Countdown for Reload Cooldown
+
 - New Gamemode
 	- Defence
 		- Like Tower defence with waves of enemys
@@ -59,8 +63,8 @@ Updater:
 		- Restart
 
 BUGS:
-	- Back to MainMenu in GameOverDialog
-	- double transition to GameOVERdIALOG
+	- FIXED: Back to MainMenu in GameOverDialog
+	- WIP: double transition to GameOverDialog
 	- Escape Key (Pause Menu) 
 		- FIXED: Menu opens in all Dialog / Scenes
 		- Restart generate new Terrain
