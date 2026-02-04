@@ -43,7 +43,7 @@ jobs:
           name: windows
           path: build/windows
 
-  export-windows:
+  export-linux:
     name: Linux Export
     runs-on: ubuntu-latest
     container:
