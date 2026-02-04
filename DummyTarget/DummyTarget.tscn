@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwpyhrww6jkcv"]
+[gd_scene format=3 uid="uid://dwpyhrww6jkcv"]
 
 [ext_resource type="Texture2D" uid="uid://busvvdqv1k5je" path="res://DummyTarget/DummyTarget.png" id="2"]
 [ext_resource type="Script" uid="uid://dro5nw13scevk" path="res://DummyTarget/DummyTarget.gd" id="3"]
@@ -7,20 +7,20 @@
 radius = 86.6667
 height = 475.0
 
-[node name="DummyTarget" type="StaticBody2D" groups=["Dummy"]]
+[node name="DummyTarget" type="StaticBody2D" unique_id=112751082 groups=["Dummy"]]
 z_index = 5
 scale = Vector2(0.15, 0.08)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="." unique_id=282801501]
 position = Vector2(2, 5.99994)
 texture = ExtResource("2")
 centered = false
 offset = Vector2(-102, -600)
 
-[node name="dummyLabel" type="Label" parent="."]
+[node name="dummyLabel" type="Label" parent="." unique_id=1470538959]
 custom_minimum_size = Vector2(50, 0)
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,11 +37,11 @@ text = "21
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="collisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisionShape2D" type="CollisionShape2D" parent="." unique_id=1255021349]
 position = Vector2(0, -350)
 shape = SubResource("3")
 
-[node name="despawnTimer" type="Timer" parent="."]
+[node name="despawnTimer" type="Timer" parent="." unique_id=2048110802]
 wait_time = 0.25
 
 [connection signal="timeout" from="despawnTimer" to="." method="_on_despawnTimer_timeout"]

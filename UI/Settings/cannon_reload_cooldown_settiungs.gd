@@ -6,10 +6,10 @@ extends Control
 
 func _ready():
 	CannonReloadTimeLabel.text = str(CannonReloadTimeSlider.value)
-	#MaxGameTimeSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] 
+	#MaxGameTimeSwitch.button_pressed = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]
 	#MaxGameTimeSlider.value = Config.config_data["Game"]["Condition"]["MaxGameTimeValue"]
 	#MaxGameTimeSlider.editable = Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"]
-	
+
 	CannonReloadTimeSwitch.button_pressed = Config.get_configdata_value("GameConditionCannonReloadTimerEnabled")
 	CannonReloadTimeSlider.value = Config.get_configdata_value("GameConditionCannonReloadTimer")
 	CannonReloadTimeLabel.text = str("00:%02.0f" % [int(CannonReloadTimeSlider.value)])
@@ -45,7 +45,7 @@ func _on_cannon_reload_time_slider_drag_ended(value_changed: bool) -> void:
 	#$MaxGameTimeSlider.editable = !$MaxGameTimeSlider.editable
 
 
-func _on_cButtSwitchMaxGameTime_toggled(button_pressed):
+func _on_cButtSwitchMaxGameTime_toggled(_button_pressed):
 	#Config.config_data["Game"]["Condition"]["MaxGameTimeEnabled"] = button_pressed
 	#SignalBus.ConfigValueChanged.emit("GameConditionCannonReloadTimerEnabled", button_pressed)
 	#if !GSM.GameTimer.is_stopped() and !button_pressed:

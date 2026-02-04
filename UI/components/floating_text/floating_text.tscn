@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw7aupmlhq8xo"]
+[gd_scene format=3 uid="uid://cw7aupmlhq8xo"]
 
 [ext_resource type="Script" uid="uid://cqqx8367e3x3" path="res://UI/components/floating_text/floating_text.gd" id="1_lhf5f"]
 
-[node name="FloatingText" type="Node2D"]
+[node name="FloatingText" type="Node2D" unique_id=847641627]
 script = ExtResource("1_lhf5f")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=546604844]
 custom_minimum_size = Vector2(100, 32)
 offset_left = -50.0
 offset_top = -14.0

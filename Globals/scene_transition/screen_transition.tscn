@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://duurnypvd25ui"]
+[gd_scene format=3 uid="uid://duurnypvd25ui"]
 
-[ext_resource type="Script" path="res://Globals/scene_transition/screen_transition.gd" id="1_k4sn2"]
-[ext_resource type="Shader" path="res://Globals/scene_transition/screen_transition.gdshader" id="1_kojj2"]
+[ext_resource type="Script" uid="uid://eufctmd8mwcw" path="res://Globals/scene_transition/screen_transition.gd" id="1_k4sn2"]
+[ext_resource type="Shader" uid="uid://betp84v3tkqp3" path="res://Globals/scene_transition/screen_transition.gdshader" id="1_kojj2"]
 [ext_resource type="Texture2D" uid="uid://blsakmn3ypkke" path="res://assets/scene_transition/screen_transition.png" id="2_cqjc4"]
 
 [sub_resource type="Animation" id="Animation_4ilo4"]
@@ -112,27 +112,25 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nwgtc"]
 _data = {
-"RESET": SubResource("Animation_4ilo4"),
-"default": SubResource("Animation_bqdnm")
+&"RESET": SubResource("Animation_4ilo4"),
+&"default": SubResource("Animation_bqdnm")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeywo"]
 shader = ExtResource("1_kojj2")
 shader_parameter/transition_color = Color(0.247059, 0.14902, 0.192157, 1)
-shader_parameter/percent = 0.0
 shader_parameter/transition_texture = ExtResource("2_cqjc4")
+shader_parameter/percent = 0.0
 
-[node name="ScreenTransition" type="CanvasLayer"]
+[node name="ScreenTransition" type="CanvasLayer" unique_id=28583164]
 process_mode = 3
 layer = 5
 script = ExtResource("1_k4sn2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nwgtc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1914064737]
+libraries/ = SubResource("AnimationLibrary_nwgtc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=951229264]
 visible = false
 material = SubResource("ShaderMaterial_yeywo")
 anchors_preset = 15

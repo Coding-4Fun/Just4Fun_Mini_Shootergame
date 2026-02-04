@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmyeg6ldx2orv"]
+[gd_scene format=3 uid="uid://dmyeg6ldx2orv"]
 
-[ext_resource type="Shader" path="res://UI/components/vignette/vignette.gdshader" id="1_28ta1"]
-[ext_resource type="Script" path="res://UI/components/vignette/vignette.gd" id="1_55ahl"]
+[ext_resource type="Shader" uid="uid://brwl5h7oldujb" path="res://UI/components/vignette/vignette.gdshader" id="1_28ta1"]
+[ext_resource type="Script" uid="uid://40rq4e55pgb" path="res://UI/components/vignette/vignette.gd" id="1_55ahl"]
 
 [sub_resource type="Animation" id="Animation_v6348"]
 length = 0.001
@@ -126,9 +126,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ww4dk"]
 _data = {
-"RESET": SubResource("Animation_v6348"),
-"hit": SubResource("Animation_kyjek"),
-"missed": SubResource("Animation_u14kk")
+&"RESET": SubResource("Animation_v6348"),
+&"hit": SubResource("Animation_kyjek"),
+&"missed": SubResource("Animation_u14kk")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5pqrm"]
@@ -138,16 +138,14 @@ shader_parameter/vignette_intensity = 0.682
 shader_parameter/vignette_opacity = 0.115
 shader_parameter/vignette_rgb = Color(0.247059, 0.14902, 0.192157, 1)
 
-[node name="Vignette" type="CanvasLayer"]
+[node name="Vignette" type="CanvasLayer" unique_id=1179840753]
 process_mode = 3
 script = ExtResource("1_55ahl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ww4dk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1022734381]
+libraries/ = SubResource("AnimationLibrary_ww4dk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1041983601]
 material = SubResource("ShaderMaterial_5pqrm")
 anchors_preset = 15
 anchor_right = 1.0

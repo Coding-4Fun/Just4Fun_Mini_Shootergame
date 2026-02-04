@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b160gc30aq28t"]
+[gd_scene format=3 uid="uid://b160gc30aq28t"]
 
-[ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
+[ext_resource type="Script" uid="uid://d0c0y7frr2byy" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://2f2c8xqvyuwd" path="res://UI/components/sound_button/random_stream_player_component.tscn" id="8_iqekv"]
 
-[node name="MainMenuUI" type="Control"]
+[node name="MainMenuUI" type="Control" unique_id=1290360434]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,13 +14,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=282592516]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.145098, 0.203922, 0.337255, 0.72549)
 
-[node name="labMainTitel" type="Label" parent="."]
+[node name="labMainTitel" type="Label" parent="." unique_id=1750998647]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 132.0
@@ -33,7 +33,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="centerContainer" type="CenterContainer" parent="."]
+[node name="centerContainer" type="CenterContainer" parent="." unique_id=654704871]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 1
 anchors_preset = 15
@@ -44,16 +44,16 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="vSeparator" type="VSeparator" parent="centerContainer"]
+[node name="vSeparator" type="VSeparator" parent="centerContainer" unique_id=297872709]
 visible = false
 layout_mode = 2
 
-[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer"]
+[node name="vBoxContainer" type="VBoxContainer" parent="centerContainer" unique_id=564263024]
 custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer"]
+[node name="buttPlay" type="Button" parent="centerContainer/vBoxContainer" unique_id=471915817]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -61,21 +61,21 @@ size_flags_vertical = 6
 theme_type_variation = &"MainTitleButton"
 text = "Play"
 
-[node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer"]
+[node name="buttHightScore" type="Button" parent="centerContainer/vBoxContainer" unique_id=1254606204]
 visible = false
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 theme_type_variation = &"MainTitleButton"
 text = "Highscore"
 
-[node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer"]
+[node name="buttSettings" type="Button" parent="centerContainer/vBoxContainer" unique_id=1311738090]
 visible = false
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 theme_type_variation = &"MainTitleButton"
 text = "Settings"
 
-[node name="buttExit" type="Button" parent="centerContainer/vBoxContainer"]
+[node name="buttExit" type="Button" parent="centerContainer/vBoxContainer" unique_id=1886168275]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -83,7 +83,7 @@ size_flags_vertical = 6
 theme_type_variation = &"MainTitleButton"
 text = "Exit"
 
-[node name="RandomStreamPlayerComponent" parent="centerContainer/vBoxContainer" instance=ExtResource("8_iqekv")]
+[node name="RandomStreamPlayerComponent" parent="centerContainer/vBoxContainer" unique_id=659120165 instance=ExtResource("8_iqekv")]
 
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttPlay" to="." method="_on_buttPlay_pressed"]
 [connection signal="pressed" from="centerContainer/vBoxContainer/buttHightScore" to="." method="_on_buttHightScore_pressed"]

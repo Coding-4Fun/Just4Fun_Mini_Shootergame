@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://xx6yx0io3fgf"]
+[gd_scene format=3 uid="uid://xx6yx0io3fgf"]
 
-[ext_resource type="Script" path="res://CannonBall/Explosion.gd" id="1"]
+[ext_resource type="Script" uid="uid://ix6goieaee41" path="res://CannonBall/Explosion.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://yb6vpmt7iue4" path="res://CannonBall/tank_explosion2.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://c7bs7q5fmvrx6" path="res://CannonBall/tank_explosion4.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dkgod67scsogn" path="res://CannonBall/tank_explosion3.png" id="4"]
@@ -22,7 +22,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Explosion" type="AnimatedSprite2D"]
+[node name="Explosion" type="AnimatedSprite2D" unique_id=763918417]
 z_index = 10
 z_as_relative = false
 sprite_frames = SubResource("1")

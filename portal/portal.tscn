@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj48j2lhcde1a"]
+[gd_scene format=3 uid="uid://cj48j2lhcde1a"]
 
-[ext_resource type="Script" path="res://portal/portal.gd" id="1_l02wg"]
+[ext_resource type="Script" uid="uid://byjmre76xem7o" path="res://portal/portal.gd" id="1_l02wg"]
 [ext_resource type="Texture2D" uid="uid://c3neoxtyhb2ht" path="res://assets/portal/scaled/Portal shadow.png" id="2_41ex3"]
 [ext_resource type="Texture2D" uid="uid://83xtf3oe60k1" path="res://assets/portal/scaled/Portal_1.png" id="3_4qcca"]
 [ext_resource type="Texture2D" uid="uid://bf7ngpme0kp08" path="res://assets/portal/scaled/Portal_2.png" id="4_ekryc"]
@@ -59,25 +59,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Portal" type="Node2D"]
+[node name="Portal" type="Node2D" unique_id=1760072236]
 position = Vector2(0, -42.395)
 rotation = -1.5708
 script = ExtResource("1_l02wg")
 
-[node name="PortalArea2D" type="Area2D" parent="."]
+[node name="PortalArea2D" type="Area2D" parent="." unique_id=1524586772]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea2D" unique_id=1404586557]
 shape = SubResource("CircleShape2D_4phin")
 
-[node name="PortalShadow" type="Sprite2D" parent="."]
+[node name="PortalShadow" type="Sprite2D" parent="." unique_id=1101652448]
 texture = ExtResource("2_41ex3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=630106722]
 sprite_frames = SubResource("SpriteFrames_dqe1o")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="PortalLocation" type="Marker2D" parent="."]
+[node name="PortalLocation" type="Marker2D" parent="." unique_id=821671915]
 position = Vector2(-41.95, 0)

@@ -52,7 +52,7 @@ func _on_RNGResetLastState() -> void:
 func _initRNG() -> void:
 	var _seed = Config.get_configdata_value("GameMapGeneratorSeed")
 	if typeof(_seed) == Variant.Type.TYPE_INT:
-		rng.seed = _seed 
+		rng.seed = _seed
 	else:
 		rng.seed = 212197721011977
 		SignalBus.ConfigValueChanged.emit("GameMapGeneratorSeed", rng.seed)
