@@ -7,7 +7,7 @@ on:
       - '[aA]lpha-**'
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.6
   EXPORT_NAME: J4F-MiniShooterGame
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:4.6-stable
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:4.6-stable
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -67,7 +67,7 @@ jobs:
           #cd $EXPORT_NAME
           godot --headless --verbose --editor --quit-after 10
           godot --export-release --headless "Web" build/web/index.html
-          cp ./.github/dist/coi-serviceworker.min.js ./build/web/coi-serviceworker.min.js
+#          cp ./.github/dist/coi-serviceworker.min.js ./build/web/coi-serviceworker.min.js
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.3.4
         with:
