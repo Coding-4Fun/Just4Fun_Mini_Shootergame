@@ -16,6 +16,8 @@ import shutil
 import subprocess
 import sys
 import glob
+import threading
+import time
 from pathlib import Path
 from typing import List
 
@@ -135,6 +137,26 @@ def probe_engine_version(path: str, timeout: float = 3.0) -> str:
         return "(no output)"
     except Exception as e:
         return f"(error: {e})"
+
+
+def _probe_worker(engines: List[str], window):
+    """Background worker to probe engine versions and post events back to the GUI."""
+    results = []
+    total = len(engines)
+    for idx, e in enumerate(engines, start=1):
+        ver = probe_engine_version(e)
+        results.append(f"{e} [{ver}]")
+        # send progress step
+        try:
+            window.write_event_value("-PROBE_STEP-", (idx, total, e, ver))
+        except Exception:
+            pass
+        # small delay to keep GUI responsive for large lists
+        time.sleep(0.05)
+    try:
+        window.write_event_value("-PROBE_DONE-", results)
+    except Exception:
+        pass
 
 
 def parse_export_presets(project_path: Path, profile_name: str) -> str | None:
@@ -359,17 +381,60 @@ def main():
             sg.popup(f"{len(found)} Engines gefunden (Liste aktualisiert).")
 
         if event == "Probe Versions":
-            # probe versions for engines in current runtime list
+            # start background probing to avoid blocking the GUI
             engines = engines_list if engines_list else load_saved_engines() + scan_common_locations()
-            results = []
-            for e in engines:
-                ver = probe_engine_version(e)
-                results.append(f"{e} [{ver}]")
-            # keep engines_list as plain paths, but show the probed strings in dropdown
+            if not engines:
+                sg.popup("Keine Engines in der Liste zum Proben.")
+                continue
+            # disable probe and scan buttons while running
+            try:
+                window["Probe Versions"].update(disabled=True)
+            except Exception:
+                pass
+            try:
+                window["Scan Engines"].update(disabled=True)
+            except Exception:
+                pass
+            # show immediate feedback in log
+            try:
+                cur = window["-LOG-"].get() or ""
+            except Exception:
+                cur = ""
+            cur += f"\nStarting async probe of {len(engines)} engines...\n"
+            window["-LOG-"].update(cur)
+            t = threading.Thread(target=_probe_worker, args=(engines, window), daemon=True)
+            t.start()
+
+        if event == "-PROBE_STEP-":
+            # progress update from background worker
+            idx, total, path_e, version = values[event]
+            try:
+                cur = window["-LOG-"].get() or ""
+            except Exception:
+                cur = ""
+            cur += f"Probing {idx}/{total}: {path_e} -> {version}\n"
+            window["-LOG-"].update(cur)
+
+        if event == "-PROBE_DONE-":
+            results = values[event]
+            # restore engines_list to plain paths (strip bracketed versions)
+            engines_list = [r.split(" [")[0] for r in results]
             window["-ENGINES-"].update(values=results)
-            # update engines_list mapping for normalization
-            engines_list = engines
-            sg.popup(f"Version probe abgeschlossen ({len(results)}).")
+            # re-enable buttons
+            try:
+                window["Probe Versions"].update(disabled=False)
+            except Exception:
+                pass
+            try:
+                window["Scan Engines"].update(disabled=False)
+            except Exception:
+                pass
+            try:
+                cur = window["-LOG-"].get() or ""
+            except Exception:
+                cur = ""
+            cur += f"Async probe abgeschlossen ({len(results)}).\n"
+            window["-LOG-"].update(cur)
 
         if event == "Save Engine":
             chosen = values.get("-ENGINES-")
