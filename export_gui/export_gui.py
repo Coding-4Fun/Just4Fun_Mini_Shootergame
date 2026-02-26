@@ -17,6 +17,7 @@ import subprocess
 import sys
 import glob
 from pathlib import Path
+from typing import List
 
 try:
     import PySimpleGUI as sg
@@ -46,10 +47,15 @@ def load_config(project_path: Path):
 
 
 def run_command(cmd, cwd=None, log_file=None):
-    with open(log_file, "a", encoding="utf-8") as log:
+    mode = "a" if run_command.append_mode else "w"
+    ensure_dir(Path(log_file).parent)
+    with open(log_file, mode, encoding="utf-8") as log:
         log.write(f"\n--- RUN: {' '.join(cmd)}\n")
         proc = subprocess.run(cmd, cwd=cwd, stdout=log, stderr=log)
     return proc.returncode
+
+# attach attribute for append mode default
+run_command.append_mode = False
 
 
 def ensure_dir(p: Path):
@@ -174,6 +180,69 @@ def parse_export_presets(project_path: Path, profile_name: str) -> str | None:
     return None
 
 
+def list_export_presets(project_path: Path) -> List[dict]:
+    """Return a list of presets with name, platform and architecture if available."""
+    cfg_file = project_path / "export_presets.cfg"
+    presets = []
+    if not cfg_file.exists():
+        return presets
+    try:
+        with open(cfg_file, "r", encoding="utf-8") as fh:
+            lines = fh.readlines()
+    except Exception:
+        return presets
+
+    current = None
+    for line in lines:
+        l = line.strip()
+        if l.startswith("[preset"):
+            current = {"name": None, "platform": None, "arch": None, "export_path": None}
+            continue
+        if current is None:
+            continue
+        if l.startswith("name="):
+            try:
+                current["name"] = l.split("=", 1)[1].strip().strip('"')
+            except Exception:
+                current["name"] = None
+            continue
+        if l.startswith("platform="):
+            try:
+                current["platform"] = l.split("=", 1)[1].strip().strip('"')
+            except Exception:
+                current["platform"] = None
+            continue
+        if l.startswith("binary_format/architecture="):
+            try:
+                current["arch"] = l.split("=", 1)[1].strip().strip('"')
+            except Exception:
+                current["arch"] = None
+            continue
+        if l.startswith("export_path="):
+            try:
+                current["export_path"] = l.split("=", 1)[1].strip().strip('"')
+            except Exception:
+                current["export_path"] = None
+            continue
+        # end of preset block -> if next preset or EOF
+        if l.startswith("[preset") and current and current.get("name"):
+            presets.append(current)
+            current = None
+
+    # append last
+    if current and current.get("name"):
+        presets.append(current)
+
+    return presets
+
+
+def compute_build_bin(project_name: str, version_suffix: str, godot_path: str) -> str:
+    gdname = Path(godot_path).name if godot_path else "godot"
+    # sanitize gdname
+    gdname = gdname.replace(" ", "_")
+    return f"{project_name}{version_suffix}_{gdname}.exe"
+
+
 def normalize_engine_path(display_value: str) -> str:
     """If the combobox shows 'path [version]' return the actual path."""
     if not display_value:
@@ -203,20 +272,35 @@ def main():
     except Exception:
         pass
 
+    # initial engine list
+    engines_list = load_saved_engines() + scan_common_locations()
+
+    presets = []
+    project_folder_example = Path.cwd()
+    if project_folder_example.exists():
+        presets = list_export_presets(project_folder_example)
+
+    profile_values = [p.get("name") for p in presets] if presets else ["Windows", "Linux"]
+
     layout = [
-        [sg.Text("Godot Engine:"), sg.Input(key="-GODOT-"), sg.FileBrowse(file_types=(("Exe","*"),), target="-GODOT-")],
-        [sg.Text("Detected Engines:"), sg.Combo(values=load_saved_engines() + scan_common_locations(), key="-ENGINES-", size=(80,1)), sg.Button("Scan Engines"), sg.Button("Probe Versions"), sg.Button("Save Engine")],
-        [sg.Text("Scan Folder:"), sg.Input(key="-SCANFOLDER-"), sg.FolderBrowse(target="-SCANFOLDER-"), sg.Button("Scan Folder")],
-        [sg.Text("Project Folder:"), sg.Input(key="-PROJECT-"), sg.FolderBrowse(target="-PROJECT-")],
-        [sg.Text("Build Profile:"), sg.Input(default_text="Windows", key="-PROFILE-"), sg.Text("Build Type:"), sg.Combo(["export-debug","export-release","export-pack"], default_value="export-debug", key="-TYPE-")],
+        [sg.Text("Godot Engine:"), sg.Input(key="-GODOT-", expand_x=True), sg.FileBrowse(file_types=(("Exe","*"),), target="-GODOT-")],
+        [sg.Text("Detected Engines:"), sg.Combo(values=engines_list, key="-ENGINES-", size=(80,1), enable_events=True), sg.Button("Scan Engines"), sg.Button("Probe Versions"), sg.Button("Save Engine")],
+        [sg.Radio("Auto Detect","ENGMODE", default=True, key="-EM_AUTO-"), sg.Radio("Scan folder","ENGMODE", key="-EM_FOLDER-"), sg.Text("Scan folder for Engines:"), sg.Input(key="-SCANFOLDER-", enable_events=False), sg.FolderBrowse(target="-SCANFOLDER-")],
+        [sg.Text("Project Folder:"), sg.Input(key="-PROJECT-", expand_x=True), sg.FolderBrowse(target="-PROJECT-")],
+        [sg.Text("Build Profile:"), sg.Combo(values=profile_values, default_value=profile_values[0], key="-PROFILE-", enable_events=True), sg.Text("Target:"), sg.Text("", key="-PROFILE_INFO-"), sg.Text("Build Type:"), sg.Combo(["export-debug","export-release","export-pack"], default_value="export-debug", key="-TYPE-")],
         [sg.Text("Project Name:"), sg.Input(default_text="MiniShooterGame", key="-PROJNAME-"), sg.Text("Version Suffix:"), sg.Input(default_text="_alpha9", key="-VERS-")],
-        [sg.Text("Export Root Folder:"), sg.Input(key="-EXPORTROOT-"), sg.FolderBrowse(target="-EXPORTROOT-"), sg.Button("Auto Set Export Folder")],
-        [sg.Checkbox("Overwrite export folder from config", default=True, key="-USECFGFOLDER-")],
-        [sg.Multiline(size=(80,10), key="-LOG-", disabled=True)],
-        [sg.Button("Load Config"), sg.Button("Save Config"), sg.Button("Import"), sg.Button("Export"), sg.Button("Open Log"), sg.Button("Quit")]
+        [sg.Text("Export Root Folder:"), sg.Input(key="-EXPORTROOT-", expand_x=True), sg.FolderBrowse(target="-EXPORTROOT-"), sg.Button("Auto Set Export Folder")],
+        [sg.Checkbox("Overwrite export folder from config", default=True, key="-USECFGFOLDER-"), sg.Checkbox("Append to existing log", default=False, key="-APPEND-")],
+        [sg.Text("Output binary name:"), sg.Input(key="-OUTNAME-", expand_x=True)],
+        [sg.Multiline(size=(80,20), key="-LOG-", disabled=True, expand_x=True, expand_y=True)],
+        [sg.Button("Load Config"), sg.Button("Save Config"), sg.Button("Import"), sg.Button("Export"), sg.Button("Open Log"), sg.Button("Quit"), sg.Push(), sg.Button("Run Exported Binary", key="-RUN-", disabled=True)]
     ]
 
-    window = sg.Window("Godot Export GUI", layout, finalize=True)
+    window = sg.Window("Godot Export GUI", layout, finalize=True, resizable=True)
+
+    # runtime state
+    engines_list = engines_list
+    last_export_path = None
 
     while True:
         event, values = window.read()
@@ -225,6 +309,12 @@ def main():
 
         project = Path(values.get("-PROJECT-") or "").expanduser()
         godot = values.get("-GODOT-") or shutil.which("godot") or shutil.which("Godot")
+
+        # update outname dynamically
+        outname = values.get("-OUTNAME-") or ""
+        if not outname:
+            computed = compute_build_bin(values.get("-PROJNAME-") or "MiniShooterGame", values.get("-VERS-") or "_alpha", godot or "godot")
+            window["-OUTNAME-"].update(computed)
 
         if event == "Load Config":
             if not project or not project.exists():
@@ -244,6 +334,24 @@ def main():
             sg.popup("Config geladen.")
 
         if event == "Scan Engines":
+            # respect radio mode: if folder mode selected and folder provided, scan that folder
+            if values.get("-EM_FOLDER-") and values.get("-SCANFOLDER-"):
+                sf = values.get("-SCANFOLDER-")
+                found = []
+                for p in Path(sf).rglob("*"):
+                    try:
+                        if "godot" in p.name.lower() and is_executable_file(p):
+                            found.append(str(p.resolve()))
+                    except Exception:
+                        continue
+            else:
+                found = scan_common_locations()
+            # update engines_list and combobox
+            engines_list = list(dict.fromkeys(load_saved_engines() + found))
+            window["-ENGINES-"].update(values=engines_list)
+            sg.popup(f"{len(found)} Engines gefunden (Liste aktualisiert).")
+
+        if event == "Scan Engines":
             found = scan_common_locations()
             saved = load_saved_engines()
             combined = saved + [p for p in found if p not in saved]
@@ -251,13 +359,16 @@ def main():
             sg.popup(f"{len(found)} Engines gefunden (Liste aktualisiert).")
 
         if event == "Probe Versions":
-            # probe versions for listed engines
-            engines = list(dict.fromkeys(load_saved_engines() + scan_common_locations()))
+            # probe versions for engines in current runtime list
+            engines = engines_list if engines_list else load_saved_engines() + scan_common_locations()
             results = []
             for e in engines:
                 ver = probe_engine_version(e)
                 results.append(f"{e} [{ver}]")
+            # keep engines_list as plain paths, but show the probed strings in dropdown
             window["-ENGINES-"].update(values=results)
+            # update engines_list mapping for normalization
+            engines_list = engines
             sg.popup(f"Version probe abgeschlossen ({len(results)}).")
 
         if event == "Save Engine":
@@ -270,6 +381,8 @@ def main():
             if chosen_path not in saved:
                 saved.insert(0, chosen_path)
                 save_engine_list(saved)
+            engines_list = list(dict.fromkeys([chosen_path] + engines_list))
+            window["-ENGINES-"].update(values=engines_list)
             sg.popup(f"Engine gespeichert: {chosen_path}")
 
         # when selecting an engine from the combobox, update the input field
@@ -278,25 +391,7 @@ def main():
             if sel:
                 window["-GODOT-"].update(normalize_engine_path(sel))
 
-        if event == "Scan Folder":
-            scan_folder = values.get("-SCANFOLDER-")
-            if not scan_folder or not Path(scan_folder).exists():
-                sg.popup_error("Wähle zuerst einen gültigen Ordner zum Scannen.")
-                continue
-            found = []
-            for p in Path(scan_folder).rglob("*"):
-                try:
-                    if "godot" in p.name.lower() and is_executable_file(p):
-                        found.append(str(p.resolve()))
-                except Exception:
-                    continue
-            if not found:
-                sg.popup("Keine Godot Binaries im Ordner gefunden.")
-            else:
-                saved = load_saved_engines()
-                combined = list(dict.fromkeys(saved + found))
-                window["-ENGINES-"].update(values=combined)
-                sg.popup(f"{len(found)} Binaries gefunden und zur Liste hinzugefügt.")
+        # Note: explicit 'Scan Folder' button removed; use 'Scan Engines' with folder radio selected
 
         if event == "Auto Set Export Folder":
             if not project or not project.exists():
@@ -309,6 +404,21 @@ def main():
                 sg.popup(f"Export-Ordner gesetzt: {detected}")
             else:
                 sg.popup("Keine passende Export-Preset-Einstellung gefunden.")
+
+        if event == "-PROFILE-":
+            # show platform/arch info
+            sel = values.get("-PROFILE-")
+            info_text = ""
+            for p in presets:
+                if p.get("name") == sel:
+                    parts = []
+                    if p.get("platform"):
+                        parts.append(p.get("platform"))
+                    if p.get("arch"):
+                        parts.append(p.get("arch"))
+                    info_text = ", ".join(parts)
+                    break
+            window["-PROFILE_INFO-"].update(info_text)
 
         if event == "Save Config":
             if not project or not project.exists():
@@ -354,15 +464,20 @@ def main():
                 sg.popup_no_wait("Import gestartet. Siehe Log.")
                 # run import
                 cmd = [str(godot), "--verbose", "--import", "--headless"]
+                run_command.append_mode = bool(values.get("-APPEND-"))
                 rc = run_command(cmd, cwd=str(project), log_file=str(log_file))
                 sg.popup(f"Import beendet (rc={rc}). Log: {log_file}")
 
             if event == "Export":
                 sg.popup_no_wait("Export gestartet. Siehe Log.")
                 cmd = [str(godot), "--verbose", "--headless", f"--{build_type}", build_profile, "--path", str(project), str(build_project)]
+                run_command.append_mode = bool(values.get("-APPEND-"))
                 rc = run_command(cmd, cwd=str(project), log_file=str(log_file))
                 if rc == 0 and build_project.exists():
                     sg.popup(f"Export erfolgreich: {build_project}")
+                    last_export_path = str(build_project)
+                    window["-RUN-"].update(disabled=False)
+                    window["-OUTNAME-"].update(os.path.basename(str(build_project)))
                 else:
                     sg.popup_error(f"Export fehlgeschlagen (rc={rc}). Log: {log_file}")
 
@@ -381,6 +496,17 @@ def main():
             with open(log_file, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()[-10000:]
             window["-LOG-"].update(content)
+
+        if event == "-RUN-":
+            if not last_export_path or not Path(last_export_path).exists():
+                sg.popup_error("Keine exportierte Binary gefunden.")
+                continue
+            try:
+                # make executable on linux
+                Path(last_export_path).chmod(0o755)
+                subprocess.Popen([str(last_export_path)])
+            except Exception as e:
+                sg.popup_error(f"Fehler beim Starten: {e}")
 
     window.close()
 
