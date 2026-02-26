@@ -34,6 +34,16 @@ Schnellstart:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+# PySimpleGUI is served from a private PyPI index. Recommended install steps:
+python -m pip uninstall PySimpleGUI -y || true
+python -m pip cache purge || true
+python -m pip install --upgrade --extra-index-url https://PySimpleGUI.net/install PySimpleGUI
 pip install -r export_gui/requirements.txt
 python export_gui/export_gui.py
+```
+
+Alternative (force reinstall):
+
+```bash
+python -m pip install --force-reinstall --extra-index-url https://PySimpleGUI.net/install PySimpleGUI
 ```

@@ -191,7 +191,17 @@ def normalize_engine_path(display_value: str) -> str:
 
 
 def main():
-    sg.theme("SystemDefault")
+    # set theme in a backward-compatible way for older PySimpleGUI variants
+    try:
+        if hasattr(sg, "theme"):
+            sg.theme("SystemDefault")
+        elif hasattr(sg, "ChangeLookAndFeel"):
+            sg.ChangeLookAndFeel("SystemDefault")
+        else:
+            # older versions may not support theme; ignore
+            pass
+    except Exception:
+        pass
 
     layout = [
         [sg.Text("Godot Engine:"), sg.Input(key="-GODOT-"), sg.FileBrowse(file_types=(("Exe","*"),), target="-GODOT-")],

@@ -1,0 +1,8 @@
+{
+  "godot_path": "/home/buckdi/Projekte/godot/engine/godot-4.6_stable/Godot_v4.6.1-stable_linux.x86_64",
+  "build_profile": "Windows",
+  "build_type": "export-debug",
+  "build_project_name": "MiniShooterGame",
+  "build_version": "_alpha10",
+  "build_path": "/home/buckdi/Projekte/godot/exports"
+}
