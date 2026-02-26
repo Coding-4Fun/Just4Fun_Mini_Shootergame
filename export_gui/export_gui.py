@@ -15,6 +15,7 @@ import os
 import shutil
 import subprocess
 import sys
+import glob
 from pathlib import Path
 
 try:
@@ -25,6 +26,8 @@ except Exception:
 
 
 DEFAULT_CONFIG_NAME = ".export_config.json"
+USER_CONFIG_DIR = Path.home() / ".config" / "godot_export_gui"
+ENGINES_FILE = USER_CONFIG_DIR / "engines.json"
 
 
 def save_config(project_path: Path, cfg: dict):
@@ -53,11 +56,76 @@ def ensure_dir(p: Path):
     p.mkdir(parents=True, exist_ok=True)
 
 
+def is_executable_file(p: Path):
+    return p.exists() and os.access(str(p), os.X_OK) and p.is_file()
+
+
+def find_godot_in_path():
+    """Try to find godot executables via PATH and common names."""
+    results = set()
+    # common names
+    names = ["godot", "Godot", "godot.x86_64", "Godot_v4*", "Godot_v*"]
+    for name in names:
+        found = shutil.which(name)
+        if found:
+            results.add(str(Path(found).resolve()))
+
+    # scan PATH directories for files with 'godot' in name
+    for p in os.getenv("PATH", "").split(os.pathsep):
+        try:
+            for f in Path(p).glob("*godot*"):
+                if is_executable_file(f):
+                    results.add(str(f.resolve()))
+        except Exception:
+            continue
+
+    return sorted(results)
+
+
+def scan_common_locations():
+    """Scan typical install locations for Godot binaries."""
+    results = set(find_godot_in_path())
+    locations = [
+        Path.home() / ".local" / "bin",
+        Path("/usr/bin"),
+        Path("/usr/local/bin"),
+        Path("/opt"),
+        Path("/snap"),
+    ]
+    for loc in locations:
+        try:
+            for f in loc.rglob("*godot*"):
+                if is_executable_file(f):
+                    results.add(str(f.resolve()))
+        except Exception:
+            continue
+    return sorted(results)
+
+
+def load_saved_engines():
+    try:
+        USER_CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        if not ENGINES_FILE.exists():
+            return []
+        with open(ENGINES_FILE, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+            return list(dict.fromkeys(data))
+    except Exception:
+        return []
+
+
+def save_engine_list(list_of_paths):
+    USER_CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    with open(ENGINES_FILE, "w", encoding="utf-8") as fh:
+        json.dump(list_of_paths, fh, indent=2)
+
+
 def main():
     sg.theme("SystemDefault")
 
     layout = [
         [sg.Text("Godot Engine:"), sg.Input(key="-GODOT-"), sg.FileBrowse(file_types=(("Exe","*"),), target="-GODOT-")],
+        [sg.Text("Detected Engines:"), sg.Combo(values=load_saved_engines() + scan_common_locations(), key="-ENGINES-", size=(80,1)), sg.Button("Scan Engines"), sg.Button("Save Engine")],
         [sg.Text("Project Folder:"), sg.Input(key="-PROJECT-"), sg.FolderBrowse(target="-PROJECT-")],
         [sg.Text("Build Profile:"), sg.Input(default_text="Windows", key="-PROFILE-"), sg.Text("Build Type:"), sg.Combo(["export-debug","export-release","export-pack"], default_value="export-debug", key="-TYPE-")],
         [sg.Text("Project Name:"), sg.Input(default_text="MiniShooterGame", key="-PROJNAME-"), sg.Text("Version Suffix:"), sg.Input(default_text="_alpha9", key="-VERS-")],
@@ -93,6 +161,29 @@ def main():
             window["-VERS-"].update(cfg.get("build_version", "_alpha"))
             window["-EXPORTROOT-"].update(cfg.get("build_path", ""))
             sg.popup("Config geladen.")
+
+        if event == "Scan Engines":
+            found = scan_common_locations()
+            saved = load_saved_engines()
+            window["-ENGINES-"].update(values=saved + [p for p in found if p not in saved])
+            sg.popup(f"{len(found)} Engines gefunden (Liste aktualisiert).")
+
+        if event == "Save Engine":
+            chosen = values.get("-ENGINES-")
+            if not chosen:
+                sg.popup_error("Wähle zuerst eine Engine aus der Liste.")
+                continue
+            saved = load_saved_engines()
+            if chosen not in saved:
+                saved.insert(0, chosen)
+                save_engine_list(saved)
+            sg.popup(f"Engine gespeichert: {chosen}")
+
+        # when selecting an engine from the combobox, update the input field
+        if event == "-ENGINES-":
+            sel = values.get("-ENGINES-")
+            if sel:
+                window["-GODOT-"].update(sel)
 
         if event == "Save Config":
             if not project or not project.exists():
