@@ -1,175 +1,220 @@
 [![godot-ci export](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml/badge.svg)](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame/actions/workflows/export.yml)
+[![Godot Engine 4.6](https://img.shields.io/badge/Godot_Engine-4.6_stable-blue.svg)](https://godotengine.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ![Image](assets/screenshots/game_title_banner.png)
 
-## Update Septemper 16 2024
-- Neue Tiles, slopes statt eckige Absätze
-- Migration zu neuen TileMapLayer
-- W.I.P: Generierung des Terrains per Seed
--- Add Button in Setting um einen Seed zu Generieren / nutzen
-- Neustrukturierung des Pause Dialog
--- Neuer Button zum aufrufen des Menüs + per ESC
--- Entfernen der nicht mehr benötigten Buttons aus der InGame UI
--- Fortsetzen
--- Aktuelles Level neustarten
--- Neues Level generieren
--- Zurück zu settings
--- Zurück zum Hauptmenü
--- Beenden
-
-
-## Überarbeitung der Terraingenerierung
-
-- Erweitern der oberen Linie mit Dirt Tles
-- Übergänge mit Sloops umgesetzt
-
-
-## Update August 18 2024
-
-- Migrate to Godot Engine 4.3 stable
-- InGame Settings überarbeitet
--- Vor dem eigentlichen Level kommen jetzt erst die Einstellungen für die Schwierigkeit
--- Einstellungen aus der Ingame UI entfernt
--- Überarbeiten der Einstellungen und das diese fehlerfrei funktionieren
-- Einstellungen für einen Spieler Namen hinzugefügt
--- Für zukünftige Highscores und Multiplayer
-- Einstellung für DummyTarget Timer hinzugefügt
-- Überarbeiten des speichern und laden der Einstellungen
-- Einen Vignetten Effekt für Treffer und Fehlschüsse hinzugefügt
-- Einen Floating Text Effekt für Punkte und Reloaded Meldung hinzugefügt
-- Szenen Übergang überarbeitet
-- Viele Code Optimierungen und Kleinere Fehlerbehebungen
-- Scriptcode aufgeräumt
-- Button mit Klick-Effekt hinzugefügt
-- Spiel pausiert, wenn Settingsbutton (zum beenden) benutzt wird
-
-- Update GitHub Actions for Godot Engine 4.3 stable release
-
-
-## Update July 02 2024
-
-- Create Branch for Godot 4.3 rc (2)
-- Create Branch for Godot 4.2.2 stable (new default branch)
-
-### Update: Upgrade Project to Engine Version 4.2.2
-### Update Web Version to current
-### Done: Fixing CI in Github Action failed since 4.2.2
-
-
 # Just4Fun_Mini_Shootergame
-Eigentlich ein Prototyp um Kleinigkeiten auszuprobieren hat es sich zu einem kleinen Shooting Game entwickelt
 
-Ausgelagert in ein eigenes Projekt um es noch weiter zu einem Spiel auszubauen.
+Ein dynamisches 2D-Shooter-Spiel im Godot Engine, bei dem der Spieler als Kanone fungiert und zufällig generierte Ziele treffen muss. Was ursprünglich als Prototyp begann, hat sich zu einem vollständigen Mini-Spiel mit verschiedenen Einstellungen und Spielmodi entwickelt.
 
 ![Image](assets/screenshots/ingame_and_ui.png)
 
-## Beschreibung
-Der Spieler wird als Kanone am linken Bildschirmrand dargestellt.
-Durch bewegen der Maus kann der Anstellwinkel verändert werden.
+---
 
-Mit dem Mausrad kann die Kraft des Schusses eingestellt werden
-- Min = 7500
-- Max = 30000
-- Änderungen in +/- 100 mit Mausrad
-- Änderung in +/- 1000 mit Mausrad + STRG
+## 🎮 Spieldescription
 
-Mit der linken Maustaste kann ein Schuss ausgelöst werden.
-Der Schuss hat einen Cooldown bis der nächste Schuss ausgelöst werden kann.
+Der Spieler steuert eine Kanone am linken Bildschirmrand und muss zufällig platzierte Ziele auf einer prozedural generierten Terrain treffen.
 
-Auf dem Spielfeld erscheint ein kleines Ziel das bei einem Treffer entfernt wird und an einer neuen Position erscheint.
-Der Treffer eines Zieles beschert dem Spieler Punkte
-Die Punkte werden zufällig beim erstellen eines Zieles festgelegt.
+### Steuerung
+- **Maus bewegen**: Schusswinkel anpassen
+- **Mausrad**: Schussgenauigkeit einstellen (7500 - 30000)
+  - Änderung: ±100 normal, ±1000 mit STRG
+- **Linke Maustaste**: Schuss abfeuern (mit Cooldown-Timer)
+- **ESC**: Pausemenü öffnen
 
-Die Ziele haben als Vorgabe ein Timeout. In dieser Zeit hat der Spieler Zeit ein Ziel zu treffen um sich die Punkte zu sichern.
-Trifft der Spieler in dieser Zeit nicht, wird ein neues Ziel an beliebiger stelle generiert.
-Das automatische Timeout kann in den Einstellungen ein- und ausgeschaltet werden.
+### Spielmechaniken
+- **Ziele**: Erscheinen zufällig auf dem Spielfeld, geben variable Punkte bei Treffer
+- **Timeout-System**: Optional aktivierbar - Ziele verschwinden nach Zeit und generieren sich neu
+- **Score-System**: 
+  - Positive Punkte bei Treffer
+  - Negative Punkte bei Fehlschuss (-2)
+- **Terrain-Generierung**: Mit optionalem Seed für reproduzierbare Levels
+- **Vignetten-Effekt**: Visuelles Feedback für Treffer/Fehlschüsse
+- **Floating Text**: Punkt- und Reload-Anzeige
 
-## Einstellungen
+---
+
+## ⚙️ Einstellungen & Features
+
+### Spieloptionen
+- ✅ **Reload-Cooldown Timer**: Einstellbar mit Countdown-Anzeige
+- ✅ **Spielername**: Speicherbar für zukünftige Highscores
+- ✅ **DummyTarget Timer**: Ein-/Ausschalten
+- ✅ **Schussanzahl-Limite**: Wahlweise aktivierbar
+- ✅ **Punktziel**: Positive oder negative Punktziele definierbar
+- ✅ **Terrain Seed**: Manuelle oder automatische Seed-Generierung
+
+### Menüstruktur
+- **Hauptmenü**: Play-Button, Einstellungen
+- **Pausemenü** (ESC):
+  - Fortsetzen
+  - Level neustarten
+  - Neues Level generieren
+  - Zu Einstellungen
+  - Zurück zum Hauptmenü
+  - Spiel beenden
+- **Einstellungen**: Spielparameter konfigurieren
+- **Game Over Dialog**: Score-Anzeige und Neustart
 
 ![Image](assets/screenshots/game_settings.png)
 
-Der Spieler kann über die Einstellungen die Bedingungen einstellen die zum gewinnen oder verlieren einer Runde notwendig sind.
+---
 
-Folgende Optionen sind bis jetzt vorhanden.
-- Beachten der maximalen Schuss An / Aus
-- Einstellen der Schussanzahl
-- Einstellen der Punktzahl
-- Entweder bei erreichen einer negativen Punktzahl
-- Oder erreichen einer Positiven Punktzahl
+## 🎯 Aktuelle Features (Stand: Februar 2026)
 
-# Changelog
+### Technologien
+- **Engine**: Godot 4.6 stable
+- **Sprache**: GDScript
+- **Platform-Export**: Linux CI/CD via GitHub Actions
 
-## Update May 31 2023
-Changes in Repository
- 
-- Create Branch for Godot 3.5.x Stable
-- Create Branch for Godot 4.0.x Stabele (4.0.3) New default Branch
-- Create Branch for Godot 4.1.x Dev (3)
+### Implementierte Features
+- ✅ Prozessuale Terrain-Generierung mit TileMapLayer
+- ✅ Seed-basierte Level-Reproduzierbarkeit
+- ✅ Fallende Kanonen-Physik mit Explosion-Effekte
+- ✅ Szena-Übergänge mit Vignetten-Effekt
+- ✅ Spielzustand-Management (Win/Loose/Pause)
+- ✅ Konfigurationssystem mit JSON-Speicherung
+- ✅ Signal-Bus für globale Event-Verwaltung
+- ✅ Reload-Timer mit visueller Anzeige
+- ✅ Automatische Changelog-Generierung
 
-### Done: Fixing CI in Github Action failed since 4.x
-### Done: Fix Browser Meldung wegen fehlener Header Optionen im WebBuild
-### Done: Update GitHub Actions auf die aktuellsten Versionen (1.6.2023)
-### Fixed: Target Timer ein und ausschaltzen
-### Fixed: Layouts nach 4.0x Migration
+---
 
-### ToDo: Vollständiges Changelog erstellen
-### ToDo: Neues Release bereitstellen. GitHub Action verwenden
+## 🚀 Geplante Features
 
-Und nun geht weiter mit Optimierungen ....
+### Game Modes
+- **Defence Mode**: Tower-Defence mit Wellen von Gegnern
+- **Rogue-Like Elemente**: Permanente Verbesserungen/Meta-Progress
+  - Größere Explosionsfläche (AoE)
+  - Kürzere Reload-Zeiten
+  - Doppelschüsse
+  - Erhöhte Ziel-Lebenspunkte
 
+### Konfiguration & Export
+- **Copy/Paste Settings**: Base64-codierte JSON-String Unterstützung
+- **Preset-System**: Gespeicherte Einstellungskombinationen
+- **Auto-Updater**: GitHub Release Lookup mit Benachrichtigung (WIP)
 
-## Alpha.6 (in Arbeit)
-- Add: Neues Spielziel
-  - Gegen die Zeit. Spielzeit als Rundenbegrenzung
+### Weitere Verbesserungen
+- Score-Dialog mit Online-Highscore-Liste (geplant)
+- Mehrspielermodi (in Planung)
 
-## Alpha.5
-- Add: GameState für Win/Loose Conditions
-- Add: GameOver
-- Add: Parallax Effekt für den Hintergrund
-- Add: Cooldown für den Schuss mit anzeige als Balken
-- Add: Umschalten Game Pausieren (Esc)
-- Add: Indikator der Position des Bullets ausserhalb des Bildschirms
-- Fix: Instanzierung der Bullets
-- Fix: Kollisionen mit der TileMap
-- Fix: Anzeige von Werten in der UI
-- Fix: Debugger/Compiler Warnungen
-- Fix: Fehler im Export Build
+---
 
+## 🛠️ Installation & Development
 
-## Alpha.4
-- UI: Kleine Erweiterung im UI
-- UI: Ein kleines Hauptmneü mit einem Play Button
-- Visuell: Eine kleine Burg für den Spieler
-- Fix: Target kann jetzt nicht mehr zu dicht spawnen
-- Fix: Anzeigen in der IngameUI
-- Fix: Löschen der Map bei GameReset
-- Code: Refactoring des Codes
-- Code: Verwendung von Autoloads
-- Code: Mehr Verwendung von Signals
-- Code/Fix: Collision Handling
-- Game: Mit gedrückter STRG lässt sich die Schusskraft um 1000 erhöhen, ohne um 100
+### Anforderungen
+- **Godot Engine** 4.6 stable oder neuer
+- **Git** für Versionskontrolle
 
+### Projekt starten
+```bash
+# Repository klonen
+git clone https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame.git
+cd Just4Fun_Mini_Shootergame
 
-## Update Alpha.2.1
-Add: Timer auf Ziel und Anzeige der möglichen Punkte bei einem Treffer
+# Mit Godot öffnen
+godot --path .
+```
 
-## Update Alpha.2
-- Reset Button zum neustarten des Level
--- Erzeugt eine neue Bodenlinie
--- Setzt die Punkte zurück
-- Negativ Punkte (-2) wenn daneben geschossen wird
+### Export
+```bash
+# Linux-Export (erfordert Godot CLI)
+./export.sh
+```
 
-## Bisher enthalten
-- Spielfeld wird zufällig beim start generiert
-- Spieler wird als Kanone dargestellt
-- Spieler kann den Schusswinkel anpassen
-- Spieler kann durch anpassen der Schussstärke die entfernung beeinflussen
-- Ziele auf dem Spielfeld
-- Bei einem tredder verschwindet das Ziel und wird ab neuer Position erstellt
-- Ziele haben unterschiedliche Punktzahlen
-- Anzeige des Winkels
-- Anzeige der Schussstärke
-- Anzeige der gefeuerten Schüsse
-- Zählen der Punkte
+---
 
-![image](https://user-images.githubusercontent.com/665076/154135268-b6129b4b-0391-4e34-b88f-384609d26781.png)
+## 📊 Projektstruktur
+
+```
+├── Cannon/              # Kanonen-Skripte und Assets
+├── CannonBall/          # Geschoss-Physik und Explosionen
+├── Castle/              # Befestigungsplattform
+├── DummyTarget/         # Zielverhalten
+├── MainGameScene/       # Hauptspielszene und Terrain-Generator
+├── Portal/              # Power-Up System (geplant)
+├── Terrain/             # Terrain-Generierung und TileMap
+├── UI/                  # Menü-Systeme
+│   ├── MainMenuUI/
+│   ├── InGameUI/
+│   ├── Pause/
+│   ├── GameEndDialog/
+│   └── Settings/
+├── Globals/             # Autoloads für globale Verwaltung
+│   ├── GameConfig/      # JSON-Konfiguration
+│   ├── GameStateManager/# Spielzustand
+│   └── SignalBus/       # Event-System
+└── assets/              # Graphics, Audio, etc.
+```
+
+---
+
+## 📝 Changelog & Versionshistorie
+
+Siehe [CHANGELOG.md](CHANGELOG.md) für detaillierte Änderungshistorie mit allen Commits.
+
+### Meilensteine in der Entwicklung
+
+**Februar 2026**
+- Godot 4.6 stable Integration
+- Erweiterte Terrain-Generierung mit Sloops
+- Überarbeitetes Pausemenü-System
+- Reload-Cooldown Timer mit visueller Anzeige
+
+**August 2024**
+- Migration auf Godot 4.3 mit vollständiger Settings-Überarbeitung
+- Vignetten-Effekt für visuelles Feedback
+- Floating Text für Punkte und Reload-Anzeige
+- Spieler-Namen Speicherung für Highscores
+
+**2024 - Terrain-Generierung**
+- Seed-basierte Level-Reproduzierbarkeit implementiert
+- Neue Tile-Assets mit Slope-Übergängen
+- TileMapLayer-Migration von älteren TileMap-Systemen
+
+**2023**
+- Godot 4.0 Migration
+- GameState-Management System
+- Basis-Spielmechaniken: Kanone, Geschosse, Ziele
+
+---
+
+## 🐛 Bekannte Probleme & Lösungen
+
+| Problem | Status | Hinweis |
+|---------|--------|---------|
+| Doppelte Übergänge zu GameOver | In Arbeit | Szena-Transitions überarbeiten |
+| ESC-Taste öffnet Menü überall | ✅ Behoben | Nur im Spielzustand aktiv |
+| Restart generiert neues Terrain | ✅ Behoben | Option für gleiche/neue Seed |
+
+---
+
+## 📄 Lizenz
+
+Dieses Projekt ist unter der [MIT-Lizenz](LICENSE) lizenziert.
+
+---
+
+## 🔗 Links
+
+- **GitHub Repository**: [Coding-4Fun/Just4Fun_Mini_Shootergame](https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame)
+- **Godot Engine**: [godotengine.org](https://godotengine.org)
+- **Geplante Features**: [docs/planed_features.txt](docs/planed_features.txt)
+- **Detailliertes Changelog**: [CHANGELOG.md](CHANGELOG.md)
+
+---
+
+## 📸 Screenshots & Medien
+
+- **Ingame-Ansicht mit UI**: [assets/screenshots/ingame_and_ui.png](assets/screenshots/ingame_and_ui.png)
+- **Einstellungs-Dialog**: [assets/screenshots/game_settings.png](assets/screenshots/game_settings.png)
+- **Game-Title Banner**: [assets/screenshots/game_title_banner.png](assets/screenshots/game_title_banner.png)
+
+---
+
+**Status**: In aktiver Entwicklung 🚀  
+**Letztes Update**: 26. Februar 2026  
+**Engine**: Godot 4.6 stable  
+**Lizenz**: MIT
