@@ -1,0 +1,10 @@
+{
+  "godot_path": "/path/to/Godot",
+  "build_profile": "Windows",
+  "build_type": "export-debug",
+  "build_version": "_alpha9",
+  "build_project_name": "MiniShooterGame",
+  "build_path": "/path/to/export",
+  "build_folder": "",
+  "additional_args": ""
+}
