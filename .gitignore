@@ -2,6 +2,7 @@
 .godot/
 .import/
 .export/
+.exports/
 .vscode/
 export.cfg
 export_presets.cfg
