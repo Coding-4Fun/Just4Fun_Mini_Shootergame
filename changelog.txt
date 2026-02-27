@@ -1,0 +1,789 @@
+  * Mve: Buttons out of ColorRect Node
+  * Chg: Lineendings, emptylines, emptytabs
+  * Upd: Cleanup
+  * Fix: Type in action step
+  * Add: Github Action for linux export
+  * Merge branch 'develop' of github.com:Coding-4Fun/Just4Fun_Mini_Shootergame into develop
+  * Add: export Preset für Linux
+  * Add: Godot CLI Hilfe
+  * Fix Docker image version Tag
+  * Upgrade Godot version in export workflow
+  * Chg: Settings for Display Server Windows and Linux
+  * Upd: Upgrade to Godot Engine Version 4.6 stable
+  * Update to Engine Godot 4.5.1 stable
+  * Update to Engine Godot 4.5.1 stable
+  * Merge branch 'Godot-44-stable' into develop
+  * Upd: Update features
+  * Add: Getter & Setter for global _score and _shots counter
+  * Rem: unused code in _process()
+  * Add: Integrate Cannon Reload Timer in Settings Dialog
+  * Add: Save / Load GameConditionCannonReloadTimer from Config
+  * Add: Floating Text counter for reloading
+  * Upd: Update to Godot Engine 4.4-rc1
+  * Upd: Update to Godot Engine 4.4-rc1
+  * Merge commit '86c2c2630d350867203992f2c3af28d0dd21fe82' into Godot-44-stable
+  * Merge branch 'fature-spielfeld-generierung-mit-angabe-eines-seeds' into Godot-44-stable
+  * Upd: Project Tags
+  * Upd: Update to Godot Engine 4.4-dev6
+  * Upd: New Version for CLI SWcript for exporting
+  * Upd: Auto Migrate to Godot Engine 4.4 beta4
+  * Add: Some Scripts and Scene for future
+  * Add: Portal Scene and Script
+  * Add: Portal Assets
+  * Upd: Some Information
+  * Chg: Do not process if in Win/Loose state
+  * Fix: Open the pause Menu Only InGame
+  * Upd: Update Readme with changes from Merge
+  * Merge branch 'fature-spielfeld-generierung-mit-angabe-eines-seeds' into develop
+  * Upd: Update WIP
+  * Rem: Remove not used Buttons e.g. Settings-, resetbutton
+  * Add: continue button implementation
+  * Add: Restart LevelFunc
+  * Chg: Change Posion for Label PpS and GameTimer
+  * Chg: Switch Buttons in Settingsmenu
+  * Add: Begin implementing the New Button
+  * Ren: New Menu Button
+  * Add: Buttons for new Menu function Add: Implementing 'continue' func
+  * Upd: WIP Progress
+  * Chg: Name for RNG Values in Configfile
+  * Add: Parameter for last seed and save it to configfile Chg: switch reset signal to preload globals
+  * Rem: not needed code Add: Co0mments for Copy & paste
+  * Chg: disable signal func
+  * Rem: unused signal code
+  * Upd: Update features
+  * Add: prepare replacement button for open Pausemenu
+  * Add: some note about more features coming
+  * Ren: RNG Signal name
+  * Chg: change initial state to 0, because its the default
+  * Add: Signal func for RNG signals
+  * Add: Savestate for last used RNG state
+  * Chg: Make seed Input readonly Mve: ToDo Labels to Bottom and Hide them
+  * Chg: change initial text to generated number
+  * Chg: typed var
+  * Add: prepare signals for RNG Saving and reseting
+  * Ren: var MapLayer to TerrainLayer Upd: var name changes
+  * Rem: ToDo Comments
+  * Chg: move some var inits to base class Upd: var name changes
+  * Ren: var's world_tiles_x / _y to world_tiles_count and change type to vector2i
+  * Add: Debug Funcs
+  * Upd: Var name changed
+  * Add: Debug Funcs
+  * Chg: Next step preparation for using seed generation
+  * Chg: Text for tooltip on seed Input
+  * Chg: Re-/activate signals for text changed and submitted ===: Setting flag for manual seed input
+  * Upd: Using global Signal for Valuechanged
+  * Add: Call Initialize RNG
+  * Chg: save config to file per signal Add: func to check that all key/values are present Ren: load / save func Add: func to get missing values from default
+  * Chg: move locale ConfigValueChanged Signal to SignalBus
+  * Chg: Initialize RNG in func ===: Load from Config or Set Default value ===: Called from MainScene _ready()
+  * Pre: Save not available Data, if in default
+  * Chg: Disable text changed signal for RNG Input
+  * Add: Load Seed for RNG from Config, with check and default
+  * Add: Savestate for RandomNumberGenerator
+  * Pre: Prepare using RandomNumberGenerator for reproducable map generation Add: Some Debug Prints for RNG
+  * Fix: missing func Parameter for signal ...changed
+  * Add: Copy & Paste func
+  * Add: Icons and Copy / Paste Buttons
+  * Add: Button to generate a random seed Add: LineEdit for manual input
+  * Add: Global RandomNumberGenerator with default seed initialization
+  * Add: dice icon for seed generator button
+  * Chg: positioning at spawn
+  * Add: setting random pattern from tile_set patterns
+  * Chg: comment unused func
+  * Chg: mark parameter as unused
+  * Add: empty func for placing the cannon
+  * Add: Get Signal for placing the cannon and change global position
+  * Chg: Getting mointpoint position as parameter
+  * Add: Get the mountpoint after pastig the castle pattern Add: Emit cannon plöace signal with mountpoint coords
+  * Add: Castle Tile to mark the cannon Mountpoint
+  * Chg: Replace MapGenerator Signals
+  * Rem: Not needed func's
+  * Rem: func reset_tilemap not needed Chg: Cleat Plattform Array before regenerate Add: emit signal to place Castle after generation finished
+  * Rem: old TileMap
+  * Add: Setting Castle Pattern at right position
+  * Add: Seperated signals for layer generation Add: to Baseclass
+  * Del: Delete some patterns
+  * Chg: Reenable visibility TileMapLayer
+  * Fix: changed var Name
+  * Fix: Type of Collider
+  * Fix: Type in var name
+  * Merge remote-tracking branch 'origin/4-spielfeld-generierung-mit-angabe-eines-seeds' into fature-spielfeld-generierung-mit-angabe-eines-seeds
+  * Upd: Cannon Position for the Pattern
+  * Add: new Tiles to TileSet ===: new Castle Tiles 16x16 ===: castle_tile Atlas 16x80 Add: new pattern
+  * Add: some new Castle Tiles 16x16 Add: castle_tile Atlas 16x80
+  * Add: some new Castle Tiles 64x64
+  * Add: react to re-/generate map signal
+  * Add: Global vars for all tilemaplayer
+  * Chg: Global Map Reference to TileMapLayer reference
+  * Fix: Terrain generation with the right Castle Base ===: Order of var init
+  * Rem: Unused signal
+  * Upd: Using the right signal for terrain generation
+  * Add: Terrain Generator to Layer Script
+  * Upd: Using Global Signals
+  * Add: Missing var initializing
+  * Chg: Disable saving the Castle ===: prepare for switching to Castle Layer
+  * Add: Global Signal for generate the Map
+  * Chg: Disable old TileMap
+  * Upd: Using global Signal for UI Reset Button
+  * Chg: create castle plattform on variable height ===: unfinished
+  * Add: Global Signals for TileMap events
+  * Add: Hint comments
+  * Add: prepare TileMapLayer using
+  * Chg: some modification on value types
+  * Add: Comments
+  * Chg: instead of ignore float conversation warning, convert dividing float to int
+  * Fix: Warning unused variable
+  * Rev: Revert to place cannon as TileSetScenesCollectionSource in own layer Add: ReAdd Cannon as Child Node, because of dependencies
+  * Upd: Migrate TileMap to TileMapLayer
+  * Chg: disable gl_compatibility/fallback_to_angle in project settings ===: Runtime performance issue #95772
+  * Merge remote-tracking branch 'origin/4-spielfeld-generierung-mit-angabe-eines-seeds' into fature-spielfeld-generierung-mit-angabe-eines-seeds
+  * Upd: Project Tags
+  * Rem: Debug prints to console
+  * Update README.md
+  * Add: Screenshots for readme ===: Ignore folder in Engine
+  * Upd: Readme
+  * Fix: Missing Collision Layer in new Grastiles
+  * Fix: Creation on new grastiles
+  * Fix: Collision with new grastiles
+  * Add: do not switch to counterside sloop, make grass even
+  * Fix: Changing next Tile to Slope if <> 0
+  * Try: Changing next Tile to Slope if <> 0 ===: Failed
+  * Add: Blocks as Atlas, 8 tiles
+  * Add: Gras Atlas with sloops
+  * Upd: Change some vars for develop branch
+  * Merge remote-tracking branch 'origin/Godot-43-stable' into develop - Last changes to GitHub Actions
+  * Update export_gd43_stable.yml
+  * Update export_gd43_stable.yml
+  * Add: Github Action Workflow for this branch
+  * Update export.yml
+  * Update export.yml
+  * Upd: Update GitHub Actions for Godot Engine 4.3 stable release
+  * Update export.yml
+  * Merge remote-tracking branch 'origin/Godot-43-rc_Feature_GameSettingsDialog' into Godot-43-stable
+  * Merge remote-tracking branch 'origin/Godot-43-rc_Feature_GameSettingsDialog' into develop
+  * Upd: Readme Text to latest changes
+  * Merge remote-tracking branch 'origin/Godot-43-rc' into develop
+  * Merge remote-tracking branch 'origin/Godot-42-Stable' into develop
+  * Merge remote-tracking branch 'origin/Godot-41-Stable' into develop
+  * Upd: Change parameter for config value changed
+  * Chg: Change Parameter for config value changed ===: only key and value
+  * Chg: Nodename for Playername
+  * Add: Save the changed PlayerName to config Add: Load the  PlayerName from config Add: Signal for changes playername
+  * Chg: Process Mode to always for IngameUI if Game is paused
+  * Add: StartGameTimer at start Chg: pause the GameLoop when Settings Button pressed ===: Un-/Paused the GameTimer if enabled
+  * Chg: Using GameTimerTime as global var
+  * Chg: que_free the pause dialog does not need get_tree / get_node call
+  * Fix: GameTime Timer in SettingsDialog
+  * Chg: switching to new scene transition effect
+  * Add: Screen / Scene Transition Effect Add: add as Autoload
+  * Add: Default Audio settings
+  * Chg: Calls Audio Component for button clicks
+  * Chg: Root Node as Node Chg: Player as SubNode Upd: Player Calls
+  * Chg: Adding audio component instead of sound button ===: Does not play sounds
+  * Chg: Make Component standalone Add: Audio Files
+  * Chg: Add check for signal connection
+  * Fix: flash doesnt change color ===: Color is in the Animation Chg: Duplicate animation for Hit, green / Missed, red
+  * Upd: Change Project TAGS
+  * chg: Text to display
+  * Chg: Dontr print the text to console
+  * Chg: tweak tweening times
+  * AAdd: emitting signal to display floating text
+  * Chg: tweak size of collision shape
+  * Add: Global signal for displaying floating text
+  * Add: named Layer
+  * Add: Sound_button componnet as replacment ===: Todo Fix play sound
+  * TryFix: Playing sounds on click ===: No signals nor _ready() received by script
+  * Fix: add missing sub component
+  * Add: vignette effect for hitting
+  * Add: Input field for Playername ===: ToDo Saving and Loading
+  * Chg: Only emit score signal when != 0 ===: Using 0 for vignette
+  * Chg: make signal GroundHit global in the SignalBus
+  * Add: floating text effect for hitting
+  * Add: vignette effect for hitting
+  * Add: Add Button with sound effect
+  * Dbg: reenable Change scene for testing GameSettingsSave Funktion
+  * Rem: Dependencies to IngameUISettings ===: Move file/s to .unused Add: BackToMenu Button to IngameUI
+  * Rem: unused vars
+  * Fix: Doesnt load DummyTarget Setting values
+  * Fix: DummyTarget doesnt load the timer value from config
+  * Fix: Initial Display for MaxScore Fix: Display on Change Fix: Save changed value
+  * Chg: Some Default values
+  * Fix: Initial Display for GameTime
+  * Upd: Path to 4.3 stable
+  * Dbg: Disable Change scene for testing GameSettingsSave Funktion
+  * Fix: Config Key name
+  * Fix: Saving new Values to Config_data
+  * Cln: Remove commented unused script code
+  * Rem: Remove reference for Ingame Settings UI
+  * Upd: Getting Values from config_data per getter method
+  * Chg: Change Keynames in config_data ===: Keys before where not found on getting values
+  * Rem: unused Code removed
+  * Rem: Signals from IngameSettings removed
+  * Ref: Refactor Config_Data Save Process
+  * Chg: on Game Over, new game switch to gamesettings instead of MainGame Scene
+  * Chg: UI Signal connect per code ===: MaxScore Upd: Script for UI Signals ===: Emit Values per Signal to Config
+  * Upd: Rearange Nodes Chg: Default Value for Dummy Timer
+  * Upd: Default Values and ticks for slider
+  * Chg: UI Signal connect per code ===: DummyTargetTimer Add: Script for UI Signals
+  * Chg: UI Signal connect per code ===: MaxGameTime Add: Script for UI Signals
+  * Upd: Rearange Nodes ===: Game Time ===: Start and Back Buttons Chg: Default Value for Dummy Timer
+  * Chg: Button Pressed Signal connect per code
+  * Add: Script for DummyTargetTimer Settings
+  * Upd: Rearrange UI Elements
+  * Add: hiddenlabelös as ToDo Hint
+  * Add: Script for DummyTargetTimer Settings
+  * Add: Script for MaxShots Option in UI
+  * Chg: typed vars Add: Signals from UI Upd: Emit Signal for Config Change Upd: simplify UI signals
+  * Fix: Signal Name Fix: Signal Parameter Values
+  * Chg: Signal name
+  * Chg: Config Value changes emitted by Signal ConfigValueChange with parameters
+  * Add: Function for enable Dummy Timer Add: Function to Slieder change Dummy Time
+  * Chg: Adjust position and Layout
+  * Chg: Adjust position and Layout
+  * Chg: Export InGameSetting UI in own scene
+  * Add: Folder for unused / obsolete resource ===: Ignore to open in GD Editor
+  * Upd: Remove dependencies ===: UI is no longer needed ===: Sub UI needs to be revised
+  * Upd: Remove dependencies ===: UI is no longer needed ===: UI has already been revised
+  * Chg: Empty Lines ===: Auto Update to Godot Engine 4.3
+  * Rem: freeing current scene before changing ===: change_scene_to_packed removes the current scene automatically
+  * Upd: Auto Migrate to Godot Engine 4.3 rc3
+  * Upd: Typed vars
+  * Add: Dummy func to prevent UNUSED_SIGNAL Warning
+  * Chg: Empty Line Rem: Unused Signal declaration Chg: declare func parameter as unused with _ Chg: Signal connection, remove self ===: Add signal connect flags
+  * Chg: Signal is_connected() Method
+  * Chg: Signal Connect Method
+  * Upd: Auto Migrate to Godot Engine 4.3 rc3 Rem: Empty Line at EOF
+  * Chg: Change scene to GamePlaySettingsScene, when press PLAY
+  * Add: GamePlaySettingsScene to PreLoad resources
+  * Add: New Scene for GamePlaySettings
+  * Chg: Change emit_signal() to signal.emit()
+  * Upd: set values to Gopdot 4.3
+  * Chg: Rename Profile for Windows Rem: Remove Exportpath in all presets ===: Should be set per export Batch
+  * Ref: Rework export batch ===: Take Batch from 4.3 RC Branch Add: some more variables Add: Info Output Add: Var checks for directorys and engine executabel Fix: GD 4.2.2. do not have the --Log-File Parameter ===: Write Console Output to Logfile TODO: Update variables for Home Export values
+  * Ref: Rework export batch ===: Take Batch from 4.3 RC Branch Add: some more variables Add: Info Output Add: Var checks for directorys and engine executabel Fix: GD 4.2.2. do not have the --Log-File Parameter ===: Write Console Output to Logfile
+  * Ref: Rework export batch ===: Take Batch from 4.3 RC Branch Add: some more variables Add: Info Output Add: Var checks for directorys and engine executabel Fix: GD 4.2.2. do not have the --Log-File Parameter ===: Write Console Output to Logfile TODO: Update variables for Home Export values
+  * Ref: Rework export batch ===: Take Batch from 4.3 RC Branch Add: some more variables Add: Info Output Add: Var checks for directorys and engine executabel Fix: GD 4.2.2. do not have the --Log-File Parameter ===: Write Console Output to Logfile
+  * Chg: Spaces to Tabstops at save
+  * Upd: Trim trailing linespaces
+  * Upd: Changing export path to more readable and miningfull
+  * Update README.md
+  * Fix: ReTry copy Template Files in Build Action
+  * Upd: Cherry pick fixes for github action from 4.2 stable branch
+  * Ref: Rework cli batch for cli exports for home dev Fix: backslashes in paths ===: encapsulate with "
+  * Upd: EOLs onlyChg: change some Export options
+  * Del: Obsolete scenefile
+  * Ref: Rework cli batch for cli exports for home dev Add: variables to better control the call ===: Makes it more general and reuseable
+  * Ref: Rework cli batch for cli exports
+  * Add: Preset for pack only exports
+  * Upd: Auto Migrate to Godot Engine 4.3 rc2
+  * Upd: Auto Migrate to Godot Engine 4.3 rc2
+  * Rem: empty lines at fileend
+  * Fix: warning for float to integer conversion
+  * Add: gdignore to unused / obsolete terrain generator
+  * Update README.md
+  * Fix: next Try fixing missing Template ===: using latest Docker Image and GD Version
+  * Fix: next Try fixing missing Template ===: using prevoious Docker Image
+  * Fix: next Try fixing missing Template
+  * Fix: next Try fixing missing Template
+  * Fix: ReTry copy Template Files in Build Action
+  * Fix: Try workaround for Engine Import Assets anmd Resources
+  * Update export.yml
+  * Fix: dockerimage Template path
+  * Fix: Godot Engine Version in Docker Container for Github action
+  * Chg: Auto Engine Change ===: Indentation
+  * Upd: Update GitHub Workflow Action Versions
+  * Upd: Updating Godot Tags to Project
+  * Fix: Intendation
+  * Fix: Font pathes
+  * Chg: Auto Engine Change
+  * Fix: Export var declaration
+  * Add: Adding Godot Tags to Project
+  * Merge remote-tracking branch 'origin/develop' into Godot-41-Stable
+  * Chg: Export path for android
+  * Upd: Export settings
+  * Upd: remove empty spaces
+  * Upd: Resouce ID changed
+  * Fix: Export var declaration
+  * Upd: Auto Migrate to Godot Engine 4.3 rc2
+  * Fix: Indent in Func Body
+  * Upd: Migrate Engine VErsion to Godot Engi9ne 4.3 rc2
+  * Add: Adding Godot Tags to Project
+  * Merge branch 'Godot-41-Dev' into develop
+  * Upd: Reset elapsed Gametime at De-/aktivating Gametimer in settings
+  * Add: Signal for open the Gamesettings visibilitychanged
+  * Fix: Integer Division Warning
+  * Upd: Convert Project to Godot 4.1 Stable
+  * Upd: Update Project to Godot 4.1 Beta 2 Upd: Reimport Scenes and Images Upd: Reimport Fonts
+  * Merge remote-tracking branch 'origin/Godot-41-Dev' into Godot-41-Dev
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable' into Godot-41-Dev
+  * Update export.yml
+  * Add: js Script for fixing web server header
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable' into Godot-41-Dev
+  * Merge branch 'pulls/1660569315/15' into Godot-40x-Stable
+  * Godot 40x stable main theme
+  * Pull Request #15: Godot 40x stable main theme
+  * Chg: Font size changed ingameui HUD
+  * Upd: Adjust Layout
+  * Chg: Font size changed ===: Adjust background size
+  * Fix: beim laden der config, wenn noch keine JSON vorhanden ist
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable-MainTheme' into Godot-41-Dev
+  * Upd: Update for 4.1 Dev 4 07.06.2023
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable' into Godot-41-Dev
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable' into Godot-41-Dev
+  * Add: Config.json to ignore, because this is dynamic file and changed every play
+  * Add: JSON Config with default values
+  * Chg: Beutify JSON Config file with tab as indentend
+  * Chg: unusual spaces or tabs in empty lines
+  * Chg: Outsource the font file to font variations ===: Save file size for global theme
+  * Add: Missing UI Elements
+  * Upd: Use only global Theme from settings
+  * Chg: Use global Theme in Project Settings
+  * Add: Adding InGameUI Hud Elements to Global Theme
+  * Chg: Ui Elements change to Game_Theme
+  * Add: End Game UI Elements
+  * Chg: use glöobal Theme
+  * Fix: forgotten path change
+  * Upd: fix name for js script for local web build
+  * Upd: Correct changed paths for hardcode recouces
+  * Rmv: Remove unused Resouces
+  * Mve: Move to own folders
+  * Mve: Move in Level relevant folder
+  * Chg: Disable Blender File Imports because of Warning
+  * Mve: Move MainMenu to own folder Upd: Using Themevariation for UI elements
+  * Add: Theme for global use ===: Main Menu Theme created ===: Title header and Buttons
+  * Update README.md
+  * Update export_presets.cfg
+  * Fix: Again Naming of Preset ===: Godot 4 changed it from HTML5 to Web
+  * Fix: Typo in Name
+  * Fix: Presetname for Web Export
+  * Update export.yml
+  * Fix: export.yml
+  * Tryfix: export.yml
+  * Update export.yml
+  * Fix: Potenzial Game Crash at Scene Switch
+  * Fix: Action Packages github-pages-deploy-action reference
+  * Fix: Action Packages to Latest Release Version Number
+  * Update export.yml
+  * Merge remote-tracking branch 'origin/Godot-40x-Stable' into Godot-40x-Stable
+  * Upd: Export_Presets for Github Actions
+  * Add: JS Script for HTML Export
+  * Fix: Font Imports
+  * Update export.yml
+  * Update export.yml
+  * Update export.yml
+  * Update README.md
+  * Upd: Change Branchname for Actions
+  * Upd: GitHub Export Action Files
+  * Upd: Autoconversion Resource File
+  * Ren: Rename for Case Sensitivity
+  * Upd: Export Setting ===: Change Path Add: Export for Html
+  * Upd: Export Settings or GD 4.0.3
+  * Fix: Path to Font File
+  * Del: Error in Tileset
+  * Update README.md
+  * Update export.yml
+  * Update export.yml
+  * Merge pull request #13 from Coding-4Fun/Migrate-Develop-to-Godot-4.x
+  * Merge branch 'develop' into Migrate-Develop-to-Godot-4.x
+  * Merge branch 'Migrate-Develop-to-Godot-4.x' of https://github.com/Coding-4Fun/Just4Fun_Mini_Shootergame into Migrate-Develop-to-Godot-4.x
+  * Update export_html5.yml
+  * Fix: integer rounding division
+  * Add: Display Missed shot counter
+  * Upd: Tweak Target Asset
+  * Fix: Spawnposition
+  * Upd: Tweak Colldown Bar Position and size
+  * Upd: Cannon Position
+  * Upd: Tweak the Buttonstyle in Startmenu
+  * Upd: GameSettings
+  * Fix: Parallax Background mirroring
+  * Fix: Gametimer after Gamereset
+  * Fix: UI Layout after Conversion
+  * Fix: Nodepathes after Redesign
+  * Fix: Name of UI Node
+  * Fix: Write Config
+  * Fix: Collision and Fontsize
+  * Upd: Redesign der IngameHud UI
+  * Try: Try fix layout
+  * Upd: Windows site Settings
+  * Add: New UI Theme
+  * Upd: Try to Fix Layout after Conversion
+  * Fix: Exit Button Call to Close the Application
+  * Fix: Change Scene
+  * Fix: Cannon Reload Cooldown Bar
+  * Add: WorldEnviroment
+  * Fix: Change Scene for GameOver
+  * Fix: Tile ID and Position for Explosion when bullet hit the ground
+  * Fix: instantiate Explosion
+  * Fix: Signal Connect for call Explosion
+  * Fix: Cannonball Collision to Target
+  * Upd: Resource for Font in MainMenu
+  * Upd: PaseMenu
+  * Fix: Keybindings fpr Pause and second Shoot Key
+  * Fix: Missing conversion 3x to 4x
+  * Fix: TileSet in TileMap Conversion
+  * Fix: TileMap Funcs
+  * Fix: Cannonscenes
+  * Fix: Float to int cconversion warning
+  * Add: local git Attributes for Repositorie
+  * Update MainMenuUI.tscn
+  * Tileset Resourcefile
+  * Try to Fix Mainmenu Layout
+  * Update project.godot
+  * TryFix: Layout ingame Menu
+  * Update parallaxLayer.gd
+  * Update MainGame.gd
+  * Update TerrainMapGenerator.gd
+  * Update MainMenuUI.gd
+  * Upd: Migration
+  * Update config.gd
+  * Upd: Migrate
+  * Update Preloads.gd
+  * Update Cannon.gd
+  * Upd: Migration
+  * Upd: Migrate
+  * Upd:  Godot 4 Migration
+  * Upd: Godot 4
+  * Update Line2D.gd
+  * Update parallaxLayer.gd
+  * Upd: Cannonball
+  * Update Godot 4
+  * Update MainMenuUI.tscn
+  * Fix: Migration
+  * Update project.godot
+  * Upd: Godot 4 Imports
+  * Upd: GD4 Ordner
+  * Chg: Check für Connect Signal eingefügt
+  * Add: Eigene Command für Export auf Arbeitsrechner
+  * Add: VSCode Verzeichnis auf Ignore
+  * Merge remote-tracking branch 'origin/develop' into develop
+  * Upd: Projekt Readme
+  * Merge branch 'Fature_condition_roundtime' into develop
+  * Chg: Dynamische Config
+  * FixChg: Hintergrund für Settings angepasst
+  * Fix: Node Pfad für Timer Label
+  * Chg: Ausblenden der Settings bei Start in der MainUI Szene gesetzt
+  * Add: colorRect als Hintergrundfarbe für Settings ===: Alle anderen Nodes als Child gesetzt
+  * Fix: Debug Warning: Integer Division float part will truncated
+  * Fix: Debug Warning: unused return Value
+  * Mve: Ereignis Button Pressed von BackToMenu in SettingsSzenen Script verschoben
+  * Chg: Settings UI in eine eigene Szene verschoben
+  * Add: GameTimer deaktivieren, wenn die Setting sich ändert Fix: Rundung in Umrechnung der Spielzeit und Anzeige im Settingslabel
+  * Chg: Settings UI in eine eigene Szene verschoben
+  * Mve: Scripte in Settings Verzeichnis verschoben
+  * Nüsch
+  * Add: Textlabel bei Reset zurück setzen
+  * Add: Instanz des TimeLabel in Variable speicherm zum einfachen zugreifen
+  * Add: Anzeige der laufenden Zeit im UI
+  * Add: Label für abgelaufende Zeit anzeige ===: LAbel ein/Ausblenden nach Status der Game Option
+  * Add: Timer Stoppen und zurücksetzen wenn Game Reset ausgelöst wird
+  * Add: Game Time Timer starten, wenn dies in der Config aktiv ist
+  * Add: Maximale Spielzeit für WinLoose Condition checken Add: Timer zum zählen der abgelaufenden ZEit
+  * Add: GameOver State für Maximale Spielzeit
+  * Add: Script zum behandeln und speichern der maximalen Spielzeit
+  * Add: Settings für maximale Spielzeit in der UI
+  * Chg: Reihenfolge beim initialisieren der UI
+  * Add: Einstellungen für maximale Spielzeit
+  * Merge branch 'Modified_At_Work' into develop
+  * Merge branch 'develop' into Modified_At_Work
+  * Update README.md
+  * TryFix: Build Only on develop branch
+  * Rollback: Godot zu Version 3.4.2
+  * Add: Win/Loose Conditions
+  * Neuer Versuch
+  * Upd: Beschreibung des Spiels
+  * Fix: Formatierung im Changelog
+  * Rollback: Godot zu Version 3.4.2
+  * TryFix: Build Only on develop branch
+  * Upd: Changelog Alpha.5
+  * Update Godot Version
+  * Update Godot Version
+  * Merge branch 'Modified_At_Work' into develop
+  * Add: Inidikator für Position ausserhalb des Bildschirms
+  * Chg: Use event insteed of Input
+  * Chg: Nothing but spacxes
+  * Add: Indikator für Position des Schusses
+  * Add: Pause Szene Add: Bei Escape, einblenden der Pause Szene und Game Pausieren Add: Global auf Pause Szene
+  * Add: Escape Key for Pausing
+  * Add: Progressbar als Cooldown für Schuss
+  * Add: Dummy Texture für Colldown der Kanone
+  * Fix: Infinite Scolling Parallax
+  * Add: Node für Parallax Hintergrund Add: Wolken Grafiken Add: Beispiel Background
+  * Chg: Nur Builden wenn Push auf Brunch Develope
+  * Merge branch 'Modified_At_Work' into develop
+  * Chg: Texte für End Screen an Bedingung angepasst
+  * Fix: Zurück setzen des gameWin States für neues Spiel aus GameOver Screen
+  * Chg: Print Text für Console
+  * Chg: Change Text in GameOver nach gameWIn State
+  * Fix: Keine Eingabe nur wenn spiel beendet wurde
+  * Chg: Umstellung des WinLoose von Bool auf Int für mehr differenzierung
+  * Add: Button Pressed für neues Game Add: Button pressed für Hauptmenü
+  * Chg: Game Config
+  * Chg: Keine Eingabe mehr, wenn Game im gewonnen State ToFix: Auch bei Loose keine Eingabe mehr annehmen
+  * Add: Script für GameOver Add: abrufen Win State Add: Setzen des Textes im Dialog
+  * Chg: WinLooese als Bool im GSM gespeichert ===: Wird aus dem GameOver Dialog abgerufen Add: Verzögern des Szenen wechsel
+  * Chg: Globalisieren der GameOver Szene
+  * Add: Einbinden des GameOver Dialog Add: Wechseln zur DialogsSzene
+  * Chg: Label umbenannt
+  * Chg: Button Style an Game Over angepasst
+  * Chg: Anpassungen am Style Add: Label für Win / Loose
+  * Chg: Background Color more transparent
+  * Chg: Line Spacing
+  * Add: GameOver Dialog erstellt
+  * Merge remote-tracking branch 'origin/Fature_Win_loose_conditions_2' into Modified_At_Work
+  * Add: GameStateManager zur Erkennung der WIn/Loose Conditions ===: GSM als Autoload Add: Erkennung temporär als Print Add: Meldung der Veränderung per Signal an GSM
+  * Chg: Visible State Change ===: Settings augeblendet als Default
+  * Fix: State für Punkte Slider bei Start nicht korrkt
+  * Merge pull request #10 from Coding-4Fun/Fix_export_projekt
+  * Revert "Auxiliary commit to revert individual files from 8e97278b2ba74785da0da91aec30e01810ce9321"
+  * FIX: Asserts werden im Release Build nicht beachtet
+  * TryFix: Export Einstellungen ===: Export Debug funzt ===: Ohne Debug funzt nicht
+  * Chg: Settings ausgeblendet
+  * Rem: Nicht verwendete Verweise auf Cannon auskommentiert ===: Fixed Leaked Resource Warnung beim beenden
+  * Reimported
+  * Rem: InfoPanel ===: Wird später implementiert
+  * Fix: NodePath zum Button korrigiert
+  * Add: Signal um den Zustand an die Config weiterzugeben Add: Werte für Win/Loose Condition eingefügt ===: Min/Max Punkte -1000 <-> 1000 Add: Default Werte für Win/Loose Condition eingefügt
+  * Ren: Scipt umbenannt
+  * Add: Speichern der Config bei verlassen der Spielszene zurück ins Main Menu
+  * Add: Signal um den Zustand an die Config weiterzugeben
+  * Add: Laden der Werte für Conditions aus der Config
+  * Add: Werte für Win/Loose Condition eingefügt
+  * Add: Default Werte für Win/Loose Condition eingefügt
+  * Add: Button zum An/Aus schalten der Max Schuss Option Add: Slider für zum einstellen der Max Schuss Anzahl Chg: Kleine Anpassungen am UI Layout
+  * Add: Vorbereitung für weitere Settings Elemente Chg: Settings geschlossen als Default
+  * Merge pull request #9 from Coding-4Fun/Feature_Refactore_Player_Nodes
+  * Update Alpha.4 Changelog
+  * ChgFix: Export ohne Debug ist nicht lauffähig, deshalb mit Debug
+  * Fix: Maus Abfangen im UI Angepasst
+  * Fix: Werte im UI zurück setzen bei GameReset
+  * Add: Reaktion auf GameReset ===: Löschen der Map ===: Neugenerieren ===: Workaround um die Burg zu behalten
+  * Add: Reaktivieren des GameReset
+  * Fix: Pfad zum Label für Ausgabe
+  * Rem: Print entfernt
+  * Add: For Debugging, Print Koordinaten des Targets
+  * Fix: Schriftart und Größe
+  * Fix: Target generierung zu dich an Spieler ===: Target kann nicht erreicht werden
+  * Add: Exit Button deaktivieren, wenn im Browser gestartet
+  * Chg: Mehgr puffer für debug ausgaben
+  * Upd: Anordnung und Ausrichtung des UI verbessert Add: Anzeige für gezählte Treffer
+  * Rem: Nicht benötigte Zeilen entfernt Chg: Signal statt func für neues Target ===: func Add_Dummy() entfernt
+  * Add: Festlegen ob Autodespawn aktiv ist im Target selber ===: Wert aus Config lesen Add: Emit TargetHit Signal Chg: TimeMax nur zählen, wenn despawn aktiv ist
+  * Chg: Time Timeout angepasst
+  * Add: Node als Gruppe für Targets hinzugefügt
+  * Chg: Signal GroundHit in CannonBall verschoben Add: Signal für neues Target erstellen Add: Signal für Treffer auf Target
+  * Add: Node als Gruppe für Targets
+  * Chg: Szenenwechsel per Assert erweitert
+  * Add: Emit Signal für Shoot Zählung
+  * Add: Erkennung einer Collision mit einem Dummy
+  * Chg: EOL
+  * Add: Signal Connect für Shoot Zählung
+  * Add: Zuweisung Dummy Group Chg: Dummy erzeugen wieder integriert Upd: Dummy Position um TileSize/2 erhöht damit diese Mittig erscheinen Add: Dummy der Dummy Gruppe untergeordnet Upd: Connect des Dummy Hit Signals um Assert erweitert Fix: Signam Emit für Score Zählung
+  * Rem: Cannon 2 wieder entfernt
+  * Add: Global für Dummy Group Node
+  * Add: Wenn ausserhalb des Bildes, freigebem und Minuspunkte
+  * Add: Stärke anpassen mit STRG um 1000
+  * Chg: Setzen des Velocity Wertes auf dem Mittelwert aus min und max Chg: Muzzle Velocity per Signal im UI anzeigen
+  * Chg: Reihenfolge in der Szene ===: UI zuerst, damit dieses Signals annehmen kann
+  * Fix: Darstellung Anfangswert für Schusskraft in UI
+  * Add: Temporär zweite Kannone hinzugefügt
+  * Chg: Nicht mehr benötigte Func und Kommentarzeilen entfernt Upd: Collisionscheck auf Tile ID 0
+  * Chg: Collision wieder hergestellt
+  * Fix: Signal emitting in all instces ===: Signal must not Global
+  * Add: Global Node Initialisierung
+  * Add: Node und SCript für Playerhandling
+  * Add: Eigene Node für Shots
+  * Fix: Signal emitting in all instces ===: Signal must not Global
+  * Chg: Move instantiating the Canonball in other Nodescript Add: Own Signal for Shooting
+  * Chg: Tile Collision
+  * TryFix: Colliding with TileMap
+  * Fix: Try to Fix Score counting with more then one cannon
+  * Chg: Collision detrectio to body exit Chg: Try One Wy Collision
+  * Add: Collision to all tiles
+  * Chg: EOL
+  * Merge remote-tracking branch 'origin/Modified_At_Work' into develop
+  * Fix: Node Name
+  * Chg: EOL
+  * ???
+  * Add: InfoPanel für Canonen Werte
+  * Rem: Nicht mehr verwendet Nodes entfernt
+  * Fix: Warnung über Connect Return ===: Assert eingefügt
+  * Fix: Keine Explosion sichtbar ===: Instanz wahr falschen Parent zugeordnet
+  * Add: Tilemap der Gruppe Ground zugewiesen Fix: Collision detection mit Cannonball Fix: Scoreanzeige aktualisieren
+  * Chg: Signal Zuweisung angepasst
+  * Fix: Generierung des Terrain ===: Wurde in der falschen Object Instanz ausgelöst Chg: Zuweisung der Preload Variablen in _enter_tree() ===: Ausgelöst bei neuinstanzierung ===: Bei Szenenwechsel von Hauptmenü zur Gameansicht
+  * ???
+  * Try to Fix Map Generation
+  * Revert "Auxiliary commit to revert individual files from 19aaf5b928a87775d5d1fe2b77efe4fbafa8c7c8"
+  * Fix: Check before connect a signal
+  * Chg: Beheben der Warnung das Floatwerte Ihre Prezision verlieren
+  * Fix: Reihenfolge der OnReady Zuweisung in globals ===: Ermitteln der Nodes aus der GameScene
+  * Fix: Checked change Scene return code Fix: Check before connect a signal
+  * Chg: Comment unused var
+  * Fix: Checked change Scene return code
+  * Chg: EOLFix: Check before connect a signal
+  * Chg: EOLChg: Resourcen haben sich geändert
+  * Fix: OnReady von Nodes
+  * Add: Button um wieder ins Hauptmenu zu kommen
+  * Merge remote-tracking branch 'origin/Feature_MainMenu' into Modified_At_Work
+  * Merge remote-tracking branch 'origin/develop' into Modified_At_Work
+  * Add: Quit Button Func Add: Verschidenen Methode zum laden einer anderen Scene
+  * Chg: Button Setting und Highscore ausgeblendet
+  * Add: MainGame Instance als Globale hinzugefügt
+  * Chg: Main Game zu Main Game Menu UI
+  * Add: Scne MainMenuUI
+  * Add: Font Einstellungen für Main Menu
+  * Chg: Verbindung der Signals an den SignalBus angepasst
+  * Chg: Verbindung der Signals an den SignalBus angepasst
+  * Add: Signals die vom Bullet verwendet werden im ready connected
+  * ???
+  * Add: Bullet als Global
+  * Add: Verschiedene SIgnals aus den Scenes eingefügt
+  * Add: Options für Anzahl von Kanonen
+  * Rem: Nicht benötigte onready Variablen Rem: onready Variablen die im Global vorhanden sind Upd: Aufrufe an Globals und Signals angepasst Rem: Func AddTargetToLine und andere Line Funcs ===: Nicht mehr benötigt, seit TileMap
+  * ???
+  * Add: Global Script for Signals (Main Signal Bus) Add: Global Script for Preload Variables and Preloaded Scene Prefabs Mve: Global Config Script to new folder Globals moved
+  * Chg: Collision Layer/Mask changed
+  * Chg: EOL
+  * Chg: Collision Layer changed
+  * Mve: Line Func from Main moved ===: No longer used
+  * Add: Global Script for Signals (Main Signal Bus)
+  * Add: Global Script for Preload Variables and Preloaded Scene Prefabs
+  * Mve: Global Config Script to new folder Globals moved
+  * Add: Connect to UI Signal CannonAngelChanged Chg: Only emit Signal when angel has changes in range of clamped Value ===: Was called every frame
+  * Fix: Variablennamen an Funktionsnamen angepasst
+  * Rem: Adding the Cannon on Position Add: a little Caste with cannons
+  * Fix: Web Export benötigt ETC Option
+  * Chg: UI einheitlich in Englisch für spätere Übersetzungen
+  * Merge branch 'Feature_Procedural_Terrain_TileMap' into develop
+  * Chg: Größe angepasst Chg: Label Text Größe angepasst
+  * Refac: func add_DummyTarget ===: Angepasst an Tilemap Coordinaten
+  * Add: Darstellung der Kanone wieder aktiviert Fix: Berechnung der Kanonenposition angepasst
+  * Rem: Show Collision der Tilemap deaktiviert
+  * Upd: Anpassungen
+  * Chg: Größer der Kanonen weiter verringert Chg: Schusskraft an die Größe angepasst ===: Kleieres Asset erfordert mehr kraft Chg: Variablen für Max und Min Velocity eingefügt und verwendet
+  * Add: Array zum merken der Plattform Coordinaten
+  * Upd: Randomizing Terrain
+  * Add: Aufruf der Tilemap func
+  * Chg: TileSet in Datei gespeichert
+  * Add: Script zum erzeigen der Tilemap hinzugefügt
+  * Rem: Func für TileMap entfernt
+  * Add: Tilemap zum generieren Add: Block Texturen als 16x16
+  * Add: Block Texturen als 16x16 neugespeichert
+  * Chg: Tilesets für unterschiedliche größen angelegt ===: 16x16 und 64x64
+  * Upd: Reimport ohne Filter
+  * chg: func add_cannon_left mit Position erweitert ===: Bei Reset muss nur die X Position angepasst werden.
+  * Chg: Aufruf der Generator Func per TileMap
+  * Chg: Warnung für Type conversion ignoriert Chg: Enable collision aller GRAS Blocks Ren: func zum World generieren prep: func zum generieren einer Karte per TileMap
+  * Chg: Collision aus by default
+  * Add: func zum togglen der Collision
+  * Add: Comment ToDo
+  * Add: Positionieren auf der Plattform
+  * Add: Array zum sammeln der X/Y Koordinaten der Obersten TerrainLIne
+  * Chg: Oberste Terain Line ist GRAS Block
+  * Rem: Aufrufe von TerrainLine Repl: TerrainLine mit Aufrufe zu Chunk ersetzt
+  * Rem: Asset TerrainLine entfernt
+  * Add: Einbinden des Block / Chunk Generator
+  * Add: Einbinden des Block / Chunk Generator
+  * Chg: Blockgröße auf 1/4 gesetzt
+  * Chg: Blockgröße angepasst Add: Func zum Scalieren eines Blocks
+  * Add: Begrenzung der Linien Höhe
+  * Refac: generate_world Func ===: Erstellen einer Spieler Plattform ===: Erstellen einer Oberflächenlinie mit Grasblocken ===: Erstellen einer Bedrock Linie am unteren ende
+  * Rem: Debug Beschriftung im Block
+  * Add: Indizes als Kommentar Add: Grasblocktexture in Array
+  * Add: Texture für Grasblock
+  * Add: Implementation einer Zufälligen Oberflächen Linie ToFix: Plattform Integration
+  * Merge branch 'Modified_At_Work' into Feature_Procedural_Terrain
+  * Fix: JSON Function für Config
+  * Merge remote-tracking branch 'origin/Feature_Procedural_Terrain' into Modified_At_Work
+  * Merge remote-tracking branch 'origin/LoadSaveGameSettings' into Modified_At_Work
+  * Rem: Ungültige Zeilen entfernt
+  * Chg: Überarbeitung der JSON Funktionen ===: Fehlerbehandlung bei ungültigen JSON
+  * Upd: Generierung einer besseren Varianz Nxt: Generierung einer Oberflächen Kurve
+  * Add: Getter / Setter für Type Add: Getter / Setter für Debug Label Text
+  * Add: Label zum Debuggen
+  * Chg: Just Changed
+  * Add: Just for the Block
+  * Add: Some Textures for Blocks
+  * Add: Create a World test Scene
+  * Add: Create a Scene for Chunk
+  * Chg: Hintergrund Farbe angepasst Add: Setting Script zu Autoload eingefügt
+  * Add: Minis Score if out of screen
+  * Fix: Check for Division by Zero
+  * Add: Anzeige mit Point per Shot eingefügt
+  * Update README.md
+  * Merge pull request #8 from Coding-4Fun/LoadSaveGameSettings
+  * Add: Weitere Default werte Fix: Syntax Fehler Add: Event beim Schalter DummyTimer ===: Werte temporär in Config einfügen
+  * Add: Signal für DummyTimer verbunden Add: Verwenden der Config bei einem Reset ===: Instanzieren eines Target
+  * Add: Config Script zum Autoload hinzugefügt
+  * Fix: Anzeige der Score wenn kein Timer läuft
+  * Chg: Export Einstellungen für HTML
+  * Chg: JSON Reader mag kein Beutify JSON ===: Zeilenumbrüche entfernt
+  * Add: Button zum Ein-/Auschalten des Targettimers Add: Signal nit der Config verbunden
+  * Add: Button zum Ein-/Auschalten des Targettimers
+  * Add: Beispiel Config Script aus anderem Projekt Rem: Func für Netzwerk asukommentiert Add: GameSpezifische Config hinzugefügt
+  * Add: CannonBall zu Gruppe Shoots Add: Alle fliegenden Shoots enfernen vor einem GameReset ===; Gruppe Shoots
+  * Fix: Verhindern das die Generierung über oder unter dem Bildschirmrand erfolgt
+  * Add: Prüfung ob body in Collision eine bestimmte Methode enthält
+  * Chg: Verschiebung des UI
+  * Fix: Font Datei Pfade gefixed
+  * Fix: Font Datei Pfade gefixed
+  * NoIdea: Keine Ahnung was sich geändert hat
+  * Set theme jekyll-theme-hacker
+  * Update export.yml
+  * Add files via upload
+  * Update export.yml
+  * Update export.yml
+  * Create export.yml
+  * Update export_html5.yml
+  * Add: Preset
+  * Update export_html5.yml
+  * Update export_html5.yml
+  * Update export_html5.yml
+  * Update export_html5.yml
+  * Update export_html5.yml
+  * Update export_html5.yml
+  * Update README.md
+  * Create export_html5.yml
+  * Mv: Dateien wegen Zugriffssteuereung im GitHub verschoben
+  * Fix: Maus Filter Einstellungen der UI angepasst
+  * Chg: Vorgabe des Default Theme angepasst
+  * Add: Ein Script Template mit Kommentaren zum GODOT Script Guidline
+  * Add: Weiteren Font und ein UI Theme hinzugefügt
+  * Mve: Font Files in eigenen Ordner verschoben
+  * Import: Aus dem GODOT Demo Repository Dateien um einen Export als HTML5 zu erstellen und in den Github Pages zu deployen
+  * Upd: Anpassung an UI ===: Mausbehandlung Add: Panel für Einstellungen die bei einem Reset wirksam werden und den Spielverlauf anpassen Add: Button zum ein- / Ausblenden der Einstellungen
+  * Fix: Warnung über Variablennutzung
+  * Upd: Anpassung an UI Eigenschaften
+  * Fix: Warnung über Variablennutzung
+  * Fix: Terrain Generierung am rechten Rand, solange die Plattform nicht verwendet wird
+  * Add: Button für Spieleinstellungen
+  * Create workexport_html5.yml
+  * Create index.md
+  * Set theme jekyll-theme-hacker
+  * Add: Timer Anzeige für Countdown im Label Add: Anzeige der möglichen Score im Label
+  * Fix: nicht mehr benötigte Signale getrennnt
+  * Add: Timer zum automatischen Despawn eines Dummys mit Minus Punkte bei Timeout
+  * Upd: Quellcode aufgeräumt ===: Kommentare und nicht benötigte Funktionen entfernt
+  * Update README.md
+  * Add: Wenn der Schuss den Boden trifft, wird ein Signal mit einem NegativScore ausgelöst
+  * Chg: Empty Lines
+  * Add: StaticBody der TerrainLine in Gruppe Ground zur Colli Abfrage eingefügt
+  * Fix: Negativen Wert in UI Anzeige korrigiert
+  * Add: Event  /Signal zum Reset der Schussstärke
+  * Fix: Dummy(s) entfernen bei GameReset
+  * Upd: Call 'Getroffen' event
+  * Chg: Eigenes Event wenn Dummy getroffen wurde. Keine Punkte wenn ein Dummy entfernt wird (Bei GameReset)
+  * Fix: Zurücksetzen des Poly bei GameReset
+  * Add: event zum neustart
+  * Add: Button event zum neustart
+  * Chg: Grafiktreiber auf GLES2 umgestellt
+  * Add: Button event zum neustart
+  * Add: Button zum neustart des Spiels
+  * Chg: Projektänderungen in der Hierachie
+  * Chg: Projekt Namen und Beschreibung geändert
+  * Update README.md
+  * Update README.md
+  * Add: Export Ordner zu Ignore hinzugefügt
+  * Add: Übernahme aus Projekt
+  * Create Import_Changelog.md
+  * Initial commit

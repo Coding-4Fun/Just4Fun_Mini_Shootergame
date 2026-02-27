@@ -5,7 +5,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Preloads._initRNG()
-	
+
 	print("GameStart -> RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("GameStart -> RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
 	print("GameStart -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.seed)))
@@ -20,7 +20,7 @@ func _notification(what):
 func _on_buttPlay_pressed():
 	# Change Scene to GameSettings Scene
 	random_stream_player_component.play_random()
-	
+
 	ScreenTransition.transition_to_packedscene(Preloads.GameSettingsScene)
 	await ScreenTransition.transitioned_halfway
 

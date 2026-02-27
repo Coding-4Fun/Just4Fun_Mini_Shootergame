@@ -1,11 +1,11 @@
 extends CanvasLayer
 
-@onready var butt_continue: Button = $CenterContainer/colorRect/VBoxContainer/ButtContinue
-@onready var butt_restart_level: Button = $CenterContainer/colorRect/VBoxContainer/ButtRestartLevel
-@onready var butt_new_level: Button = $CenterContainer/colorRect/VBoxContainer/ButtNewLevel
-@onready var butt_back_to_settings: Button = $CenterContainer/colorRect/VBoxContainer/ButtBackToSettings
-@onready var butt_back_to_main_menu: Button = $CenterContainer/colorRect/VBoxContainer/ButtBackToMainMenu
-@onready var butt_back_to_desktop: Button = $CenterContainer/colorRect/VBoxContainer/ButtBackToDesktop
+@onready var butt_continue: Button = $CenterContainer/VBoxContainer/ButtContinue
+@onready var butt_restart_level: Button = $CenterContainer/VBoxContainer/ButtRestartLevel
+@onready var butt_new_level: Button = $CenterContainer/VBoxContainer/ButtNewLevel
+@onready var butt_back_to_settings: Button = $CenterContainer/VBoxContainer/ButtBackToSettings
+@onready var butt_back_to_main_menu: Button = $CenterContainer/VBoxContainer/ButtBackToMainMenu
+@onready var butt_back_to_desktop: Button = $CenterContainer/VBoxContainer/ButtBackToDesktop
 
 
 
