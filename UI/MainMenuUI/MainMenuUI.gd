@@ -15,7 +15,7 @@ func _notification(what):
 		get_tree().quit() # default behavior
 
 
-func _on_buttPlay_pressed():
+func _on_button_play_pressed():
 	# Change Scene to GameSettings Scene
 	random_stream_player_component.play_random()
 
@@ -23,16 +23,16 @@ func _on_buttPlay_pressed():
 	await ScreenTransition.transitioned_halfway
 
 
-func _on_buttHightScore_pressed():
+func _on_button_highscore_pressed():
 	# Show Highscore Scene
 	print("nicht implementiert")
 
-func _on_buttSettings_pressed():
+func _on_button_settings_pressed():
 	# Show Settings Scene
 	print("nicht implementiert")
 
 
-func _on_buttExit_pressed():
+func _on_button_exit_pressed():
 	random_stream_player_component.play_random()
 	# Close Game, Back to System. Not on HTML
 	ScreenTransition.transition(false)
@@ -40,6 +40,6 @@ func _on_buttExit_pressed():
 	notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
-func _on_buttExit_ready():
+func _on_button_exit_ready():
 	if OS.get_name() == "HTML5":
 		$centerContainer/vBoxContainer/buttExit.disabled = true
