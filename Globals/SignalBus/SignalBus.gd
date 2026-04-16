@@ -79,8 +79,6 @@ func _on_RNGSaveLastState(lastseed : int) -> void:
 
 
 func _on_Floating_Text_Signal(text : String, pos : Vector2) -> void:
-	#print(text)
-
 	var floating_text : Node2D= Preloads.floating_text_scene.instantiate() as Node2D
 	var fgl = get_tree().get_first_node_in_group("foreground_layer")
 	fgl.add_child(floating_text)
