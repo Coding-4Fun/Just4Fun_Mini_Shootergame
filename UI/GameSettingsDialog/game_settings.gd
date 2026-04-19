@@ -18,20 +18,20 @@ var randomseedhash : int = -1
 func _ready() -> void:
 	butt_start_game.pressed.connect(_on_butt_start_game_pressed)
 	butt_back_to_menu.pressed.connect(_on_butt_back_to_menu_pressed)
-	
+
 	tex_butt_generate_random_seed.pressed.connect(_on_tex_butt_generate_random_seed)
 	line_edit_generate_random_seed.text_changed.connect(_on_line_edit_generate_random_seed_changed)
 	line_edit_generate_random_seed.text_submitted.connect(_on_line_edit_generate_random_seed_text_submitted)
-	
+
 	line_edit_user_name.text_changed.connect(_on_playername_change)
 	line_edit_user_name.text = Config.get_configdata_value("GamePlayerName", Variant.Type.TYPE_STRING)
 
 	tex_butt_copy_seed.pressed.connect(_on_tex_butt_copy_seed)
 	tex_butt_paste_seed.pressed.connect(_on_tex_butt_paste_seed)
-	
+
 	line_edit_generate_random_seed.text = str(Preloads.rng.randi())
 	#Config.get_configdata_value("GameRandom")
-	
+
 	print("GameSettings -> RandomSeedGenerator: Seed -> %s" % str(Preloads.rng.seed))
 	print("GameSettings -> RandomSeedGenerator: State -> %s" % str(Preloads.rng.state))
 	print("GameSettings -> RandomSeedGenerator: Hash -> %s" % str(hash(Preloads.rng.state)))

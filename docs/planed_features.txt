@@ -1,7 +1,7 @@
 DONE: Move Restart Button from IngameUI to Pause Menu
 DONE: Replace Settings Button to open Pause Menu
 
-DONE: 
+DONE:
 	Done: Menu Design
 	Done: ButtonSignals
 DONE: Rework Pause Menu
@@ -20,7 +20,7 @@ DONE: Rework Pause Menu
 
 Settings Menu
 - DONE: Add Option for Reload Cooldown Timer
-- Copy / Paste Setting + Seed 
+- Copy / Paste Setting + Seed
 	- As base64 encoded JSON String
 - save As base64 encoded JSON String with Custom Name
 	- Dropdown for reloading saved settings
@@ -45,7 +45,7 @@ Game Mode's
 				- shorter Reloads
 				- Double Shots
 				- More Goal Hitpoints
-				
+
 	- Presets
 		- Sets preselected Values
 			- save As base64 encoded JSON String
@@ -56,7 +56,7 @@ Terrain generation
 
 Updater:
 	- Lookup GitHub for new releases
-		- Only fetch if new Update 
+		- Only fetch if new Update
 			- Show Change notice
 	- Maybe .NET Client
 		- Download and install
@@ -65,6 +65,6 @@ Updater:
 BUGS:
 	- FIXED: Back to MainMenu in GameOverDialog
 	- WIP: double transition to GameOverDialog
-	- Escape Key (Pause Menu) 
+	- Escape Key (Pause Menu)
 		- FIXED: Menu opens in all Dialog / Scenes
 		- Restart generate new Terrain
