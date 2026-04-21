@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ckt7s0bpjowi6"
-path="res://.godot/imported/FashionVictim.ttf-28fe70c4077519d2cec8a87d7e032ce7.fontdata"
+uid="uid://h4nwo1xbv0y3"
+path="res://.godot/imported/open_sans_bold.ttf-cafed7ee5c424c5aa725aab9bc30fdfd.fontdata"
 
 [deps]
 
-source_file="res://UI/Fonts/FashionVictim.ttf"
-dest_files=["res://.godot/imported/FashionVictim.ttf-28fe70c4077519d2cec8a87d7e032ce7.fontdata"]
+source_file="res://resource/fonts/open_sans_bold.ttf"
+dest_files=["res://.godot/imported/open_sans_bold.ttf-cafed7ee5c424c5aa725aab9bc30fdfd.fontdata"]
 
 [params]
 

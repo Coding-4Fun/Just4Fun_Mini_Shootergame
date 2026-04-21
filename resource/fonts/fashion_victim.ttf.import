@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://h4nwo1xbv0y3"
-path="res://.godot/imported/OpenSansBold.ttf-3ed5cc1c325f6d46a64ba2851b4ce1b9.fontdata"
+uid="uid://ckt7s0bpjowi6"
+path="res://.godot/imported/fashion_victim.ttf-182aeff229235ef3d3fd7dd999d1526e.fontdata"
 
 [deps]
 
-source_file="res://UI/Fonts/OpenSansBold.ttf"
-dest_files=["res://.godot/imported/OpenSansBold.ttf-3ed5cc1c325f6d46a64ba2851b4ce1b9.fontdata"]
+source_file="res://resource/fonts/fashion_victim.ttf"
+dest_files=["res://.godot/imported/fashion_victim.ttf-182aeff229235ef3d3fd7dd999d1526e.fontdata"]
 
 [params]
 
