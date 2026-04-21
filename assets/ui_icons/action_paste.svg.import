@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4cul21yoa34n"
-path="res://.godot/imported/wurfel.png-4e4abf171a30a70005696c6979ad732c.ctex"
+uid="uid://cl2tdfnbynoys"
+path="res://.godot/imported/action_paste.svg-54e1a4e463f255607b274e2692f16327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/wurfel.png"
-dest_files=["res://.godot/imported/wurfel.png-4e4abf171a30a70005696c6979ad732c.ctex"]
+source_file="res://assets/ui_icons/action_paste.svg"
+dest_files=["res://.godot/imported/action_paste.svg-54e1a4e463f255607b274e2692f16327.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

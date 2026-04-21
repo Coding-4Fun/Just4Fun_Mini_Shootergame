@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://45peyhhapnje" path="res://UI/Settings/dummytimersettings.gd" id="3_nubox"]
 [ext_resource type="Script" uid="uid://b0t7sb5ur7b0d" path="res://UI/Settings/cannon_reload_cooldown_settiungs.gd" id="3_t0462"]
 [ext_resource type="Script" uid="uid://007khnqc0es7" path="res://UI/Settings/MaxScoreSettings.gd" id="4_bcppk"]
-[ext_resource type="Texture2D" uid="uid://c4cul21yoa34n" path="res://assets/ui/wurfel.png" id="6_xkio1"]
-[ext_resource type="Texture2D" uid="uid://cl2tdfnbynoys" path="res://assets/ui/ActionPaste.svg" id="7_3d6p0"]
-[ext_resource type="Texture2D" uid="uid://c02bntkhyu328" path="res://assets/ui/ActionCopy.svg" id="8_xeboe"]
+[ext_resource type="Texture2D" uid="uid://c4cul21yoa34n" path="res://assets/ui_icons/wurfel.png" id="6_xkio1"]
+[ext_resource type="Texture2D" uid="uid://cl2tdfnbynoys" path="res://assets/ui_icons/action_paste.svg" id="7_3d6p0"]
+[ext_resource type="Texture2D" uid="uid://c02bntkhyu328" path="res://assets/ui_icons/action_copy.svg" id="8_xeboe"]
+
 
 [node name="GameSettings" type="Control" unique_id=29189474]
 layout_mode = 3
