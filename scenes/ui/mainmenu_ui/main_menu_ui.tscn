@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b160gc30aq28t"]
 
-[ext_resource type="Script" uid="uid://d0c0y7frr2byy" path="res://UI/MainMenuUI/MainMenuUI.gd" id="2"]
+[ext_resource type="Script" uid="uid://d0c0y7frr2byy" path="res://scenes/ui/mainmenu_ui/main_menu_ui.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://2f2c8xqvyuwd" path="res://UI/components/sound_button/random_stream_player_component.tscn" id="8_iqekv"]
+
 
 [node name="MainMenuUI" type="Control" unique_id=1290360434]
 layout_mode = 3
