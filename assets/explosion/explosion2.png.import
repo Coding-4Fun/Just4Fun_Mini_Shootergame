@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkgod67scsogn"
-path="res://.godot/imported/tank_explosion3.png-b0d3ca4338c345eee48b391ec945b2eb.ctex"
+uid="uid://yb6vpmt7iue4"
+path="res://.godot/imported/explosion2.png-a68246247cd96a6736c6726f1bda40e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CannonBall/tank_explosion3.png"
-dest_files=["res://.godot/imported/tank_explosion3.png-b0d3ca4338c345eee48b391ec945b2eb.ctex"]
+source_file="res://assets/explosion/explosion2.png"
+dest_files=["res://.godot/imported/explosion2.png-a68246247cd96a6736c6726f1bda40e2.ctex"]
 
 [params]
 

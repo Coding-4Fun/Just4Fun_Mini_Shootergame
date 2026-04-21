@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://xx6yx0io3fgf"]
 
-[ext_resource type="Script" uid="uid://ix6goieaee41" path="res://CannonBall/Explosion.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://yb6vpmt7iue4" path="res://CannonBall/tank_explosion2.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://c7bs7q5fmvrx6" path="res://CannonBall/tank_explosion4.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dkgod67scsogn" path="res://CannonBall/tank_explosion3.png" id="4"]
+[ext_resource type="Script" uid="uid://ix6goieaee41" path="res://UI/components/explosion/explosion.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://yb6vpmt7iue4" path="res://assets/explosion/explosion2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c7bs7q5fmvrx6" path="res://assets/explosion/explosion4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dkgod67scsogn" path="res://assets/explosion/explosion3.png" id="4"]
+
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
