@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bkuw5djpqvu7i"]
 
-[ext_resource type="Script" uid="uid://ctx0eni6a1en6" path="res://cannonball/cannonball.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c1ltgkeledm5n" path="res://cannonball/cannonball.png" id="2_oh7v1"]
-[ext_resource type="Texture2D" uid="uid://ckn4ovvn3g50j" path="res://cannonball/offscreen_arrow.png" id="3_vs4in"]
+[ext_resource type="Script" uid="uid://ctx0eni6a1en6" path="res://scenes/cannonball/cannonball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c1ltgkeledm5n" path="res://scenes/cannonball/cannonball.png" id="2_oh7v1"]
+[ext_resource type="Texture2D" uid="uid://ckn4ovvn3g50j" path="res://scenes/cannonball/offscreen_arrow.png" id="3_vs4in"]
 
 
 [sub_resource type="RectangleShape2D" id="1"]
