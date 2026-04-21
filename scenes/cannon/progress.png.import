@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beoj8ih7nvgrg"
-path="res://.godot/imported/Progress.png-288d18709ea07c65d8049475b75cb7da.ctex"
+path="res://.godot/imported/progress.png-189d07e5f48f260b20f8a0de0590718b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cannon/Progress.png"
-dest_files=["res://.godot/imported/Progress.png-288d18709ea07c65d8049475b75cb7da.ctex"]
+source_file="res://scenes/cannon/progress.png"
+dest_files=["res://.godot/imported/progress.png-189d07e5f48f260b20f8a0de0590718b.ctex"]
 
 [params]
 

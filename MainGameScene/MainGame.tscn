@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://UI/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" uid="uid://bw0jvpsemt1ei" path="res://scripts/players.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
-[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://Cannon/Cannon.tscn" id="6_6q48v"]
+[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://scenes/cannon/cannon.tscn" id="6_6q48v"]
 [ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://DummyTarget/DummyTargetGroupNode.tscn" id="7"]
 [ext_resource type="Script" uid="uid://cb4vgvs7c5o0l" path="res://DummyTarget/DummyTargetGroupNode.gd" id="8"]
 [ext_resource type="Script" uid="uid://cy3gt4q7lbukg" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
