@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duurnypvd25ui"]
 
-[ext_resource type="Script" uid="uid://eufctmd8mwcw" path="res://Globals/scene_transition/screen_transition.gd" id="1_k4sn2"]
-[ext_resource type="Shader" uid="uid://betp84v3tkqp3" path="res://Globals/scene_transition/screen_transition.gdshader" id="1_kojj2"]
+[ext_resource type="Script" uid="uid://eufctmd8mwcw" path="res://scripts/globals/scene_transition/screen_transition.gd" id="1_k4sn2"]
+[ext_resource type="Shader" uid="uid://betp84v3tkqp3" path="res://scripts/globals/scene_transition/screen_transition.gdshader" id="1_kojj2"]
 [ext_resource type="Texture2D" uid="uid://blsakmn3ypkke" path="res://assets/scene_transition/screen_transition.png" id="2_cqjc4"]
 
 [sub_resource type="Animation" id="Animation_4ilo4"]
