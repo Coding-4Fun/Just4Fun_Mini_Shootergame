@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://def1clan6rx5g"
-path="res://.godot/imported/stonebrick.png-5a250da110a29fb52e8e8dc196906b8b.ctex"
+uid="uid://ch3ldcyo5tr6l"
+path="res://.godot/imported/stonebrick_16x16.png-eb8fb2184e5c5316eb31603fb68df9bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/stonebrick.png"
-dest_files=["res://.godot/imported/stonebrick.png-5a250da110a29fb52e8e8dc196906b8b.ctex"]
+source_file="res://assets/blocks/sprites/stonebrick_16x16.png"
+dest_files=["res://.godot/imported/stonebrick_16x16.png-eb8fb2184e5c5316eb31603fb68df9bb.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

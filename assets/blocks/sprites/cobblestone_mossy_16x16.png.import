@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p2pyji6ie0ur"
-path="res://.godot/imported/brick.png-8f4d51bbab8142e74ca1703e8541f80f.ctex"
+uid="uid://esm51ddt5goy"
+path="res://.godot/imported/cobblestone_mossy_16x16.png-276137ef8f3001fc457e1ad1c342abaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/brick.png"
-dest_files=["res://.godot/imported/brick.png-8f4d51bbab8142e74ca1703e8541f80f.ctex"]
+source_file="res://assets/blocks/sprites/cobblestone_mossy_16x16.png"
+dest_files=["res://.godot/imported/cobblestone_mossy_16x16.png-276137ef8f3001fc457e1ad1c342abaa.ctex"]
 
 [params]
 

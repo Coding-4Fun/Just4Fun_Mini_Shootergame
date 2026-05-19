@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq5j54xd10xxu"
-path="res://.godot/imported/castle_zinne_links.png-095c5fa4322ca330fe4456fafc6c840a.ctex"
+uid="uid://t1re2snl3y4m"
+path="res://.godot/imported/castle_zinne_rechts_16x16.png-bcdd97108e8568817d78f1bd3b8b2bfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/castle_zinne_links.png"
-dest_files=["res://.godot/imported/castle_zinne_links.png-095c5fa4322ca330fe4456fafc6c840a.ctex"]
+source_file="res://assets/blocks/sprites/castle_zinne_rechts_16x16.png"
+dest_files=["res://.godot/imported/castle_zinne_rechts_16x16.png-bcdd97108e8568817d78f1bd3b8b2bfd.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

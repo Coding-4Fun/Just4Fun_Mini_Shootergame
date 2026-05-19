@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt2yc75wvx6ug"
-path="res://.godot/imported/coal_ore.png-0c7acf93631bf36e23daba3abc1b5db0.ctex"
+uid="uid://b50s6j7lssis3"
+path="res://.godot/imported/castle_zinne_slope_rechts_16x16.png-f3749be96cbe91b22d8d320c2d331d28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/coal_ore.png"
-dest_files=["res://.godot/imported/coal_ore.png-0c7acf93631bf36e23daba3abc1b5db0.ctex"]
+source_file="res://assets/blocks/sprites/castle_zinne_slope_rechts_16x16.png"
+dest_files=["res://.godot/imported/castle_zinne_slope_rechts_16x16.png-f3749be96cbe91b22d8d320c2d331d28.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

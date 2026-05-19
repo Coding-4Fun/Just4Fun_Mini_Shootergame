@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ue7yomy4hut"
-path="res://.godot/imported/gras.png-409782a067c9b3fa18651c2c19194210.ctex"
+uid="uid://dmoqs8ts6t8du"
+path="res://.godot/imported/castle_zinne_mitte_16x16.png-baf5d4a44f8cc53f595932da847029b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/gras.png"
-dest_files=["res://.godot/imported/gras.png-409782a067c9b3fa18651c2c19194210.ctex"]
+source_file="res://assets/blocks/sprites/castle_zinne_mitte_16x16.png"
+dest_files=["res://.godot/imported/castle_zinne_mitte_16x16.png-baf5d4a44f8cc53f595932da847029b1.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

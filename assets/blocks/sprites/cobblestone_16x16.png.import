@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2l0xjn8hvowa"
-path="res://.godot/imported/castle_zinne_rechts.png-135c40bd0d7775ef9d27a35d41423fe8.ctex"
+uid="uid://bdxsp6j4dnko6"
+path="res://.godot/imported/cobblestone_16x16.png-74d870411a90a97f3bdb38e8739ca9e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blocks/sprites/castle_zinne_rechts.png"
-dest_files=["res://.godot/imported/castle_zinne_rechts.png-135c40bd0d7775ef9d27a35d41423fe8.ctex"]
+source_file="res://assets/blocks/sprites/cobblestone_16x16.png"
+dest_files=["res://.godot/imported/cobblestone_16x16.png-74d870411a90a97f3bdb38e8739ca9e1.ctex"]
 
 [params]
 
