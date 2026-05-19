@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p2pyji6ie0ur"
-path="res://.godot/imported/brick.png-1a70a55d38c7dd8180afba64f409b2ed.ctex"
+uid="uid://1s2xcm65tjgl"
+path="res://.godot/imported/clay.png-7211abae9d712534f55f498697b99966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/brick.png"
-dest_files=["res://.godot/imported/brick.png-1a70a55d38c7dd8180afba64f409b2ed.ctex"]
+source_file="res://assets/_unused/sprites/clay.png"
+dest_files=["res://.godot/imported/clay.png-7211abae9d712534f55f498697b99966.ctex"]
 
 [params]
 

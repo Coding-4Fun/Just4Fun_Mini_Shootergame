@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1s2xcm65tjgl"
-path="res://.godot/imported/clay.png-df44100551f604be3a25ff5481909b7f.ctex"
+uid="uid://dt2yc75wvx6ug"
+path="res://.godot/imported/coal_ore.png-7f5c30bed6100b6f947af9a3f19e7d91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/clay.png"
-dest_files=["res://.godot/imported/clay.png-df44100551f604be3a25ff5481909b7f.ctex"]
+source_file="res://assets/_unused/sprites/coal_ore.png"
+dest_files=["res://.godot/imported/coal_ore.png-7f5c30bed6100b6f947af9a3f19e7d91.ctex"]
 
 [params]
 

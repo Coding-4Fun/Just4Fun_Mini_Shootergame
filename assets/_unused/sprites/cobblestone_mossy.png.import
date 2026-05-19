@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmjosb1qp5a7e"
-path="res://.godot/imported/dirt.png-3034402614af9d4a8cc3b55572ca012a.ctex"
+uid="uid://bbv32nqn0dwwn"
+path="res://.godot/imported/cobblestone_mossy.png-f80f358ce8389d6cff6f7edfc37c1fb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/dirt.png"
-dest_files=["res://.godot/imported/dirt.png-3034402614af9d4a8cc3b55572ca012a.ctex"]
+source_file="res://assets/_unused/sprites/cobblestone_mossy.png"
+dest_files=["res://.godot/imported/cobblestone_mossy.png-f80f358ce8389d6cff6f7edfc37c1fb9.ctex"]
 
 [params]
 

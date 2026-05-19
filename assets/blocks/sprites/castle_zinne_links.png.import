@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt2yc75wvx6ug"
-path="res://.godot/imported/coal_ore.png-b2595753268799f4ee9c8958a3a0daab.ctex"
+uid="uid://cq5j54xd10xxu"
+path="res://.godot/imported/castle_zinne_links.png-095c5fa4322ca330fe4456fafc6c840a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/coal_ore.png"
-dest_files=["res://.godot/imported/coal_ore.png-b2595753268799f4ee9c8958a3a0daab.ctex"]
+source_file="res://assets/blocks/sprites/castle_zinne_links.png"
+dest_files=["res://.godot/imported/castle_zinne_links.png-095c5fa4322ca330fe4456fafc6c840a.ctex"]
 
 [params]
 

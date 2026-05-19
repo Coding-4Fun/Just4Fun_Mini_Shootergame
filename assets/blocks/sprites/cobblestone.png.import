@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d011ha5gc4xw5"
-path="res://.godot/imported/castle_zinne_slope_rechts.png-b51e75a7cd1e2e8b36554fc7340839b4.ctex"
+uid="uid://cwtlu06003px7"
+path="res://.godot/imported/cobblestone.png-8e5f641d0c87b6cdff1307bf9b0fc28b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/castle_zinne_slope_rechts.png"
-dest_files=["res://.godot/imported/castle_zinne_slope_rechts.png-b51e75a7cd1e2e8b36554fc7340839b4.ctex"]
+source_file="res://assets/blocks/sprites/cobblestone.png"
+dest_files=["res://.godot/imported/cobblestone.png-8e5f641d0c87b6cdff1307bf9b0fc28b.ctex"]
 
 [params]
 

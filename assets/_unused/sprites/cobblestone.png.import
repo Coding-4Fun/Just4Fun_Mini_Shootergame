@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://def1clan6rx5g"
-path="res://.godot/imported/stonebrick.png-a8e492d0726e05a5d0dec7590a3233f0.ctex"
+uid="uid://cwtlu06003px7"
+path="res://.godot/imported/cobblestone.png-49bd9f328f547b15c9e7cf6998cc2c1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/stonebrick.png"
-dest_files=["res://.godot/imported/stonebrick.png-a8e492d0726e05a5d0dec7590a3233f0.ctex"]
+source_file="res://assets/_unused/sprites/cobblestone.png"
+dest_files=["res://.godot/imported/cobblestone.png-49bd9f328f547b15c9e7cf6998cc2c1b.ctex"]
 
 [params]
 

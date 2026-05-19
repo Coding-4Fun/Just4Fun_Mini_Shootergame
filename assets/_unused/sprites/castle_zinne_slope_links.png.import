@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq5j54xd10xxu"
-path="res://.godot/imported/castle_zinne_links.png-09461bf1b10d003b78c2136c6a6a7248.ctex"
+uid="uid://6lem61vlne8a"
+path="res://.godot/imported/castle_zinne_slope_links.png-b580b7c73dc680ef2b862d5b28370698.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/castle_zinne_links.png"
-dest_files=["res://.godot/imported/castle_zinne_links.png-09461bf1b10d003b78c2136c6a6a7248.ctex"]
+source_file="res://assets/_unused/sprites/castle_zinne_slope_links.png"
+dest_files=["res://.godot/imported/castle_zinne_slope_links.png-b580b7c73dc680ef2b862d5b28370698.ctex"]
 
 [params]
 

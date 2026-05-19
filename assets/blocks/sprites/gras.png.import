@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2l0xjn8hvowa"
-path="res://.godot/imported/castle_zinne_rechts.png-f226c913a62e9e40af968802ae5117ae.ctex"
+uid="uid://8ue7yomy4hut"
+path="res://.godot/imported/gras.png-409782a067c9b3fa18651c2c19194210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainGameScene/TerrainTiles/Blocks/Sprites/castle_zinne_rechts.png"
-dest_files=["res://.godot/imported/castle_zinne_rechts.png-f226c913a62e9e40af968802ae5117ae.ctex"]
+source_file="res://assets/blocks/sprites/gras.png"
+dest_files=["res://.godot/imported/gras.png-409782a067c9b3fa18651c2c19194210.ctex"]
 
 [params]
 
