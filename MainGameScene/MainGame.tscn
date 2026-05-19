@@ -2,12 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" uid="uid://doq5gx0j1jn2s" path="res://MainGameScene/MainGame.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://UI/components/vignette/vignette.tscn" id="2_jfj17"]
+[ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://scenes/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" uid="uid://bw0jvpsemt1ei" path="res://scripts/players.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
-[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://scenes/cannon/cannon.tscn" id="6_6q48v"]
-[ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://scenes/dummy_target/dummy_target_groupnode.tscn" id="7"]
-[ext_resource type="Script" uid="uid://cb4vgvs7c5o0l" path="res://scenes/dummy_target/dummy_target_groupnode.gd" id="8"]
+[ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://scenes/Objects/cannon/cannon.tscn" id="6_6q48v"]
+[ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.tscn" id="7"]
+[ext_resource type="Script" uid="uid://cb4vgvs7c5o0l" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.gd" id="8"]
 [ext_resource type="Script" uid="uid://cy3gt4q7lbukg" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://MainGameScene/Background/uncolored_plain.png" id="10"]
 [ext_resource type="Script" uid="uid://r3vhtsd4et1h" path="res://MainGameScene/terrain.gd" id="12_6ypvd"]
@@ -35,7 +35,6 @@ environment = SubResource("Environment_47r24")
 position = Vector2(0, -250)
 motion_mirroring = Vector2(1600, 0)
 script = ExtResource("9")
-CLOUD_SPEED = -50.0
 
 [node name="sprite" type="Sprite2D" parent="parallaxBackground/parallaxLayer" unique_id=1260972593]
 scale = Vector2(1.56348, 1)
