@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dmyeg6ldx2orv"]
 
-[ext_resource type="Shader" uid="uid://brwl5h7oldujb" path="res://UI/components/vignette/vignette.gdshader" id="1_28ta1"]
-[ext_resource type="Script" uid="uid://40rq4e55pgb" path="res://UI/components/vignette/vignette.gd" id="1_55ahl"]
+[ext_resource type="Shader" uid="uid://brwl5h7oldujb" path="res://scenes/components/vignette/vignette.gdshader" id="1_28ta1"]
+[ext_resource type="Script" uid="uid://40rq4e55pgb" path="res://scenes/components/vignette/vignette.gd" id="1_55ahl"]
+
 
 [sub_resource type="Animation" id="Animation_v6348"]
 length = 0.001
