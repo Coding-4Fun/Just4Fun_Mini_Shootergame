@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dmu80fq6rvrp"]
+
+[ext_resource type="Script" uid="uid://srqhtl5ne32r" path="res://scenes/components/sound_button/sound_button.gd" id="1_6v5re"]
+[ext_resource type="PackedScene" uid="uid://2f2c8xqvyuwd" path="res://scenes/components/sound_button/random_stream_player_component.tscn" id="2_n7n4p"]
+
+
+[node name="SoundButton" type="Button" unique_id=1182328933]
+offset_right = 6.0
+offset_bottom = 6.0
+text = "Sound Button"
+script = ExtResource("1_6v5re")
+
+[node name="RandomStreamPlayerComponent" parent="." unique_id=2011789968 instance=ExtResource("2_n7n4p")]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

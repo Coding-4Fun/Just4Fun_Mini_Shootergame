@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dwpyhrww6jkcv"]
+
+[ext_resource type="Texture2D" uid="uid://busvvdqv1k5je" path="res://scenes/objects/dummy_target/dummy_target.png" id="2"]
+[ext_resource type="Script" uid="uid://dro5nw13scevk" path="res://scenes/objects/dummy_target/dummy_target.gd" id="3"]
+
+[sub_resource type="CapsuleShape2D" id="3"]
+radius = 86.6667
+height = 475.0
+
+[node name="DummyTarget" type="StaticBody2D" unique_id=112751082 groups=["Dummy"]]
+z_index = 5
+scale = Vector2(0.15, 0.08)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=282801501]
+position = Vector2(2, 5.99994)
+texture = ExtResource("2")
+centered = false
+offset = Vector2(-102, -600)
+
+[node name="dummyLabel" type="Label" parent="." unique_id=1470538959]
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.333
+offset_top = -1200.0
+offset_right = 276.667
+offset_bottom = -616.999
+grow_horizontal = 2
+size_flags_horizontal = 5
+theme_type_variation = &"TargetLabel"
+text = "21
+0.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="collisionShape2D" type="CollisionShape2D" parent="." unique_id=1255021349]
+position = Vector2(0, -350)
+shape = SubResource("3")
+
+[node name="despawnTimer" type="Timer" parent="." unique_id=2048110802]
+wait_time = 0.25
+
+[connection signal="timeout" from="despawnTimer" to="." method="_on_despawnTimer_timeout"]

@@ -15,8 +15,8 @@ config/name_localized={
 "de_DE": "Mini Cannon Shooter"
 }
 config/description="Just 4 Fun - Mini Shootergame"
-config/tags=PackedStringArray("2d", "develop", "godo_4.6", "godot_4.4", "projekt", "singleplayer", "stable")
-run/main_scene="res://UI/MainMenuUI/MainMenuUI.tscn"
+config/tags=PackedStringArray("2d", "develop", "godo_4.6", "projekt", "singleplayer", "stable")
+run/main_scene="res://scenes/ui/mainmenu_ui/main_menu_ui.tscn"
 config/features=PackedStringArray("4.6")
 run/flush_stdout_on_print=true
 boot_splash/bg_color=Color(0.109804, 0.372549, 0.47451, 1)
@@ -24,11 +24,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Preloads="*res://Globals/Preloads.gd"
-SignalBus="*res://Globals/SignalBus/SignalBus.gd"
-Config="*res://Globals/GameConfig/config.gd"
-GSM="*res://Globals/GameStateManager/GameStateManager.gd"
-ScreenTransition="*res://Globals/scene_transition/screen_transition.tscn"
+Preloads="*res://scripts/globals/preloads.gd"
+SignalBus="*res://scripts/globals/signal_bus.gd"
+Config="*res://scripts/globals/config.gd"
+GSM="*res://scripts/globals/gamestatemanager/game_state_manager.gd"
+ScreenTransition="*res://scripts/globals/scene_transition/screen_transition.tscn"
 
 [debug]
 
@@ -45,6 +45,10 @@ window/stretch/mode="canvas_items"
 display_server/driver.windows="windows"
 display_server/driver.linuxbsd="wayland"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
@@ -55,7 +59,7 @@ foreground_layer=""
 
 [gui]
 
-theme/custom="res://UI/Theme/game_theme.tres"
+theme/custom="res://resource/theme/game_theme.tres"
 
 [importer_defaults]
 

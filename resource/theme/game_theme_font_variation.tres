@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://boynskj7gbbuw"]
+
+[ext_resource type="FontFile" uid="uid://h4nwo1xbv0y3" path="res://resource/fonts/open_sans_bold.ttf" id="1_xpsuv"]
+
+
+[resource]
+base_font = ExtResource("1_xpsuv")

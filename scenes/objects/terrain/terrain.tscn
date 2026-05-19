@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b2huvi5ngu5u"]
+
+[ext_resource type="Script" uid="uid://r3vhtsd4et1h" path="res://scenes/objects/terrain/terrain.gd" id="1_d38nm"]
+[ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://resource/terrain_tileset/blocks_tileset_16x16.tres" id="2_p1vem"]
+[ext_resource type="Script" uid="uid://bm6fjjd6rlsi" path="res://scripts/terrain_layer/layer_terrain.gd" id="3_dp8lk"]
+[ext_resource type="Script" uid="uid://bioxkyxepylte" path="res://scripts/terrain_layer/layer_cannon.gd" id="4_xy64w"]
+[ext_resource type="Script" uid="uid://ddjeoiktyxmyr" path="res://scripts/terrain_layer/layer_castle.gd" id="5_o3e2v"]
+
+[node name="Terrain" type="Node2D" unique_id=875102395]
+script = ExtResource("1_d38nm")
+
+[node name="LayerTerrain" type="TileMapLayer" parent="." unique_id=1012254996 groups=["Ground"]]
+use_parent_material = true
+tile_set = ExtResource("2_p1vem")
+script = ExtResource("3_dp8lk")
+
+[node name="LayerCannon" type="TileMapLayer" parent="." unique_id=1084555019]
+use_parent_material = true
+tile_set = ExtResource("2_p1vem")
+script = ExtResource("4_xy64w")
+
+[node name="LayerCastle" type="TileMapLayer" parent="." unique_id=1775993810]
+use_parent_material = true
+tile_set = ExtResource("2_p1vem")
+script = ExtResource("5_o3e2v")

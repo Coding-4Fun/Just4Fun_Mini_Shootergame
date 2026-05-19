@@ -1,6 +1,0 @@
-[gd_resource type="FontVariation" format=3 uid="uid://dgu7sfe7thk30"]
-
-[ext_resource type="FontFile" uid="uid://ckt7s0bpjowi6" path="res://UI/Fonts/FashionVictim.ttf" id="1_fla6a"]
-
-[resource]
-base_font = ExtResource("1_fla6a")
