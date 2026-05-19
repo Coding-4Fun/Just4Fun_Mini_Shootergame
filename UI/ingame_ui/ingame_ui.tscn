@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://ncuxb50cjisf"]
 
-[ext_resource type="Script" uid="uid://dwa48rpcmstdo" path="res://UI/InGameUI/ingameui.gd" id="1_2tfgw"]
+[ext_resource type="Script" uid="uid://dwa48rpcmstdo" path="res://UI/ingame_ui/ingame_ui.gd" id="1_2tfgw"]
 [ext_resource type="Texture2D" uid="uid://dxi5inc7ae2nv" path="res://assets/ui_icons/tabs_menu.svg" id="2_tx40g"]
 [ext_resource type="Texture2D" uid="uid://b38tsxx5qmv8a" path="res://assets/ui_icons/tabs_menu_hl.svg" id="3_tc3sg"]
-
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uui47"]
 

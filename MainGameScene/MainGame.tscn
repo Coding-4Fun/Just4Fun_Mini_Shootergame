@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://doq5gx0j1jn2s" path="res://MainGameScene/MainGame.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://scenes/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" uid="uid://bw0jvpsemt1ei" path="res://scripts/players.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/InGameUI/IngameUI_Redesign.tscn" id="5_y7iba"]
+[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/ingame_ui/ingame_ui.tscn" id="5_y7iba"]
 [ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://scenes/Objects/cannon/cannon.tscn" id="6_6q48v"]
 [ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.tscn" id="7"]
 [ext_resource type="Script" uid="uid://cb4vgvs7c5o0l" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.gd" id="8"]
