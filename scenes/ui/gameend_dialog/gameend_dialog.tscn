@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rd0b5nysx6vq"]
 
-[ext_resource type="Script" uid="uid://c2c52ft86oamp" path="res://UI/GameEndDialog/GameEndDialog.gd" id="3"]
+[ext_resource type="Script" uid="uid://c2c52ft86oamp" path="res://scenes/ui/gameend_dialog/gameend_dialog.gd" id="3"]
+
 
 [node name="GameEndDialog" type="Control" unique_id=1047863751]
 layout_mode = 3
