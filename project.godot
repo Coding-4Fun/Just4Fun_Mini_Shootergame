@@ -45,6 +45,10 @@ window/stretch/mode="canvas_items"
 display_server/driver.windows="windows"
 display_server/driver.linuxbsd="wayland"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
