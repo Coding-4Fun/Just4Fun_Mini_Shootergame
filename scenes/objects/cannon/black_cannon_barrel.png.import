@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckn4ovvn3g50j"
-path="res://.godot/imported/offscreen_arrow.png-a319d84484d7583b3c0bcd04fdf54bc6.ctex"
+uid="uid://ci72mkbxrxjbc"
+path="res://.godot/imported/black_cannon_barrel.png-391e135d7482a5065a85c746d71bfcbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Objects/cannonball/offscreen_arrow.png"
-dest_files=["res://.godot/imported/offscreen_arrow.png-a319d84484d7583b3c0bcd04fdf54bc6.ctex"]
+source_file="res://scenes/objects/cannon/black_cannon_barrel.png"
+dest_files=["res://.godot/imported/black_cannon_barrel.png-391e135d7482a5065a85c746d71bfcbb.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

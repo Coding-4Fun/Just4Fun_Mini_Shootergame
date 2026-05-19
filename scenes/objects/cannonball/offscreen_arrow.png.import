@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busvvdqv1k5je"
-path="res://.godot/imported/dummy_target.png-a3cb51ae41808d914b80ea3e06cad866.ctex"
+uid="uid://ckn4ovvn3g50j"
+path="res://.godot/imported/offscreen_arrow.png-89072f765731f3bdb54d4671c7cb7fcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Objects/dummy_target/dummy_target.png"
-dest_files=["res://.godot/imported/dummy_target.png-a3cb51ae41808d914b80ea3e06cad866.ctex"]
+source_file="res://scenes/objects/cannonball/offscreen_arrow.png"
+dest_files=["res://.godot/imported/offscreen_arrow.png-89072f765731f3bdb54d4671c7cb7fcd.ctex"]
 
 [params]
 
