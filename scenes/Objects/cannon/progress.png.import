@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busvvdqv1k5je"
-path="res://.godot/imported/dummy_target.png-3ed7df0ff825a570fa0f09d8ed2118c2.ctex"
+uid="uid://beoj8ih7nvgrg"
+path="res://.godot/imported/progress.png-d2ee49f6aeb3274355c6c32f3d9aa702.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/dummy_target/dummy_target.png"
-dest_files=["res://.godot/imported/dummy_target.png-3ed7df0ff825a570fa0f09d8ed2118c2.ctex"]
+source_file="res://scenes/Objects/cannon/progress.png"
+dest_files=["res://.godot/imported/progress.png-d2ee49f6aeb3274355c6c32f3d9aa702.ctex"]
 
 [params]
 

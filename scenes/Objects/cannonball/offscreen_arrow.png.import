@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckn4ovvn3g50j"
-path="res://.godot/imported/offscreen_arrow.png-fbed078898c5274cff24f0788c0cb270.ctex"
+path="res://.godot/imported/offscreen_arrow.png-a319d84484d7583b3c0bcd04fdf54bc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/cannonball/offscreen_arrow.png"
-dest_files=["res://.godot/imported/offscreen_arrow.png-fbed078898c5274cff24f0788c0cb270.ctex"]
+source_file="res://scenes/Objects/cannonball/offscreen_arrow.png"
+dest_files=["res://.godot/imported/offscreen_arrow.png-a319d84484d7583b3c0bcd04fdf54bc6.ctex"]
 
 [params]
 

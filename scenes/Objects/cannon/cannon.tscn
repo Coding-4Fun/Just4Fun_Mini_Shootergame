@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://lci12xbkaqx2"]
 
-[ext_resource type="Script" uid="uid://c03em0h3aokic" path="res://scenes/cannon/cannon.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://beoj8ih7nvgrg" path="res://scenes/cannon/progress.png" id="2_1twsp"]
-[ext_resource type="Texture2D" uid="uid://ci72mkbxrxjbc" path="res://scenes/cannon/black_cannon_barrel.png" id="2_xcomg"]
+[ext_resource type="Script" uid="uid://c03em0h3aokic" path="res://scenes/Objects/cannon/cannon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://beoj8ih7nvgrg" path="res://scenes/Objects/cannon/progress.png" id="2_1twsp"]
+[ext_resource type="Texture2D" uid="uid://ci72mkbxrxjbc" path="res://scenes/Objects/cannon/black_cannon_barrel.png" id="2_xcomg"]
 
 [node name="Cannon" type="Node2D" unique_id=725559774]
 scale = Vector2(0.1, 0.1)
