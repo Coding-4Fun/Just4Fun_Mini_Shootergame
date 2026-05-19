@@ -1,19 +1,15 @@
 [gd_scene format=3 uid="uid://h8vcng8ps4vd"]
 
-[ext_resource type="TileSet" uid="uid://di4l1ben37h3b" path="res://MainGameScene/TerrainTiles/blocks_tileset_16x16.tres" id="1"]
 [ext_resource type="Script" uid="uid://doq5gx0j1jn2s" path="res://MainGameScene/MainGame.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dmyeg6ldx2orv" path="res://scenes/components/vignette/vignette.tscn" id="2_jfj17"]
 [ext_resource type="Script" uid="uid://bw0jvpsemt1ei" path="res://scripts/players.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://UI/ingame_ui/ingame_ui.tscn" id="5_y7iba"]
+[ext_resource type="PackedScene" uid="uid://ncuxb50cjisf" path="res://scenes/ui/ingame_ui/ingame_ui.tscn" id="5_y7iba"]
 [ext_resource type="PackedScene" uid="uid://lci12xbkaqx2" path="res://scenes/Objects/cannon/cannon.tscn" id="6_6q48v"]
 [ext_resource type="PackedScene" uid="uid://dx02vnjoiqc0n" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.tscn" id="7"]
 [ext_resource type="Script" uid="uid://cb4vgvs7c5o0l" path="res://scenes/Objects/dummy_target/dummy_target_groupnode.gd" id="8"]
 [ext_resource type="Script" uid="uid://cy3gt4q7lbukg" path="res://MainGameScene/Background/parallaxLayer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://d23fg0a10hltc" path="res://MainGameScene/Background/uncolored_plain.png" id="10"]
-[ext_resource type="Script" uid="uid://r3vhtsd4et1h" path="res://MainGameScene/terrain.gd" id="12_6ypvd"]
-[ext_resource type="Script" uid="uid://bm6fjjd6rlsi" path="res://MainGameScene/terrain_layer/layer_terrain.gd" id="13_sxh5i"]
-[ext_resource type="Script" uid="uid://bioxkyxepylte" path="res://MainGameScene/terrain_layer/layer_cannon.gd" id="14_k42sh"]
-[ext_resource type="Script" uid="uid://ddjeoiktyxmyr" path="res://MainGameScene/terrain_layer/layer_castle.gd" id="15_5fhnt"]
+[ext_resource type="PackedScene" uid="uid://b2huvi5ngu5u" path="res://scenes/Objects/terrain/terrain.tscn" id="10_nhe8l"]
 
 [sub_resource type="Environment" id="Environment_47r24"]
 background_mode = 3
@@ -60,22 +56,6 @@ script = ExtResource("4")
 [node name="DummyTargetGroupNode" parent="." unique_id=900545213 instance=ExtResource("7")]
 script = ExtResource("8")
 
-[node name="Terrain" type="Node2D" parent="." unique_id=371650754]
-script = ExtResource("12_6ypvd")
-
-[node name="LayerTerrain" type="TileMapLayer" parent="Terrain" unique_id=1220607253 groups=["Ground"]]
-use_parent_material = true
-tile_set = ExtResource("1")
-script = ExtResource("13_sxh5i")
-
-[node name="LayerCannon" type="TileMapLayer" parent="Terrain" unique_id=1983235]
-use_parent_material = true
-tile_set = ExtResource("1")
-script = ExtResource("14_k42sh")
-
-[node name="LayerCastle" type="TileMapLayer" parent="Terrain" unique_id=1785431201]
-use_parent_material = true
-tile_set = ExtResource("1")
-script = ExtResource("15_5fhnt")
+[node name="Terrain" parent="." unique_id=875102395 instance=ExtResource("10_nhe8l")]
 
 [connection signal="ready" from="." to="." method="_on_MainGame_ready"]
