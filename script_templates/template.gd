@@ -1,26 +1,19 @@
 #class_name Template_Script
-
 #const Template = preload("res://Script_Templates/Template_Script.gd")
-
 #Nutze die Vergangenheitsform um Signale zu benennen:
 #
 #signal door_opened
 #signal score_changed
-
 #Verwende CONSTANT_CASE, alles in Großbuchstaben, mit einem Unterstrich zur Worttrennung:
 #const CONSTAND_VAR = 200:
-
 #Verwenden Sie PascalCase für Aufzählungsnamen und CONSTANT _CASE für deren Mitglieder, da es sich um Konstanten handelt:
-
 # enum Element {
 #    EARTH,
 #    WATER,
 #    AIR,
 #    FIRE,
 #}
-
 #-------------------------------------------------------------------------------
-
 #01. tool
 #02. class_name
 #03. extends
@@ -39,7 +32,6 @@
 #14. remaining built-in virtual methods
 #15. public methods
 #16. private methods
-
 #-------------------------------------------------------------------------------
 # Header
 #-------------------------------------------------------------------------------
@@ -73,4 +65,3 @@ func _ready() -> void:
 #-------------------------------------------------------------------------------
 # private methods
 #-------------------------------------------------------------------------------
-
