@@ -1,14 +1,6 @@
 extends Node2D
 
-
 var target
-
-
-func _ready():
-	if !SignalBus.UIResetGame.is_connected(self._on_UI_ResetGame):
-			var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
-
-	SignalBus.MapGeneratorGenerateTerrain.emit()
 
 
 func _enter_tree() -> void:
@@ -31,11 +23,18 @@ func _enter_tree() -> void:
 	Preloads.CastleLayer = find_child("LayerCastle")
 
 	GSM.IsInGameScene = true
-	pass
+
+
+func _ready():
+	if !SignalBus.UIResetGame.is_connected(self._on_UI_ResetGame):
+		var _cn = SignalBus.UIResetGame.connect(self._on_UI_ResetGame)
+
+	SignalBus.MapGeneratorGenerateTerrain.emit()
 
 
 func _exit_tree() -> void:
 	GSM.IsInGameScene = false
+
 
 func _on_MainGame_ready() -> void:
 	GSM.gameWin = -1
